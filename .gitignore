@@ -1,0 +1,13 @@
+# Node
+node_modules/
+dist/
+build/
+
+# VS Code
+.vscode/
+.history/
+
+# Env Files
+.env
+.env.local
+.env.development
