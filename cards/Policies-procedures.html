@@ -7,16 +7,16 @@
   <style>
     body {
       font-family: 'Segoe UI', 'Arial', sans-serif;
-      background: linear-gradient(180deg, #e8ecef, #f4f4f4);
+      background: #fafbfb;
       color: #333;
       margin: 0;
-      padding: 30px;
+      padding: 10px;
     }
 
     .container {
       max-width: 1280px;
       background: #fff;
-      padding: 30px;
+      padding: 10px;
       margin: auto;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -27,7 +27,7 @@
       color: white;
       border-radius: 12px 12px 0 0;
       padding: 20px;
-      margin: -30px -30px 0 -30px;
+      margin: -10px -10px 0 -10px;
     }
 
     .header-content {
@@ -53,17 +53,16 @@
     .search-bar {
       display: flex;
       justify-content: center;
-      margin: 2rem 0;
+      margin: 1rem 0;
     }
 
     .search-bar input {
       width: 100%;
-      max-width: 600px;
-      padding: 12px 20px;
-      font-size: 1em;
-      border: 2px solid #ccc;
-      border-radius: 25px;
-      transition: 0.3s ease;
+      padding: 0.5rem;
+      font-size: clamp(0.9rem, 3vw, 1rem);
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
     }
 
     .search-bar input:focus {
@@ -157,10 +156,10 @@
   <div class="container">
     <div class="header-box">
       <div class="header-content">
-        <span class="header-icon">📁</span>
+        <!--<span class="header-icon">📁</span>-->
         <div>
-          <div class="header-title">Policies and Procedures</div>
-          <div class="header-subtitle">Download essential employee forms below</div>
+          <div class="header-title">📁 Policies and Procedures</div>
+          <div class="header-subtitle">Browse and search current policies and procedures</div>
         </div>
       </div>
     </div>
@@ -265,4 +264,6 @@
     });
   </script>
 </body>
-</html>
+</html> 
+
+
