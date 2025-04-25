@@ -10,11 +10,11 @@ Name,Title,Department,Email,Phone
 "Austin, Davida M.","Chair/Professor"," Mathematics",AustinD@southflorida.edu,863-784-7326
 "Austin, Michael","Coordinator", "Criminal Justice",austinm@southflorida.edu,863-784-7282
 "Baatz, Ron","Coordinator, Welding Program","Corporate and Community Education",edward.baatz@southflorida.edu,863-784-7051
-"Baker, Kayln","Coordinator", "Clinical Experience and Nursing Lab",Kayln.Baker@southflorida.edu,863-784-7512
+"Baker, Kayln","Coordinator", Clinical Experience and Nursing Lab","Health Sciences",Kayln.Baker@southflorida.edu,863-784-7512
 "Barrett, Anne","Financial Services Specialist","Cashier",Anne.Barrett@southflorida.edu,863-784-7270
 "Bass, Heather","Intructor", "Radiography",heather.bass@southflorida.edu,863-784-7301
 "Beiner, Cindy","Help Desk Technician,","IT-Information Technology",beinerc@southflorida.edu,863-784-7462
-"Bell, Hirell","Panther Care Specialist",N/A,Hirell.Bell@southflorida.edu,863-784-7402
+"Bell, Hirell","Panther Care Specialist","Health Sciences",Hirell.Bell@southflorida.edu,863-784-7402
 "Bell, Shirell","Coordinator, Grants and Scholarships","Financial Aid",Shirell.Bell@southflorida.edu,863-784-7254
 "Bello, Adela","Director", "Testing and Assessment Center",belload@southflorida.edu,863-784-7114
 "Benn , Kathleen","Coordinator", "Educational Technology Support and Learning Management System",BennK@southflorida.edu,863-784-7015
@@ -30,7 +30,7 @@ Name,Title,Department,Email,Phone
 "Brusentsova, Tatyana","Professor", "Physics",brusentt@southflorida.edu,863-784-7375
 "Bryant, Derek","HVAC Tech","Maintenance",derekb@southflorida.edu,863-784-7096
 "Bucher, Larry","Security",N/A,bucherl@southflorida.edu,863-453-0806
-"Buenerkemper, Taylor","Executive Assistant", "Institutional Advancement and External Affairs",Taylor.Massey@southflorida.edu,863-784-7342
+"Buenerkemper, Taylor","Executive Assistant, Institutional Advancement and External Affairs","Foundation Office",Taylor.Massey@southflorida.edu,863-784-7342
 "Bukowski, Mark","Dean", "Student Services",mark.bukowski@southflorida.edu,863-784-7104
 "Burke, Joe","Coordinator, Truck Driving Academy","Corporate and Community Education",joseph.burke@southflorida.edu,863-212-8956
 "Bush, Thomas","Chair, Technical-Industrial Education","Apprenticeship Programs",BushT@southflorida.edu,863-784-7117
@@ -69,7 +69,7 @@ Name,Title,Department,Email,Phone
 "Dorsey, Amanda","Bursar",N/A,amanda.dorsey@southflorida.edu,863-784-7242
 "Dozier, Felecia","Counselor","Advising and Counseling",DozierF@southflorida.edu,863-784-7196
 "Drury, Matthew","Professor, Mathematics",N/A,matthew.drury@southflorida.edu,863-784-7445
-"Dubois, Rose","Director, Dental Education",N/A,rose.dubois@southflorida.edu,863-784-7025
+"Dubois, Rose","Director, Dental Education","Health Sciences",rose.dubois@southflorida.edu,863-784-7025
 "Durrance, Isaac","Instructor, Health Services Program",N/A,isaac.durrance@southflorida.edu,863-381-7401
 "Eaton, Cindy","Personnel Specialist",N/A,Cindy.Eaton@southflorida.edu,863-784-7461
 "Elders, Theresa","Coordinator, Restricted Accounting and Payroll","Business Office",elderst@southflorida.edu,863-784-7163
@@ -85,7 +85,7 @@ Name,Title,Department,Email,Phone
 "Fitzgerald, Jason","Instructor, English",N/A,Jason.Fitzgerald@southflorida.edu,863-784-7247
 "Fontanez, “Elena” Carmen","Purchasing Specialist",N/A,carmen.fontanez@southflorida.edu,863-784-7175
 "Ford, Micaela","Coordinator, Off-Campus Instructional Sites",N/A,micaela.ford@southflorida.edu,863-784-7062
-"Fuchser, Anastasia","Coordinator", Institutional Advancement and Alumni Development",N/A,Anastasia.Saunders@southflorida.edu,863-784-7183
+"Fuchser, Anastasia","Coordinator", Institutional Advancement and Alumni Development","Foundation Office",Anastasia.Saunders@southflorida.edu,863-784-7183
 "Ganaban, Janine","Instructor, Radiography",N/A,janine.ganaban@southflorida.edu,863-784-7301
 "Garcia, Alexandra","Assistant Coach, Women's Softball",N/A,alexandra.garcia@southflorida.edu,863-784-7035
 "Garcia, Michael","Reference Assistant",N/A,garciam@southflorida.edu,863-784-7304
@@ -93,7 +93,7 @@ Name,Title,Department,Email,Phone
 "Gilfus, Blair","End User Support Analyst I","IT-Information Technology",blair.gilfus@southflorida.edu,863-784-7490
 "Glover, William","Administrative Assistant II", "Adult Education and Technical Dual Enrollment",william.glover@southflorida.edu,863-784-7441
 "Goins, Donna","Testing Specialist",N/A,donna.goins@southflorida.edu,863-784-7214
-"Gomez, Mario","Instructor, Electric Line Service Repair",N/A,Mario.Gomez@southflorida.edu,863-784-7060
+"Gomez, Mario","Instructor","Electric Line Service Repair, Hardee Campus",Mario.Gomez@southflorida.edu,863-784-7060
 "Gorzycki, Jillian","Advisor, Student Services",N/A,jillian.gorzycki@southflorida.edu,863-784-7063
 "Gottus, Tina","Director", "Corporate and Community Education",gottust@southflorida.edu,863-784-7466
 "Green, Courtney","Director", "Adult Education and Technical Dual Enrollment",GreenC@southflorida.edu,863-784-7431
@@ -160,7 +160,7 @@ Name,Title,Department,Email,Phone
 "McLaughlin, John","Director", "Criminal Justice",John.McLaughlin@southflorida.edu.,863-784-7281
 "Meeks, Tabatha","Office Manager, Physical Plant Operations",N/A,Tabatha.Meeks@southflorida.edu,863-784-7090
 "Mendoza, Aidimar","Coordinator, Human Resources Operations",N/A,aidimar.mendoza@southflorida.edu,863-784-7291
-"Meyers, Ralph","Grounds Maintenance",N/A,meyersr@southflorida.edu,863-784-7090
+"Meyers, Ralph","Maintenance","Grounds",meyersr@southflorida.edu,863-784-7090
 "Miller, Jeffrey","Manager, Custodial Services and Grounds Maintenance",N/A,millerj@southflorida.edu,863-784-7092
 "Montague, Micah","Instructor, Speech",N/A,montagum@southflorida.edu,863-784-7368
 "Montalbo, Jezzelle","Science Lab Specialis"t,N/A,mariejezzelle.manalo@southflorida.edu,863-784-7377
@@ -168,7 +168,7 @@ Name,Title,Department,Email,Phone
 "Morales, Denise","Health Science Specialist",N/A,moralesd@southflorida.edu,863-784-7225
 "Morris-James, Rasheena","Instructor, Nursing",N/A,rasheena.morris-james@southflorida.edu,863-784-7430
 "Mott, Asena","Dean, Off-Campus Instructional Sites","Desoto Center",motta@southflorida.edu,863-784-7041
-"Muro, Manuel Real","Grounds Maintenance",N/A,murom@southflorida.edu,863-784-7090
+"Muro, Manuel Real","Maintenance","Grounds",murom@southflorida.edu,863-784-7090
 "Negron, Christian L","Coordinator, Multimedia Development and Support","IT-Information Technology",negronc@southflorida.edu,863-784-7014
 "Nelson, Abigail","E-Learning and LMS Specialist","Educational Technology Support and Learning Management System",nelsona@southflorida.edu,863-784-7016
 "Nielsen, Kerri","Bookstore Assistant Manager",N/A,N/A,863-784-7112
@@ -202,7 +202,7 @@ Name,Title,Department,Email,Phone
 "Puckorius, Mary","Risk Management Specialist",N/A,puckoriusm@southflorida.edu,863-784-7396
 "Purvis, Kelly","Coordinator, Career Pathways Coach","Adult Education and Technical Dual Enrollment",kelly.purvis@southflorida.edu,863-784-7293
 "Ramnarain, Govindah","Manager, Facilities Maintenance and Operations",N/A,ramnarag@southflorida.edu,863-784-7096
-"Ramos III, Gregorio","Grounds Maintenance",N/A,ramosg@southflorida.edu,863-784-7090
+"Ramos III, Gregorio","Maintenance","Grounds",ramosg@southflorida.edu,863-784-7090
 "Redick, Lauren","Front Office Manager, Dental Education Clinic",N/A,RedickL@southflorida.edu,863-784-7020
 "Respress, Karla","Professor", "Art",karla.respress@southflorida.edu,863-784-7195
 "Ricker, April","Coordinator, Grants and Foundation Accounting","Business Office",rickera@southflorida.edu,863-784-7314
@@ -232,11 +232,11 @@ Name,Title,Department,Email,Phone
 "Sharp, Stacy","Professor, English",N/A,SharpS@southflorida.edu,863-784-7066
 "Shumard, Lorinda","Professor, Mathematics",N/A,ShumardL@southflorida.edu,863-784-7073
 "Simmons, Joyce Elaine","Front Desk Manager",N/A,simmonsj@southflorida.edu,863-453-2211
-"Simpson, Lamar","Grounds Maintenance",N/A,simpsonl@southflorida.edu,863-784-7090
+"Simpson, Lamar","Maintenance","Grounds",simpsonl@southflorida.edu,863-784-7090
 "Smith, Dr. Rodger","Professor, Psychology",N/A,smithr@southflorida.edu,863-784-7236
 "Snow, Donna","Career Center Specialist","Admissions, Records and Registration",snowd@southflorida.edu,863-784-7304
 "Snow, John","Technical Director","Cultural Programs and Theater Performing Arts",snowj@southflorida.edu,863-784-7194
-"Sostre, David","Lead Grounds Maintenance",N/A,david.sostre@southflorida.edu,863-784-7090
+"Sostre, David","Lead Maintenance","Grounds",david.sostre@southflorida.edu,863-784-7090
 "Spence, Jonathan","NSF SWERVE Grant Specialist","Applied Sciences and Technologies",spencej@southflorida.edu,863-784-7365
 "St. Amant, Shannon","Instructor, Biology",N/A,shannon.stamant@southflorida.edu,863-784-7363
 "","Director","IT-Information Technology",helpdesk@southflorida.edu,863-784-7202
@@ -255,10 +255,10 @@ Name,Title,Department,Email,Phone
 "Velenovsky IV, Joseph",Biology Instructor,N/A,velenovj@southflorida.edu,863-784-7363
 "Velez Ocasio, Nancy","Staff Assistant II, Testing Center",N/A,nancy.velezocasio@southflorida.edu,863-784-7327
 "Vickers, Emily","Simulation Technology Specialist",N/A,emily.vickers@southflorida.edu,863-784-7351
-"von Merveldt, Mary","Director, Nursing Education",N/A,vonmerveldtm@southflorida.edu,863-784-7428
+"von Merveldt, Mary","Director, Nursing Education","Health Sciences",vonmerveldtm@southflorida.edu,863-784-7428
 "Vorous, Teresa","Controller","Business Office",teresa.vorous@southflorida.edu,863-784-7123
-"Weyrauch, June","Coordinator, Grant Development and Federal Relations",N/A,weyraucj@southflorida.edu,863-784-7265
-"Wheaton, Brian","Grounds Supervisor",N/A,wheatonb@southflorida.edu,863-784-7098
+"Weyrauch, June","Coordinator, Grant Development and Federal Relations","Foundation Office",weyraucj@southflorida.edu,863-784-7265
+"Wheaton, Brian","Supervisor, Maintenance","Grounds",wheatonb@southflorida.edu,863-784-7098
 "Wheaton, Janet","Manager", "Cafeteria",wheatonj@southflorida.edu,863-784-7199
 "Whelan, Michael","Director, Facilities and Plant Operations",N/A,micheal.whelan@southflorida.edu,863-784-7099
 "Wilder, Laura","Student Advisor","Desoto Center",WilderL@southflorida.edu,863-784-7052
@@ -271,6 +271,7 @@ Name,Title,Department,Email,Phone
 "Hardee", "Hardee Campus","Centers",N/A,863-773-3081
 "Highlands", "Highlands Campus","Centers",N/A,863-453-6661
 "Lake Placid", "Lake Placid Campus","Centers",N/A,863-465-3003
-"Domestic Violence, Sebring",N/A,"Sebring",N/A,863-453-7538
-"Domestic Violence, Avon Park",N/A,"Avon Park",N/A,863-402-6723
-"Domestic Violence, Lake Placid",N/A,"Lake Placid",N/A,863-465-2464
+"Domestic Violence, Sebring",N/A,"N/A",N/A,863-453-7538
+"Domestic Violence, Avon Park",N/A,"N/A",N/A,863-402-6723
+"Domestic Violence, Lake Placid",N/A,"N/A",N/A,863-465-2464
+"Tri-County Human Services", N/A,N/A,N/A,N/A,863-452-0106
