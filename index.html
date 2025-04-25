@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SFSC Contact Directory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfdff;
+      margin: 0;
+      padding-top: 0;
+      padding: 0 .6rem 0 0;
+      box-sizing: border-box;
+    }
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      max-width: 900px;
+      margin: auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 100%;
+    }
+    .card-header {
+      background: #333366;
+      color: white;
+      padding: 1rem;
+    }
+    .card-header h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .card-header p {
+      margin: 0;
+      font-size: .9rem;
+    }
+    .card-body {
+      padding: 1rem;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: clamp(0.9rem, 3vw, 1rem);
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+    .contact-list {
+      width: 100%;
+    }
+    .contact-item {
+      border-bottom: 1px solid #ddd;
+      padding: 0.6rem;
+    }
+    .contact-name {
+      font-weight: bold;
+      color: #333366;
+      cursor: pointer;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .contact-name:hover {
+      text-decoration: underline;
+    }
+    .contact-name::after {
+      content: '▼';
+      font-size: 0.8rem;
+      transition: transform 0.3s;
+    }
+    .contact-name.active::after {
+      transform: rotate(180deg);
+    }
+    .contact-details {
+      display: none;
+      padding: 0.8rem;
+      background-color: #f9f9f9;
+      border-radius: 6px;
+      margin-top: 0.5rem;
+    }
+    .contact-details.show {
+      display: block;
+    }
+    .contact-details p {
+      margin: 0.4rem 0;
+      font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+    }
+    .contact-details strong {
+      color: #333366;
+      margin-right: 0.5rem;
+    }
+    a {
+      color: #333366;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .error-message {
+      padding: 0.6rem;
+      color: #d32f2f;
+      text-align: center;
+    }
+    @media screen and (max-width: 600px) {
+      .contact-item {
+        padding: 0.4rem;
+      }
+      .card {
+        margin: 0.5rem;
+      }
+      .card-header {
+        padding: 0.8rem;
+      }
+      .card-body {
+        padding: 0.8rem;
+      }
+      input[type="text"] {
+        padding: 0.4rem;
+      }
+      .contact-details {
+        padding: 0.6rem;
+      }
+    }
+    @media screen and (max-width: 400px) {
+      .contact-name {
+        font-size: clamp(0.85rem, 2.5vw, 0.9rem);
+      }
+      .contact-details p {
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-header">
+      <h2>📇 SFSC Contact Directory</h2>
+      <p>Find employee contact information</p>
+    </div>
+    <div class="card-body">
+      <input type="text" id="search" placeholder="Search by name, title, or department..." onkeyup="filterContacts()">
+      <div class="contact-list" id="contactList">
+        <!-- Dynamic contact items inserted here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+  <script>
+    async function loadCSV(url) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Failed to fetch CSV');
+        const data = await response.text();
+        const parsed = Papa.parse(data, { header: true, skipEmptyLines: true });
+        const contactList = document.getElementById('contactList');
+
+        parsed.data.forEach(row => {
+          const name = row.Name || '';
+          const title = row.Title || '';
+          const department = row.Department || '';
+          const email = row.Email || '';
+          const phone = row.Phone || '';
+
+          const cleanedPhone = phone.replace(/[^0-9]/g, '');
+          const phoneLink = cleanedPhone ? `<a href="tel:${cleanedPhone}">${phone}</a>` : phone;
+          const emailLink = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+            ? `<a href="mailto:${email}">${email}</a>`
+            : email;
+
+          const contactItem = document.createElement('div');
+          contactItem.className = 'contact-item';
+          contactItem.innerHTML = `
+            <div class="contact-name">${name}</div>
+            <div class="contact-details">
+              <p><strong>Title:</strong> ${title}</p>
+              <p><strong>Department:</strong> ${department}</p>
+              <p><strong>Email:</strong> ${emailLink}</p>
+              <p><strong>Phone:</strong> ${phoneLink}</p>
+            </div>
+          `;
+          contactList.appendChild(contactItem);
+
+          // Add click event to toggle dropdown
+          const nameElement = contactItem.querySelector('.contact-name');
+          const detailsElement = contactItem.querySelector('.contact-details');
+          nameElement.addEventListener('click', () => {
+            const isActive = detailsElement.classList.toggle('show');
+            nameElement.classList.toggle('active', isActive);
+          });
+        });
+      } catch (error) {
+        console.error('Error loading CSV:', error);
+        const contactList = document.getElementById('contactList');
+        contactList.innerHTML = '<div class="error-message">Error loading contact data. Please try again later.</div>';
+      }
+    }
+
+    function filterContacts() {
+      const input = document.getElementById('search').value.toLowerCase();
+      const items = document.querySelectorAll('.contact-item');
+      items.forEach(item => {
+        const name = item.querySelector('.contact-name').textContent.toLowerCase();
+        const title = item.querySelector('.contact-details p:nth-child(1)').textContent.toLowerCase().replace('title:', '').trim();
+        const department = item.querySelector('.contact-details p:nth-child(2)').textContent.toLowerCase().replace('department:', '').trim();
+        const isMatch = name.includes(input) || title.includes(input) || department.includes(input);
+        item.style.display = isMatch ? '' : 'none';
+      });
+    }
+
+    loadCSV('https://raw.githubusercontent.com/asjames18/experience-ellucian/main/employee_directory.csv');
+  </script>
