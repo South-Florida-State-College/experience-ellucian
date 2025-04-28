@@ -29,7 +29,7 @@ Name,Title,Department,Email,Phone
 "Bruns, David A","General Manager","Hotel Jacaranda",brunsd@southflorida.edu,863-453-2211
 "Brusentsova, Tatyana","Professor, Physics","Natural Sciences",brusentt@southflorida.edu,863-784-7375
 "Bryant, Derek","HVAC Tech, Maintenance","Physical Plant Operations",derekb@southflorida.edu,863-784-7096
-"Bucher, Larry","Security","Safety & Securitylorida.edu,863-453-0806
+"Bucher, Larry","Security","Safety & Security",bucherl@southflorida.edu,863-453-0806
 "Buenerkemper, Taylor","Executive Assistant, Institutional Advancement and External Affairs","Foundation Office",Taylor.Massey@southflorida.edu,863-784-7342
 "Bukowski, Mark","Dean","Student Services",mark.bukowski@southflorida.edu,863-784-7104
 "Burke, Joe","Coordinator, Truck Driving Academy","Corporate and Community Education",joseph.burke@southflorida.edu,863-212-8956
@@ -40,7 +40,7 @@ Name,Title,Department,Email,Phone
 "Cappo, Dr. Kathleen","Dean","Health Sciences",CappoK@southflorida.edu,863-784-7227
 "Capuano, Dina","Coordinator","Off-Campus Instructional Sites - Lake Placid Campus",dina.capuano@southflorida.edu,863-784-7081
 "Carl E. Lavin, DC","Biology, Instructor","Natural Sciences",lavinc@southflorida.edu,863-784-7475
-"Caro, Santiago","Supervisor, Custodial Services",N/A,Santiago.Caro@southflorida.edu,863-784-7090
+"Caro, Santiago","Supervisor, Custodial Services","Physical Plant Operations",Santiago.Caro@southflorida.edu,863-784-7090
 "Carter, Benjamin F. Jr.","Coordinator","TSIC-Take Stock in Children",carterb@southflorida.edu,863-784-7343
 "Castro, Fabiana","Coordinator","Farmworker Career Development Program",castrof@southflorida.edu,863-784-7166
 "Cavedo, Keith","Professor, English and Coordinator, Tutoring and Learning Center","English and Humanties",cavedok@southflorida.edu,863-784-7404
@@ -171,7 +171,7 @@ Name,Title,Department,Email,Phone
 "Muro, Manuel Real","Maintenance","Grounds",murom@southflorida.edu,863-784-7090
 "Negron, Christian L","Coordinator, Multimedia Development and Support","Media Systems",negronc@southflorida.edu,863-784-7014
 "Nelson, Abigail","E-Learning and LMS Specialist","Educational Technology Support and Learning Management System",nelsona@southflorida.edu,863-784-7016
-"Nielsen, Kerri","Bookstore Assistant Manager",N/A,N/A,863-784-7112
+"Nielsen, Kerri","Assistant Manager","Bookstore",N/A,863-784-7112
 "Nieves Hernandez, Gabriel","End User Support Analyst I","IT-Information Technology",gabriel.nieveshernandez@southflorida.edu,863-784-7482
 "Nieves, Julio","Coordinator","Criminal Justice",nievesj@southflorida.edu,863-784-7285
 "Nott, Kelly","Lead Maintenance, DeSoto Campus","Physical Plant Operations",nottk@southflorida.edu,863-784-7044
@@ -217,7 +217,7 @@ Name,Title,Department,Email,Phone
 "Roebuck, Pamela","Programs Events Specialist","Cultural Programs and Theater Performing Arts",pamela.roebuck@southflorida.edu,863-784-7287
 "Rosam, Randy","Student Data Systems Specialist",N/A,rosamr@southflorida.edu,863-784-7138
 "Rosenberger, John","Instructor, Computer Science","Accounting, Business and Computer Technologies",john.rosenberger@southflorida.edu,863-784-7217
-"Rutledge, Albert","Security","Safety & Securityhflorida.edu,863-453-0806
+"Rutledge, Albert","Security","Safety & Security",rutledgea@southflorida.edu,863-453-0806
 "Sanches, Daniel","Chair, Biology Instructor","Natural Sciences",daniel.sanches@southflorida.edu,863-784-7360
 "Sarmiento-Noriega, Piedad","Assistant, *Notary","Curriculum Support",Sarmientop@southflorida.edu,863-784-7317
 "Sassin, Patricia","Instructor, Nursing","Health Sciences",patricia.sassin@southflorida.edu,863-784-7228
@@ -251,7 +251,7 @@ Name,Title,Department,Email,Phone
 "Tippie, Therese","Instructor, Dental Assisting","Health Sciences",therese.tippie@southflorida.edu,863-784-7022
 "Togno, Megan","Assistant Registrar","Admissions, Records and Registration",megan.togno@southflorida.edu,863-784-7407
 "Torres, Dora","Custodian","Physical Plant Operations",dora.torres@southflorida.edu,863-784-7090
-"Truitt, Taylor","Records Specialist","Criminal Justice","Taylor.Truitt@southflorida.edu,863-784-7280
+"Truitt, Taylor","Records Specialist","Criminal Justice",taylor.truitt@southflorida.edu,863-784-7280
 "Velenovsky IV, Joseph","Biology Instructor","Natural Sciences",velenovj@southflorida.edu,863-784-7363
 "Velez Ocasio, Nancy","Staff Assistant II","Testing Center",nancy.velezocasio@southflorida.edu,863-784-7327
 "Vickers, Emily","Simulation Technology Specialist","Health Sciences",emily.vickers@southflorida.edu,863-784-7351
