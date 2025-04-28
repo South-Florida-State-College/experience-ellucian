@@ -253,7 +253,7 @@ Name,Title,Department,Email,Phone
 "Torres, Dora","Custodian","Physical Plant Operations",dora.torres@southflorida.edu,863-784-7090
 "Truitt, Taylor","Records Specialist","Criminal Justice",N/A,863-784-7280
 "Velenovsky IV, Joseph","Biology Instructor","Natural Sciences",velenovj@southflorida.edu,863-784-7363
-"Velez Ocasio, Nancy","Staff Assistant II","Testing Center",N/A,nancy.velezocasio@southflorida.edu,863-784-7327
+"Velez Ocasio, Nancy","Staff Assistant II","Testing Center",nancy.velezocasio@southflorida.edu,863-784-7327
 "Vickers, Emily","Simulation Technology Specialist","Health Sciences",emily.vickers@southflorida.edu,863-784-7351
 "von Merveldt, Mary","Director, Nursing Education","Health Sciences",vonmerveldtm@southflorida.edu,863-784-7428
 "Vorous, Teresa","Controller","Business Office",teresa.vorous@southflorida.edu,863-784-7123
@@ -266,14 +266,18 @@ Name,Title,Department,Email,Phone
 "Wilson, Kristina","Nursing Success Coach","Health Sciences",kristina.wilson@southflorida.edu,863-784-7012
 "Yeomans, Christopher R.","Professor, Electrical Distribution","Applied Science",YeomansC@southflorida.edu,863-784-7045
 "Zoerb, David","Professor","Mathematics",zoerbd@southflorida.edu,863-784-7320
+"Campus Security",N/A,"Safety & Security",N/A,863-453-0806
 "Crews Center","Community and Corporate Education Campus","Centers",N/A,863-784-7033 
 "Desoto","Desoto Campus","Centers",N/A,863-993-1757
 "Hardee","Hardee Campus","Centers",N/A,863-773-3081
 "Highlands","Highlands Campus","Centers",N/A,863-453-6661
 "Lake Placid","Lake Placid Campus","Centers",N/A,863-465-3003
+"Avon Park High School",N/A,N/A,N/A,863-452-4311
+"Sebring High School",N/A,N/A,N/A,863-471-5500
+"Lake Placid High School",N/A,N/A,N/A,863-699-5010
+"Desoto High School",N/A,N/A,N/A,863-494-3434
+"Hardee High School",N/A,N/A,N/A,863-773-3181
 "Domestic Violence, Sebring",N/A,N/A,N/A,863-453-7538
 "Domestic Violence, Avon Park",N/A,N/A,N/A,863-402-6723
 "Domestic Violence, Lake Placid",N/A,N/A,N/A,863-465-2464
 "Tri-County Human Services",N/A,N/A,N/A,863-452-0106
-"Deputy Sheriff",N/A,N/A,"N/A",863-453-0806
-
