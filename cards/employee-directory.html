@@ -1,31 +1,31 @@
-
 <div class="card">
-    <!-- Header Section -->
-    <div class="card-header">
+  <!-- Header Section -->
+  <div class="card-header">
       <h2>📇 SFSC Contact Directory</h2>
       <p>Find employee contact information</p>
-    </div>
-  
-    <!-- Search Bar -->
-    <div class="card-body">
-      <input type="text" id="search" placeholder="Search by name, title, or department..." onkeyup="filterContacts()">
-      <div class="contact-list" id="contactList">
-        <!-- Dynamic contact items will be inserted here -->
-      </div>
-    </div>
   </div>
 
-  
-  <style>
-    body {
+  <!-- Search Bar -->
+  <div class="card-body">
+      <input type="text" id="search" placeholder="Search by name, title, or department..." onkeyup="filterContacts()">
+      <div class="contact-list" id="contactList">
+          <!-- Dynamic contact items will be inserted here -->
+      </div>
+  </div>
+</div>
+
+<style>
+  /* General body styling */
+  body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #fdfdff;
       margin: 0;
-      padding-top: 0;
-      padding: 0 .6rem 0 0;
+      padding: 0.6rem;
       box-sizing: border-box;
-    }
-    .card {
+  }
+
+  /* Card container styling */
+  .card {
       background-color: white;
       border-radius: 12px;
       max-width: 900px;
@@ -33,24 +33,32 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       width: 100%;
-    }
-    .card-header {
+  }
+
+  /* Header styling */
+  .card-header {
       background: #333366;
       color: white;
       padding: 1rem;
-    }
-    .card-header h2 {
+  }
+
+  .card-header h2 {
       margin: 0;
       font-size: 1.2rem;
-    }
-    .card-header p {
+  }
+
+  .card-header p {
       margin: 0;
-      font-size: .9rem;
-    }
-    .card-body {
+      font-size: 0.9rem;
+  }
+
+  /* Body styling */
+  .card-body {
       padding: 1rem;
-    }
-    input[type="text"] {
+  }
+
+  /* Search bar styling */
+  input[type="text"] {
       width: 100%;
       padding: 0.5rem;
       margin-bottom: 1rem;
@@ -58,15 +66,19 @@
       border: 1px solid #ccc;
       border-radius: 6px;
       box-sizing: border-box;
-    }
-    .contact-list {
+  }
+
+  /* Contact list styling */
+  .contact-list {
       width: 100%;
-    }
-    .contact-item {
+  }
+
+  .contact-item {
       border-bottom: 1px solid #ddd;
       padding: 0.6rem;
-    }
-    .contact-name {
+  }
+
+  .contact-name {
       font-weight: bold;
       color: #333366;
       cursor: pointer;
@@ -74,141 +86,169 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    .contact-name:hover {
+  }
+
+  .contact-name:hover {
       text-decoration: underline;
-    }
-    .contact-name::after {
+  }
+
+  .contact-name::after {
       content: '▼';
       font-size: 0.8rem;
       transition: transform 0.3s;
-    }
-    .contact-name.active::after {
+  }
+
+  .contact-name.active::after {
       transform: rotate(180deg);
-    }
-    .contact-details {
+  }
+
+  .contact-details {
       display: none;
       padding: 0.8rem;
       background-color: #f9f9f9;
       border-radius: 6px;
       margin-top: 0.5rem;
-    }
-    .contact-details.show {
+  }
+
+  .contact-details.show {
       display: block;
-    }
-    .contact-details p {
+  }
+
+  .contact-details p {
       margin: 0.4rem 0;
       font-size: clamp(0.85rem, 2.5vw, 0.95rem);
-    }
-    .contact-details strong {
+  }
+
+  .contact-details strong {
       color: #333366;
       margin-right: 0.5rem;
-    }
-    a {
+  }
+
+  a {
       color: #333366;
       font-weight: bold;
       text-decoration: none;
-    }
-    a:hover {
+  }
+
+  a:hover {
       text-decoration: underline;
-    }
-    .error-message {
+  }
+
+  .error-message {
       padding: 0.6rem;
       color: #d32f2f;
       text-align: center;
-    }
-    @media screen and (max-width: 600px) {
+  }
+
+  /* Responsive styling */
+  @media screen and (max-width: 600px) {
       .contact-item {
-        padding: 0.4rem;
+          padding: 0.4rem;
       }
+
       .card {
-        margin: 0.5rem;
+          margin: 0.5rem;
       }
+
       .card-header {
-        padding: 0.8rem;
+          padding: 0.8rem;
       }
+
       .card-body {
-        padding: 0.8rem;
+          padding: 0.8rem;
       }
+
       input[type="text"] {
-        padding: 0.4rem;
+          padding: 0.4rem;
       }
+
       .contact-details {
-        padding: 0.6rem;
+          padding: 0.6rem;
       }
-    }
-    @media screen and (max-width: 400px) {
+  }
+
+  @media screen and (max-width: 400px) {
       .contact-name {
-        font-size: clamp(0.85rem, 2.5vw, 0.9rem);
+          font-size: clamp(0.85rem, 2.5vw, 0.9rem);
       }
+
       .contact-details p {
-        font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+          font-size: clamp(0.8rem, 2.5vw, 0.9rem);
       }
-    }
-  </style>
+  }
+</style>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-  <script>
-    async function loadCSV(url) {
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+<script>
+  /**
+   * Load and parse the CSV file.
+   * @param {string} url - The URL of the CSV file.
+   */
+  async function loadCSV(url) {
       try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Failed to fetch CSV');
-        const data = await response.text();
-        const parsed = Papa.parse(data, { header: true, skipEmptyLines: true });
-        const contactList = document.getElementById('contactList');
+          const response = await fetch(url);
+          if (!response.ok) throw new Error('Failed to fetch CSV');
+          const data = await response.text();
+          const parsed = Papa.parse(data, { header: true, skipEmptyLines: true });
+          const contactList = document.getElementById('contactList');
 
-        parsed.data.forEach(row => {
-          const name = row.Name || '';
-          const title = row.Title || '';
-          const department = row.Department || '';
-          const email = row.Email || '';
-          const phone = row.Phone || '';
+          // Populate the contact list
+          parsed.data.forEach(row => {
+              const name = row.Name || '';
+              const title = row.Title || '';
+              const department = row.Department || '';
+              const email = row.Email || '';
+              const phone = row.Phone || '';
 
-          const cleanedPhone = phone.replace(/[^0-9]/g, '');
-          const phoneLink = cleanedPhone ? `<a href="tel:${cleanedPhone}">${phone}</a>` : phone;
-          const emailLink = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-            ? `<a href="mailto:${email}">${email}</a>`
-            : email;
+              const cleanedPhone = phone.replace(/[^0-9]/g, '');
+              const phoneLink = cleanedPhone ? `<a href="tel:${cleanedPhone}">${phone}</a>` : phone;
+              const emailLink = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+                  ? `<a href="mailto:${email}">${email}</a>`
+                  : email;
 
-          const contactItem = document.createElement('div');
-          contactItem.className = 'contact-item';
-          contactItem.innerHTML = `
-            <div class="contact-name">${name}</div>
-            <div class="contact-details">
-              <p><strong>Title:</strong> ${title}</p>
-              <p><strong>Department:</strong> ${department}</p>
-              <p><strong>Email:</strong> ${emailLink}</p>
-              <p><strong>Phone:</strong> ${phoneLink}</p>
-            </div>
-          `;
-          contactList.appendChild(contactItem);
+              const contactItem = document.createElement('div');
+              contactItem.className = 'contact-item';
+              contactItem.innerHTML = `
+                  <div class="contact-name">${name}</div>
+                  <div class="contact-details">
+                      <p><strong>Title:</strong> ${title}</p>
+                      <p><strong>Department:</strong> ${department}</p>
+                      <p><strong>Email:</strong> ${emailLink}</p>
+                      <p><strong>Phone:</strong> ${phoneLink}</p>
+                  </div>
+              `;
+              contactList.appendChild(contactItem);
 
-          // Add click event to toggle dropdown
-          const nameElement = contactItem.querySelector('.contact-name');
-          const detailsElement = contactItem.querySelector('.contact-details');
-          nameElement.addEventListener('click', () => {
-            const isActive = detailsElement.classList.toggle('show');
-            nameElement.classList.toggle('active', isActive);
+              // Add click event to toggle dropdown
+              const nameElement = contactItem.querySelector('.contact-name');
+              const detailsElement = contactItem.querySelector('.contact-details');
+              nameElement.addEventListener('click', () => {
+                  const isActive = detailsElement.classList.toggle('show');
+                  nameElement.classList.toggle('active', isActive);
+              });
           });
-        });
       } catch (error) {
-        console.error('Error loading CSV:', error);
-        const contactList = document.getElementById('contactList');
-        contactList.innerHTML = '<div class="error-message">Error loading contact data. Please try again later.</div>';
+          console.error('Error loading CSV:', error);
+          const contactList = document.getElementById('contactList');
+          contactList.innerHTML = '<div class="error-message">Error loading contact data. Please try again later.</div>';
       }
-    }
+  }
 
-    function filterContacts() {
+  /**
+   * Filter contacts based on search input.
+   */
+  function filterContacts() {
       const input = document.getElementById('search').value.toLowerCase();
       const items = document.querySelectorAll('.contact-item');
       items.forEach(item => {
-        const name = item.querySelector('.contact-name').textContent.toLowerCase();
-        const title = item.querySelector('.contact-details p:nth-child(1)').textContent.toLowerCase().replace('title:', '').trim();
-        const department = item.querySelector('.contact-details p:nth-child(2)').textContent.toLowerCase().replace('department:', '').trim();
-        const isMatch = name.includes(input) || title.includes(input) || department.includes(input);
-        item.style.display = isMatch ? '' : 'none';
+          const name = item.querySelector('.contact-name').textContent.toLowerCase();
+          const title = item.querySelector('.contact-details p:nth-child(1)').textContent.toLowerCase().replace('title:', '').trim();
+          const department = item.querySelector('.contact-details p:nth-child(2)').textContent.toLowerCase().replace('department:', '').trim();
+          const isMatch = name.includes(input) || title.includes(input) || department.includes(input);
+          item.style.display = isMatch ? '' : 'none';
       });
-    }
+  }
 
-    loadCSV('https://raw.githubusercontent.com/asjames18/experience-ellucian/refs/heads/main/docs/employee_directory.csv');
-  </script>
+  // Load the CSV file
+  loadCSV('https://raw.githubusercontent.com/asjames18/experience-ellucian/refs/heads/main/docs/employee_directory.csv');
+</script>

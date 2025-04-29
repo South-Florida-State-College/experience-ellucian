@@ -1,171 +1,191 @@
 <div class="dining-card">
     <!-- Bistro Logo -->
     <div class="logo-container">
-      <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:6a010627-ed29-4e8f-b987-859a26569dbb" target="_blank" rel="noopener" title="View Kelly’s Bistro Menu">
-        <img src="https://www.sfscdailyconnection.net/wp-content/uploads/2021/08/Kellys-RGB-Horizontal-300x267.png" alt="Kelly's Bistro Logo">
-      </a>
+        <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:6a010627-ed29-4e8f-b987-859a26569dbb" 
+           target="_blank" 
+           rel="noopener" 
+           title="View Kelly’s Bistro Menu">
+            <img src="https://www.sfscdailyconnection.net/wp-content/uploads/2021/08/Kellys-RGB-Horizontal-300x267.png" 
+                 alt="Kelly's Bistro Logo">
+        </a>
     </div>
-  
+
     <!-- Open/Closed Visual Badge -->
     <div id="statusBadge" class="status-badge" aria-live="polite">
-      <noscript>
-        <div class="status-closed">❌ JavaScript is required to display the status.</div>
-      </noscript>
+        <noscript>
+            <div class="status-closed">❌ JavaScript is required to display the status.</div>
+        </noscript>
     </div>
-  
-    <!-- Hours & Status -->
+
+    <!-- Hours of Operation -->
     <div class="hours-container">
-      <h3>📅 Hours of Operation</h3>
-      <div class="hours-grid">
-        <div class="hours-item">
-          <strong>🕒 Mon–Fri:</strong><br> 7:30 a.m. – 2 p.m.
+        <h3>📅 Hours of Operation</h3>
+        <div class="hours-grid">
+            <!-- Weekday Hours -->
+            <div class="hours-item">
+                <strong>🕒 Mon–Fri:</strong><br> 7:30 a.m. – 2 p.m.
+            </div>
+            <!-- Breakfast Hours -->
+            <div class="hours-item breakfast">
+                <strong>☕ Breakfast:</strong><br> 7:30 a.m. – 9:30 a.m.
+            </div>
+            <!-- Lunch Hours -->
+            <div class="hours-item">
+                <strong>🍽️ Lunch:</strong><br> 10 a.m. – 2 p.m.
+            </div>
         </div>
-        <div class="hours-item breakfast">
-          <strong>☕ Breakfast:</strong><br> 7:30 a.m. – 9:30 a.m.
-        </div>
-        <div class="hours-item">
-          <strong>🍽️ Lunch:</strong><br> 10 a.m. – 2 p.m.
-        </div>
-      </div>
     </div>
-  
-    <!-- Ordering Info -->
+
+    <!-- Ordering Information -->
     <div class="ordering-info">
-      <p>📞 <strong>Order ahead:</strong> Call ext. <strong>7199</strong> or stop by to pick up your favorite meal.</p>
+        <p>📞 <strong>Order ahead:</strong> Call ext. <strong>7199</strong> or stop by to pick up your favorite meal.</p>
     </div>
-  
+
     <!-- Menu Button -->
     <div class="menu-button-container">
-      <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:6a010627-ed29-4e8f-b987-859a26569dbb" target="_blank" rel="noopener" class="menu-button">
-        📄 View Full Menu (PDF)
-      </a>
+        <a href="https://acrobat.adobe.com/id/urn:aaid:sc:US:6a010627-ed29-4e8f-b987-859a26569dbb" 
+           target="_blank" 
+           rel="noopener" 
+           class="menu-button">
+            📄 View Full Menu (PDF)
+        </a>
     </div>
-  </div>
-  
-  <!-- Styles -->
-  <style>
+</div>
+
+<!-- Styles -->
+<style>
+    /* Dining Card Container */
     .dining-card {
-      font-family: 'Segoe UI', sans-serif;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      background-color: white;
+        font-family: 'Segoe UI', sans-serif;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        background-color: white;
     }
-  
+
+    /* Logo Section */
     .logo-container {
-      text-align: center;
-      background-color: #ffffff;
-      padding: 0 8px 12px 8px;
+        text-align: center;
+        background-color: #ffffff;
+        padding: 0 8px 12px 8px;
     }
-  
+
     .logo-container img {
-      max-width: 160px;
+        max-width: 160px;
     }
-  
+
+    /* Status Badge */
     .status-badge {
-      text-align: center;
-      margin: 0.5rem 0 1rem 0;
+        text-align: center;
+        margin: 0.5rem 0 1rem 0;
     }
-  
+
     .status-open {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background-color: #2e7d32;
-      color: white;
-      font-weight: bold;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      font-size: 1.1rem;
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: #2e7d32;
+        color: white;
+        font-weight: bold;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        font-size: 1.1rem;
     }
-  
+
     .status-closed {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background-color: #c62828;
-      color: white;
-      font-weight: bold;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      font-size: 1.1rem;
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: #c62828;
+        color: white;
+        font-weight: bold;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        font-size: 1.1rem;
     }
-  
+
+    /* Hours Section */
     .hours-container {
-      padding: 1rem;
-      color: #010001;
+        padding: 1rem;
+        color: #010001;
     }
-  
+
     .hours-container h3 {
-      margin-top: 0;
-      color: #333366;
+        margin-top: 0;
+        color: #333366;
     }
-  
+
     .hours-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
-  
+
     .hours-item {
-      flex: 1;
-      min-width: 160px;
-      padding: 0.75rem;
-      border: 2px solid #333366;
-      border-radius: 8px;
-      background-color: white;
+        flex: 1;
+        min-width: 160px;
+        padding: 0.75rem;
+        border: 2px solid #333366;
+        border-radius: 8px;
+        background-color: white;
     }
-  
+
     .hours-item.breakfast {
-      border-color: #F37B20;
+        border-color: #F37B20;
     }
-  
+
+    /* Ordering Information */
     .ordering-info {
-      padding: 1rem;
-      padding-top: 0;
+        padding: 1rem;
+        padding-top: 0;
     }
-  
+
     .ordering-info p {
-      margin-top: 1rem;
-      font-size: 0.95rem;
+        margin-top: 1rem;
+        font-size: 0.95rem;
     }
-  
+
+    /* Menu Button */
     .menu-button-container {
-      padding: 1rem;
-      padding-top: 0;
-      text-align: center;
+        padding: 1rem;
+        padding-top: 0;
+        text-align: center;
     }
-  
+
     .menu-button {
-      display: inline-block;
-      background-color: #F37B20;
-      color: white;
-      padding: 0.6rem 1rem;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-      transition: background-color 0.3s;
+        display: inline-block;
+        background-color: #F37B20;
+        color: white;
+        padding: 0.6rem 1rem;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 6px;
+        transition: background-color 0.3s;
     }
-  
+
     .menu-button:hover {
-      background-color: #333366;
+        background-color: #333366;
     }
-  </style>
-  
-  <!-- JavaScript -->
-  <script>
+</style>
+
+<!-- JavaScript -->
+<script>
     document.addEventListener("DOMContentLoaded", () => {
-      const badgeEl = document.getElementById("statusBadge");
-      const now = new Date();
-      const day = now.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-      const hour = now.getHours();
-      const minute = now.getMinutes();
-      const currentTime = hour + minute / 60;
-  
-      const openTime = 7.5; // 7:30 AM
-      const closeTime = 14.0; // 2:00 PM
-      const isOpen = day >= 1 && day <= 5 && currentTime >= openTime && currentTime < closeTime;
-  
-      badgeEl.innerHTML = isOpen
-        ? `<div class="status-open">✅ OPEN NOW</div>`
-        : `<div class="status-closed">❌ CLOSED</div>`;
+        const badgeEl = document.getElementById("statusBadge");
+        const now = new Date();
+        const day = now.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+        const hour = now.getHours();
+        const minute = now.getMinutes();
+        const currentTime = hour + minute / 60;
+
+        // Define operating hours
+        const openTime = 7.5; // 7:30 AM
+        const closeTime = 14.0; // 2:00 PM
+
+        // Check if the bistro is open
+        const isOpen = day >= 1 && day <= 5 && currentTime >= openTime && currentTime < closeTime;
+
+        // Update the status badge
+        badgeEl.innerHTML = isOpen
+            ? `<div class="status-open">✅ OPEN NOW</div>`
+            : `<div class="status-closed">❌ CLOSED</div>`;
     });
-  </script>
+</script>

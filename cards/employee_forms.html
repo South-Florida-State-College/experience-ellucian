@@ -1,42 +1,55 @@
-
+<!-- External Libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
 <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
+
+<!-- Styles -->
 <style>
+    /* General body styling */
     body {
-       
         font-family: 'Segoe UI', sans-serif;
-        margin: 0 .5rem;
-        
+        margin: 0 0.5rem;
     }
+
+    /* Container styling */
     .container {
         max-width: 672px;
         margin: 0 auto;
     }
+
+    /* Card styling */
     .card {
         background-color: #fdfdff;
         border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
+
+    /* Header styling */
     .header {
         background-color: #333366;
         color: #fdfdff;
         padding: 16px;
     }
+
     .header h2 {
         margin: 0;
         font-size: 1.2rem;
     }
+
     .header p {
         margin: 0;
-        font-size: .9rem;
+        font-size: 0.9rem;
     }
+
+    /* Body styling */
     .body {
         padding: 16px;
     }
+
+    /* Search input styling */
     .search-input {
         width: 100%;
         padding: 8px;
@@ -46,26 +59,32 @@
         margin-bottom: 16px;
         box-sizing: border-box;
     }
+
     .search-input:focus {
         outline: none;
         border-color: #333366;
         box-shadow: 0 0 0 2px rgba(51, 51, 102, 0.5);
     }
+
+    /* Forms list styling */
     .forms-list {
         list-style: none;
         padding: 0;
         margin: 0;
     }
+
     .forms-list li {
         margin-bottom: 8px;
         padding-bottom: 8px;
         border-bottom: 1px solid #ddd;
     }
+
     .forms-list li:last-child {
         border-bottom: none;
         margin-bottom: 0;
         padding-bottom: 0;
     }
+
     .forms-list a {
         display: block;
         font-weight: bold;
@@ -75,34 +94,47 @@
         border-radius: 6px;
         transition: background-color 0.2s, color 0.2s;
     }
+
     .forms-list a:hover {
         background-color: #333366;
         color: #fdfdff;
     }
+
+    /* No results message styling */
     .no-results {
         text-align: center;
         color: #4b5563;
         padding: 8px;
     }
-    .loading, .error {
+
+    /* Loading and error message styling */
+    .loading,
+    .error {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
         font-size: 20px;
     }
+
     .loading {
         color: #4b5563;
     }
+
     .error {
         color: #dc2626;
     }
-  }
 </style>
 
+<!-- Root container for React app -->
 <div id="root"></div>
+
 <script type="text/babel">
-    // Defining loadFileData to fetch CSV from GitHub
+    /**
+     * Fetch the CSV file from the server.
+     * @param {string} filename - The name of the CSV file.
+     * @returns {Promise<string>} - The raw CSV data as a string.
+     */
     const loadFileData = async (filename) => {
         try {
             const response = await fetch('https://raw.githubusercontent.com/asjames18/experience-ellucian/main/docs/Employee%20Documents.csv');
@@ -116,25 +148,31 @@
         }
     };
 
-    // Defining the main App component
+    /**
+     * Main React component for the Employee Forms directory.
+     */
     const App = () => {
-        const [data, setData] = React.useState([]);
-        const [filteredData, setFilteredData] = React.useState([]);
-        const [searchQuery, setSearchQuery] = React.useState("");
-        const [loading, setLoading] = React.useState(true);
-        const [error, setError] = React.useState(null);
+        const [data, setData] = React.useState([]); // All form data
+        const [filteredData, setFilteredData] = React.useState([]); // Filtered form data
+        const [searchQuery, setSearchQuery] = React.useState(""); // Search query
+        const [loading, setLoading] = React.useState(true); // Loading state
+        const [error, setError] = React.useState(null); // Error state
 
-        // Processing and cleaning CSV data
+        /**
+         * Process and clean the CSV data.
+         * @param {Array} rawData - The raw CSV data.
+         * @returns {Array} - The cleaned data.
+         */
         const processAndCleanData = (rawData) => {
             return rawData
-                .filter(row => row["Name"] && row["File"])
+                .filter(row => row["Name"] && row["File"]) // Ensure required fields exist
                 .map(row => ({
                     name: row["Name"]?.trim() || "",
                     file: row["File"]?.trim() || ""
                 }));
         };
 
-        // Loading CSV data on component mount
+        // Load CSV data on component mount
         React.useEffect(() => {
             const fetchData = async () => {
                 const csv = await loadFileData("Employee Documents.csv");
@@ -165,7 +203,10 @@
             fetchData();
         }, []);
 
-        // Handling search input changes
+        /**
+         * Handle search input changes.
+         * @param {Event} event - The input change event.
+         */
         const handleSearch = (event) => {
             const query = event.target.value;
             setSearchQuery(query);
@@ -175,31 +216,27 @@
             setFilteredData(filtered);
         };
 
-        // Rendering error state
+        // Render error state
         if (error) {
-            return (
-                <div className="error">{error}</div>
-            );
+            return <div className="error">{error}</div>;
         }
 
-        // Rendering loading state
+        // Render loading state
         if (loading) {
-            return (
-                <div className="loading">Loading...</div>
-            );
+            return <div className="loading">Loading...</div>;
         }
 
-        // Rendering the forms directory
+        // Render the forms directory
         return (
             <div className="container">
                 <div className="card">
-                    {/* Header with SFSC Gradient */}
+                    {/* Header Section */}
                     <div className="header">
-                        <h2>🗂️Employee Forms</h2>
+                        <h2>🗂️ Employee Forms</h2>
                         <p>Download essential employee forms below</p>
                     </div>
 
-                    {/* Body with Search and Links */}
+                    {/* Body Section */}
                     <div className="body">
                         {/* Search Input */}
                         <input
@@ -236,7 +273,7 @@
         );
     };
 
-    // Rendering the React app
+    // Render the React app
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<App />);
 </script>
