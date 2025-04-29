@@ -1,0 +1,117 @@
+<div style="font-family: 'Segoe UI', sans-serif; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); background: #ffffff;">
+
+    <!-- Embedded Styles -->
+    <style>
+      .contact-name {
+        font-weight: bold;
+        color: #333366;
+        cursor: pointer;
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #ddd;
+        transition: background-color 0.3s;
+      }
+      .contact-name:hover {
+        text-decoration: underline;
+        
+      }
+      .contact-name::after {
+        content: '▼';
+        font-size: 0.8rem;
+        transition: transform 0.3s;
+      }
+      .contact-name.active::after {
+        transform: rotate(180deg);
+      }
+      .contact-details {
+        display: none;
+        padding: 0.8rem 1rem;
+        background-color: #f9f9f9;
+        border-radius: 6px;
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+      }
+      .contact-details a {
+        color: #333366;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .contact-details a:hover {
+        color: #1d1d80;
+        font-weight: bold;
+        text-decoration: underline;
+        transform: translateY(-2px);
+      }
+    </style>
+  
+    <!-- Header -->
+    <div style="background: #333366; color: white; padding: 1rem;">
+      <h2 style="margin: 0; font-size: 1.5rem;">🛠️ Help Resources</h2>
+      <p style="margin: 0; font-size: 1rem;">Quick access to IT, Educational Technology, Maintenance, and Campus Security</p>
+    </div>
+  
+    <!-- Body -->
+    <div style="padding: 1rem;">
+  
+      <!-- IT Help Desk -->
+      <div class="contact-name" onclick="toggleContact(this)">
+        💻 IT Help Desk
+      </div>
+      <div class="contact-details">
+        Call <a href="tel:7462">7462</a> or email 
+        <a href="mailto:helpdesk@southflorida.edu">helpdesk@southflorida.edu</a>.<br>
+        For technical support.
+      </div>
+  
+      <!-- Educational Technology -->
+      <div class="contact-name" onclick="toggleContact(this)">
+        🎓 Educational Technology
+      </div>
+      <div class="contact-details">
+        Call <a href="tel:7017">7017</a> or email 
+        <a href="mailto:onlinehelp@southflorida.edu">onlinehelp@southflorida.edu</a>.<br>
+        For LMS support.
+      </div>
+  
+      <!-- Online Maintenance Work Order -->
+      <div class="contact-name" onclick="toggleContact(this)">
+        🛠️ Online Maintenance Work Order
+      </div>
+      <div class="contact-details">
+        <a href="https://sfsc.sharepoint.com/sites/pod/_layouts/15/WopiFrame.aspx?sourcedoc=%7B3D53D68F-1A39-4A07-9E9E-C44FB22FF877%7D&file=Maintenance%20Work%20Order%20Procedure.docx&action=default" target="_blank" rel="noopener noreferrer">
+          Submit an Electronic Work Order
+        </a><br>
+        For emergencies, call <a href="tel:7090">7090</a>.
+      </div>
+  
+      <!-- Campus Security -->
+      <div class="contact-name" onclick="toggleContact(this)">
+        🚨 Campus Security
+      </div>
+      <div class="contact-details">
+        Visit <a href="http://www.southflorida.edu/safety-security" target="_blank" rel="noopener noreferrer">
+          Campus Security Website
+        </a><br>
+        For emergencies, call <a href="tel:8634530806">863-453-0806</a>.
+      </div>
+  
+    </div>
+  
+    <!-- Expand/Collapse Script -->
+    <script>
+      function toggleContact(element) {
+        element.classList.toggle('active');
+        const details = element.nextElementSibling;
+        if (details.style.display === 'block') {
+          details.style.display = 'none';
+        } else {
+          details.style.display = 'block';
+        }
+      }
+    </script>
+  
+  </div>
+  

@@ -1,0 +1,242 @@
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+<script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
+<style>
+    body {
+       
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0 .5rem;
+        
+    }
+    .container {
+        max-width: 672px;
+        margin: 0 auto;
+    }
+    .card {
+        background-color: #fdfdff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+        background-color: #333366;
+        color: #fdfdff;
+        padding: 16px;
+    }
+    .header h2 {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+    .header p {
+        margin: 0;
+        font-size: .9rem;
+    }
+    .body {
+        padding: 16px;
+    }
+    .search-input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 16px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+    }
+    .search-input:focus {
+        outline: none;
+        border-color: #333366;
+        box-shadow: 0 0 0 2px rgba(51, 51, 102, 0.5);
+    }
+    .forms-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .forms-list li {
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #ddd;
+    }
+    .forms-list li:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .forms-list a {
+        display: block;
+        font-weight: bold;
+        color: #333366;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: background-color 0.2s, color 0.2s;
+    }
+    .forms-list a:hover {
+        background-color: #333366;
+        color: #fdfdff;
+    }
+    .no-results {
+        text-align: center;
+        color: #4b5563;
+        padding: 8px;
+    }
+    .loading, .error {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-size: 20px;
+    }
+    .loading {
+        color: #4b5563;
+    }
+    .error {
+        color: #dc2626;
+    }
+  }
+</style>
+
+<div id="root"></div>
+<script type="text/babel">
+    // Defining loadFileData to fetch CSV from GitHub
+    const loadFileData = async (filename) => {
+        try {
+            const response = await fetch('https://raw.githubusercontent.com/asjames18/experience-ellucian/main/docs/Employee%20Documents.csv');
+            if (!response.ok) {
+                throw new Error('Failed to fetch CSV file');
+            }
+            return await response.text();
+        } catch (error) {
+            console.error('Error fetching CSV:', error);
+            return '';
+        }
+    };
+
+    // Defining the main App component
+    const App = () => {
+        const [data, setData] = React.useState([]);
+        const [filteredData, setFilteredData] = React.useState([]);
+        const [searchQuery, setSearchQuery] = React.useState("");
+        const [loading, setLoading] = React.useState(true);
+        const [error, setError] = React.useState(null);
+
+        // Processing and cleaning CSV data
+        const processAndCleanData = (rawData) => {
+            return rawData
+                .filter(row => row["Name"] && row["File"])
+                .map(row => ({
+                    name: row["Name"]?.trim() || "",
+                    file: row["File"]?.trim() || ""
+                }));
+        };
+
+        // Loading CSV data on component mount
+        React.useEffect(() => {
+            const fetchData = async () => {
+                const csv = await loadFileData("Employee Documents.csv");
+                if (!csv) {
+                    setError("Failed to load forms data");
+                    setLoading(false);
+                    return;
+                }
+                Papa.parse(csv, {
+                    header: true,
+                    skipEmptyLines: true,
+                    dynamicTyping: false,
+                    transformHeader: header => header.trim().replace(/^"|"$/g, ''),
+                    transform: (value, header) => value.trim().replace(/^"|"$/g, ''),
+                    complete: (results) => {
+                        const cleanedData = processAndCleanData(results.data);
+                        setData(cleanedData);
+                        setFilteredData(cleanedData);
+                        setLoading(false);
+                    },
+                    error: (err) => {
+                        console.error("Error parsing CSV:", err);
+                        setError("Error parsing forms data");
+                        setLoading(false);
+                    }
+                });
+            };
+            fetchData();
+        }, []);
+
+        // Handling search input changes
+        const handleSearch = (event) => {
+            const query = event.target.value;
+            setSearchQuery(query);
+            const filtered = data.filter(item =>
+                item.name.toLowerCase().includes(query.toLowerCase())
+            );
+            setFilteredData(filtered);
+        };
+
+        // Rendering error state
+        if (error) {
+            return (
+                <div className="error">{error}</div>
+            );
+        }
+
+        // Rendering loading state
+        if (loading) {
+            return (
+                <div className="loading">Loading...</div>
+            );
+        }
+
+        // Rendering the forms directory
+        return (
+            <div className="container">
+                <div className="card">
+                    {/* Header with SFSC Gradient */}
+                    <div className="header">
+                        <h2>🗂️Employee Forms</h2>
+                        <p>Download essential employee forms below</p>
+                    </div>
+
+                    {/* Body with Search and Links */}
+                    <div className="body">
+                        {/* Search Input */}
+                        <input
+                            type="text"
+                            value={searchQuery}
+                            onChange={handleSearch}
+                            placeholder="Search forms by name..."
+                            className="search-input"
+                        />
+
+                        {/* Forms List */}
+                        <ul className="forms-list">
+                            {filteredData.length > 0 ? (
+                                filteredData.map((item, index) => (
+                                    <li key={index}>
+                                        <a
+                                            href={item.file}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            📄 {item.name}
+                                        </a>
+                                    </li>
+                                ))
+                            ) : (
+                                <li className="no-results">
+                                    No forms found matching your search.
+                                </li>
+                            )}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
+    // Rendering the React app
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>

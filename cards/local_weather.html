@@ -1,0 +1,37 @@
+<div style="font-family: 'Segoe UI', sans-serif; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <!-- Header -->
+    <div style="background: linear-gradient(to right, #333366, #F37B20); color: #fdfdff; padding: 1rem;">
+      <h2 style="margin: 0; font-size: 1.2rem;">🌤️ Avon Park Weather</h2>
+      <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem;">Live conditions and 7-day forecast</p>
+    </div>
+  
+    <!-- Weather Widget Embed -->
+    <div style="padding: 1.25rem; text-align: center;">
+      <a class="weatherwidget-io"
+         href="https://forecast7.com/en/27d60n81d51/avon-park/?unit=us"
+         data-label_1="Avon Park"
+         data-label_2="WEATHER"
+         data-font="Segoe UI"
+         data-theme="pure"
+         data-basecolor="#fdfdff"
+         data-accent= "#eeefef1"
+         data-textcolor="#333366"
+         data-highcolor="#e32313"
+         data-lowcolor="#333366">
+        Avon Park WEATHER
+      </a>
+    </div>
+  
+    <!-- WeatherWidget Script -->
+    <script>
+      !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){
+          js=d.createElement(s);js.id=id;
+          js.src='https://weatherwidget.io/js/widget.min.js';
+          fjs.parentNode.insertBefore(js,fjs);
+        }
+      }(document,'script','weatherwidget-io-js');
+    </script>
+  </div>
+  

@@ -1,0 +1,277 @@
+<div class="container">
+  <!-- Header Section -->
+  <div class="header-box">
+    <div class="header-content">
+      <div>
+        <div class="header-title">📁 Policies and Procedures</div>
+        <div class="header-subtitle">Browse and search current policies and procedures</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search by ID, title, type, or category..." />
+  </div>
+
+  <!-- Loading and Error Messages -->
+  <div id="loading">Loading policies and procedures...</div>
+  <div id="error" style="display:none;"></div>
+
+  <!-- Items Container -->
+  <div id="items"></div>
+</div>
+  
+  <!-- Styles -->
+  
+<style>
+    /* General body styling */
+    body {
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      background: #fafbfb; /* Light background */
+      color: #333; /* Dark text */
+      margin: 0;
+      padding: 10px;
+    }
+
+    /* Main container styling */
+    .container {
+      max-width: 1280px;
+      background: #fff; /* White background */
+      padding: 10px;
+      margin: auto;
+      border-radius: 12px; /* Rounded corners */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    /* Header section styling */
+    .header-box {
+      background-color: #333366; /* SFSC Blue */
+      color: white;
+      border-radius: 12px 12px 0 0; /* Rounded top corners */
+      padding: 20px;
+      margin: -10px -10px 0 -10px; /* Negative margin to align with container */
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center; /* Vertically align items */
+    }
+
+    .header-title {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .header-subtitle {
+      font-size: 0.95em;
+      color: #e0e0e0; /* Light gray text */
+    }
+
+    /* Search bar styling */
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    .search-bar input:focus {
+      border-color: #f37920; /* Orange border on focus */
+      box-shadow: 0 0 8px rgba(244, 121, 32, 0.3); /* Subtle glow */
+      outline: none;
+    }
+
+    /* Category section styling */
+    .category {
+      margin-top: 2rem;
+    }
+
+    .category h2 {
+      font-size: 1.6rem;
+      color: #f37920; /* Orange text */
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #f37920; /* Orange underline */
+    }
+
+    /* Individual item styling */
+    .item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #e0e0e0; /* Light gray divider */
+    }
+
+    .item-id,
+    .item-type {
+      min-width: 100px;
+      margin-right: 20px;
+      font-weight: bold;
+    }
+
+    .item-type {
+      background-color: #e9ecef; /* Light gray background */
+      border-radius: 15px;
+      padding: 4px 10px;
+      color: #555; /* Dark gray text */
+    }
+
+    .item-title a {
+      color: #333366; /* SFSC Blue */
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s; /* Smooth hover transition */
+    }
+
+    .item-title a:hover {
+      color: #f37920; /* Orange on hover */
+      text-decoration: underline;
+    }
+
+    /* Loading and error messages */
+    #loading,
+    #error {
+      text-align: center;
+      font-size: 1.1em;
+      margin: 1.5rem 0;
+    }
+
+    #loading {
+      color: #333366; /* SFSC Blue */
+    }
+
+    #error {
+      color: #fff;
+      background: #dc3545; /* Red background */
+      padding: 1rem;
+      border-radius: 6px;
+    }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+      .item-id, .item-type, .item-title {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+    }
+</style>
+
+  
+  <!-- JavaScript -->
+  <script>
+   // Parse CSV data into JSON format
+function parseCSV(csvText) {
+  const lines = csvText.trim().split('\n');
+  const headers = lines[0].split(',').map(h => h.trim());
+  return lines.slice(1).map(line => {
+    const values = line.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
+    return headers.reduce((acc, key, i) => {
+      acc[key] = (values[i] || '').replace(/^"|"$/g, '').trim();
+      return acc;
+    }, {});
+  });
+}
+
+// Display items grouped by category
+function displayItems(items) {
+  const container = document.getElementById('items');
+  container.innerHTML = '';
+  const categories = {};
+
+  // Group items by category
+  items.forEach(item => {
+    const cat = item.category || 'Uncategorized';
+    categories[cat] = categories[cat] || [];
+    categories[cat].push(item);
+  });
+
+  // Render each category and its items
+  Object.entries(categories).sort().forEach(([cat, entries]) => {
+    const section = document.createElement('div');
+    section.className = 'category';
+    section.innerHTML = `<h2>${cat}</h2>`;
+    entries.sort((a, b) => a.id.localeCompare(b.id)).forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'item';
+      div.setAttribute('data-id', item.id.toLowerCase());
+      div.setAttribute('data-title', item.title.toLowerCase());
+      div.setAttribute('data-category', cat.toLowerCase());
+      div.setAttribute('data-type', item.type.toLowerCase());
+      div.innerHTML = `
+        <span class="item-id">${item.id}</span>
+        <span class="item-type">${item.type}</span>
+        <span class="item-title"><a href="${item.url}" target="_blank">📄 ${item.title}</a></span>
+      `;
+      section.appendChild(div);
+    });
+    container.appendChild(section);
+  });
+
+  // Hide loading message
+  document.getElementById('loading').style.display = 'none';
+}
+
+// Filter items based on search input
+function searchItems() {
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const items = document.querySelectorAll('.item');
+  const categories = document.querySelectorAll('.category');
+
+  if (!input) {
+    categories.forEach(cat => (cat.style.display = 'block'));
+    items.forEach(item => (item.style.display = 'flex'));
+    return;
+  }
+
+  categories.forEach(cat => (cat.style.display = 'none'));
+  items.forEach(item => {
+    const id = item.getAttribute('data-id');
+    const title = item.getAttribute('data-title');
+    const cat = item.getAttribute('data-category');
+    const type = item.getAttribute('data-type');
+    const matches = [id, title, cat, type].some(field => field.includes(input));
+    item.style.display = matches ? 'flex' : 'none';
+    if (matches) item.closest('.category').style.display = 'block';
+  });
+}
+
+// Fetch and display data
+document.getElementById('searchInput').addEventListener('input', searchItems);
+
+Promise.all([
+  fetch('https://raw.githubusercontent.com/asjames18/policy_procedure_scraper_sfsc/main/procedures.csv').then(r => r.text()),
+  fetch('https://raw.githubusercontent.com/asjames18/policy_procedure_scraper_sfsc/main/policies.csv').then(r => r.text())
+])
+  .then(([procedures, policies]) => {
+    const combined = [
+      ...parseCSV(procedures).map(p => ({ ...p, type: 'Procedure' })),
+      ...parseCSV(policies).map(p => ({ ...p, type: 'Policy' }))
+    ];
+    displayItems(combined);
+  })
+  .catch(err => {
+    document.getElementById('loading').style.display = 'none';
+    const errorEl = document.getElementById('error');
+    errorEl.style.display = 'block';
+    errorEl.textContent = `Error: ${err.message}`;
+  });
+  </script>
