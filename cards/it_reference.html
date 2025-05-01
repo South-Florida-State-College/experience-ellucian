@@ -1,0 +1,188 @@
+<div style="font-family: 'Segoe UI', sans-serif; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); background: #ffffff;">
+    <!-- Header -->
+    <div style="background: #333366; color: white; padding: 1rem;">
+      <h2 style="margin: 0; font-size: 1.2rem;">🖥 IT Reference Materials</h2>
+      <p style="margin: 0; font-size: .9rem;">Resources for policies, support, and security awareness</p>
+    </div>
+  
+    <!-- Body -->
+    <div style="padding: 1rem 1rem 2rem 1rem;" id="it-directory">
+      <p>Loading IT resources...</p>
+    </div>
+  
+    <!-- Styles -->
+    <style>
+      .contact-name {
+        font-weight: bold;
+        color: #333366;
+        cursor: pointer;
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #ccc;
+        transition: background-color 0.3s;
+      }
+      .contact-name:hover {
+        text-decoration: underline;
+      }
+      .contact-name::after {
+        content: '▼';
+        font-size: 0.8rem;
+        transition: transform 0.3s;
+      }
+      .contact-name.active::after {
+        transform: rotate(180deg);
+      }
+      .contact-details {
+        display: none;
+        padding: 0.8rem 1rem;
+        background-color: #f9f9f9;
+        border-radius: 6px;
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+      }
+      .contact-details a {
+        display: block;
+        color: #333366;
+        text-decoration: none;
+        margin-bottom: -10px;
+        font-weight: normal;
+        transition: all 0.2s ease;
+      }
+      .contact-details a:hover {
+        color: #F37B20;
+        text-decoration: underline;
+        font-weight: bold;
+        transform: translateY(-2px);
+      }
+      .help-details {
+        display: none;
+        padding: 0.8rem 1rem;
+        background-color: #f9f9f9;
+        border-radius: 6px;
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+      }
+      .help-details a {
+        color: #333366;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .help-details a:hover {
+        color: #F37B20;
+        font-weight: bold;
+        text-decoration: underline;
+        transform: translateY(-2px);
+      }
+    </style>
+  
+    <!-- Script to render sections -->
+    <script>
+      const itData = {
+        "🗂️ Documents and Forms": [
+          { title: "Acceptable Use of Technology for SFSC Employees", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/Acceptable%20Use%20of%20Technology%20for%20SFSC%20Employees.pdf" },
+          { title: "Office 365 Employee Download Instructions", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/Office%20365%20Employee%20Download%20Instructions.pdf" },
+          { title: "Quick start guide for using Zoom Phone", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/Quick%20start%20guide%20for%20using%20Zoom%20Phone.pdf" },
+          { title: "Smart Podium Documentation", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/Smart%20Podium%20Documentation.pdf" },
+          { title: "Technology and Innovation Assessment Process", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/Technology%20and%20Innovation%20Assessment%20Process.pdf" },
+          { title: "Technology Usage Guide and Support Manual", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/Technology%20Usage%20Guide%20and%20Support%20Manual.pdf" },
+          { title: "VPN Agreement Form", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/VPN%20Agreement%20Form.pdf" },
+          { title: "Xerox Scanning Documents Guide", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/Xerox%20Scanning%20Documents%20Guide.pdf" },
+          { title: "Zoom Phone Instructions", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/Zoom%20Phone%20Instructions.pdf" }
+        ],
+        "🔐 Security Awareness": [
+          //{ title: "Evolving with Technology Video", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/Security%20Awareness/Evolving%20with%20Technology%20Video.aspx" },
+          { title: "Home WiFi Network Security", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/Security%20Awareness/Home%20WiFi%20Network%20Security.pdf" },
+          { title: "ITRC Data Breach Reports 2015", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/Security%20Awareness/ITRC%20Data%20Breach%20Reports%202015.pdf" },
+          //{ title: "Security Training Video", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/Security%20Awareness/Security%20Training%20Video.aspx" },
+          { title: "Sophos DOs and DON'Ts", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/Security%20Awareness/Sophos%20DOs%20and%20DON%27Ts.pdf" },
+          { title: "Sophos Threatsaurus", link: "https://sfsc.sharepoint.com/IT%20Reference%20Materials/Security%20Awareness/Sophos%20Threatsaurus.pdf" }
+        ]
+      };
+  
+      function toggleContact(element) {
+        element.classList.toggle('active');
+        const details = element.nextElementSibling;
+        details.style.display = details.style.display === 'block' ? 'none' : 'block';
+        gtag('event', 'toggle', {
+          event_category: 'IT Reference Materials',
+          event_label: element.textContent.trim()
+        });
+      }
+  
+      function renderDirectory(data) {
+        const container = document.getElementById('it-directory');
+        container.innerHTML = '';
+  
+        // Add Help Desk
+        const helpHeader = document.createElement('div');
+        helpHeader.className = 'contact-name';
+        helpHeader.textContent = '💻 IT Help Desk';
+        helpHeader.onclick = function () { toggleContact(this); };
+  
+        const helpDetails = document.createElement('div');
+        helpDetails.className = 'help-details';
+        helpDetails.innerHTML = `
+          Call <a href="tel:7462" onclick="trackLink('7462')">7462</a> or email 
+          <a href="mailto:helpdesk@southflorida.edu" onclick="trackLink('helpdesk@southflorida.edu')">helpdesk@southflorida.edu</a>.<br>
+          For technical support.
+        `;
+  
+        container.appendChild(helpHeader);
+        container.appendChild(helpDetails);
+  
+        // Add documents and security sections
+        for (const section in data) {
+          const sectionHeader = document.createElement('div');
+          sectionHeader.className = 'contact-name';
+          sectionHeader.textContent = section;
+          sectionHeader.onclick = function () { toggleContact(this); };
+  
+          const sectionBody = document.createElement('div');
+          sectionBody.className = 'contact-details';
+  
+          data[section].forEach(item => {
+            const link = document.createElement('a');
+            link.href = item.link;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = `📄 ${item.title}`;
+            link.onclick = () => {
+              gtag('event', 'click', {
+                event_category: 'IT Reference Materials',
+                event_label: item.title
+              });
+            };
+            sectionBody.appendChild(link);
+            sectionBody.appendChild(document.createElement('br'));
+          });
+  
+          container.appendChild(sectionHeader);
+          container.appendChild(sectionBody);
+        }
+      }
+  
+      function trackLink(label) {
+        gtag('event', 'click', {
+          event_category: 'IT Help Desk',
+          event_label: label
+        });
+      }
+  
+      document.addEventListener('DOMContentLoaded', function () {
+        renderDirectory(itData);
+      });
+    </script>
+  </div>
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2LHJZMW8K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B2LHJZMW8K');
+  </script>
+  
