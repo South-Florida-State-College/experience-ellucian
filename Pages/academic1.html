@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academics - South Florida State College</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <style>
+    :root {
+      --sfsc-orange: rgb(243, 123, 32);
+      --sfsc-blue: rgb(51, 51, 102);
+      --sfsc-white: #fff;
+      --sfsc-gray: #666;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--sfsc-gray);
+      background-color: var(--sfsc-white);
+      line-height: 1.6;
+    }
+    .header {
+      background-color: var(--sfsc-white);
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 3px solid var(--sfsc-orange);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .header img {
+      max-width: 320px;
+      height: auto;
+    }
+    .sideNav {
+      position: sticky;
+      top: 20px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .accordion-button {
+      color: var(--sfsc-blue);
+      font-size: 14px;
+      font-weight: 500;
+      background-color: transparent;
+      border: none;
+      padding: 12px 15px;
+      text-align: left;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+    .accordion-button:hover {
+      color: var(--sfsc-orange);
+      background-color: rgba(243, 123, 32, 0.1);
+    }
+    .accordion-button:not(.collapsed) {
+      color: var(--sfsc-orange);
+      background-color: rgba(243, 123, 32, 0.1);
+    }
+    .accordion-button::after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333'%3E%3Cpath d='M8 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 4z'/%3E%3Cpath d='M4.5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z'/%3E%3C/svg%3E");
+    }
+    .accordion-button:not(.collapsed)::after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f37b20'%3E%3Cpath d='M4.5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z'/%3E%3C/svg%3E");
+    }
+    .accordion-body a {
+      color: var(--sfsc-blue);
+      text-decoration: none;
+      font-size: 12px;
+      display: block;
+      padding: 8px 20px;
+      transition: color 0.3s ease, padding-left 0.3s ease;
+    }
+    .accordion-body a:hover {
+      color: var(--sfsc-orange);
+      padding-left: 25px;
+    }
+    .content {
+      padding: 30px;
+    }
+    .content h1 {
+      color: var(--sfsc-blue);
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 25px;
+      line-height: 1.2;
+    }
+    .content p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+    .content strong {
+      color: var(--sfsc-orange);
+      font-weight: 600;
+    }
+    .content img {
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+    .footer {
+      background-color: var(--sfsc-blue);
+      color: var(--sfsc-white);
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.9em;
+      line-height: 1.8;
+    }
+    .footer a {
+      color: var(--sfsc-orange);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .img-responsive {
+      max-width: 100%;
+      height: auto;
+    }
+    .mobile-nav-toggle {
+      display: none;
+      background-color: var(--sfsc-orange);
+      color: var(--sfsc-white);
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 767px) {
+      .sideNav {
+        display: none;
+        padding: 15px;
+      }
+      .sideNav.active {
+        display: block;
+      }
+      .mobile-nav-toggle {
+        display: block;
+      }
+      .content {
+        padding: 20px 15px;
+      }
+      .content h1 {
+        font-size: 2em;
+      }
+      .accordion-button {
+        font-size: 1em;
+      }
+      .accordion-body a {
+        font-size: 0.95em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <!-- <img src="https://www.southflorida.edu/wp-content/uploads/SFSC_Logo_Horizontal_OrangeBlue.png" alt="South Florida State College Logo"> -->
+  </header>
+  <div class="container inner">
+    <div class="row switchOnMobile">
+      <div class="col-md-3 col-sm-4">
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">Menu</button>
+        <div class="sideNav">
+          <div class="accordion" id="academicsAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                  Associate in Arts Degree
+                </button>
+              </h2>
+              <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/associate-arts-aa/education-aa">Associate in Arts Degree</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/associate-arts-aa/arts-and-sciences-departments">Arts and Sciences Departments</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/associate-arts-aa/degree-maps-major">Degree Maps by Major</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/associate-arts-aa/usf-fuse">USF FUSE Transfer Program</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading2">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                  Accounting
+                </button>
+              </h2>
+              <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/accounting/accounting-technology-1580">Accounting Technology – Associate in Science</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/accounting/accounting-applications-3010">Accounting Applications – College Credit Certificate</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading3">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                  Automotive
+                </button>
+              </h2>
+              <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/automotive-programs/service-technology-3220">Automotive Service Technology – Career Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/automotive-programs/collision-technology-technician-3210">Automotive Collision Technology Technician – Career Certificate</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading4">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                  Business
+                </button>
+              </h2>
+              <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/business/supervision-management-bas">Bachelor of Applied Science in Supervision and Management</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/business/business-administration-as">Business Administration – Associate in Science</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/business/business-management-ccc">Business Management – College Credit Certificate</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading5">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                  Cosmetology
+                </button>
+              </h2>
+              <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/cosmetology-programs/cosmetology-3280">Cosmetology – Career Certificate</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading6">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                  Criminal Justice Academy
+                </button>
+              </h2>
+              <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/criminal-justice-technology">Criminal Justice Technology – Associate in Science</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/training-calendar-corrections-law-enforcement">Criminal Justice Training Calendar</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/law-enforcement-auxiliary-officer-cc">Law Enforcement Auxiliary Officer – Career Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/law-enforcement-correctional-crossover-cc">Law Enforcement to Correctional – Career Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/fl-law-enforcement-academy">Florida Law Enforcement Academy – Career Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/correctional-officer-cc">Correctional Officer – Career Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/3352-public-safety-communication">Public Safety Communication – Career Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/bas-sm-with-criminal-justice-specialization">Bachelor of Applied Science in Supervision and Management with Criminal Justice Specialization</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading7">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                  Drafting
+                </button>
+              </h2>
+              <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/drafting">Drafting</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading8">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                  Bachelor of Science in Elementary Education
+                </button>
+              </h2>
+              <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/bsete-admission-requirements">BSETE Admission Requirements</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/bsete-general-student-information">BSETE General Student Information</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/bsete-program-plan-2">BSETE Program Plan</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/bsete-internshipstudent-teaching">BSETE Internship/Student Teaching</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/resources">BSETE Student Resources</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/contacts">BSETE Program Contacts</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/education-scholarships-and-grants">Education Scholarships and Grants</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/bsete-site-visit">BSETE Site Visit</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/state-exam-test-study-materials">State Exam Test Study Materials</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading9">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                  Electricity
+                </button>
+              </h2>
+              <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/electrical-programs/electrical-app">Electrical Apprenticeship Program</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/electrical-programs/electrical-lineworker-cc">Electrical Lineworker – Career Certificate</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading10">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                  Electronics
+                </button>
+              </h2>
+              <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/electronics/computer-systems-information-technology">Computer Systems Information Technology</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/electronics/biomedical-equipment-tech">Biomedical Equipment Technician – Associate in Science</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/electronics/computer-engineering-technology-1680">Computer Engineering Technology – Associate in Science</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading11">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                  Emergency Medical Services
+                </button>
+              </h2>
+              <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/emergency-medical-services/emergency-medical-services-1660">Emergency Medical Services – Associate in Science</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/emergency-medical-services/emergency-medical-technician-basic-2810">Emergency Medical Technician (Basic)</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/emergency-medical-services/paramedic-3042">Paramedic – College Credit Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/emergency-medical-services/ems-contacts">EMS Contacts</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading12">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
+                  Fire Science
+                </button>
+              </h2>
+              <div id="collapse12" class="accordion-collapse collapse" aria-labelledby="heading12" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/fire-science/fire-science-technology-1670">Fire Science Technology – Associate in Science</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/fire-science/firefighter-minimum-standards">Minimum Standards Application Process</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/fire-science/faqs">Fire Science FAQs</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/fire-science/fire-science-contacts">Fire Science Contacts</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading13">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
+                  Health Sciences
+                </button>
+              </h2>
+              <div id="collapse13" class="accordion-collapse collapse" aria-labelledby="heading13" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/health-services">Health Services</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/medical-administrative-specialist">Medical Administrative Specialist – Career Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/dental">Dental</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/nursing">Nursing</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/phlebotomy">Phlebotomy – Career Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/radiography-as">Radiography – Associate in Science</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/surgical-services">Surgical Services</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/conference-on-caring">Conference on Caring</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/fingerprinting-background-check">Fingerprinting Background Check</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/advanced-patient-care-tech-apprenticeship">Advanced Patient Care Technician Apprenticeship</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading14">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse14" aria-expanded="false" aria-controls="collapse14">
+                  Heating, Ventilation, Air Conditioning and Refrigeration (HVAC/R)
+                </button>
+              </h2>
+              <div id="collapse14" class="accordion-collapse collapse" aria-labelledby="heading14" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/hvacr/hvacr-cc">Heating, Ventilation, Air Conditioning and Refrigeration (HVAC/R) – Career Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/hvacr/commercial-air-conditioning-app">Commercial Air Conditioning – Apprenticeship</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading15">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse15" aria-expanded="false" aria-controls="collapse15">
+                  Honors Program
+                </button>
+              </h2>
+              <div id="collapse15" class="accordion-collapse collapse" aria-labelledby="heading15" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/honors-program/application">Application</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/honors-program/admission-requirements">Admission and Graduation Requirements</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/honors-program/courses">Courses</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/honors-program/scholarships">Honors Scholarships</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/honors-program/service-learning">Service Learning</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/honors-program/faculty">Faculty</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading16">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse16" aria-expanded="false" aria-controls="collapse16">
+                  Hospitality
+                </button>
+              </h2>
+              <div id="collapse16" class="accordion-collapse collapse" aria-labelledby="heading16" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/hospitality/professional-culinary-arts-and-hospitality">Professional Culinary Arts and Hospitality – Career Certificate</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading17">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse17" aria-expanded="false" aria-controls="collapse17">
+                  Industrial Management Technology
+                </button>
+              </h2>
+              <div id="collapse17" class="accordion-collapse collapse" aria-labelledby="heading17" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/industrial-management-technology">Industrial Management Technology – Associate in Science</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading18">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse18" aria-expanded="false" aria-controls="collapse18">
+                  Information Technology
+                </button>
+              </h2>
+              <div id="collapse18" class="accordion-collapse collapse" aria-labelledby="heading18" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/information-technology/computer-programming-analysis-1610">Computer Programming and Analysis – Associate in Science</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/information-technology/network-systems-technology-2">Network Systems Technology – Associate in Science</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/information-technology/computer-programming-3020">Computer Programming – College Credit Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/information-technology/network-security-ccc">Network Security – College Credit Certificate</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading19">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse19" aria-expanded="false" aria-controls="collapse19">
+                  Mechatronics
+                </button>
+              </h2>
+              <div id="collapse19" class="accordion-collapse collapse" aria-labelledby="heading19" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/mechatronics/advanced-manufacturing-and-production-technology-cc">Advanced Manufacturing and Production Technology – Career Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/mechatronics/engineering-technology-as">Engineering Technology – Associate in Science</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/mechatronics/pneumatics-hydraulics-and-motors-for-manufacturing-ccc">Pneumatics, Hydraulics, and Motors for Manufacturing – College Credit Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/mechatronics/mechatronics-college-credit-certiticates">Mechatronics College Credit Certificates</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/mechatronics/mechatronics-contacts">Mechatronics Contacts</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading20">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse20" aria-expanded="false" aria-controls="collapse20">
+                  Office Administration and Management
+                </button>
+              </h2>
+              <div id="collapse20" class="accordion-collapse collapse" aria-labelledby="heading20" data-bs-parent="#academicsAccordion">
+                <div class="accordion-body">
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/office-administration-management/office-management-ccc">Office Management – College Credit Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/office-administration-management/administrative-office-specialist-cc">Administrative Office Specialist – Career Certificate</a>
+                  <a href="https://www.southflorida.edu/current-students/degrees-programs/academics/office-administration-management/office-administration-as">Office Administration – Associate in Science</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script>
+            $(document).ready(function () {
+              $('.mobile-nav-toggle').click(function () {
+                $('.sideNav').toggleClass('active');
+              });
+            });
+          </script>
+        </div>
+      </div>
+      <div class="col-md-9 col-sm-8 content">
+        <h1>Welcome to Academics at South Florida State College</h1>
+        <p>South Florida State College offers three major tracks: the <strong>Bachelor of Applied Science degree</strong>, the <strong>Bachelor of Science degree</strong>, the <strong>Associate in Arts degree</strong> for university transfer, and technical workforce programs leading to an <strong>Associate in Science degree</strong>, certificate, or diploma.</p>
+        <p>For baccalaureate programs, both the Bachelor of Applied Science and Bachelor of Science degrees require students to complete an associate degree (either Associate in Arts or Associate in Science) prior to admission.</p>
+        <p>The Associate in Arts degree is the primary degree for transfer to other colleges and universities. Students in this program complete 36 credit hours of general education courses required by all state colleges and universities and customize other course selections with specific electives required by the transfer institution. Completion of the Associate in Arts degree guarantees admission to Florida colleges or universities as a junior-level student, though it does not guarantee admission to a specific program at the four-year institution. Students should work closely with the Advising and Counseling Center and transfer institution advisors when selecting coursework.</p>
+        <p>South Florida State College offers a variety of workforce programs. Associate in Science programs, typically two years in length, prepare students for workforce entry and may transfer to four-year institutions. Other workforce programs, one year or less, provide training for immediate job entry, including College Credit Certificates, Career Certificates, and Apprenticeships.</p>
+        <p><strong>Select from the menu on the left to get started.</strong></p>
+        <p><img src="https://www.southflorida.edu/wp-content/uploads/2014/06/mosaic.png" alt="Collage of photos of students in training with a painted sphere overlay" class="img-responsive" width="840" height="540"></p>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>Academic Programs<br>
+    South Florida State College<br>
+    Phone: 863-453-6661<br>
+    South Florida State College<br>
+    600 West College Drive<br>
+    Avon Park, FL 33825<br>
+    <a href="https://www.southflorida.edu">southflorida.edu</a></p>
+  </footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

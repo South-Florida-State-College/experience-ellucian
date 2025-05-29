@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Activities and Clubs - South Florida State College</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Compatible with SFSC Visual Identity Standards */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+        .inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 15px;
+            box-sizing: border-box;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #F37B20 0%, #003087 100%); /* PMS 166 Orange to PMS 295 Blue */
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-in;
+        }
+        .hero-banner h1 {
+            font-size: 36px;
+            margin: 0 0 10px;
+        }
+        .hero-banner p {
+            font-size: 20px;
+            margin: 0;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .col-md-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .logo {
+            max-width: 180px;
+            margin: 0 auto 20px;
+            display: block;
+            transition: transform 0.3s;
+            background-color: #fff; /* Ensure white background per Visual Identity Standards */
+        }
+        .logo:hover {
+            transform: scale(1.1);
+        }
+        h3 {
+            color: #F37B20; /* PMS 166 Orange */
+            font-size: 28px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .eread {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #333;
+            text-align: center;
+        }
+        hr {
+            border: 0;
+            border-top: 4px solid #F37B20; /* PMS 166 Orange */
+            margin: 20px auto;
+            width: 80%;
+        }
+        .cta-button {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 12px 30px;
+            background-color: #F37B20; /* PMS 166 Orange */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            text-align: center;
+        }
+        .cta-button:hover {
+            background-color: #003087; /* PMS 295 Blue */
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button:focus {
+            outline: 3px solid #F37B20; /* PMS 166 Orange */
+            outline-offset: 2px;
+        }
+        .sticky-cta {
+            position: sticky;
+            top: 20px;
+            z-index: 10;
+        }
+        .highlight-box {
+            background-color: #e8f0fe; /* Light blue tint */
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 6px solid #F37B20; /* PMS 166 Orange */
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+        .club-search {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            margin: 20px auto;
+            display: block;
+            border: 2px solid #F37B20; /* PMS 166 Orange */
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .club-search:focus {
+            outline: 3px solid #F37B20; /* PMS 166 Orange */
+            outline-offset: 2px;
+        }
+        .club-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .club-card {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .club-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+        }
+        .club-card a {
+            text-align: center;
+            color: #003087; /* PMS 295 Blue */
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .club-card a:hover, .club-card a:focus {
+            color: #F37B20; /* PMS 166 Orange */
+        }
+        .event-details {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-carousel {
+            overflow: hidden;
+            position: relative;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .testimonial {
+            display: none;
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+        .testimonial.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            .col-md-12 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            .hero-banner h1 {
+                font-size: 28px;
+            }
+            .hero-banner p {
+                font-size: 16px;
+            }
+            .row {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="inner">
+        <div class="hero-banner">
+            <h1>Clubs & Activities</h1>
+            <p>Explore clubs, lead with SGA, and manage your journey with Ellucian Experience.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!--<img src="https://www.southflorida.edu/images/sfsc-logo.png" alt="South Florida State College Logo" class="logo" loading="lazy">
+                <div class="sticky-cta">
+                    <a href="https://www.southflorida.edu/current-students/ellucian-experience/login" class="cta-button" aria-label="Log in to Ellucian Experience dashboard">Log In to Ellucian Experience</a>
+                </div>-->
+                <h3>Your Adventure Starts Here</h3>
+                <hr>
+                <p class="eread">Get ready to shine at South Florida State College (SFSC). Join a club, lead with the Student Government Association, or connect with friends at student forums. Your passions drive our activities, making every moment a chance to grow, lead, and make epic memories.</p>
+               <!-- <div class="highlight-box">
+                    <h3>Power Up with Ellucian Experience</h3>
+                    <p class="eread">Ellucian Experience is your ultimate tool for college success. Register for classes, check financial aid, connect with the Advising and Counseling Center, and stay in control—all in one sleek platform.</p>
+                    <a href="https://www.southflorida.edu/current-students/ellucian-experience/login" class="cta-button" aria-label="Try Ellucian Experience now">Try It Now</a>
+                </div> -->
+               <!-- <div class="event-details">-->
+               <!-- <div class="highlight-box">
+                    <h3>Join Us In Person</h3>
+                    <p class="eread">Visit the Spring 2025 Student Involvement Fair on Wednesday, Jun. 4, 2025, at noon in the Joseph E. Johnston Memorial Student Center, Highlands Campus.</p>
+                    <a href="https://www.southflorida.edu/calendar" class="cta-button" aria-label="Add Student Involvement Fair to your calendar">Add to Calendar</a>
+                </div>-->
+                <div class="testimonial-carousel">
+                    <div class="testimonial active">
+                        <p class="eread">"Joining the Art Club helped me find my creative voice!" – Maria Lopez, Class of '24</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="eread">"SGA gave me leadership skills I use every day." – James Carter, Class of '25</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="eread">"The Agriculture Club connected me with my passion for sustainability." – Emma Patel, Class of '23</p>
+                    </div>
+                </div>
+                <h3>Explore Our Clubs</h3>
+                <input type="text" class="club-search" placeholder="Search clubs..." aria-label="Search for clubs by name">
+                <div class="club-grid">
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/african-american-association" aria-label="Learn more about the African American Association">African American Association</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/agriculture-club" aria-label="Learn more about the Agriculture Club">Agriculture Club</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/american-dental-hygienists" aria-label="Learn more about the American Dental Hygienists">American Dental Hygienists</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/art-club" aria-label="Learn more about the Art Club">Art Club</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/basketball-club" aria-label="Learn more about the Basketball Club">Basketball Club</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/college-democrats" aria-label="Learn more about the College Democrats">College Democrats</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/college-republicans" aria-label="Learn more about the College Republicans">College Republicans</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/communications-club" aria-label="Learn more about the Communications Club">Communications Club</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/dental-students-association" aria-label="Learn more about the Dental Students Association">Dental Students Association</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/haitian-student-association" aria-label="Learn more about the DeSoto Campus Ambassadors">DeSoto Campus Ambassadors</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/hardee-campus-ambassadors" aria-label="Learn more about the Hardee Campus Ambassadors">Hardee Campus Ambassadors</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/institute-for-healthcare-improvement-ihi" aria-label="Learn more about the Institute for Healthcare Improvement">Institute for Healthcare Improvement</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/jac-pac" aria-label="Learn more about Jac Pac">Jac Pac</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/latin-student-organization" aria-label="Learn more about the Latin Student Organization">Latin Student Organization</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/phi-beta-lambda" aria-label="Learn more about Phi Beta Lambda">Phi Beta Lambda</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/phi-theta-kappa" aria-label="Learn more about Phi Theta Kappa">Phi Theta Kappa</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/radiography-club" aria-label="Learn more about the Radiography Club">Radiography Club</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/rotaract" aria-label="Learn more about Rotaract">Rotaract</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/soccer-club" aria-label="Learn more about the Soccer Club">Soccer Club</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/student-nurses-association" aria-label="Learn more about the Student Nurses Association">Student Nurses Association</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/student-practical-nurses" aria-label="Learn more about the Student Practical Nurses">Student Practical Nurses</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/veterans-club-of-south-florida-state-college-vcsfsc" aria-label="Learn more about the Veterans Club of South Florida State College">Veterans Club of South Florida State College</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/volleyball-club" aria-label="Learn more about the Volleyball Club">Volleyball Club</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/student-government-association" aria-label="Learn more about the Student Government Association">Student Government Association</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/student-government-association/constitution" aria-label="Learn more about the SGA Constitution">SGA Constitution</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-students/student-activities-clubs/student-government-association/forms" aria-label="Learn more about SGA Forms">SGA Forms</a>
+                    </div>
+                    <div class="club-card">
+                        <a href="https://www.southflorida.edu/current-scurrent-students/student-activities-clubs/student-government-association/officers" aria-label="Learn more about Your SGA Officers">Your SGA Officers</a>
+                    </div>
+                </div>
+                <hr>
+                <h3>Student Government Association Mission</h3>
+                <p class="eread">The Student Government Association (SGA) is your megaphone at South Florida State College, connecting students with faculty and administration. SGA fuels leadership, throws awesome events, and inspires responsibility through college and community service.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Club Search Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.querySelector('.club-search');
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                document.querySelectorAll('.club-card').forEach(card => {
+                    const clubName = card.querySelector('a').textContent.toLowerCase();
+                    card.style.display = clubName.includes(query) ? 'block' : 'none';
+                });
+            });
+
+            // Testimonial Carousel
+            const testimonials = document.querySelectorAll('.testimonial');
+            let current = 0;
+            const showTestimonial = () => {
+                testimonials.forEach(t => t.classList.remove('active'));
+                testimonials[current].classList.add('active');
+                current = (current + 1) % testimonials.length;
+            };
+            showTestimonial();
+            setInterval(showTestimonial, 5000);
+        });
+    </script>
+</body>
+</html>
