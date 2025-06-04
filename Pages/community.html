@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate and Community Education - South Florida State College</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #ffffff;
+            color: #333366;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        .header-logo {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 20px;
+        }
+        .header-logo img {
+            max-width: 300px;
+            height: auto;
+        }
+        .sidebarMenu {
+            list-style: none;
+            padding: 0;
+            background-color: #f37b20;
+            border-radius: 5px;
+        }
+        .sidebarMenu li {
+            padding: 12px;
+        }
+        .sidebarMenu li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Georgia', serif;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        .sidebarMenu li a:hover {
+            color: #333366;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .accordion-button {
+            background-color: #333366;
+            color: #ffffff;
+            font-family: 'Georgia', serif;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: #f37b20;
+            color: #ffffff;
+        }
+        .banner {
+            background-color: #333366;
+            color: #ffffff;
+            text-align: center;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            animation: fadeIn 1s ease-in;
+        }
+        .banner a {
+            color: #f37b20;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .banner a:hover {
+            color: #d9651a;
+            font-style: italic;
+            text-decoration: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .filter-container {
+            margin-bottom: 30px;
+        }
+        .filter-container select {
+            font-family: 'Georgia', serif;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #333366;
+            background-color: #ffffff;
+            color: #333366;
+            width: 100%;
+            max-width: 300px;
+            font-size: 16px;
+        }
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .catalog-item {
+            text-align: center;
+        }
+        .catalog-item a {
+            display: block;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .catalog-item a:hover {
+            transform: translateY(-5px);
+        }
+        .catalog-item img {
+            width: 100%;
+            max-width: 230px;
+            height: 300px;
+            object-fit: cover;
+            border: 2px solid #333366;
+            border-radius: 5px;
+        }
+        h2 {
+            font-family: 'Georgia', serif;
+            color: #f37b20;
+            font-size: 28px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-family: 'Georgia', serif;
+            color: #f37b20;
+            font-size: 22px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        h4 {
+            font-family: 'Georgia', serif;
+            color: #333366;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 12px;
+            color: #333366;
+            position: relative;
+            padding-left: 25px;
+        }
+        ul li:before {
+            content: '✓';
+            color: #f37b20;
+            position: absolute;
+            left: 0;
+            font-size: 18px;
+        }
+        ul li strong {
+            color: #333366;
+        }
+        hr.section-divider {
+            border: 0;
+            height: 2px;
+            background-color: #f37b20;
+            margin: 40px 0;
+        }
+        .contact-info {
+            text-align: left;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        .contact-info a {
+            color: #f37b20;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-info a:hover {
+            color: #d9651a;
+            text-decoration: underline;
+        }
+        .btn-sfsc {
+            background-color: #f37b20;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-family: 'Georgia', serif;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .btn-sfsc:hover {
+            background-color: #d9651a;
+            color: #ffffff;
+        }
+        @media (max-width: 768px) {
+            .sidebarMenu {
+                margin-bottom: 30px;
+            }
+            .catalog-grid {
+                grid-template-columns: 1fr;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            h3 {
+                font-size: 20px;
+            }
+            body {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- SFSC Logo -->
+        <div class="header-logo">
+            <img src="https://www.southflorida.edu/wp-content/uploads/2021/06/SFSC-Logo.png" alt="South Florida State College Logo">
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <div class="col-md-3 col-sm-12">
+                <div class="sideNav">
+                    <div class="accordion" id="sidebarAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenuCollapse" aria-expanded="true" aria-controls="sidebarMenuCollapse">
+                                    Explore Programs
+                                </button>
+                            </h2>
+                            <div id="sidebarMenuCollapse" class="accordion-collapse collapse show" data-bs-parent="#sidebarAccordion">
+                                <div class="accordion-body">
+                                    <ul class="sidebarMenu">
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/apply-for-funding">Apply for Funding</a></li>
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/allied-health">Allied Health</a></li>
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/nursing-assistant">Nursing Assistant</a></li>
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/business">Business and Professional Development</a></li>
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/computer-workshops">Computer Workshops</a></li>
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/commercial-vehicle-driving">Commercial Vehicle Driving</a></li>
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/fiber-optics">Fiber Optics</a></li>
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/public-services-workshop">Public Services Workshops</a></li>
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/technical-industrial-education">Technical and Industrial Education</a></li>
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/online-classes">Online Classes</a></li>
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/real-estate">Real Estate Online Courses</a></li>
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/insurance-agent">Insurance Agent Online Courses</a></li>
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/register">Register</a></li>
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/accelerated-career-training-online">Accelerated Career Training Online</a></li>
+                                        <li><a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/electronic-warfare">Electronic Warfare</a></li>
+                                        <li><a href="https://www.southflorida.edu/community/community-education/driver-education">Driver Education</a></li>
+                                        <li><a href="https://www.southflorida.edu/community/community-education/heartland-games-active-adults">Heartland Games</a></li>
+                                        <li><a href="https://www.southflorida.edu/community/community-education/lifetime-learners">Lifetime Learners Institute</a></li>
+                                        <li><a href="https://www.southflorida.edu/community/community-education/parents-children-divorce">Parent Education and Family Stabilization</a></li>
+                                        <li><a href="https://www.southflorida.edu/community/community-education/ed2go">Ed2Go Online Classes</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 col-sm-12">
+                <!-- Banner -->
+                <div class="banner">
+                    <p style="font-size: 16pt;">Not sure which career path to take? Discover the best fit for you with a complimentary assessment at <a href="https://sfsc.kuder.com">sfsc.kuder.com</a>.<br>
+                    <span style="font-size: 14pt;">Use Activation Code: J6568273NVJ</span></p>
+                    <p>*No College application or FAFSA required for these short-term training programs.</p>
+                </div>
+
+                <h2>Catalog Overview</h2>
+                <p>Browse our catalogs below to explore the wide range of Corporate and Community Education programs available at SFSC. Click on any catalog to view its full details.</p>
+
+                <!-- Filter Dropdown -->
+                <div class="filter-container">
+                    <select id="catalogFilter" onchange="filterCatalogs()">
+                        <option value="all">All Catalogs</option>
+                        <option value="health">Health and Public Safety</option>
+                        <option value="business">Business and Computers</option>
+                        <option value="technical">Technical and Industrial</option>
+                        <option value="education">Education</option>
+                        <option value="real-estate">Real Estate</option>
+                        <option value="workforce">Workforce Solutions</option>
+                        <option value="personal">Personal Interest</option>
+                    </select>
+                </div>
+
+                <!-- Catalog Grid -->
+                <div class="catalog-grid" id="catalogGrid">
+                    <div class="catalog-item" data-category="workforce">
+                        <a href="https://www.southflorida.edu/wp-content/uploads/2024/10/CCE_Workforce-Solutions-1.pdf" target="_blank" rel="noopener noreferrer">
+                            <img src="https://www.southflorida.edu/wp-content/uploads/2024/10/Workforce-Solutions.jpg" alt="All Fast-Track Courses: Workforce Solutions Catalog">
+                        </a>
+                    </div>
+                    <div class="catalog-item" data-category="business">
+                        <a href="https://www.southflorida.edu/wp-content/uploads/2018/09/Business-and-Computers-Catalog-1.pdf" target="_blank" rel="noopener noreferrer">
+                            <img src="https://www.southflorida.edu/wp-content/uploads/2019/05/CCE_Business_Catalog.png" alt="Business, Professional Development, and Computers Catalog">
+                        </a>
+                    </div>
+                    <div class="catalog-item" data-category="technical">
+                        <a href="https://www.southflorida.edu/wp-content/uploads/2020/03/CDL-Transportation-Logistics-Catalog.pdf" target="_blank" rel="noopener noreferrer">
+                            <img src="https://www.southflorida.edu/wp-content/uploads/2024/03/CCE_CDL-TransportationLogistics_Catalog-1.png" alt="CDL, Transportation, and Logistics Catalog">
+                        </a>
+                    </div>
+                    <div class="catalog-item" data-category="technical">
+                        <a href="https://www.southflorida.edu/wp-content/uploads/2018/08/Construction-Utility-Trade-Catalog-1.pdf" target="_blank" rel="noopener noreferrer">
+                            <img src="https://www.southflorida.edu/wp-content/uploads/2018/09/CCE_ConstructionUtilityTrades_Catalog.png" alt="Construction and Utility Trades Catalog">
+                        </a>
+                    </div>
+                    <div class="catalog-item" data-category="health">
+                        <a href="https://www.southflorida.edu/wp-content/uploads/2018/09/Health-Public-Safety-Catalog-1.pdf" target="_blank" rel="noopener noreferrer">
+                            <img src="https://www.southflorida.edu/wp-content/uploads/2024/03/CCE_HealthPublicSafety_Catalog.png" alt="Health and Public Safety Catalog">
+                        </a>
+                    </div>
+                    <div class="catalog-item" data-category="technical">
+                        <a href="https://www.southflorida.edu/wp-content/uploads/2024/12/MSHA-Catalog.pdf" target="_blank" rel="noopener noreferrer">
+                            <img src="https://www.southflorida.edu/wp-content/uploads/2025/01/MSHA-Miner-Training.jpg" alt="MSHA New Miner and Refresher Training in Hardee County">
+                        </a>
+                    </div>
+                    <div class="catalog-item" data-category="education">
+                        <a href="https://www.southflorida.edu/wp-content/uploads/2024/08/Educators-Catalog-1.pdf" target="_blank" rel="noopener noreferrer">
+                            <img src="https://www.southflorida.edu/wp-content/uploads/2024/08/CCE_Education.png" alt="Professional Development for Educators Catalog">
+                        </a>
+                    </div>
+                    <div class="catalog-item" data-category="real-estate">
+                        <a href="https://www.southflorida.edu/wp-content/uploads/2021/02/Real-Estate-Catalog-1.pdf" target="_blank" rel="noopener noreferrer">
+                            <img src="https://www.southflorida.edu/wp-content/uploads/2018/09/CCE_RealEstate_Catalog.png" alt="Real Estate Catalog">
+                        </a>
+                    </div>
+                    <div class="catalog-item" data-category="technical">
+                        <a href="https://www.southflorida.edu/wp-content/uploads/2018/09/Industrial-Catalog-1.pdf" target="_blank" rel="noopener noreferrer">
+                            <img src="https://www.southflorida.edu/wp-content/uploads/2024/03/CCE_Welding-AdvancedManufacturing_Catalog.png" alt="Welding, Advanced Manufacturing, and Industrial Trades Catalog">
+                        </a>
+                    </div>
+                    <div class="catalog-item" data-category="personal">
+                        <a href="https://www.southflorida.edu/wp-content/uploads/2020/05/Personal-Interest-Catalog-1.pdf" target="_blank" rel="noopener noreferrer">
+                            <img src="https://www.southflorida.edu/wp-content/uploads/2018/09/CCE_PersonalInterest_Catalog.png" alt="Personal Interest Catalog">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <p>South Florida State College is the Heartland’s premier provider of continuing education and professional development. Explore our Corporate and Community Education programs to enhance your skills, pursue new hobbies, or advance your career.</p>
+
+                <h2>Corporate Education</h2>
+                <p>Our Corporate Education programs are designed to support professionals and businesses in achieving their goals through targeted training and development opportunities.</p>
+
+                <h3>Continuing Education</h3>
+                <ul>
+                    <li>Increase productivity and job satisfaction by learning new job-related skills.</li>
+                    <li>Short-term training courses (one-half to two days) upgrade skills in areas such as computer technology, service-related business skills, and agriculture.</li>
+                    <li>License renewal classes train workers who are currently employed and required to maintain their professional licenses through continuing education.</li>
+                </ul>
+
+                <h3>Customized Training</h3>
+                <ul>
+                    <li>CCE staff tailor continuing education programs to meet the needs of your specific business.</li>
+                    <li>Classes are delivered at your work site or any SFSC location.</li>
+                    <li>Training focuses on performance results that will help retain employees and improve morale.</li>
+                    <li>Customized training clients include Highlands County Sheriff’s Office, Wal-Mart, and Progress Energy.</li>
+                </ul>
+
+                <h3>Contract Training</h3>
+                <ul>
+                    <li>Outside agencies lease SFSC facilities, determine the curriculum for their programs, and provide instructors.</li>
+                    <li>SFSC handles enrollment and record-keeping for the classes.</li>
+                    <li>CCE contract training clients have included John Deere, Great Florida Fire School, and contractors’ recertification courses.</li>
+                </ul>
+
+                <hr class="section-divider">
+
+                <h2>Community Education</h2>
+                <p>Our Community Education programs offer opportunities for personal growth, skill development, and lifelong learning, catering to a wide range of interests and needs. This includes our Personal Interest courses, which focus on hobbies and enrichment activities.</p>
+
+                <h3>Personal Enrichment Courses at SFSC</h3>
+                <p>At SFSC, we offer a variety of personal enrichment courses, workshops, hobbies, and special programs designed to enhance your quality of life and teach you new skills. Whether you’re looking to pursue a new hobby or develop a new skill, our classes cater to a wide range of interests.</p>
+
+                <h3>Course Formats and Offerings</h3>
+                <p>Classes are available in face-to-face and online formats, although not all classes are available in both formats. We offer a diverse selection of topics, including:</p>
+                <ul>
+                    <li><strong>Specialized art instruction</strong> (e.g., clay sculpting)</li>
+                    <li><strong>Conversational Spanish</strong></li>
+                    <li><strong>Computer classes</strong></li>
+                    <li><strong>Healthy living</strong></li>
+                    <li><strong>Creative writing</strong></li>
+                    <li><strong>Digital photography</strong></li>
+                    <li><strong>Much more!</strong></li>
+                </ul>
+
+                <h3>Costs and Duration</h3>
+                <p>The cost of our Community Education classes varies based on the length of the program and the materials required. We strive to provide affordable and accessible learning opportunities for everyone.</p>
+                <p>Explore our courses today and discover new ways to enrich your life with SFSC!</p>
+                <a href="https://www.southflorida.edu/current-students/degrees-programs/special-programs/corporate-education-training/register" class="btn-sfsc" target="_blank" rel="noopener noreferrer">Register Now</a>
+
+                <h3>Specialized Programs/Courses</h3>
+                <h4>Lifetime Learners Institute</h4>
+                <p>The Lifetime Learners Institute (LLI) at South Florida State College offers short-term, non-credit educational sessions designed to foster the exchange of ideas and experiences in a collegiate setting.</p>
+
+                <h4>Heartland Senior Games</h4>
+                <p>South Florida State College is no longer a qualifier for the Florida Senior Games.</p>
+                <p>For more information, contact the Highlands County YMCA at <a style="color:#f37b20; text-decoration: none; transition: color 0.3s ease; hover: color: #d9651a" href="tel:863-382-9622">863-382-9622.</a></p>
+
+                <h4>Parent Education and Family Stabilization (Online Only)</h4>
+                <p>Our four-hour Parenting Through Divorce class meets the Florida statute requirements for parents with minor children who are seeking a divorce in Florida. This class addresses the concerns parents may have about the impact of divorce on their children.</p>
+
+                <h3>Instructors</h3>
+                <p>Do you have expertise in a subject area? Are you interested in teaching a Community Education Class? Call us at 863-784-7032, or email our Community Education Department at <a href="mailto:communityeducation@southflorida.edu">communityeducation@southflorida.edu</a>.</p>
+                <button class="btn-sfsc" onclick="scrollToContact()">Contact Us</button>
+
+                <hr class="section-divider">
+
+                <h3 id="contactSection">Contact Us</h3>
+                <div class="contact-info">
+                    <p>Corporate and Community Education<br>
+                    South Florida State College<br>
+                    600 West College Drive<br>
+                    Avon Park, FL 33825<br>
+                    Phone: 863-784-7034<br>
+                    Email (Corporate Education): <a href="mailto:corporatetraining@southflorida.edu">corporatetraining@southflorida.edu</a><br>
+                    Email (Community Education): <a href="mailto:communityeducation@southflorida.edu">communityeducation@southflorida.edu</a></p>
+                </div>
+
+                <!-- Ocelot Chatbot -->
+                <script type="text/javascript" src="https://ai.ocelotbot.com/embed/standard/ac7197cd-72a2-4b9a-a440-179bcd037557"></script>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for sidebar links
+        $(document).ready(function () {
+            $('.sidebarMenu a').on('click', function (event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800);
+                }
+            });
+        });
+
+        // Catalog filter
+        function filterCatalogs() {
+            var filter = $('#catalogFilter').val();
+            $('.catalog-item').each(function () {
+                if (filter === 'all' || $(this).data('category') === filter) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        }
+
+        // Smooth scroll to contact section
+        function scrollToContact() {
+            $('html, body').animate({
+                scrollTop: $('#contactSection').offset().top
+            }, 800);
+        }
+    </script>
+</body>
+</html>

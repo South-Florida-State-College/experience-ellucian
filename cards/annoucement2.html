@@ -1,0 +1,126 @@
+
+<style>
+  .announcement-toggle {
+    cursor: pointer;
+    font-weight: bold;
+    color: #002D72;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+  }
+  .announcement-toggle:hover {
+    color: #F37B20;
+    font-weight: Bold;
+    text-decoration: none;
+  }
+
+  .announcement-content {
+    display: none;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    margin-left: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .badge-new {
+    background-color: #F47B20;
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 6px;
+    margin-left: 0.5rem;
+  }
+
+  .contact-link {
+    color: #F37B20;
+    text-decoration: none;
+  }
+    .contact-link:hover {
+    color: #333366;
+    font-weight: Bold;
+    text-decoration: none;
+  }
+
+  .announcement-link {
+    color: #333366;
+    text-decoration: none;
+  }
+
+  .announcement-link:hover {
+    color: #333366;
+    font-weight: Bold;
+    text-decoration: none;
+  }
+</style>
+
+<div style="font-family: 'Segoe UI', sans-serif; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <!-- Header -->
+  <div style="background: linear-gradient(to right, #333366, #F37B20); color: white; padding: 1rem;">
+    <h2 style="margin: 0; font-size: 1.25rem;">📢 Announcements</h2>
+    <p style="margin: 0; font-size: 0.9rem;">Click an announcement to view more details</p>
+  </div>
+
+  <!-- Body -->
+  <div style="padding: 1rem; background-color: #f9f9f9;">
+    <!-- Announcement 1 -->
+    <div style="margin-bottom: 1rem;">
+      <button class="announcement-toggle" onclick="toggleAnimated('aid', 'badge-aid', 'aidRead')">
+        📄 Financial Aid Summer Information <span id="badge-aid" class="badge-new">New</span>
+      </button>
+      <div id="aid" class="announcement-content">
+        <p>Below you will find important information regarding the Pell grant, bookstore purchases, and refunds for the Summer 2025 term. The processes are significantly different from previous terms.</p>
+        <ul>
+          <li>Only one refund for all aid, issued June 4 via Bank Mobile.</li>
+          <li>Books cannot be charged directly; use refund funds.</li>
+          <li>Contact your Advisor or Financial Aid for drop impacts.</li>
+        </ul>
+        <p>Contact: <a href="mailto:Finaid@southflorida.edu" class="contact-link">Finaid@southflorida.edu</a> | <a href="tel:8637847134" class="contact-link">863-784-7134</a></p>
+      </div>
+    </div>
+
+    <!-- Announcement 2 -->
+    <div>
+      <button class="announcement-toggle" onclick="toggleAnimated('bank', 'badge-bank', 'bankRead')">
+        📄 BankMobile Disbursements <span id="badge-bank" class="badge-new">New</span>
+      </button>
+      <div id="bank" class="announcement-content">
+        <p>If you’ve received your email and need help setting up your account, call:</p>
+        <p><strong>Bank Mobile Customer Service</strong><br>
+        <a href="tel:18773279515" class="contact-link">1-877-EASY-515</a> (1-877-327-9515)<br>
+        Open 7 days a week from 8 a.m. to 11 p.m. ET</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleAnimated(contentId, badgeId, storageKey) {
+    const content = document.getElementById(contentId);
+    const badge = document.getElementById(badgeId);
+
+    if (content.style.display === "block") {
+      content.style.maxHeight = "0px";
+      setTimeout(() => { content.style.display = "none"; }, 400);
+    } else {
+      content.style.display = "block";
+      content.style.maxHeight = content.scrollHeight + "px";
+      if (badge) badge.style.display = "none";
+      if (storageKey) localStorage.setItem(storageKey, "read");
+    }
+  }
+
+  window.onload = function() {
+    if (localStorage.getItem("aidRead")) {
+      document.getElementById("badge-aid").style.display = "none";
+    }
+    if (localStorage.getItem("bankRead")) {
+      document.getElementById("badge-bank").style.display = "none";
+    }
+  };
+</script>
