@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academics - South Florida State College</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <style>
+    :root {
+      --sfsc-orange: rgb(243, 123, 32);
+      --sfsc-blue: rgb(51, 51, 102);
+      --sfsc-white: #fff;
+      --sfsc-gray: #666;
+    }
+    .col-md-4, .col-sm-12 {
+      margin-bottom: 5px;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--sfsc-gray);
+      background-color: var(--sfsc-white);
+      line-height: 1.6;
+    }
+    .hero-section {
+      position: relative;
+      background-image: url('https://www.southflorida.edu/wp-content/uploads/2014/06/mosaic.png');
+      background-size: cover;
+      background-position: center;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--sfsc-white);
+      padding: 20px;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(51, 51, 102, 0.7);
+      z-index: 1;
+    }
+    .hero-section > * {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-section img {
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    .hero-section h1 {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: var(--sfsc-white);
+    }
+    .hero-section p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    .hero-section .btn {
+      background-color: var(--sfsc-orange);
+      color: var(--sfsc-white);
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .hero-section .btn:hover {
+      background-color: #d96a1b;
+    }
+    .program-grid {
+      padding: 40px 20px;
+    }
+    .program-card {
+      background-color: var(--sfsc-white);
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .program-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .program-card h3 {
+      color: var(--sfsc-blue);
+      font-size: 1.5em;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .program-card p {
+      font-size: 1em;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .program-card .dropdown-toggle {
+      background-color: var(--sfsc-blue);
+      color: var(--sfsc-white);
+      border: none;
+      padding: 8px 15px;
+      font-size: 0.9em;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .program-card .dropdown-toggle:hover {
+      background-color: #3b3b66;
+    }
+    .program-card .dropdown-menu {
+      border-radius: 5px;
+      border: 1px solid #e0e0e0;
+    }
+    .program-card .dropdown-item {
+      color: var(--sfsc-blue);
+      font-size: 0.9em;
+      padding: 8px 15px;
+      transition: color 0.3s ease, padding-left 0.3s ease;
+    }
+    .program-card .dropdown-item:hover {
+      color: var(--sfsc-orange);
+      background-color: rgba(243, 123, 32, 0.1);
+      padding-left: 20px;
+    }
+    .footer {
+      background-color: var(--sfsc-blue);
+      color: var(--sfsc-white);
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.9em;
+      line-height: 1.8;
+    }
+    .footer a {
+      color: var(--sfsc-orange);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    @media (max-width: 767px) {
+      .hero-section {
+        height: 400px;
+      }
+      .hero-section h1 {
+        font-size: 2em;
+      }
+      .hero-section p {
+        font-size: 1em;
+      }
+      .program-card h3 {
+        font-size: 1.3em;
+      }
+      .program-card p {
+        font-size: 0.95em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero-section">
+    <img src="https://www.southflorida.edu/wp-content/uploads/SFSC_Logo_Horizontal_OrangeBlue.png" alt="South Florida State College Logo">
+    <h1>Welcome to Academics at South Florida State College</h1>
+    <p>Explore our diverse programs and start your journey today.</p>
+    <a href="https://www.southflorida.edu/current-students/degrees-programs" class="btn">Explore Our Programs</a>
+  </header>
+  <section class="program-grid" id="programs">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Associate in Arts Degree</h3>
+            <p>The Associate in Arts degree is the primary degree for transfer to other colleges and universities, ensuring junior-level admission to Florida institutions.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/associate-arts-aa/education-aa">Associate in Arts Degree</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/associate-arts-aa/arts-and-sciences-departments">Arts and Sciences Departments</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/associate-arts-aa/degree-maps-major">Degree Maps by Major</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/associate-arts-aa/usf-fuse">USF FUSE Transfer Program</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Accounting</h3>
+            <p>Prepare for a career in finance with our Accounting programs, offering hands-on training and industry-relevant skills.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/accounting/accounting-technology-1580">Accounting Technology – Associate in Science</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/accounting/accounting-applications-3010">Accounting Applications – College Credit Certificate</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Automotive</h3>
+            <p>Gain practical skills in automotive repair and maintenance through our comprehensive Automotive programs.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/automotive-programs/service-technology-3220">Automotive Service Technology – Career Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/automotive-programs/collision-technology-technician-3210">Automotive Collision Technology Technician – Career Certificate</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Business</h3>
+            <p>Develop leadership and management skills with our Business programs, designed for career advancement.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/business/supervision-management-bas">Bachelor of Applied Science in Supervision and Management</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/business/business-administration-as">Business Administration – Associate in Science</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/business/business-management-ccc">Business Management – College Credit Certificate</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Cosmetology</h3>
+            <p>Learn the art and science of beauty with our Cosmetology program, preparing you for a creative career.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/cosmetology-programs/cosmetology-3280">Cosmetology – Career Certificate</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Criminal Justice Academy</h3>
+            <p>Train for a career in law enforcement or corrections with our comprehensive Criminal Justice programs.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/criminal-justice-technology">Criminal Justice Technology – Associate in Science</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/training-calendar-corrections-law-enforcement">Criminal Justice Training Calendar</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/law-enforcement-auxiliary-officer-cc">Law Enforcement Auxiliary Officer – Career Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/law-enforcement-correctional-crossover-cc">Law Enforcement to Correctional – Career Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/fl-law-enforcement-academy">Florida Law Enforcement Academy – Career Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/correctional-officer-cc">Correctional Officer – Career Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/3352-public-safety-communication">Public Safety Communication – Career Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/public-safety/bas-sm-with-criminal-justice-specialization">Bachelor of Applied Science in Supervision and Management with Criminal Justice Specialization</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Drafting</h3>
+            <p>Develop skills in technical drawing and design with our Drafting program, ideal for engineering and architecture careers.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/drafting">Drafting</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Bachelor of Science in Elementary Education</h3>
+            <p>Prepare to teach the next generation with our Bachelor of Science in Elementary Education, designed for aspiring educators.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/bsete-admission-requirements">BSETE Admission Requirements</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/bsete-general-student-information">BSETE General Student Information</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/bsete-program-plan-2">BSETE Program Plan</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/bsete-internshipstudent-teaching">BSETE Internship/Student Teaching</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/resources">BSETE Student Resources</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/contacts">BSETE Program Contacts</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/education-scholarships-and-grants">Education Scholarships and Grants</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/bsete-site-visit">BSETE Site Visit</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/elementary-education-bs/state-exam-test-study-materials">State Exam Test Study Materials</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Electricity</h3>
+            <p>Become a skilled electrician with our Electricity programs, offering hands-on training for in-demand careers.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/electrical-programs/electrical-app">Electrical Apprenticeship Program</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/electrical-programs/electrical-lineworker-cc">Electrical Lineworker – Career Certificate</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Electronics</h3>
+            <p>Explore cutting-edge technology with our Electronics programs, preparing you for roles in engineering and IT.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/electronics/computer-systems-information-technology">Computer Systems Information Technology</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/electronics/biomedical-equipment-tech">Biomedical Equipment Technician – Associate in Science</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/electronics/computer-engineering-technology-1680">Computer Engineering Technology – Associate in Science</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Emergency Medical Services</h3>
+            <p>Train to save lives with our Emergency Medical Services programs, designed for aspiring EMTs and paramedics.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/emergency-medical-services/emergency-medical-services-1660">Emergency Medical Services – Associate in Science</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/emergency-medical-services/emergency-medical-technician-basic-2810">Emergency Medical Technician (Basic)</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/emergency-medical-services/paramedic-3042">Paramedic – College Credit Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/emergency-medical-services/ems-contacts">EMS Contacts</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Fire Science</h3>
+            <p>Prepare for a career in firefighting with our Fire Science programs, offering practical training and certification.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/fire-science/fire-science-technology-1670">Fire Science Technology – Associate in Science</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/fire-science/firefighter-minimum-standards">Minimum Standards Application Process</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/fire-science/faqs">Fire Science FAQs</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/fire-science/fire-science-contacts">Fire Science Contacts</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Health Sciences</h3>
+            <p>Enter the healthcare field with our Health Sciences programs, covering nursing, radiography, and more.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/health-services">Health Services</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/medical-administrative-specialist">Medical Administrative Specialist – Career Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/dental">Dental</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/nursing">Nursing</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/phlebotomy">Phlebotomy – Career Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/radiography-as">Radiography – Associate in Science</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/surgical-services">Surgical Services</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/conference-on-caring">Conference on Caring</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/fingerprinting-background-check">Fingerprinting Background Check</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/health-sciences/advanced-patient-care-tech-apprenticeship">Advanced Patient Care Technician Apprenticeship</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Heating, Ventilation, Air Conditioning and Refrigeration (HVAC/R)</h3>
+            <p>Master HVAC/R systems with our programs, preparing you for a career in climate control technology.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/hvacr/hvacr-cc">Heating, Ventilation, Air Conditioning and Refrigeration (HVAC/R) – Career Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/hvacr/commercial-air-conditioning-app">Commercial Air Conditioning – Apprenticeship</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Honors Program</h3>
+            <p>Join our Honors Program for enhanced educational opportunities and exclusive scholarships.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/honors-program/application">Application</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/honors-program/admission-requirements">Admission and Graduation Requirements</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/honors-program/courses">Courses</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/honors-program/scholarships">Honors Scholarships</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/honors-program/service-learning">Service Learning</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/honors-program/faculty">Faculty</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Hospitality</h3>
+            <p>Launch a career in hospitality with our program, focusing on culinary arts and guest services.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/hospitality/professional-culinary-arts-and-hospitality">Professional Culinary Arts and Hospitality – Career Certificate</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Industrial Management Technology</h3>
+            <p>Learn to manage industrial operations with our Associate in Science in Industrial Management Technology.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/industrial-management-technology">Industrial Management Technology – Associate in Science</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Information Technology</h3>
+            <p>Build a career in IT with our programs, covering programming, networking, and cybersecurity.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/information-technology/computer-programming-analysis-1610">Computer Programming and Analysis – Associate in Science</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/information-technology/network-systems-technology-2">Network Systems Technology – Associate in Science</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/information-technology/computer-programming-3020">Computer Programming – College Credit Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/information-technology/network-security-ccc">Network Security – College Credit Certificate</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Mechatronics</h3>
+            <p>Dive into automation and robotics with our Mechatronics programs, blending engineering and technology.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/mechatronics/advanced-manufacturing-and-production-technology-cc">Advanced Manufacturing and Production Technology – Career Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/mechatronics/engineering-technology-as">Engineering Technology – Associate in Science</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/mechatronics/pneumatics-hydraulics-and-motors-for-manufacturing-ccc">Pneumatics, Hydraulics, and Motors for Manufacturing – College Credit Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/mechatronics/mechatronics-college-credit-certificates">Mechatronics College Credit Certificates</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/mechatronics/mechatronics-contacts">Mechatronics Contacts</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="program-card">
+            <h3>Office Administration and Management</h3>
+            <p>Develop essential office skills with our programs, preparing you for administrative roles.</p>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Learn More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/office-administration-management/office-management-ccc">Office Management – College Credit Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/office-administration-management/administrative-office-specialist-cc">Administrative Office Specialist – Career Certificate</a></li>
+                <li><a class="dropdown-item" href="https://www.southflorida.edu/current-students/degrees-programs/academics/office-administration-management/office-administration-as">Office Administration – Associate in Science</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <p>Academic Programs<br>
+    South Florida State College<br>
+    Phone: 863-453-6661<br>
+    South Florida State College<br>
+    600 West College Drive<br>
+    Avon Park, FL 33825<br>
+    <a href="https://www.southflorida.edu">southflorida.edu</a></p>
+  </footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

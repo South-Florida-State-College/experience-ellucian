@@ -1,0 +1,37 @@
+
+<div style="font-family: 'Segoe UI', sans-serif; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <!-- Header -->
+  <div style="background: linear-gradient(to right, #002D72, #005EA2); color: white; padding: 1rem;">
+    <h2 style="margin: 0; font-size: 1.25rem;">📢 Announcements</h2>
+    <p style="margin: 0; font-size: 0.9rem;">Select an announcement to view more details</p>
+  </div>
+
+  <!-- Dropdown and Content -->
+  <div style="padding: 1rem; background-color: #f9f9f9;">
+    <label for="announcementSelect" style="font-weight: bold; color: #002D72;">Choose an Announcement:</label>
+    <select id="announcementSelect" style="width: 100%; padding: 0.5rem; margin-top: 0.5rem; border: 1px solid #ccc; border-radius: 6px;" onchange="showAnnouncement(this.value)">
+      <option value="">-- Select --</option>
+      <option value="aid">Financial Aid Summer Information</option>
+      <option value="bank">BankMobile Disbursements</option>
+    </select>
+
+    <div id="announcementContent" style="margin-top: 1rem; color: #002D72;"></div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function showAnnouncement(value) {
+      const content = {
+        "aid": `<strong>Financial Aid Summer Information</strong><br><p>Below you will find important information regarding the Pell grant, bookstore purchases, and refunds for the Summer 2025 term. The processes are significantly different from previous terms.</p>
+                <ul>
+                  <li>Only one refund for all aid, issued June 4 via Bank Mobile.</li>
+                  <li>Books cannot be charged directly; use refund funds.</li>
+                  <li>Contact your Advisor or Financial Aid for drop impacts.</li>
+                </ul><p>Contact: <a href="mailto:Finaid@southflorida.edu">Finaid@southflorida.edu</a> | 863-784-7134</p>`,
+        "bank": `<strong>BankMobile Disbursements</strong><br><p>If you’ve received your email and need help setting up your account, call:</p>
+                 <p><b>Bank Mobile Customer Service</b><br>1-877-EASY-515 (1-877-327-9515)<br>Open 7 days a week from 8 a.m. to 11 p.m. ET</p>`
+      };
+      document.getElementById('announcementContent').innerHTML = content[value] || '';
+    }
+  </script>
+</div>
