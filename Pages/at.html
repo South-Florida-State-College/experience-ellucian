@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panther Athletics - South Florida State College</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f0f2f5; }
+
+        /* Sidebar Menu: Smooth collapse/expand animation */
+        .sidebarMenu .children { overflow: hidden; max-height: 0; transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1.0), margin-top 0.3s ease; padding-left: 1.5rem; border-left: 2px solid #e5e7eb; margin-left: 0.5rem; }
+        .sidebarMenu .children.open { max-height: 500px; margin-top: 0.5rem; }
+        .sidebarMenu > li > a { cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .sidebarMenu a { transition: color 0.2s ease-in-out, padding-left 0.2s ease-in-out; }
+        .sidebarMenu a:hover { color: #333366; padding-left: 4px; }
+        .chevron { transition: transform 0.3s ease-in-out; }
+        .chevron.rotated { transform: rotate(90deg); }
+
+        /* Tabs: Active state styling */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s; }
+        .tab-btn.active { border-color: #333366; color: #333366; background-color: #dbeafe; }
+
+        /* Modal: Smooth appearance animation */
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.6); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-overlay.visible { opacity: 1; visibility: visible; }
+        .modal-content { background: white; padding: 2rem; border-radius: 0.5rem; max-width: 95%; width: 700px; transform: translateY(20px) scale(0.98); transition: transform 0.3s ease; }
+        .modal-overlay.visible .modal-content { transform: translateY(0) scale(1); }
+        .player-profile { display: none; }
+        .player-profile.active { display: flex; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Photo Gallery Styles */
+        #gallery-main-image { transition: opacity 0.5s ease-in-out; }
+        
+        /* Weather Widget Styles */
+        .weather-widget { font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem; background-color: #eef2ff; padding: 4px 8px; border-radius: 9999px; }
+        .weather-widget i { color: #333366; }
+
+        /* News & Social Feed Styles */
+        .news-item, .social-item { display: flex; gap: 1rem; }
+        .news-item img, .social-item img { width: 100px; height: 100px; object-cover; border-radius: 0.5rem; }
+        .text-blue-700 { color: #F37B20 !important; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <div class="flex flex-col md:flex-row gap-8">
+
+            <!-- Left Column: Side Navigation -->
+            <aside class="w-full md:w-3/12 lg:w-1/4">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-bold mb-4 border-b pb-2 text-gray-700">Athletics Menu</h2>
+                    <ul id="sidebarMenu" class="sidebarMenu space-y-4 text-gray-600"></ul>
+                </div>
+
+                <!-- Social Feed -->
+                <div >
+                    <h2 class="text-xl font-bold mb-4 border-b pb-2 text-gray-700"></h2>
+                    <div id="social-feed" class="space-y-4"></div>
+                </div>
+
+                <!-- <div class="bg-white p-6 rounded-lg shadow-md mt-8">
+                    <h2 class="text-xl font-bold mb-4 border-b pb-2 text-gray-700">Panther Social</h2>
+                    <div id="social-feed" class="space-y-4"></div>
+                </div> -->
+            </aside>
+
+            <!-- Right Column: Main Content -->
+            <main class="w-full md:w-9/12 lg:w-3/4 space-y-8">
+                <div class="bg-white p-6 sm:p-8 rounded-lg shadow-md space-y-8">
+                    <h1 class="text-4xl font-bold text-center text-blue-900">PANTHER ATHLETICS</h1>
+                    
+                    <!-- Photo Gallery -->
+                    <div id="photo-gallery" class="relative flex justify-center">
+                        <img id="gallery-main-image" src="http://www.southflorida.edu/wp-content/uploads/2019/05/website-image-watercolor-1024x786.png" alt="Athletics gallery image" class="w-[77%] h-[600px] object-contain rounded-2xl shadow-lg">
+                        <!-- <button id="gallery-prev" class="absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition"><i class="fas fa-chevron-left"></i></button>
+                        <button id="gallery-next" class="absolute top-1/2 right-4 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition"><i class="fas fa-chevron-right"></i></button> -->
+                    </div>
+
+                <!-- News Section -->
+                 <!-- <div class="bg-white p-6 sm:p-8 rounded-lg shadow-md"> -->
+                    
+                    <!-- <div id="news-feed"></div> -->
+                    <!-- <h2 class="text-3xl font-bold text-gray-800 mb-6">Latest News</h2>
+                    <div id="news-feed" class="space-y-6"></div> -->
+                    
+                <!-- </div> -->
+
+                <!-- <div class="bg-white p-6 sm:p-8 rounded-lg shadow-md space-y-8"> -->
+                    <!-- Countdown -->
+                    <!-- <div id="countdown-section" class="p-6 bg-blue-800 text-white rounded-lg shadow-xl text-center"></div> -->
+
+                    <!-- Schedule/Scoreboard -->
+                    <div>
+                        <h1 ></h1>
+                        <div id="tabs-container" ></div>
+                        <div id="tabs-content-container" ></div>
+                        <!-- <h1 class="text-3xl font-bold text-gray-800 mb-6">Schedule/Scoreboard</h1>
+                        <div id="tabs-container" class="mb-4 flex flex-wrap border-b border-gray-200"></div>
+                        <div id="tabs-content-container" class="mt-4"></div> -->
+                    </div>
+                    <hr>
+                    <!-- General Info -->
+                    <div class="space-y-4 text-lg text-gray-700 leading-relaxed">
+                        <p>The SFSC Fitness Center is open to all students.</p>
+                         <h2 class="text-xl font-semibold"><a href="https://www.southflorida.edu/wp-content/uploads/2021/01/2024-EADA-Complete-Survey.pdf" target="_blank" class="text-blue-700 hover:underline hover:text-blue-900">2022 Equity in Athletics Disclosure Act (EADA) Statement</a></h2>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="info-modal" class="modal-overlay"><div class="modal-content"><h2 id="modal-title" class="text-2xl font-bold mb-4"></h2><div id="modal-body"></div><button id="modal-close" class="mt-6 bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition">Close</button></div></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // --- DATA ---
+    const navData = [
+        {
+            title: "Baseball",
+            children: [
+                { label: "Coach's Corner", href: "https://www.southflorida.edu/community/athletics/baseball/coaches-corner", target: "_blank" },
+                { label: "Roster", href: "https://www.southflorida.edu/community/athletics/baseball/roster", target: "_blank" },
+                { label: "Camps", href: "https://www.southflorida.edu/community/athletics/baseball/camp", target: "_blank" },
+                { label: "Schedule and Results", href: "https://www.southflorida.edu/community/athletics/baseball/schedule-results", target: "_blank" }
+            ]
+        },
+        {
+            title: "Cross Country",
+            children: [
+                { label: "Coach's Corner", href: "https://www.southflorida.edu/community/athletics/cross-country/cross-country-coachs-corner", target: "_blank" },
+                { label: "Roster", href: "https://www.southflorida.edu/community/athletics/cross-country/roster", target: "_blank" },
+                { label: "Schedule and Results", href: "https://www.southflorida.edu/community/athletics/cross-country/schedule-results", target: "_blank" }
+            ]
+        },
+        {
+            title: "Softball",
+            children: [
+                { label: "Coach's Corner", href: "https://www.southflorida.edu/community/athletics/softball/coaches-corner", target: "_blank" },
+                { label: "Roster", href: "https://www.southflorida.edu/community/athletics/softball/roster", target: "_blank" },
+                { label: "Camps", href: "https://www.southflorida.edu/community/athletics/softball/camp", target: "_blank" },
+                { label: "Schedule and Results", href: "https://www.southflorida.edu/community/athletics/softball/schedule-results", target: "_blank" }
+            ]
+        },
+        {
+            title: "Volleyball",
+            children: [
+                { label: "Schedule and Results", href: "https://www.southflorida.edu/community/athletics/volleyball/schedule-results", target: "_blank" },
+                { label: "Camps and Tryouts", href: "https://www.southflorida.edu/community/athletics/volleyball/camp", target: "_blank" },
+                { label: "Coach's Corner", href: "https://www.southflorida.edu/community/athletics/volleyball/coaches-corner", target: "_blank" },
+                { label: "Roster", href: "https://www.southflorida.edu/community/athletics/volleyball/roster", target: "_blank" }
+            ]
+        }
+    ];
+
+    const scheduleData = { Softball: [ { opponent: 'Polk State College', date: '2025-06-12T17:00:00', location: 'Home' }, { opponent: 'Hillsborough CC', date: '2025-06-15T15:00:00', location: 'Away' } ], Baseball: [ { opponent: 'St. Petersburg College', date: '2025-06-10T18:30:00', location: 'Home' }, { opponent: 'State College of Florida', date: '2025-06-14T13:00:00', location: 'Away' } ], Volleyball: [ { opponent: 'Miami Dade College', date: '2025-08-22T19:00:00', location: 'Home' } ], 'Cross Country': [] };
+    const galleryData = {
+        Baseball: [ 'https://placehold.co/800x400/003366/FFFFFF?text=Baseball+Action', 'https://placehold.co/800x400/CC0000/FFFFFF?text=Pitching+Moment', 'https://placehold.co/800x400/FFD700/000000?text=Team+Huddle' ],
+        Softball: [ 'https://placehold.co/800x400/FF69B4/FFFFFF?text=Softball+Hit', 'https://placehold.co/800x400/8A2BE2/FFFFFF?text=Great+Catch' ],
+        Volleyball: [ 'https://placehold.co/800x400/008080/FFFFFF?text=Volleyball+Spike', 'https://placehold.co/800x400/FFA500/FFFFFF?text=Team+Celebration' ],
+        'Cross Country': [ 'https://placehold.co/800x400/228B22/FFFFFF?text=Cross+Country+Race', 'https://placehold.co/800x400/D2B48C/000000?text=Finish+Line' ],
+        Default: [ 'https://placehold.co/800x400/3b82f6/ffffff?text=Panther+Athletics' ]
+    };
+    const newsData = [ { title: 'Panthers Baseball Sweeps Doubleheader', date: 'June 8, 2025', image: 'https://placehold.co/100x100/003366/FFFFFF?text=BSB', summary: 'A dominant pitching performance led the way...' }, { title: 'Volleyball Announces Fall Tryout Dates', date: 'June 7, 2025', image: 'https://placehold.co/100x100/FFA500/FFFFFF?text=VB', summary: 'Open tryouts for the 2025 season will be held in August.' }, { title: 'Cross Country Runner Named Athlete of the Week', date: 'June 5, 2025', image: 'https://placehold.co/100x100/228B22/FFFFFF?text=XC', summary: 'Jane Doe set a new course record...' } ];
+    const socialData = [ { platform: 'twitter', handle: '@PantherSports', text: 'Big win for the softball team today! Final score 5-2. #GoPanthers', image: 'https://placehold.co/100x100/FF69B4/FFFFFF?text=SB' }, { platform: 'instagram', handle: 'PanthersAthletics', text: 'Getting ready for the big game under the lights.', image: 'https://placehold.co/100x100/000000/FFFFFF?text=Lights' } ];
+    const infoData = {
+        'Baseball Roster': {
+            title: 'Baseball Roster',
+            players: [ { id: 1, name: 'John Doe', photo: 'https://placehold.co/150x150/EEEEEE/000000?text=JD', details: 'Pitcher | Sophomore | Tampa, FL' }, { id: 2, name: 'Mike Johnson', photo: 'https://placehold.co/150x150/EEEEEE/000000?text=MJ', details: 'First Base | Freshman | Miami, FL' } ]
+        },
+        'Softball Roster': {
+            title: 'Softball Roster',
+            players: [ { id: 3, name: 'Sarah Lee', photo: 'https://placehold.co/150x150/EEEEEE/000000?text=SL', details: 'Pitcher | Senior | Orlando, FL' } ]
+        }
+    };
+
+    // --- DOM Elements ---
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    const tabsContainer = document.getElementById('tabs-container');
+    const tabsContentContainer = document.getElementById('tabs-content-container');
+    const modal = document.getElementById('info-modal'), modalTitle = document.getElementById('modal-title'), modalBody = document.getElementById('modal-body'), modalCloseBtn = document.getElementById('modal-close');
+    const galleryImg = document.getElementById('gallery-main-image'), galleryPrev = document.getElementById('gallery-prev'), galleryNext = document.getElementById('gallery-next');
+    
+    // --- Initial Page Population ---
+    
+    // Populate Navigation
+    sidebarMenu.innerHTML = navData.map(item => `
+        <li class="page_item page_item_has_children">
+            <a class="font-semibold text-blue-700 hover:text-blue-900">${item.title}
+                <svg class="chevron w-4 h-4 text-gray-500 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </a>
+            <ul class="children space-y-2">
+                ${item.children.map(child => `
+                    <li class="page_item">
+                        <a href="${child.href}" target="_blank" class="info-link" data-info-key="${item.title} ${child.label}">${child.label}</a>
+                    </li>`).join('')}
+            </ul>
+        </li>
+    `).join('');
+
+    // Populate News & Social
+    // document.getElementById('news-feed').innerHTML = newsData.map(item => `
+    //     <div class="news-item hover:bg-gray-50 p-2 rounded-md">
+    //         <img src="${item.image}" alt="${item.title}">
+    //         <div>
+    //             <h3 class="font-bold text-md text-blue-900">${item.title}</h3>
+    //             <p class="text-sm text-gray-500">${item.date}</p>
+    //         </div>
+    //     </div>`).join('');
+    // document.getElementById('social-feed').innerHTML = socialData.map(item => `
+    //     <div class="social-item">
+    //          <img src="${item.image}" alt="Social media image">
+    //         <div>
+    //             <h4 class="font-bold text-sm">${item.handle} <i class="fab fa-${item.platform} text-blue-500"></i></h4>
+    //             <p class="text-sm">${item.text}</p>
+    //         </div>
+    //     </div>`).join('');
+
+    // Populate Schedule Tabs & Content
+    // let firstTab = true;
+    // for (const sport in scheduleData) {
+    //     const isActive = firstTab;
+    //     tabsContainer.innerHTML += `<button class="tab-btn text-md font-semibold py-2 px-4 border-b-4 -mb-px ${isActive ? 'active' : 'border-transparent'}" data-tab="${sport}" data-sport="${sport}">${sport}</button>`;
+    //     const games = scheduleData[sport];
+    //     let contentHTML = `<div id="${sport}" class="tab-content p-4 ${isActive ? 'active' : ''}">`;
+    //     if (games.length > 0) {
+    //         contentHTML += '<ul class="space-y-4">';
+    //         games.forEach(game => {
+    //             const gameDate = new Date(game.date);
+    //             contentHTML += `
+    //                 <li class="p-3 bg-gray-50 rounded-md shadow-sm flex justify-between items-center">
+    //                     <div>
+    //                         <strong>vs ${game.opponent}</strong> <span class="text-sm text-gray-500">(${game.location})</span>
+    //                         <p class="text-sm">${gameDate.toLocaleString('en-US', { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</p>
+    //                     </div>
+    //                     <div class="weather-widget-container" data-location="${game.location}" data-date="${gameDate.toISOString().split('T')[0]}"></div>
+    //                 </li>`;
+    //         });
+    //         contentHTML += '</ul>';
+    //     } else {
+    //         contentHTML += `<p class="text-gray-500 italic">No scheduled games for ${sport}.</p>`;
+    //     }
+    //     contentHTML += '</div>';
+    //     tabsContentContainer.innerHTML += contentHTML;
+    //     firstTab = false;
+    // }
+    
+    // --- Interactivity & Logic ---
+    
+    // Weather Fetching
+    // const weatherIcons = { 0: 'fa-sun', 1: 'fa-cloud-sun', 2: 'fa-cloud-sun', 3: 'fa-cloud', 45: 'fa-smog', 48: 'fa-smog', 61: 'fa-cloud-showers-heavy', 80: 'fa-cloud-showers-heavy', 95: 'fa-bolt' };
+    // async function fetchWeather(container) {
+    //     if (container.dataset.location !== 'Home') return;
+    //     const date = container.dataset.date;
+    //     const url = `https://api.open-meteo.com/v1/forecast?latitude=27.22&longitude=-81.86&daily=weathercode,temperature_2m_max&timezone=America/New_York&start_date=${date}&end_date=${date}`;
+    //     try {
+    //         const response = await fetch(url);
+    //         const data = await response.json();
+    //         if (data.daily) {
+    //             const code = data.daily.weathercode[0];
+    //             const temp = Math.round(data.daily.temperature_2m_max[0] * 9/5 + 32); // C to F
+    //             container.innerHTML = `<div class="weather-widget"><i class="fas ${weatherIcons[code] || 'fa-sun'}"></i><span>${temp}°F</span></div>`;
+    //         }
+    //     } catch (error) { console.error("Weather fetch failed:", error); }
+    // }
+    // document.querySelectorAll('.weather-widget-container').forEach(fetchWeather);
+
+    // Sidebar Logic
+    sidebarMenu.addEventListener('click', e => {
+        const header = e.target.closest('a');
+        if (!header || !header.nextElementSibling?.classList.contains('children')) return;
+        e.preventDefault();
+        header.nextElementSibling.classList.toggle('open');
+        header.querySelector('.chevron').classList.toggle('rotated');
+    });
+
+    // Gallery Logic
+    let currentGallery = galleryData.Default;
+    let currentIndex = 0;
+    const updateGalleryImage = (index) => {
+        galleryImg.style.opacity = '0';
+        setTimeout(() => {
+            galleryImg.src = currentGallery[index];
+            galleryImg.alt = `${document.querySelector('.tab-btn.active')?.dataset.sport || 'Panther'} athletics gallery image ${index + 1}`;
+            galleryImg.style.opacity = '1';
+        }, 500);
+    };
+    galleryPrev.onclick = () => { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; updateGalleryImage(currentIndex); };
+    galleryNext.onclick = () => { currentIndex = (currentIndex + 1) % currentGallery.length; updateGalleryImage(currentIndex); };
+    
+    // Tab Switching Logic
+    tabsContainer.addEventListener('click', e => {
+        if (!e.target.classList.contains('tab-btn')) return;
+        tabsContainer.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        tabsContentContainer.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        e.target.classList.add('active');
+        document.getElementById(e.target.dataset.tab).classList.add('active');
+        
+        // Update Gallery
+        const sport = e.target.dataset.sport;
+        currentGallery = galleryData[sport] || galleryData.Default;
+        currentIndex = 0;
+        updateGalleryImage(currentIndex);
+    });
+    updateGalleryImage(0); // Initial call
+
+    // Countdown Timer
+    const allGames = Object.values(scheduleData).flat().filter(g => new Date(g.date) > new Date()).sort((a,b) => new Date(a.date) - new Date(b.date));
+    const countdownEl = document.getElementById('countdown-section');
+    if(allGames.length > 0) {
+        const nextGame = allGames[0];
+        const gameDate = new Date(nextGame.date);
+        const updateCountdown = () => {
+            const dist = gameDate - new Date();
+            if(dist < 0) { countdownEl.innerHTML = `<h2 class="text-2xl text-green-300">Game is LIVE!</h2>`; clearInterval(timer); return; }
+            const d = Math.floor(dist/(1000*60*60*24)), h = Math.floor((dist%(1000*60*60*24))/(1000*60*60)), m = Math.floor((dist%(1000*60*60))/(1000*60)), s = Math.floor((dist%(1000*60))/1000);
+            countdownEl.innerHTML = `<h2 class="text-2xl font-semibold mb-2">Next Game: vs ${nextGame.opponent}</h2><div class="flex justify-center space-x-4 text-2xl font-mono"><div>${d}<span class="text-xs font-normal block">Days</span></div><div>${h}<span class="text-xs font-normal block">Hours</span></div><div>${m}<span class="text-xs font-normal block">Mins</span></div><div>${s}<span class="text-xs font-normal block">Secs</span></div></div>`;
+        };
+        let timer = setInterval(updateCountdown, 1000);
+        updateCountdown();
+    } else { countdownEl.innerHTML = `<h2 class="text-2xl font-semibold">No upcoming games scheduled.</h2>`; }
+
+    // Modal Logic
+    const openModal = (title, body) => { modalTitle.innerHTML = title; modalBody.innerHTML = body; modal.classList.add('visible'); };
+    const closeModal = () => modal.classList.remove('visible');
+    modalCloseBtn.onclick = closeModal;
+    modal.onclick = e => { if (e.target === modal) closeModal(); };
+    sidebarMenu.addEventListener('click', e => {
+        if (!e.target.classList.contains('info-link')) return;
+        e.preventDefault();
+        const key = e.target.dataset.infoKey;
+        const data = infoData[key];
+        if (data?.players) {
+            let rosterHTML = `<div class="flex gap-4"><ul class="w-1/3 space-y-2">`;
+            data.players.forEach(p => rosterHTML += `<li><a href="#" class="player-link block p-2 rounded hover:bg-gray-100" data-player-id="${p.id}">${p.name}</a></li>`);
+            rosterHTML += `</ul><div id="player-profile-container" class="w-2/3"></div></div>`;
+            openModal(data.title, rosterHTML);
+        } else {
+            openModal('Information', '<p>Details for this section are coming soon.</p>');
+        }
+    });
+
+    modalBody.addEventListener('click', e => {
+        if (!e.target.classList.contains('player-link')) return;
+        e.preventDefault();
+        const rosterKey = modalTitle.textContent;
+        const rosterData = Object.values(infoData).find(d => d.title === rosterKey);
+        const player = rosterData.players.find(p => p.id == e.target.dataset.playerId);
+        document.getElementById('player-profile-container').innerHTML = `
+            <div class="player-profile active items-center gap-4 bg-gray-50 p-4 rounded-lg">
+                <img src="${player.photo}" alt="Photo of ${player.name}" class="w-24 h-24 rounded-full object-cover">
+                <div>
+                    <h4 class="text-xl font-bold">${player.name}</h4>
+                    <p class="text-gray-600">${player.details}</p>
+                </div>
+            </div>`;
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, Calibri, Constantia, Georgia;
+      color: #333;
+      margin: 20px;
+    }
+    h2 {
+      color: #F37B20; /* PMS 166 Orange */
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    h2:hover {
+    /* color: #333366;PMS 295 Blue */
+    }
+    p {
+      margin: 0 0 10px;
+    }
+    .campus-img {
+      width: 300px;
+      height: 150px;
+      border: 1px solid #333;
+      border-radius: 5px;
+    }
+    hr {
+      border: 1px solid #333366;
+    }
+    a, button {
+      color: #333366;
+      text-decoration: none;
+      padding: 5px 10px;
+      border: 1px solid #333366;
+      border-radius: 5px;
+      background: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    a:hover, button:hover {
+      background: #F37B20;
+      color: #FFF;
+    }
+    .details {
+      display: none;
+      margin-top: 5px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="highlands" onmouseover="showDetails('highlands')">Highlands Campus – Avon Park</h2>
+ <!-- <div id="highlands-details" class="details">Key services: Admissions, Library, Athletics</div>-->
+  <p><img src="https://www.southflorida.edu/wp-content/uploads/2014/06/highlands.jpg" alt="Highlands Campus - Avon Park" class="campus-img"></p>
+  <p>600 West College Drive<br>Avon Park, FL 33825<br>Phone: 863-453-6661</p>
+  <p><button onclick="window.open('https://acrobat.adobe.com/id/urn:aaid:sc:US:f9d78a51-b1b3-466a-8aa6-4a7a93eeee99', '_blank')">Print Map (PDF)</button></p>
+  <hr>
+  <h2 id="desoto" onmouseover="showDetails('desoto')">DeSoto Campus – Arcadia</h2>
+ <!-- <div id="desoto-details" class="details">Key services: Emergency Medical Technician, Automotive Service</div> -->
+  <p><img src="https://www.southflorida.edu/wp-content/uploads/2014/06/desoto.jpg" alt="DeSoto Campus - Arcadia" class="campus-img"></p>
+  <p>2251 NE Turner Ave.<br>Arcadia, FL 34266<br>Phone: 863-993-1757</p>
+  <p><button onclick="window.open('https://acrobat.adobe.com/id/urn:aaid:sc:US:342dd5ad-11f9-47f5-a14d-e7ea74b60bad', '_blank')">Print Map (PDF)</button></p>
+  <hr>
+  <h2 id="hardee" onmouseover="showDetails('hardee')">Hardee Campus – Bowling Green</h2>
+ <!-- <div id="hardee-details" class="details">Key services: Electrical Lineworker Training</div>-->
+  <p><img src="https://www.southflorida.edu/wp-content/uploads/2014/06/hardee.jpg" alt="Hardee Campus - Bowling Green" class="campus-img"></p>
+  <p>2968 US 17 North<br>Bowling Green, FL 33834<br>Phone: 863-773-3081</p>
+  <p><button onclick="window.open('https://acrobat.adobe.com/id/urn:aaid:sc:US:f1c4fbf8-ac35-4361-90c8-88673c8a47fd', '_blank')">Print Map (PDF)</button></p>
+  <hr>
+  <h2 id="lake" onmouseover="showDetails('lake')">Lake Placid Center – Lake Placid</h2>
+  <!--<div id="lake-details" class="details">Key services: Administration, Student Services</div>-->
+  <p><img src="https://www.southflorida.edu/wp-content/uploads/2014/07/lakeplacid2.jpg" alt="Lake Placid Center - Lake Placid" class="campus-img"></p>
+  <p>500 E. Interlake Blvd.<br>Lake Placid, FL 33852<br>Phone: 863-465-3003</p>
+  <p><button onclick="window.open('https://acrobat.adobe.com/id/urn:aaid:sc:US:bc18fe67-4a02-4409-b29f-fe4d3e1bf270', '_blank')">Print Map (PDF)</button></p>
+
+  <script>
+    function showDetails(campusId) {
+      var details = document.getElementById(campusId + '-details');
+      details.style.display = details.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>

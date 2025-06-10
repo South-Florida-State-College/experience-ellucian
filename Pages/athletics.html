@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SFSC Panther Athletics</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.22.5/babel.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .sfsc-orange {
+      background-color: rgb(243, 123, 32);
+    }
+    .sfsc-blue {
+      color: rgb(51, 51, 102);
+    }
+    .sfsc-teal {
+      background-color: rgb(0, 176, 175);
+    }
+    .logo-container {
+      background-color: white;
+      padding: 1rem;
+    }
+    .sidebarMenu a {
+      color: rgb(51, 51, 102);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .sidebarMenu a:hover {
+      color: rgb(243, 123, 32);
+    }
+    .sidebarMenu ul.children {
+      margin-left: 1.5rem;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      loading: lazy;
+    }
+    .sticky-sidebar {
+      position: sticky;
+      top: 6rem;
+    }
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .modal {
+      transition: opacity 0.3s ease;
+    }
+    .news-ticker {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-paused {
+      animation-play-state: paused;
+    }
+    .ticker-running {
+      animation: ticker 20s linear infinite;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .carousel-image {
+      transition: opacity 1s ease-in-out;
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .collapse-toggle:hover {
+      background-color: rgb(243, 123, 32);
+      color: white;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div id="root" class="container mx-auto px-4 py-8"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    // Mock data
+    const mockSchedule = {
+      softball: [
+        { date: "Monday, Jun. 16, 2025", time: "3 p.m.", opponent: "Polk State College", location: "Highlands Campus", result: "TBD" },
+        { date: "Wednesday, Jun. 18, 2025", time: "4 p.m.", opponent: "St. Petersburg College", location: "Away", result: "TBD" },
+      ],
+      baseball: [
+        { date: "Wednesday, Jun. 18, 2025", time: "5 p.m.", opponent: "State College of Florida", location: "Away", result: "TBD" },
+      ],
+      volleyball: [
+        { date: "Friday, Jun. 20, 2025", time: "6 p.m.", opponent: "Hillsborough Community College", location: "Highlands Campus", result: "TBD" },
+      ],
+    };
+
+    const mockNews = [
+      "Panther Baseball announces new head coach for 2025 season!",
+      "Volleyball team to host open tryouts on Saturday, Jun. 28, 2025.",
+      "SFSC Athletics launches new fitness program for students."
+    ];
+
+    const carouselImages = [
+      {
+        src: "https://www.southflorida.edu/wp-content/uploads/2019/05/website-image-watercolor-1024x786.png",
+        alt: "Baseball pitcher with second baseman in the background, including text for Baseball, Cross Country, Softball, and Volleyball, with the SF Panthers logo",
+        caption: "Panther Athletics in Action"
+      },
+      {
+        src: "https://placehold.co/1024x786?text=Softball+Team",
+        alt: "SFSC Softball team during a game",
+        caption: "Softball Team Ready to Win"
+      },
+      {
+        src: "https://placehold.co/1024x786?text=Volleyball+Match",
+        alt: "SFSC Volleyball team in action",
+        caption: "Volleyball Power on Display"
+      }
+    ];
+
+    // Analytics tracking placeholder
+    const trackEvent = (category, action, label) => {
+      console.log(`Tracking: ${category} - ${action} - ${label}`);
+      // Replace with actual analytics (e.g., Google Analytics or Ellucian tracking)
+    };
+
+    // Sidebar Component with Collapsible Categories
+    const Sidebar = ({ isOpen, toggleSidebar }) => {
+      const [openCategories, setOpenCategories] = useState({
+        baseball: false,
+        crossCountry: false,
+        softball: false,
+        volleyball: false
+      });
+
+      const toggleCategory = (category) => {
+        setOpenCategories((prev) => ({
+          ...prev,
+          [category]: !prev[category]
+        }));
+        trackEvent('Sidebar', 'Toggle Category', category);
+      };
+
+      return (
+        <div className={`md:w-full ${isOpen ? 'block' : 'hidden md:block'} bg-white p-4 rounded shadow sticky-sidebar`}>
+          <button
+            className="md:hidden sfsc-orange text-white px-4 py-2 mb-4 rounded"
+            onClick={toggleSidebar}
+            aria-label="Toggle sidebar"
+          >
+            Close Menu
+          </button>
+          <ul className="sidebarMenu">
+            <li className="mb-2">
+              <button
+                className="font-bold flex justify-between w-full text-left collapse-toggle"
+                onClick={() => toggleCategory('baseball')}
+                aria-expanded={openCategories.baseball}
+                aria-controls="baseball-menu"
+              >
+                Baseball
+                <span>{openCategories.baseball ? '−' : '+'}</span>
+              </button>
+              <ul id="baseball-menu" className={`children mt-2 ${openCategories.baseball ? 'block' : 'hidden'}`}>
+                <li><a href="https://www.southflorida.edu/community/athletics/baseball/coaches-corner">Baseball Coach’s Corner</a></li>
+                <li><a href="https://www.southflorida.edu/community/athletics/baseball/roster">Baseball Roster</a></li>
+                <li><a href="https://www.southflorida.edu/community/athletics/baseball/camp">Baseball Camps</a></li>
+                <li><a href="https://www.southflorida.edu/community/athletics/baseball/schedule-results">Baseball Schedule and Results</a></li>
+              </ul>
+            </li>
+            <li className="mb-2">
+              <button
+                className="font-bold flex justify-between w-full text-left collapse-toggle"
+                onClick={() => toggleCategory('crossCountry')}
+                aria-expanded={openCategories.crossCountry}
+                aria-controls="cross-country-menu"
+              >
+                Cross Country
+                <span>{openCategories.crossCountry ? '−' : '+'}</span>
+              </button>
+              <ul id="cross-country-menu" className={`children mt-2 ${openCategories.crossCountry ? 'block' : 'hidden'}`}>
+                <li><a href="https://www.southflorida.edu/community/athletics/cross-country/cross-country-coachs-corner">Cross Country Coach’s Corner</a></li>
+                <li><a href="https://www.southflorida.edu/community/athletics/cross-country/roster">Cross Country Roster</a></li>
+                <li><a href="https://www.southflorida.edu/community/athletics/cross-country/schedule-results">Cross Country Schedule and Results</a></li>
+              </ul>
+            </li>
+            <li className="mb-2">
+              <button
+                className="font-bold flex justify-between w-full text-left collapse-toggle"
+                onClick={() => toggleCategory('softball')}
+                aria-expanded={openCategories.softball}
+                aria-controls="softball-menu"
+              >
+                Softball
+                <span>{openCategories.softball ? '−' : '+'}</span>
+              </button>
+              <ul id="softball-menu" className={`children mt-2 ${openCategories.softball ? 'block' : 'hidden'}`}>
+                <li><a href="https://www.southflorida.edu/community/athletics/softball/coaches-corner">Softball Coach’s Corner</a></li>
+                <li><a href="https://www.southflorida.edu/community/athletics/softball/roster">Softball Roster</a></li>
+                <li><a href="https://www.southflorida.edu/community/athletics/softball/camp">Softball Camps</a></li>
+                <li><a href="https://www.southflorida.edu/community/athletics/softball/schedule-results">Softball Schedule and Results</a></li>
+              </ul>
+            </li>
+            <li className="mb-2">
+              <button
+                className="font-bold flex justify-between w-full text-left collapse-toggle"
+                onClick={() => toggleCategory('volleyball')}
+                aria-expanded={openCategories.volleyball}
+                aria-controls="volleyball-menu"
+              >
+                Volleyball
+                <span>{openCategories.volleyball ? '−' : '+'}</span>
+              </button>
+              <ul id="volleyball-menu" className={`children mt-2 ${openCategories.volleyball ? 'block' : 'hidden'}`}>
+                <li><a href="https://www.southflorida.edu/community/athletics/volleyball/schedule-results">Volleyball Schedule and Results</a></li>
+                <li><a href="https://www.southflorida.edu/community/athletics/volleyball/camp">Camps and Tryouts</a></li>
+                <li><a href="https://www.southflorida.edu/community/athletics/volleyball/coaches-corner">Volleyball Coach’s Corner</a></li>
+                <li><a href="https://www.southflorida.edu/community/athletics/volleyball/roster">Volleyball Roster</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      );
+    };
+
+    // Schedule Table Component
+    const ScheduleTable = ({ sport, games }) => (
+      <div className="mb-6 fade-in">
+        <h2 className="text-2xl font-semibold sfsc-blue mb-2">{sport}</h2>
+        {games.length > 0 ? (
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="sfsc-orange text-white">
+                <th className="p-2">Date</th>
+                <th className="p-2">Time</th>
+                <th className="p-2">Opponent</th>
+                <th className="p-2">Location</th>
+                <th className="p-2">Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              {games.map((game, index) => (
+                <tr key={index} className="border-b hover:bg-gray-100 transition-colors">
+                  <td className="p-2">{game.date}</td>
+                  <td className="p-2">{game.time}</td>
+                  <td className="p-2">{game.opponent}</td>
+                  <td className="p-2">{game.location}</td>
+                  <td className="p-2">{game.result}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <h3 className="text-lg">No scheduled games found for Panther {sport}. Please check back later.</h3>
+        )}
+      </div>
+    );
+
+    // Schedule Filter Component
+    const ScheduleFilter = ({ onFilterChange, onReset }) => (
+      <div className="mb-4 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+        <div>
+          <label htmlFor="sport-filter" className="sr-only">Filter by Sport</label>
+          <select
+            id="sport-filter"
+            className="p-2 border rounded sfsc-blue"
+            onChange={(e) => {
+              onFilterChange('sport', e.target.value);
+              trackEvent('Schedule', 'Filter Sport', e.target.value);
+            }}
+          >
+            <option value="all">All Sports</option>
+            <option value="softball">Softball</option>
+            <option value="baseball">Baseball</option>
+            <option value="volleyball">Volleyball</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="location-filter" className="sr-only">Filter by Location</label>
+          <select
+            id="location-filter"
+            className="p-2 border rounded sfsc-blue"
+            onChange={(e) => {
+              onFilterChange('location', e.target.value);
+              trackEvent('Schedule', 'Filter Location', e.target.value);
+            }}
+          >
+            <option value="all">All Locations</option>
+            <option value="Highlands Campus">Highlands Campus</option>
+            <option value="Away">Away</option>
+          </select>
+        </div>
+        <button
+          className="sfsc-orange text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors"
+          onClick={() => {
+            onReset();
+            trackEvent('Schedule', 'Reset Filters', 'All');
+          }}
+        >
+          Reset Filters
+        </button>
+      </div>
+    );
+
+    // Hero Carousel Component
+    const HeroCarousel = () => {
+      const [currentImage, setCurrentImage] = useState(0);
+
+      useEffect(() => {
+        const interval = setInterval(() => {
+          setCurrentImage((prev) => (prev + 1) % carouselImages.length);
+        }, 5000);
+        return () => clearInterval(interval);
+      }, []);
+
+      const goToImage = (index) => {
+        setCurrentImage(index);
+        trackEvent('Carousel', 'Navigate', `Image ${index + 1}`);
+      };
+
+      return (
+        <div className="text-center mb-6 relative h-96 fade-in">
+          {carouselImages.map((image, index) => (
+            <div
+              key={index}
+              className={`carousel-image absolute inset-0 ${index === currentImage ? 'opacity-100' : 'opacity-0'}`}
+            >
+              <img src={image.src} alt={image.alt} className="mx-auto rounded" loading="lazy" />
+              <p className="text-center sfsc-blue mt-2">{image.caption}</p>
+            </div>
+          ))}
+          <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+            {carouselImages.map((_, index) => (
+              <button
+                key={index}
+                className={`w-3 h-3 rounded-full ${index === currentImage ? 'sfsc-orange' : 'bg-gray-400'}`}
+                onClick={() => goToImage(index)}
+                aria-label={`Go to carousel image ${index + 1}`}
+              ></button>
+            ))}
+          </div>
+          <button
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 sfsc-orange text-white p-2 rounded"
+            onClick={() => goToImage((currentImage - 1 + carouselImages.length) % carouselImages.length)}
+            aria-label="Previous carousel image"
+          >
+            &lt;
+          </button>
+          <button
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 sfsc-orange text-white p-2 rounded"
+            onClick={() => goToImage((currentImage + 1) % carouselImages.length)}
+            aria-label="Next carousel image"
+          >
+            &gt;
+          </button>
+        </div>
+      );
+    };
+
+    // News Ticker Component
+    const NewsTicker = () => {
+      const [isPaused, setIsPaused] = useState(false);
+
+      return (
+        <div
+          className={`news-ticker bg-white p-2 mb-4 rounded shadow ${isPaused ? 'ticker-paused' : 'ticker-running'}`}
+          onMouseEnter={() => {
+            setIsPaused(true);
+            trackEvent('NewsTicker', 'Pause', 'Hover');
+          }}
+          onMouseLeave={() => {
+            setIsPaused(false);
+            trackEvent('NewsTicker', 'Resume', 'Hover');
+          }}
+          onClick={() => {
+            setIsPaused(!isPaused);
+            trackEvent('NewsTicker', isPaused ? 'Resume' : 'Pause', 'Click');
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Toggle news ticker pause"
+        >
+          <span className="sfsc-blue">
+            {mockNews.length > 0 ? mockNews.join(" • ") : "No recent athletics news available. Check back soon!"}
+          </span>
+        </div>
+      );
+    };
+
+    // Camp Modal Component
+    const CampModal = ({ isOpen, onClose }) => {
+      const [email, setEmail] = useState('');
+      const modalRef = useRef(null);
+      const firstFocusableRef = useRef(null);
+
+      useEffect(() => {
+        if (isOpen && modalRef.current) {
+          const focusableElements = modalRef.current.querySelectorAll('button, input');
+          firstFocusableRef.current = focusableElements[0];
+          firstFocusableRef.current?.focus();
+          const handleKeyDown = (e) => {
+            if (e.key === 'Escape') {
+              onClose();
+              trackEvent('CampModal', 'Close', 'Escape Key');
+            }
+          };
+          modalRef.current.addEventListener('keydown', handleKeyDown);
+          return () => modalRef.current?.removeEventListener('keydown', handleKeyDown);
+        }
+      }, [isOpen]);
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        trackEvent('CampModal', 'Submit Interest', email);
+        console.log('Registration interest submitted:', email);
+        setEmail('');
+      };
+
+      return (
+        <div
+          className={`modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+          ref={modalRef}
+        >
+          <div className="bg-white p-6 rounded shadow-lg max-w-md w-full">
+            <h2 id="modal-title" className="text-2xl font-semibold sfsc-blue mb-4">Baseball Camp Information</h2>
+            <p className="mb-4">Camp dates and times will be announced on the South Florida State College baseball website as they are scheduled, and flyers will also be mailed out.</p>
+            <p className="mb-4">Please check back later this spring for upcoming camps in the summer.</p>
+            <form onSubmit={handleSubmit} className="mb-4">
+              <label htmlFor="camp-register" className="block mb-2 sfsc-blue">Register Interest</label>
+              <input
+                id="camp-register"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="w-full p-2 border rounded"
+                aria-label="Email for camp registration interest"
+                required
+              />
+              <button
+                type="submit"
+                className="sfsc-orange text-white px-4 py-2 rounded mt-2 hover:bg-orange-600 transition-colors"
+              >
+                Submit
+              </button>
+            </form>
+            <button
+              onClick={() => {
+                onClose();
+                trackEvent('CampModal', 'Close', 'Button');
+              }}
+              className="sfsc-orange text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors"
+              aria-label="Close modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      );
+    };
+
+    // Main App Component
+    const App = () => {
+      const [isModalOpen, setModalOpen] = useState(false);
+      const [filters, setFilters] = useState({ sport: 'all', location: 'all' });
+      const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+      const applyFilters = (schedule) => {
+        let filtered = { ...schedule };
+        if (filters.sport !== 'all') {
+          filtered = { [filters.sport]: schedule[filters.sport] || [] };
+        }
+        if (filters.location !== 'all') {
+          filtered = Object.fromEntries(
+            Object.entries(filtered).map(([sport, games]) => [
+              sport,
+              games.filter((game) => game.location === filters.location)
+            ])
+          );
+        }
+        return filtered;
+      };
+
+      const filteredSchedule = applyFilters(mockSchedule);
+
+      return (
+        <div>
+          {/* Sticky Header */}
+          <header className="sticky-header bg-white p-4 shadow mb-6">
+          <div className="logo-container">
+            <img src="https://www.southflorida.edu/wp-content/uploads/2021/01/SFSC-Logo-Horizontal-Orange-Blue.png" alt="South Florida State College Logo" className="h-16" loading="lazy" />
+            </div>
+            <nav className="flex justify-center space-x-4">
+              <a href="#schedule" className="sfsc-blue hover:text-orange-500">Schedule</a>
+              <a href="#about" className="sfsc-blue hover:text-orange-500">About</a>
+              <button
+                onClick={() => {
+                  setModalOpen(true);
+                  trackEvent('Navigation', 'Open Camp Modal', 'Header');
+                }}
+                className="sfsc-blue hover:text-orange-500"
+              >
+                Baseball Camps
+              </button>
+              <button
+                className="md:hidden sfsc-orange text-white px-4 py-2 rounded"
+                onClick={() => setSidebarOpen(!isSidebarOpen)}
+                aria-label="Toggle sidebar"
+              >
+                {isSidebarOpen ? 'Close Menu' : 'Open Menu'}
+              </button>
+            </nav>
+          </header>
+
+          <div className="flex flex-col md:flex-row">
+            {/* Sidebar */}
+            <div className="md:w-1/4 w-full mb-4 md:mb-0">
+              <Sidebar isOpen={isSidebarOpen} toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} />
+            </div>
+
+            {/* Main Content */}
+            <div className="md:w-3/4 w-full bg-white p-6 rounded shadow">
+              <h1 className="text-4xl font-bold text-center sfsc-blue mb-6 fade-in">Panther Athletics</h1>
+              <HeroCarousel />
+              <NewsTicker />
+              <h2 className="text-2xl font-semibold text-center sfsc-blue mb-4 fade-in">Athletic Scholarships Available</h2>
+              <hr className="my-4" />
+              <h2 className="text-2xl font-semibold text-center sfsc-blue mb-4">
+                <button
+                  onClick={() => {
+                    setModalOpen(true);
+                    trackEvent('Camp', 'Open Modal', 'Main Content');
+                  }}
+                  className="underline hover:text-orange-500 transition-colors"
+                  aria-label="Open baseball camp information"
+                >
+                  Baseball Camp Information
+                </button>
+              </h2>
+              <CampModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
+              <hr className="my-4" />
+              <h1 id="schedule" className="text-3xl font-bold sfsc-blue mb-4 fade-in">Schedule/Scoreboard</h1>
+              <ScheduleFilter
+                onFilterChange={(key, value) => setFilters((prev) => ({ ...prev, [key]: value }))}
+                onReset={() => setFilters({ sport: 'all', location: 'all' })}
+              />
+              {Object.entries(filteredSchedule).map(([sport, games]) => (
+                <ScheduleTable key={sport} sport={sport.charAt(0).toUpperCase() + sport.slice(1)} games={games} />
+              ))}
+              <hr className="my-4" />
+              <h2 id="about" className="text-2xl font-semibold sfsc-blue mb-4 fade-in">Panther Athletic Pride runs strong at South Florida State College.</h2>
+              <p className="mb-4 fade-in">You can see it on the playing fields and in the faces of the fans in the stands. But you don’t have to suit up to enjoy athletics at SFSC.</p>
+              <p className="mb-4 fade-in">SFSC is represented by a men’s baseball team and women’s cross country, softball, and volleyball teams. Youth baseball, softball, and volleyball camps are held at various times during the year.</p>
+              <p className="mb-4 fade-in">The SFSC Fitness Center is open to all students.</p>
+              <h2 className="text-2xl font-semibold sfsc-blue mb-4 fade-in">
+                <a href="https://www.southflorida.edu/wp-content/uploads/2021/01/2024-EADA-Complete-Survey.pdf" className="underline">2022 Equity in Athletics Disclosure Act (EADA) Statement</a>
+              </h2>
+            </div>
+          </div>
+
+          {/* Footer */}
+          <footer className="mt-8 p-4 bg-white rounded shadow text-center fade-in">
+            <img src="https://www.southflorida.edu/wp-content/uploads/2021/01/SFSC-Logo-Horizontal-Orange-Blue.png" alt="South Florida State College Logo" className="h-12 mx-auto mb-4" loading="lazy" />
+            <p className="sfsc-blue">
+              Joe Smith<br />
+              Athletic Coordinator<br />
+              Athletic Department<br />
+              PHONE: 863-784-7036 | FAX: 863-784-7489<br />
+              South Florida State College<br />
+              600 West College Drive<br />
+              Avon Park, FL 33825<br />
+              <a href="https://www.southflorida.edu" className="underline">southflorida.edu</a>
+            </p>
+          </footer>
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panther Athletics Card</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Use the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the details marker (arrow) */
+        summary {
+            list-style: none; /* Remove default marker */
+        }
+        summary::-webkit-details-marker {
+            display: none; /* Remove default marker for Chrome/Safari */
+        }
+        .p-4{
+            margin-top: 5 rem;
+            margin-top: 5 rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+
+    <!-- Main Card Container -->
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 group transition-all duration-300 hover:shadow-2xl hover:border-[#333366] border border-transparent">
+
+        <!-- Header with Icon and Title -->
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img 
+                    src="https://www.southflorida.edu/wp-content/uploads/2019/05/website-image-watercolor-1024x786.png" 
+                    alt="Panther Athletics Logo" 
+                    class="w-16 h-16 rounded-full object-cover shadow-md border-2 border-white group-hover:border-[#333366] transition-all duration-300"
+                    onerror="this.onerror=null;this.src='https://placehold.co/64x64/0ea5e9/ffffff?text=SFSC';">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800 group-hover:text-[#333366] transition-colors duration-300">Panther Athletics</h2>
+                    <p class="text-sm text-slate-500 font-medium">South Florida State College</p>
+                </div>
+            </div>
+            <div class="text-[#F37B20] text-3xl opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
+                <i class="fas fa-basketball"></i>
+            </div>
+        </div>
+
+        <!-- Overview Text -->
+        <div class="mt-5 text-sm text-slate-600 leading-relaxed">
+            Experience the energy of <strong>SFSC Panther Athletics</strong> — from rosters and schedules to camps and game highlights. Cheer for your team and stay updated year-round.
+        </div>
+
+        <!-- Interactive Accordion Sections -->
+        <div class="mt-5 space-y-3">
+            <!-- Baseball Section -->
+            <details class="group border rounded-lg hover:border-[#333366] transition-colors duration-300">
+                <summary class="font-semibold text-slate-700 p-3 flex justify-between items-center cursor-pointer list-none">
+                    <span class="flex items-center gap-3">
+                        <i class="fa-solid fa-baseball text-[#F37B20] w-5 text-center"></i>
+                        Baseball
+                    </span>
+                    <i class="fas fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform duration-300"></i>
+                </summary>
+                <div class="border-t border-slate-200 bg-slate-50 p-3">
+                    <ul class="ml-4 list-disc text-sm text-slate-600 space-y-2">
+                        <li><a href="https://www.southflorida.edu/community/athletics/baseball/roster" target="_blank" class="hover:text-[#F37B20] hover:underline">Roster</a></li>
+                        <li><a href="https://www.southflorida.edu/community/athletics/baseball/schedule-results" target="_blank" class="hover:text-[#F37B20] hover:underline">Schedule & Results</a></li>
+                        <li><a href="https://www.southflorida.edu/community/athletics/baseball/camp" target="_blank" class="hover:text-[#F37B20] hover:underline">Camps</a></li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Softball Section -->
+            <details class="group border rounded-lg hover:border-[#333366] transition-colors duration-300">
+                <summary class="font-semibold text-slate-700 p-3 flex justify-between items-center cursor-pointer list-none">
+                    <span class="flex items-center gap-3">
+                        <i class="fa-solid fa-baseball-bat-ball text-[#F37B20] w-5 text-center"></i>
+                        Softball
+                    </span>
+                    <i class="fas fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform duration-300"></i>
+                </summary>
+                <div class="border-t border-slate-200 bg-slate-50 p-3">
+                    <ul class="mt-2 ml-4 list-disc text-sm text-slate-600 space-y-2">
+                        <li><a href="https://www.southflorida.edu/community/athletics/softball/roster" target="_blank" class="hover:text-[#F37B20] hover:underline">Roster</a></li>
+                        <li><a href="https://www.southflorida.edu/community/athletics/softball/schedule-results" target="_blank" class="hover:text-[#F37B20] hover:underline">Schedule & Results</a></li>
+                        <li><a href="https://www.southflorida.edu/community/athletics/softball/camp" target="_blank" class="hover:text-[#F37B20] hover:underline">Camps</a></li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Volleyball Section -->
+            <details class="group border rounded-lg hover:border-[#333366] transition-colors duration-300">
+                <summary class="font-semibold text-slate-700 p-3 flex justify-between items-center cursor-pointer list-none">
+                    <span class="flex items-center gap-3">
+                        <i class="fa-solid fa-volleyball text-[#F37B20] w-5 text-center"></i>
+                        Volleyball
+                    </span>
+                    <i class="fas fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform duration-300"></i>
+                </summary>
+                <div class="border-t border-slate-200 bg-slate-50 p-3">
+                    <ul class="mt-2 ml-4 list-disc text-sm text-slate-600 space-y-2">
+                        <li><a href="https://www.southflorida.edu/community/athletics/volleyball/roster" target="_blank" class="hover:text-[#F37B20] hover:underline">Roster</a></li>
+                        <li><a href="https://www.southflorida.edu/community/athletics/volleyball/schedule-results" target="_blank" class="hover:text-[#F37B20] hover:underline">Schedule & Results</a></li>
+                        <li><a href="https://www.southflorida.edu/community/athletics/volleyball/camp" target="_blank" class="hover:text-[#F37B20] hover:underline">Camps</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Action Button -->
+        <div class="mt-6">
+            <a href="https://experience.elluciancloud.com/ssc578/page/panther_athletics" target="_blank"
+               class="block text-center bg-[#333366] hover:bg-[#F37B20] text-white py-3 px-4 rounded-lg transition-all duration-300 font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]">
+                <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>
+                Explore Panther Athletics Hub
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
