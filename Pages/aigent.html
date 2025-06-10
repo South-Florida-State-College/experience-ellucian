@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant Support</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2LHJZMW8K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-B2LHJZMW8K', {
+            anonymize_ip: true,
+            user_properties: {
+                role: 'unknown'
+            }
+        });
+        gtag('event', 'page_view', {
+            page_title: 'AI Assistant Support Page',
+            page_path: '/experience/ai-assistant',
+            event_category: 'Page Engagement'
+        });
+    </script>
+    <style>
+        :root {
+            --primary-color: #333366;
+            --secondary-color: #f37b20;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: var(--gradient);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .instructions {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+            width: 95%;
+        }
+
+        .instructions h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .instructions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .instruction-card {
+            background: var(--background-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(51, 51, 102, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .instruction-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(51, 51, 102, 0.1);
+        }
+
+        .instruction-card h3 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .instruction-card p {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .privacy-notice {
+            max-width: 1000px;
+            margin: 0 auto 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            width: 95%;
+            border: 1px solid rgba(51, 51, 102, 0.1);
+        }
+
+        .privacy-notice h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .privacy-notice p {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-notice ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .privacy-notice li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(51, 51, 102, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .privacy-notice li:last-child {
+            border-bottom: none;
+        }
+
+        .privacy-notice li::before {
+            content: "⚠️";
+            font-size: 1.2rem;
+        }
+
+        .chat-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            margin: 2rem auto;
+            max-width: 1000px;
+            width: 95%;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(51, 51, 102, 0.1);
+        }
+
+        .chat-header {
+            background: var(--gradient);
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-header h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .chat-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.25rem;
+        }
+
+        .chat-content {
+            padding: 0;
+        }
+
+        .chat-widget-container {
+            margin: 0 auto;
+            border: none;
+            border-radius: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 600px;
+            background: #fff;
+        }
+
+        #chatInlineRoot-38a17b {
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .chat-container {
+                margin: 1rem auto;
+                width: 100%;
+                border-radius: 0;
+            }
+            
+            .chat-header {
+                padding: 1rem;
+            }
+            
+            .instructions {
+                padding: 1.5rem;
+                margin: 1rem auto;
+            }
+            
+            .instructions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .privacy-notice {
+                padding: 1.5rem;
+                margin: 1rem auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💬 AI Assistant Support</h1>
+            <p>Your intelligent virtual assistant, available 24/7 to help with any questions or concerns</p>
+        </div>
+
+        <div class="instructions">
+            <h2>How to Use the AI Assistant</h2>
+            <p>Our AI assistant is designed to provide quick and helpful responses to your questions. Here's how to get started:</p>
+            
+            <div class="instructions-grid">
+                <div class="instruction-card">
+                    <h3>📝 Type Your Question</h3>
+                    <p>Simply type your question or concern in the chat box below. You can ask about anything from general inquiries to specific technical support.</p>
+                </div>
+                
+                <div class="instruction-card">
+                    <h3>⏱️ Get Instant Response</h3>
+                    <p>The AI assistant will analyze your question and provide a relevant response immediately. No waiting time required.</p>
+                </div>
+                
+                <div class="instruction-card">
+                    <h3>🔄 Follow-up Questions</h3>
+                    <p>Feel free to ask follow-up questions or request clarification. The AI maintains context of your conversation.</p>
+                </div>
+                
+                <div class="instruction-card">
+                    <h3>💡 Tips for Best Results</h3>
+                    <p>Be specific in your questions and provide relevant details when needed. This helps the AI give you the most accurate response.</p>
+                </div>
+
+                <div class="instruction-card">
+                    <h3>🔍 Search History</h3>
+                    <p>Your conversation history is saved, allowing you to reference previous interactions and continue where you left off.</p>
+                </div>
+
+                <div class="instruction-card">
+                    <h3>🎯 Multiple Topics</h3>
+                    <p>You can discuss different topics in the same conversation. The AI can handle various subjects and switch between them seamlessly.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="privacy-notice">
+            <h2>Privacy & FERPA Compliance</h2>
+            <p>This AI assistant is designed to protect your privacy and comply with FERPA (Family Educational Rights and Privacy Act) regulations. Please be mindful of the information you share:</p>
+            
+            <ul>
+                <li>Do not share personally identifiable information (PII) such as student ID numbers, social security numbers, or full names.</li>
+                <li>Avoid discussing specific grades, academic records, or financial information.</li>
+                <li>Do not share login credentials, passwords, or other sensitive account information.</li>
+                <li>Refrain from sharing detailed personal information about yourself or others.</li>
+            </ul>
+
+            <p>If you need to discuss sensitive information, please contact the appropriate department directly through official channels. The AI assistant is designed to provide general information and support while maintaining privacy and security standards.</p>
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-header">
+                <div>
+                    <h2>Start a Conversation</h2>
+                    <p>Chat with our AI assistant now</p>
+                </div>
+            </div>
+            <div class="chat-content">
+                <div class="chat-widget-container">
+                    <div id="chatInlineRoot-38a17b" width="100%" height="600">
+                        <script defer src="https://storage.googleapis.com/agentx-cdn-01/agentx-chat.js?agx=683e0856d290999f1838a17b59%2F4AuDlILxYk3pFeJrrvQ%3D%3D%7CkxfbvrV9qf1tk2lZUif3hX38t5ToJn%2Bu7oLZKLbkRn8%3D"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    

@@ -1,0 +1,61 @@
+<div style="font-family: 'Segoe UI', sans-serif; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 100%; background: #f9f9f9;">
+    <head>
+      <!-- Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2LHJZMW8K"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-B2LHJZMW8K', {
+          anonymize_ip: true,
+          user_properties: {
+            role: 'unknown' // Replace with actual user role if available
+          }
+        });
+    
+        gtag('event', 'page_view', {
+          page_title: 'Live 24/7 Chat Agent Card',
+          page_path: '/experience/cards/chat-agent',
+          event_category: 'Card Engagement'
+        });
+      </script>
+    </head>
+    
+      
+      <!-- Header -->
+      <div style="background: linear-gradient(to right, #333366, #f37b20); color: white; padding: 1rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2 style="margin: 0; font-size: 1.25rem;">💬 Live Chat Support</h2>
+            <p style="margin: 0; font-size: 0.9rem;">Have a question? Chat with our virtual assistant anytime.</p>
+          </div>
+          <button onclick="window.open('https://chat.agentx.ai/683e0856d290999f1838a17b59', '_blank')" 
+                  style="background: white; color: #333366; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 500; transition: all 0.2s ease;">
+            Open Full View
+          </button>
+        </div>
+      </div>
+      
+      <!-- Privacy Notice -->
+      <div style="padding: 1rem; background: #fff3e6; border-bottom: 1px solid #ffe0b3;">
+        <p style="margin: 0 0 0.5rem 0; color: #333366; font-size: 0.9rem; font-weight: 500;">
+          ⚠️ Privacy & FERPA Notice
+        </p>
+        <p style="margin: 0; color: #666; font-size: 0.85rem; line-height: 1.4;">
+          Please do not share sensitive information such as student IDs, grades, or personal details. For sensitive matters, contact the appropriate department directly.
+        </p>
+      </div>
+      
+      <!-- Chat Widget Mount Point -->
+      <div style="padding: 1rem;">
+        <p style="margin-bottom: 1rem; color: #333366;"><strong>Click the chat icon that appears in the lower-right corner to get started.</strong></p>
+      </div>
+    
+      <!-- AgentX Script -->
+      <script defer>
+        document.body.appendChild(document.createElement('div')).setAttribute('id','chatBubbleRoot');
+        window.agx = '683e0856d290999f1838a17b59/4AuDlILxYk3pFeJrrvQ==|kxfbvrV9qf1tk2lZUif3hX38t5ToJn+u7oLZKLbkRn8=';
+      </script>
+      <script defer src="https://storage.googleapis.com/agentx-cdn-01/agentx-chat.js"></script>
+    </div>
+    
