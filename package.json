@@ -1,0 +1,17 @@
+{
+  "name": "experience-ellucian-sfsc",
+  "version": "1.0.0",
+  "description": "Ellucian SFSC Experience Portal",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vite": "^5.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.0.1"
+  }
+} 
