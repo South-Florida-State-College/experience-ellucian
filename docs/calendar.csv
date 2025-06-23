@@ -8,9 +8,9 @@
 6,Priority Registration for Students with over 40 hours including,Fall 2025,"Mar 31, 2025"
 8,Begin Registration for Students with over 20 hours,Fall 2025,"Apr 3, 2025"
 9,Begin Open Registration,Fall 2025,"Apr 7, 2025"
-10,Fee Payment Deadline,Fall 2025,"Aug 7, 2025 *"
-11,CLASSES BEGIN,Fall 2025,"Aug 13, 2025"
-12,Registration Ends (Last Day to Add a Class),Fall 2025,"Aug 15, 2025 **"
+10,
+11,
+12,
 13,Deadline to Drop Classes w/Refund or Change Audit Status.,Fall 2025,"Aug 20, 2025"
 15,MANDATORY ATTENDANCE,Fall 2025,"Aug 13, 2025 - Aug20, 2025"
 16,Deadline to Withdraw with a Grade of W. Last date for Instructors,Fall 2025,"Oct 17, 2025"
@@ -21,10 +21,10 @@
 22,Priority Registration for Students with over 40 hours including,Fall 2025,"Mar 31, 2025"
 24,Begin Registration for Students with over 20 hours,Fall 2025,"Apr 3, 2025"
 25,Begin Open Registration,Fall 2025,"Apr 7, 2025"
-26,Fee Payment Deadline,Fall 2025,"Aug 7, 2025 *"
+26,
 27,CLASSES BEGIN,Fall 2025,"Aug 13, 2025"
 28,Registration Ends (Last Day to Add a Class),Fall 2025,"Aug 15, 2025 **"
-29,Deadline to Drop Classes w/Refund or Change Audit Status.,Fall 2025,"Aug 20, 2025"
+29,
 31,MANDATORY ATTENDANCE,Fall 2025,"Aug 13, 2025 - Aug 20, 2025"
 32,Deadline to Withdraw with a Grade of W. Last date for Instructors,Fall 2025,"Sep 16, 2025"
 34,Last Day of Classes,Fall 2025,"Oct 6, 2025"
@@ -53,10 +53,10 @@
 64,Last Day of Classes,Fall 2025,"Dec 3, 2025"
 65,Faculty - Grades Due to Registrar's Office by NOON,Fall 2025,"Dec 11, 2025"
 67,Convocation,Fall 2025,"Aug 11, 2025"
-69,Energy Saving Fridays,Fall 2025,"May 26, 2025 - July 25, 2025",Holidays (No Classes - College Closed)
-70,"No Classes on Fridays in Summer (May 29, June 5, 12, 19, 26,",Fall 2025,"Sep 1, 2025",Labor Day
-71,"July 3, 10, 17, 24, and 31, 2026). Exceptions: Community",Fall 2025,"Nov 22-30, 2025",Thanksgiving
-72,"Education, Workforce Training, and Adult Education",Fall 2025,"Dec 13, 2025 - Jan 4, 2026",Winter Break
+69,Energy Saving Fridays,Fall 2025,"May 26, 2025 - July 25, 2025",(College Closed of Fridays)
+70,"No Classes-College Closed",Fall 2025,"Sep 1, 2025",Labor Day
+71,"No Classes-College Closed",Fall 2025,"Nov 22, 2025 - Nov 30, 2025",Thanksgiving
+72,"No Classes-College Closed",Fall 2025,"Dec 13, 2025 - Jan 4, 2026",Winter Break
 74,Priority Date for SFSC Foundation Scholarships,Spring 2026,"Nov 15, 2026"
 75,Faculty Return,Spring 2026,"Jan 5, 2026"
 76,Last Day to Apply for Graduation,Spring 2026,"Mar 20, 2026"
@@ -110,7 +110,7 @@
 139,Faculty - Grades Due to Registrar's Office by NOON,Spring 2026,"May 12, 2026"
 142,Professional Development Day,Spring 2026,"Feb 20, 2026"
 144,"No Classes on Fridays in Summer (May 29, June 5, 12, 19, 26,",Spring 2026,"Jan 19, 2026",Martin Luther King
-145,"July 3, 10, 17, 24, and 31, 2026). Exceptions: Community",Spring 2026,"Mar 14-22, 2026",Spring Break
+145,"July 3, 10, 17, 24, and 31, 2026). Exceptions: Community",Spring 2026,"Mar 14, 2026 - Mar 22, 2026",Spring Break
 148,Priority Date for SFSC Foundation Scholarships,Summer 2026,"Apr 1, 2026"
 153,Full Term,Summer 2026,"May 13, 2026 - Aug 3, 2026 (12 weeks)"
 154,Priority Registration for Students with over 40 hours including,Summer 2026,"Oct 6, 2026"
@@ -150,3 +150,4 @@
 198,Faculty - Grades Due to Registrar's Office by NOON,Summer 2026,"Aug 4, 2026"
 218,"No Classes on Fridays in Summer (May 29, June 5, 12, 19, 26,",Summer 2026,"May 25, 2026",Memorial Day
 219,"July 3, 10, 17, 24, and 31, 2026). Exceptions: Community",Summer 2026,"Jul 4, 2026",Independence Day
+220,Energy Saving Fridays,Fall 2026,"May 29, 2026 - July 31, 2026",(College Closed of Fridays)
