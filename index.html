@@ -1,70 +1,2068 @@
-<div style="font-family: 'Segoe UI', sans-serif; border-radius: 12px; overflow: hidden; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-  <div style="background: #333366; color: white; padding: 1rem;">
-    <h2 style="margin: 0; font-size: 1.2rem;">[Card Title]</h2>
-    <p style="margin: 0; font-size: .9rem;">[Card Subtitle or Intro Text]</p>
-  </div>
-
-  <div style="padding: 1rem;" id="directory-container">
-    <div class="section-header">[Section Name]</div>
-    <div class="section-links">
-      <a href="[Resource URL]" target="_blank">📄 [Resource Name]</a>
-    </div>
-  </div>
-
-  <style>
-    .section-header {
-      font-weight: bold;
-      color: #333366;
-      cursor: pointer;
-      font-size: clamp(0.9rem, 2.5vw, 1rem);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid #ccc;
-    }
-    .section-header:hover {
-      text-decoration: underline;
-    }
-    .section-header::after {
-      content: '▼';
-      font-size: 0.8rem;
-      transition: transform 0.3s;
-    }
-    .section-header.active::after {
-      transform: rotate(180deg);
-    }
-    .section-links {
-      display: none;
-      padding: 0.75rem 1rem;
-      background-color: #f9f9f9;
-      border-radius: 6px;
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
-    }
-    .section-links a {
-      display: block;
-      color: #333366;
-      text-decoration: none;
-      margin-bottom: 0.5rem;
-    }
-    .section-links a:hover {
-      color: #F37B20;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-  </style>
-
+<html lang="en" dir="ltr"><plasmo-csui id="brisk-teaching-extension-shadow-root" style="z-index: 2147483647;" data-extension-version="1.0.268" data-extension-name="Brisk Teaching – AI Assistant for Teachers"></plasmo-csui><script async="" defer="" src="chrome-extension://pcblbflgdkdfdjpjifeppkljdnaekohj/GdocApi.0c843771.js" type="text/javascript"></script><head><style>@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  <title>Application Navigator</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="openSSBInExperience" content="false">
+  <link rel="shortcut icon" type="image/png" sizes="32x32" href="/applicationNavigator/assets/favicon-32x32.png">
+  <link rel="shortcut icon" type="image/png" sizes="192x192" href="/applicationNavigator/assets/android-chrome-192x192.png">
+  <link rel="shortcut icon" type="image/png" sizes="96x96" href="/applicationNavigator/assets/favicon-96x96.png">
+  <link rel="shortcut icon" type="image/png" sizes="16x16" href="/applicationNavigator/assets/favicon-16x16.png">
+  
+  <link id="staticFavicon" rel="shortcut icon" sizes="57x57" type="image/x-icon" href="/applicationNavigator/assets/favicon.ico">
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const headers = document.querySelectorAll('.section-header');
-      headers.forEach(header => {
-        header.addEventListener('click', () => {
-          header.classList.toggle('active');
-          const next = header.nextElementSibling;
-          next.style.display = (next.style.display === 'block') ? 'none' : 'block';
-        });
-      });
-    });
+var appContext = '/applicationNavigator';
+var appversion = '3.19';
+var seamlessVersion = '3.19';
+var webifyVersion = '3.18';
+var ie8 = false;
+window.appconfig = {
+"cookieName": "SeamlessFragment",
+"ajaxTimeout": 30000,
+"messageResponseTimeout": 2000,
+"searchInputDelay": 300,
+"exposeTests": false,
+"permanentPlatforms": 
+[
+  "banner8admin",
+  "bannerXEadmin",
+  "bannerHS",
+  "bannerPB"
+],
+"platformGroups": 
+[
+  "banner8admin"
+],
+"persistentArguments": 
+[
+  "wf_args"
+],
+"sessionTimeout": 900,
+"sessionTimeoutNotification": 5,
+"heartBeat": 30,
+"messageTimer": 60,
+"dbInstanceName": "PROD DataBase",
+"templatePath": "assets/templates",
+"interceptPattern": "https://sofl-eis-prod.banner.elluciancloud.com:443/cas.*",
+"menuEndpoints": 
+[
+  "https://sfsc-prod-pxes01.banner.elluciancloud.com:8081/applicationNavigator/commonMenu",
+  "https://sfsc-prod-pxes01.banner.elluciancloud.com:8081/applicationNavigator/commonSelfServiceMenu"
+],
+"selfServiceApps": 
+[
+  "http://SELFSERVICE_APPLICATION_HOST:PORT/<BANNER_SSB_APPLICATION>",
+  "http://SELFSERVICE_APPLICATION_HOST:PORT/<BANNER_SSB_APPLICATION>"
+],
+"logLevel": "off",
+"exposeMenu": true,
+"footerFadeAwayTime": 0,
+"brandTitle": {
+  "Default": "Ellucian University"
+},
+"excludeObjectsFromSearch": 
+[
+  "GSQTOFU",
+  "GTQSDLV",
+  "GTQZIPC",
+  "GUQINTF",
+  "GOQLETR",
+  "GUQQUIK",
+  "GUQSRCH",
+  "GUQWUTL",
+  "GXQTPID",
+  "GUAGMNU",
+  "GUAINIT",
+  "GUQSETI",
+  "FOQMENU",
+  "SOQMENU",
+  "TOQMENU",
+  "AOQMEMU",
+  "GOQMENU",
+  "ROQMENU",
+  "NOQMENU",
+  "POQMENU",
+  "FACICON",
+  "FAQINVP",
+  "FAQMINV",
+  "FAQVINV",
+  "FGQACTH",
+  "FGQAGYH",
+  "FGQDOCB",
+  "FGQDOCN",
+  "FGQDOCP",
+  "FGQFNDE",
+  "FGQFNDH",
+  "FGQLOCH",
+  "FGQORGH",
+  "FGQPRGH",
+  "FOQADDR",
+  "FOQDCSR",
+  "FOQENCB",
+  "FOQFACT",
+  "FOQINVA",
+  "FOQJVCD",
+  "FOQPACT",
+  "FOQRACT",
+  "FOQSDLF",
+  "FOQSDLV",
+  "FPCRCVP",
+  "FPQBLAP",
+  "FPQCHAP",
+  "FRCBSEL",
+  "FSCISSR",
+  "FSCSTKL",
+  "FTQATTS",
+  "FXQDOCN",
+  "FXQDOCP",
+  "**SSB_MASKING",
+  "TSQCONT",
+  "TSQEXPT",
+  "TOQCALC",
+  "GPBADMN",
+  "SFQESTS",
+  "SFQPREQ",
+  "SFQRQST",
+  "SFQRSTS",
+  "SFQSECM",
+  "SFQSECT",
+  "SHQDEGR",
+  "SHQQPNM",
+  "SHQSECT",
+  "SHQSUBJ",
+  "SHQTERM",
+  "SHQTRAM",
+  "SLQBCAT",
+  "SLQEVNT",
+  "SLQMEET",
+  "SLQROOM",
+  "SMQSACR",
+  "SMQSGCR",
+  "SMQSGDF",
+  "SMQSPDF",
+  "SOQCSCP",
+  "SOQCTRM",
+  "SOQHOLD",
+  "RPQLELG",
+  "RPQCOMP",
+  "ROQADDR",
+  "GMAPRTO"
+],
+"strings": {
+  "keyboardShortcutsLabel": "Application Navigator Keyboard Shortcuts",
+  "landingPageLabel": "Display Dashboard",
+  "sidebarSignoutAriaLabel": "Signout",
+  "search_title": "Search",
+  "userPreferencesTip": "dialog, press tab to navigate through items",
+  "applicationErrorPopUp": "Alert",
+  "sidebarSearchAriaLabel": "Search",
+  "searchResultCount": "{{0}} results sorted ascending",
+  "timeoutRefreshButton": "Extend",
+  "browseHelpAppsListOfApps": "List of Help",
+  "checkBannerMessages": "Check Banner Messages",
+  "sidebarRecentlyOpenedAriaLabel": "Recently Opened",
+  "instPrivacyPolicyLink": "Institution Privacy Policy External Link",
+  "areas_label_addtab": "Add Tab",
+  "signoutNavigationTip": "Press tab to navigate through page items",
+  "sortButton": "Sort button",
+  "help": "Help",
+  "ss-app": "SSB 9",
+  "sidebarMenuAriaLabel": "Applications Menu",
+  "signout": "Sign Out",
+  "tab_label_addContent": "Add Content",
+  "search-popover-tooltip-button-close-ariaLabel": "Close the tooltip",
+  "preferences_color_secondary": "Secondary",
+  "workflowTitle": "Workflow",
+  "recentlyClearButtonTip": "Clear button, Press ENTER to clear recently opened items",
+  "open-items-app-title": "Open Items",
+  "closeAbortedUnsavedData": "{0} indicated that they have unsaved data",
+  "preferences_language": "Language",
+  "dashboard": "Dashboard",
+  "editFavoritesShortcutLabel": "Edit Favorites",
+  "backToMainMenu": "Back to Main Menu",
+  "preferences_color_primary": "Primary",
+  "tools": "Tools",
+  "common_reset": "Reset",
+  "welcomeLabel": "Welcome",
+  "clear": "Clear",
+  "userPreferences": "Personal Settings",
+  "searchLabel": "Search",
+  "searching": "Searching...",
+  "preferences_text": "Text",
+  "sidebarHomeAriaLabel": "Application Navigator Home",
+  "default": "Default",
+  "areas_label_addtabWithPlusSymbol": "+ Add Tab",
+  "noResultUserPref": "Please enter a valid Page/URL/Description",
+  "userdetails_signout": "Sign Out",
+  "preferences_lang_direction": "Language Direction",
+  "userdetails_userid_label": "Current User ID:",
+  "backToApplications": "Back to Applications",
+  "NoSearchResult": "No Results Found",
+  "common_remove": "Remove",
+  "addedAsFav": "Added as favorite",
+  "search-popover-tooltip": "You can search for forms, pages, menus, jobs and quickflows.",
+  "trademark_label": "®",
+  "logoutConfirmation": "Do you really want to signout?",
+  "rightShortcut": "right",
+  "errorwindow_label_title": "An error has occurred",
+  "menuTooltip": "Applications",
+  "homeTooltip": "Dashboard",
+  "close": "Close",
+  "userdetails_guest": "Guest",
+  "fromFav": "from Favorites",
+  "directSearchOption": "Direct Navigation",
+  "allAppsAndForms": "Applications",
+  "copyright_disclaimer": "This software contains confidential and proprietary information of Ellucian and its subsidiaries. Use of this software is limited to Ellucian licensees, and is subject to the terms and conditions of one or more written license agreements between Ellucian and the licensee in question.",
+  "signoutShortcutLabel": "Sign Out",
+  "areas_label_edittab": "Edit Tab",
+  "common_ok": "OK",
+  "excludeObjectMsgForMyLinks": "This page is no longer available. Please review your settings on My Links.",
+  "shortcutsLabel": "Shortcuts",
+  "title": "Application Navigator",
+  "upShortcut": "up",
+  "copyright_page_title": "Copyright",
+  "landingPageShortcut": "ctrl+shift+x",
+  "release": "Release:",
+  "keyboardShortcutsTableTip": "Press up or down arrow to navigate through items",
+  "pressCtrlShiftOToDeleteFav": "Press Ctrl Shift O to delete ",
+  "myPreferences": "My Preferences",
+  "pressCtrlShiftOToMarkFav": "Press Ctrl Shift O to mark ",
+  "selfService": "Self-Service",
+  "searchResultCountDescOrder": "{{0}} results sorted descending",
+  "enterMoreCharacters": "Please enter {{0}} more characters",
+  "contentScrollCaught": "#content scrolled: {0}x{1} forcing back to 0x0",
+  "common_yes": "Yes",
+  "ellucian_brand_label": "Ellucian",
+  "searchTooltip": "Search",
+  "sidebarHelpAriaLabel": "Help",
+  "tab_label_bookmarkThisPage": "Bookmark This Page",
+  "leftShortcut": "left",
+  "loadingText": "Loading...",
+  "copyright_end": "2025",
+  "favoritesShortcutLabel": "Display Favorites",
+  "sidebarMEPAriaLabel": "Sidebar MEP",
+  "sidebarFavAriaLabel": "Favorites",
+  "searchPressEnterOrSpace": "Press space to select Search",
+  "status-log": "status for {0} is {1}",
+  "search-placeholder": "Pages, Menus, Jobs and Quickflows",
+  "inverse": "Inverse",
+  "preferredInitialPage": "Preferred initial page",
+  "settings": "Settings",
+  "sessionTimeout": "Session Timeout!",
+  "PageHelp": "Page Help",
+  "error-xdm": "This browser does not support the mandatory HTML5 Cross Document Messaging feature.",
+  "unknown-application": "Unknown Application",
+  "instPrivacyPolicy": "Institution Privacy Policy",
+  "continueLoggingOut": "Do you want to continue logging out?",
+  "unsavedTooltip": "Unsaved",
+  "homeShortcut": "ctrl+shift+x",
+  "preferences_label": "Preferences",
+  "myLinks": "My Links",
+  "brandLabel": "Return Home",
+  "pressOk": "Press OK",
+  "closeNoResponse": "{0} did not respond to the query on its data state. Forcefully closing the application.",
+  "last-login-label": "Last Login: ",
+  "confirmation_label_title": "Confirmation",
+  "descriptionOption": "Description",
+  "preferences_label_title": "User Preferences",
+  "browseAppsListOfApps": "List of Applications",
+  "signoutShortcut": "ctrl+shift+f",
+  "messageLog": "message of type {0} was received from {1}",
+  "openitems": "Open Items",
+  "openAppsShortcutLabel": "Display Recently Opened",
+  "userdetails_help": "Help",
+  "favoritesShortcut": "ctrl+d",
+  "searchShortcut": "ctrl+shift+y",
+  "mepwindowmessage": "Select the data you want to view",
+  "helpShortcutLabel": "Help",
+  "favorites": "Favorites",
+  "unsavedDataStateFound": "One or more applications have unsaved data.",
+  "continueLogout": "Yes, continue Logout",
+  "common_save": "Save",
+  "tab_label_setAsHome": "Set as Home",
+  "processing": "Processing...",
+  "clearRecentlyOpenList": "Currently open pages remain in your recently opened folder after a \"Clear Recently Opened\" action. Only closed pages can be removed from history.",
+  "privacyPolicy": "Ellucian Privacy Policy",
+  "common_no": "No",
+  "clearTipOnTab": "Press tab to navigate to clear button",
+  "browseFavoritesAppsListOfApps": "List of Favorites",
+  "dontShowMessage": "Do not show this message again",
+  "searchOption": "Search",
+  "helpShortcut": "ctrl+shift+l",
+  "timeoutConfirmationCounter": "Warning! Due to inactivity, your session will expire in {{0}}.",
+  "signoutConfirmation": "Do you need sign out confirmation?",
+  "removedAsFav": "Removed from favorite",
+  "clearButton": "Clear button",
+  "placeholderUserPref": "Enter Page URL/Acronym/Description",
+  "deleteFavoriteConfirmations": "This page is no longer available on the menu and will be removed from your Favorites folder.",
+  "sortTipOnTab": "Press tab to navigate to sort",
+  "searchShortcutLabel": "Search",
+  "applicationErrorClose": "Ok",
+  "menuShortcutLabel": "Display Applications",
+  "preferences_color_interaction": "Interaction",
+  "preferences_theme": "Theme",
+  "browseButtonText": "Browse",
+  "clearLabel": "Clear Recently Opened",
+  "menu-search-placeholder": "Menu Search...",
+  "openAppsShortcut": "ctrl+y",
+  "sortByPreference": "Sort by",
+  "downShortcut": "down",
+  "common_cancel": "Cancel",
+  "openitems_label_closeAll": "Close All",
+  "keyboardShortcutsCloseButtonTip": "Close button, press enter or escape to close the dialog",
+  "searchResultOne": "1 result",
+  "preferences_localize": "Localize",
+  "preferences_color_selection": "Selection",
+  "tab_label_findOtherPage": "Find Other Page",
+  "banner8admin": "INB - Forms",
+  "noSchoolBrandDefined": "No School Brand Defined",
+  "areas_label_browse": "Browse",
+  "reload": "Reload",
+  "sessionExpire": "Your session has expired. Click Reload to access login page.",
+  "themeMenuCaption": "Themes",
+  "userdetails_signin": "Sign In",
+  "sidebarToggleAriaLabel": "Toggle Menu Press enter to expand the Toggle Menu",
+  "acronymOption": "Acronym",
+  "my": "My",
+  "menuShortcut": "ctrl+m",
+  "asFav": "as Favorites",
+  "no": "No",
+  "privacyPolicyLink": "Ellucian Privacy Policy External Link",
+  "mepwindowcontinue": "Select",
+  "timeoutConfirmationMessage": "To extend your session another {{0}} minute(s), please press the Extend button.",
+  "localeMenuCaption": "Locales",
+  "leftMenubarContentLabel": "Toggle Menu",
+  "ss8-app": "SSB 8",
+  "search-popover-tooltip-button-close": "Close",
+  "openitems_label_closeSelected": "Close Selected",
+  "applicationIsUnavailable": "{0} is currently unavailable.",
+  "tab_label_name": "Tab Name",
+  "Directsearch-placeholder": "Pages, Menus, Jobs and Quickflows",
+  "recentlyOpened": "Recently Opened",
+  "mepwindowtitle": "Set Institution Code",
+  "directSearchPressEnterOrSpace": "Press space to select Direct Navigation",
+  "page": "INB",
+  "copyright_text": "Ellucian Company L.P. and its affiliates.",
+  "recentlyOpenedTip": "Press up or down arrow to navigate through items, and press tab to navigate to clear button",
+  "editFavoritesShortcut": "ctrl+shift+O",
+  "closeShortcut": "escape",
+  "loadingtext": "Loading...",
+  "openTooltip": "Recently Opened",
+  "rootMenuCaption": "Applications",
+  "searchPreference": "Search preference indicator",
+  "copyright_init": "© 2014",
+  "logout_url": "/applicationNavigator/saml/logout"
+}
+};
+window.appconfig.hasParent = false;
+window.vpdiOption = null;
+window.vpdiOptions = null;
+window.channelsFlow = false;
+window.isAdminUser = true;
+window.messageCount = 0;
+window.searchMinChars = 3;
+window.instText = "";
+window.defaultSearch = "search";
+window.instPrivacyPolicy = {};
+window.persistentArguments = {};
+
+      var globalVarStr  =  '';
+      if (globalVarStr) {
+          var globalVarObj = JSON.parse(globalVarStr.replace(/&quot;/g, '"'));
+          window['global_variables'] = globalVarObj;
+      }
+      
+      var wfMode  =  '';
+      if (wfMode) {
+          window['wfMode'] = wfMode;
+      }
+      </script>
+      <!--[if lte IE 8]>
+      <script>
+          document.createElement( 'searchinput' );
+      </script>
+      <![endif]-->
+
+      <!--[if IE 8]>
+      <script>
+          ie8 = true;
+      </script>
+      <![endif]-->
+              
+  <script type="text/javascript">
+      
+window.i18n = {
+"net.hedtech.banner.access.denied.dialog.action": "Sign In",
+"year": "year",
+"platform.shortcut.datepicker.moveup.windows.combination": "up",
+"seamless.keyboardShortcutsLabel": "Application Navigator Keyboard Shortcuts",
+"error.css.import.url.invalid": "The URL for stylesheet import could not be accepted for security reasons. The url was {0}. ",
+"js.dataTable.pageOf": "of",
+"default.mepcode.not.found.message": "Mep code {0} not found",
+"timepicker.min.aria.24hrs.label": "Minutes list, press up and down arrow keys to change Minutes. Press left arrow key to move to Hours list.",
+"net.hedtech.banner.resetpassword.password.match.error": "Passwords did not match.",
+"default.invalid.email.message": "Property [{0}] of class [{1}] with value [{2}] is not a valid e-mail address",
+"net.hedtech.banner.resetpasword.securityquestion.notfound.message": "Security question(s) and answer(s) need to be defined.",
+"seamless.landingPageLabel": "Display Dashboard",
+"platform.shortcut.datepicker.movedown.description": "Move forward between day of week",
+"userpreference.popup.language.save": "Save",
+"js.timepicker.cancel": "CANCEL",
+"seamless.sidebarSignoutAriaLabel": "Signout",
+"seamless.search_title": "Search",
+"error.css.tag.property.invalid": "The {0} tag had a style attribute, \"{1}\", that could not be allowed for security reasons.",
+"default.time.increment": "Increment",
+"net.hedtech.banner.access.denied.message": "You are not authorized to view this page.",
+"js.input.datepicker.info": "Press F9 to open/close the calendar",
+"git.closest.tag.name": "",
+"error.cdata.found": "A CDATA section was found, which is not allowed. The rest of the message is intact, and its removal should not have any side effects. The contents of the CDATA was \"{0}\".",
+"default.dateshorttime.format": "MM/dd/yyyy hh:mm a",
+"seamless.userPreferencesTip": "dialog, press tab to navigate through items",
+"default.mep.policy.save.error.message": "The {0} can not be saved with the process context {1} selected",
+"platform.shortcut.grid.rightarrow.description": "Move to next cell in the grid",
+"userpreference.popup.language.heading": "Language Setting",
+"js.timepicker.set": "SET",
+"platform.shortcut.datepicker.enter.description": "Close calendar with date selection",
+"org.opensaml.xml.security.x509.X509DigestCriteria": "org.opensaml.xml.security.credential.criteria.EvaluableX509DigestCredentialCriteria",
+"error.attribute.invalid.removed": "The {0} tag contained an attribute that we could not process. The {1} attribute had a value of \"{2}\". This value could not be accepted for security reasons. We have chosen to remove the entire {0} tag in order to continue processing the input.",
+"seamless.applicationErrorPopUp": "Alert",
+"default.runtime.not.yet.implemented": "Sorry, {0}{1} is not yet implemented",
+"platform.shortcut.header.notification.windows.combination": "Alt+N",
+"pagination.page.of.label": "of",
+"platform.shortcut.datepicker.pagedown.description": "Move to same date in next month",
+"default.language.direction": "ltr",
+"default.optimistic.locking.failure": "Another user has updated this {0} while you were editing",
+"platform.shortcut.datepicker.home.mac.combination": "fn+left",
+"pagination.per.page.label": "Per Page",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.lessthanorisnull": "Less Than or IS NULL",
+"net.hedtech.banner.resetpassword.username": "User Name",
+"days": "days",
+"default.number.format": "0",
+"error.tag.removed": "The {0} tag is not allowed for security reasons. This tag should not affect the display of the input. ",
+"default.time.withSeconds.format": "HH:mm:ss",
+"net.hedtech.banner.resetpassword.request.invalid.message": "Invalid Request, please try again!",
+"platform.shortcut.header.menu.mac.combination": "option+M",
+"net.hedtech.banner.logoutpage.copyright2": "This software contains confidential and proprietary information about Ellucian and its subsidiaries. Use of this software is limited to Ellucian licensees & is subject to the terms and conditions of one or more written license agreements between Ellucian and the licensee in question.",
+"net.hedtech.banner.errors.login.expired": "Password expired; Logon denied.",
+"platform.shortcut.grid.home.description": "Move the focus to the first cell of the current row",
+"timebox.24hr.format": "HH:mm",
+"error.css.stylesheet.relative": "The stylesheet referenced a relative stylesheet, \"{0}\", that could not be retrieved.",
+"seamless.sidebarSearchAriaLabel": "Search",
+"pieChart.main.label.other": "Other",
+"seamless.searchResultCount": "{{0}} results sorted ascending",
+"platform.shortcut.datepicker.pageup.description": "Move to same date in previous month",
+"seamless.timeoutRefreshButton": "Extend",
+"default.date.time.error": "Invalid date time. Format: {0}",
+"js.net.hedtech.banner.ajax.continue.button": "Continue",
+"js.notification.NoChangesToSave": "No Changes To Save",
+"seamless.browseHelpAppsListOfApps": "List of Help",
+"seamless.checkBannerMessages": "Check Banner Messages",
+"seamless.sidebarRecentlyOpenedAriaLabel": "Recently Opened",
+"platform.shortcut.datepicker.enter.mac.combination": "enter",
+"default.time.display.ampm": "AM/PM",
+"default.not.equal.message": "Property [{0}] of class [{1}] with value [{2}] cannot equal [{3}]",
+"seamless.instPrivacyPolicyLink": "Institution Privacy Policy External Link",
+"seamless.areas_label_addtab": "Add Tab",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.notequals": "Not Equals",
+"platform.shortcut.header.notification.description": "Toggle Notification Center (if notifications are available)",
+"seamless.signoutNavigationTip": "Press tab to navigate through page items",
+"error.comment.removed": "The comment field was filtered out for security reasons. The value of the comment field was {0}.",
+"error.css.import.failure": "The remote stylesheet found within the input, located at {0}, that could not be retrieved. The site may be down or at an unaccessible host. This may not affect the format of the input.",
+"seamless.sortButton": "Sort button",
+"seamless.help": "Help",
+"net.hedtech.banner.resetpassword.question": "Question",
+"seamless.ss-app": "SSB 9",
+"seamless.sidebarMenuAriaLabel": "Applications Menu",
+"org.opensaml.xml.security.criteria.KeyLengthCriteria": "org.opensaml.xml.security.credential.criteria.EvaluableKeyLengthCredentialCriteria",
+"seamless.signout": "Sign Out",
+"storageAccess.acknowledgementMessage": "To get started with your personalized, easy-to-use experience, your consent is needed to sync your data and information. After clicking <B>continue<\u002fB>, you may be directed to an additional message to consent to the cookies and website access required for personalization.",
+"net.hedtech.banner.resetpassword.disabled.message": "Reset password functionality is currently disabled.",
+"seamless.tab_label_addContent": "Add Content",
+"seamless.search-popover-tooltip-button-close-ariaLabel": "Close the tooltip",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.isnull": "is null",
+"platform.shortcut.aria.focussed": "Use Tab key to navigate to next section or shortcut.",
+"about.component.tab.general": "General",
+"platform.shortcut.grid.end.windows.combination": "End",
+"seamless.preferences_color_secondary": "Secondary",
+"seamless.workflowTitle": "Workflow",
+"seamless.recentlyClearButtonTip": "Clear button, Press ENTER to clear recently opened items",
+"js.datepicker.info": "To change year use CTRL + SHIFT + Page Up or Page DOWN keys. To change month use Page Up or Page DOWN keys. To select week-day use UP or DOWN or LEFT or RIGHT keys. To reset to current date use CTRL + SHIFT + HOME. Use F9 again or ESC to close the calendar.",
+"default.created.message": "{0} {1} created",
+"js.grid.columns.button": "Columns",
+"platform.shortcut.datepicker.home.description": "Move to first day of current month",
+"seamless.open-items-app-title": "Open Items",
+"js.notification.success": "Save Successful",
+"years": "years",
+"last_day_of_month": "last day of month",
+"pagination.previous.label": "Previous page",
+"error.pi.found": "An XML processing instruction was found, which is not allowed. The rest of the message is intact, and its removal should not have any side effects. The contents of the instruction was \"{0}\".",
+"net.hedtech.banner.custom.error.action": "OK",
+"about.banner.other.plugins": "Other Plugins",
+"platform.shortcut.datepicker.moveprevyear.description": "Move to same date in previous year",
+"xe.text.chars.remaining.aria": "Remaining Characters : {0}",
+"seamless.closeAbortedUnsavedData": "{0} indicated that they have unsaved data",
+"acknowledgement.title": "Acknowledgment",
+"default.timepicker.time.format": "HH:mm",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.equals": "Equals",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.greaterthanequals": "Greater Than or Equal",
+"error.css.import.toolarge": "The stylesheet located at {0} causes the total input to be too large and was not imported. The maximum size of all input is limited to {1} bytes.",
+"js.timepicker.selectText": "Set Time",
+"net.hedtech.banner.resetpassword.forgotpassword.title": "Forgot Password",
+"about.banner.title": "About Banner",
+"seamless.preferences_language": "Language",
+"seamless.dashboard": "Dashboard",
+"git.commit.message.full": "2.4.4\n",
+"platform.shortcut.header.menu.description": "Toggle Application Menu",
+"seamless.editFavoritesShortcutLabel": "Edit Favorites",
+"org.opensaml.xml.security.x509.X509SubjectNameCriteria": "org.opensaml.xml.security.credential.criteria.EvaluableX509SubjectNameCredentialCriteria",
+"default.banner.api.error": "The following error(s) have occurred:",
+"default.validation.errors.message": "The {0} cannot be saved, as it contains errors",
+"net.hedtech.banner.resetpassword.button.cancel": "Cancel",
+"net.hedtech.banner.errors.serverError.error": "Error Message:",
+"FileManagerService.directoryPath.required.message": "directoryPath is required",
+"platform.shortcut.header.signin.description": "Sign-in/Sign-Out",
+"seamless.backToMainMenu": "Back to Main Menu",
+"js.dataTable.sInfoEmpty": "Records found: 0",
+"seamless.preferences_color_primary": "Primary",
+"seamless.tools": "Tools",
+"seamless.common_reset": "Reset",
+"org.opensaml.xml.security.criteria.EntityIDCriteria": "org.opensaml.xml.security.credential.criteria.EvaluableEntityIDCredentialCriteria",
+"every_multi": "every",
+"platform.shortcut.grid.downarrow.description": "Move to the next cell in the next row, same column",
+"default.time.pm": "PM",
+"seamless.welcomeLabel": "Welcome",
+"changeExpiredPassword.password.required.error": "All Password Fields are required.",
+"platform.shortcut.grid.uparrow.mac.combination": "up",
+"platform.shortcut.datepicker.enter.windows.combination": "Enter",
+"seamless.clear": "Clear",
+"seamless.userPreferences": "Personal Settings",
+"seamless.searchLabel": "Search",
+"pieChart.table.percentage": "percentage",
+"git.branch": "2.4.x",
+"default.dateEntry.format": "MM/dd/yy",
+"platform.shortcut.aria.sectionheading": "Press Enter to Expand/Collapse the section",
+"net.hedtech.banner.resetpassword.resetpassword.message": "Enter your new password.",
+"springSecurity.login.password.label": "Password",
+"platform.shortcut.grid.pagedown.mac.combination": "fn+down",
+"multipleSeconds": "{2} seconds",
+"seamless.searching": "Searching...",
+"application.version": "3.19",
+"seamless.preferences_text": "Text",
+"net.hedtech.banner.resetpassword.recoverycode.title": "Recovery Code Validation",
+"seamless.sidebarHomeAriaLabel": "Application Navigator Home",
+"js.net.hedtech.banner.logout.timeout.acknowledgement": "Sign In",
+"about.banner.db.instance.name": "DB Instance Name",
+"seamless.default": "Default",
+"seamless.areas_label_addtabWithPlusSymbol": "+ Add Tab",
+"seamless.noResultUserPref": "Please enter a valid Page/URL/Description",
+"communication.template.mobileDateSentFormat": "MMM dd, yyyy, hh:mm a",
+"net.hedtech.banner.resetpassword.answer.match.error": "Authorization failure: One or more answers did not match",
+"default.button.delete.label": "Delete",
+"net.hedtech.banner.errors.serverError.backToHomeButton.label": "Return Home",
+"seamless.userdetails_signout": "Sign Out",
+"js.dataTable.sInfo": "Records found: _TOTAL_",
+"grails.version": "6.2.3",
+"seamless.preferences_lang_direction": "Language Direction",
+"net.hedtech.banner.errors.login.credentialnotfound": "The system configured for external authentication and identity assertion is null.",
+"and": "and",
+"batch.drop.script": "classpath:/org/springframework/batch/core/schema-drop-postgresql.sql",
+"git.commit.user.email": "scott@alwaysvip.com",
+"seamless.userdetails_userid_label": "Current User ID:",
+"FileManagerService.empty.content.message": "Missing Content. Supplied file is empty",
+"working": "copy status: not clean (changes found)",
+"seamless.backToApplications": "Back to Applications",
+"js.dataTable.sZeroRecords": "Nothing found - sorry",
+"default.invalid.usPhone.message": "Property [{0}] of class [{1}] with value [{2}] is not a valid  Phone number",
+"net.hedtech.banner.resetpassword.repassword": "Re-Enter Password",
+"platform.shortcut.datepicker.moveright.description": "Move to next day",
+"js.notification.label": "Notifications",
+"springSecurity.errors.login.locked": "Sorry, your account is locked.",
+"springSecurity.login.remember.me.label": "Remember me",
+"minute": "minute",
+"seamless.NoSearchResult": "No Results Found",
+"platform.shortcut.grid.uparrow.windows.combination": "up",
+"default.century.below.pivot": "2000",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.after": "After",
+"pagination.last.label": "Last page",
+"springSecurity.login.button": "Login",
+"default.paginate.next": "Next",
+"platform.shortcut.datepicker.moveup.description": "Move backward between day of week",
+"seamless.common_remove": "Remove",
+"seamless.addedAsFav": "Added as favorite",
+"seamless.search-popover-tooltip": "You can search for forms, pages, menus, jobs and quickflows.",
+"seamless.trademark_label": "®",
+"seamless.logoutConfirmation": "Do you really want to signout?",
+"acknowledgement.header1.content": "Complete Acknowledgment",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.greaterthanorisnull": "Greater Than or IS NULL",
+"net.hedtech.banner.resetpassword.resetpin.password.length.error": "Password must be 6 characters long.",
+"platform.shortcut.grid.space.description": "Toggle column sorting",
+"pattern_every_seconds": "{0} {1}",
+"net.hedtech.banner.resetpassword.guest.url.invalid.message": "Invalid URL",
+"seamless.rightShortcut": "right",
+"seamless.errorwindow_label_title": "An error has occurred",
+"seamless.menuTooltip": "Applications",
+"net.hedtech.banner.resetpassword.resetpassword.link.message": "Forgot Password",
+"batch.database.incrementer.class": "org.springframework.jdbc.support.incrementer.PostgresSequenceMaxValueIncrementer",
+"net.hedtech.banner.resetpassword.resetpassword.title": "Reset Password",
+"seamless.homeTooltip": "Dashboard",
+"js.net.hedtech.banner.logout.timeout.promptMessage": "You are no longer using a valid session.  You must log back in.",
+"platform.shortcut.datepicker.end.windows.combination": "End",
+"js.dataTable.sInfoFiltered": "(filtered from _MAX_ total records)",
+"default.not.deleted.message": "{0} {1} could not be deleted",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.and": "And",
+"js.datepicker.nextStatus": "Show the next month PgDn",
+"seamless.close": "Close",
+"seamless.userdetails_guest": "Guest",
+"mepcode.not.found.message": "No Institution code specified in the URL",
+"net.hedtech.banner.testing.Foo.childExists.FK1_GCRMINT_INV_GCRORAN": "Cannot delete template as relation exists for this template.",
+"userpreference.privacy.setting.section": "Privacy Setting",
+"seamless.fromFav": "from Favorites",
+"about.banner.application.build.number": "Build Number",
+"dataTable.sort.descending.label": "descending",
+"seamless.directSearchOption": "Direct Navigation",
+"platform.shortcut.grid.enter.windows.combination": "Enter",
+"js.net.hedtech.banner.ajax.reload.prompt": "You may need to reload the page to continue.",
+"net.hedtech.banner.resetpassword.username.required.error": "Enter a user name to continue",
+"platform.shortcut.grid.pageup.windows.combination": "PgUp",
+"about.banner.application.name": "Application Name",
+"js.notification.inactivityTimer.message": "You have been inactive.  Your session will be logged out shortly for security reasons.",
+"default.time.watermark.format": "HH:mm",
+"js.datepicker.dateFormat": "mm/dd/yyyy",
+"platform.shortcut.timepicker.toggle.mac.combination": "fn+F9",
+"seamless.allAppsAndForms": "Applications",
+"ui.pillbox.tooltip.label": "{0}",
+"default.invalid.ssn.message": "Property [{0}] of class [{1}] with value [{2}] is not a valid Social Security Number",
+"net.hedtech.banner.resetpassword.button.continue": "Continue",
+"net.hedtech.banner.logout.action": "LOG OUT",
+"application.build.number": "**** WARNING: Build number could not be attained **** ",
+"platform.shortcut.grid.esc.description": "Move the focus back to cell from the Actionable element",
+"seamless.copyright_disclaimer": "This software contains confidential and proprietary information of Ellucian and its subsidiaries. Use of this software is limited to Ellucian licensees, and is subject to the terms and conditions of one or more written license agreements between Ellucian and the licensee in question.",
+"uiselect.search.results": "Searching ... {0} results are available, use up and down arrow keys to navigate.",
+"seamless.signoutShortcutLabel": "Sign Out",
+"userpreference.popup.enhanceExp": "Data Sharing",
+"default.add.label": "Add {0}",
+"default.not.inlist.message": "Property [{0}] of class [{1}] with value [{2}] is not contained within the list [{3}]",
+"ui.pillbox.tooltip.separator": ",",
+"git.commit": "7e75a0243918a2bc5d91929be6ab5a3eca14d45f",
+"default.calendar.gregorian.translation": "en_US@calendar=gregorian",
+"platform.shortcut.datepicker.pageup.windows.combination": "PgUp",
+"error.css.import.disabled": "Importing of stylesheets has not been enabled.",
+"the_nearest_weekday_to_the": "the nearest weekday to the",
+"net.hedtech.banner.testing.Foo.childExists.FK1_SV_FOO_INV_DUMMY_CODE": "A child record exists for this foo",
+"userpreference.menu.heading": "Preferences",
+"seamless.areas_label_edittab": "Edit Tab",
+"uiselect.search.disabled.results": "Use up and down arrow keys to navigate",
+"last": "last",
+"default.time.format": "HH:mm",
+"platform.shortcut.header.profilemenu.description": "Toggle Profile menu",
+"platform.shortcut.grid.home.windows.combination": "Home",
+"springSecurity.errors.login.disabled": "Sorry, your account is disabled.",
+"platform.shortcut.grid.esc.windows.combination": "Esc",
+"seamless.common_ok": "OK",
+"platform.shortcut.datepicker.end.description": "Move to last day of current month",
+"changeExpiredPassword.title": "Change Password",
+"userpreference.popup.enhanceExp.button.accept": "Accept",
+"changeExpiredPassword.password.length.error": "Password must be 6 characters long.",
+"seamless.excludeObjectMsgForMyLinks": "This page is no longer available. Please review your settings on My Links.",
+"default.doesnt.match.message": "Property [{0}] of class [{1}] with value [{2}] does not match the required pattern [{3}]",
+"platform.shortcut.header.dialogtoggle.mac.combination": "control+?",
+"FileManagerService.file.path.empty.message": "Missing File. No file supplied with parameter [{0}]",
+"seamless.shortcutsLabel": "Shortcuts",
+"springSecurity.denied.message": "Sorry, you're not authorized to view this page.",
+"userpreference.popup.enhanceExp.heading": "Enhance your Experience",
+"search.aria.label": "Search text field. The short cut is Alt+Y.",
+"hours": "hours",
+"seamless.title": "Application Navigator",
+"net.hedtech.banner.login.username": "Username",
+"seamless.upShortcut": "up",
+"seamless.copyright_page_title": "Copyright",
+"org.opensaml.xml.security.x509.X509SubjectKeyIdentifierCriteria": "org.opensaml.xml.security.credential.criteria.EvaluableX509SubjectKeyIdentifierCredentialCriteria",
+"error.css.tag.rule.notfound": "The {0} tag had a style attribute that uses a rule, \"{1}\", that is not supported. The rule has been removed for security reasons.",
+"net.hedtech.banner.resetpassword.recoverycode": "Recovery Code",
+"default.readonlyFieldsCannotBeModified": "There was an attempt to modify read-only properties: {0}. This has been logged already, but if you cannot work around this please contact your administrator.",
+"seamless.landingPageShortcut": "ctrl+shift+x",
+"seamless.release": "Release:",
+"seamless.keyboardShortcutsTableTip": "Press up or down arrow to navigate through items",
+"seamless.pressCtrlShiftOToDeleteFav": "Press Ctrl Shift O to delete ",
+"default.blank.message": "Property [{0}] of class [{1}] cannot be blank",
+"seamless.myPreferences": "My Preferences",
+"default.century.pivot": "50",
+"pagination.page.label": "Page",
+"platform.heading.header": "Application header",
+"seamless.pressCtrlShiftOToMarkFav": "Press Ctrl Shift O to mark ",
+"default.language.locale": "en",
+"js.dataTable.page": "Page",
+"timepicker.hour.aria.label": "Hours list, press up and down arrow keys to Change Hours. Press right to move to Minutes section",
+"default.invalid.max.size.message": "Property [{0}] of class [{1}] with value [{2}] exceeds the maximum size of [{3}]",
+"platform.shortcut.header.menu.windows.combination": "Alt+M",
+"seamless.selfService": "Self-Service",
+"default.time.am": "AM",
+"js.grid.noData": "No data available.",
+"platform.shortcut.grid.pagedown.windows.combination": "PgDn",
+"seamless.searchResultCountDescOrder": "{{0}} results sorted descending",
+"platform.shortcut.datepicker.toggle.windows.combination": "F9",
+"seamless.enterMoreCharacters": "Please enter {{0}} more characters",
+"seamless.contentScrollCaught": "#content scrolled: {0}x{1} forcing back to 0x0",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.isnotnull": "IS NOT NULL",
+"platform.shortcut.timepicker.toggle.description": "Toggle Time Picker",
+"platform.shortcut.aria.collapsed": "Collapsed. Use Tab Key to Navigate to Next Section.",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.soundslike": "Sounds Like",
+"typeMismatch.java.lang.Long": "Property {0} must be a valid number",
+"platform.shortcut.datepicker.moveprevyear.mac.combination": "control+shift+fn+up",
+"uiselect.no.results.found.text": "No Result Found!",
+"error.css.import.exceeded": "The stylesheet located at {0} exceeds the total allowed number of stylesheets to be imported and was not retrieved. The maximum number of imported stylesheets is limited to {1} stylesheets.",
+"platform.shortcut.aria.instructnavigate": "Use Tab Key to Navigate to Next Section and Down arrow key to navigate to each item in the section",
+"default.paginate.prev": "Previous",
+"seamless.common_yes": "Yes",
+"springSecurity.errors.login.fail": "Sorry, we were not able to find a user with that username and password.",
+"net.hedtech.banner.resetpassword.password.required.error": "Both password fields are required.",
+"platform.shortcut.datepicker.moveright.mac.combination": "right",
+"platform.shortcut.datepicker.currentmonth.description": "Move to selected day of current month",
+"error.attribute.invalid.encoded": "The {0} tag contained an attribute that we could not process. The {1} attribute had a value of \"{2}\". This value could not be accepted for security reasons. We have chosen to encode the {0} tag in order to continue processing the input.",
+"typeMismatch.java.math.BigInteger": "Property {0} must be a valid number",
+"seamless.ellucian_brand_label": "Ellucian",
+"seamless.searchTooltip": "Search",
+"textbox.validation.required": "This field is required",
+"seamless.sidebarHelpAriaLabel": "Help",
+"org.opensaml.xml.security.criteria.KeyAlgorithmCriteria": "org.opensaml.xml.security.credential.criteria.EvaluableKeyAlgorithmCredentialCriteria",
+"git.commit.id.describe": "",
+"org.opensaml.xml.security.x509.X509IssuerSerialCriteria": "org.opensaml.xml.security.credential.criteria.EvaluableX509IssuerSerialCredentialCriteria",
+"error.css.stylesheet.selector.disallowed": "The stylesheet had a selector, \"{0}\", that could not be allowed for security reasons.",
+"seamless.tab_label_bookmarkThisPage": "Bookmark This Page",
+"seamless.leftShortcut": "left",
+"error.tag.notfound": "The {0} tag has been filtered for security reasons. The contents of the tag will remain in place.",
+"js.notification.dirtyCheck.saveActionButton": "Yes",
+"default.button.edit.label": "Edit",
+"changeExpiredPassword.new.password": "New Password",
+"platform.shortcut.grid.enter.mac.combination": "enter",
+"js.datepicker.monthStatus": "Change the month",
+"js.grid.recordsFound": "Records: {0}",
+"net.hedtech.banner.testing.Foo.code.maxSize.error": "The foo code is too long, it must be no more than 2 characters",
+"seamless.loadingText": "Loading...",
+"dataTable.columnFilter.selectAll": "Select All",
+"notification.dirtyCheck.beforeUnload.promptMessage": "Changes have been made. Data entered has not been saved.",
+"git.build.version": "2.4.4",
+"seamless.copyright_end": "2025",
+"error.css.stylesheet.rule.notfound": "The stylesheet uses a rule, \"{0}\", that is not supported. The rule has been removed for security reasons. ",
+"changeExpiredPassword.button.submit": "Submit",
+"seamless.favoritesShortcutLabel": "Display Favorites",
+"platform.shortcut.datepicker.moveright.windows.combination": "right",
+"acknowledgement.header3.content": "You're almost there...",
+"error.attribute.notfound": "The {0} tag contained an attribute that we could not process. The {1} attribute has been filtered out, but the tag is still in place. The value of the attribute was \"{2}\".",
+"platform.shortcut.grid.space.mac.combination": "Space",
+"about.banner.copyright": "Copyright",
+"day": "day",
+"seamless.sidebarMEPAriaLabel": "Sidebar MEP",
+"seamless.sidebarFavAriaLabel": "Favorites",
+"net.hedtech.banner.login.warning": "You are viewing this webpage in Compatibility View. Please turn off Compatibility View in your browser (Tools menu) for an optimal viewing experience.",
+"default.copyright.startyear": "2013",
+"platform.shortcut.datepicker.movenextyear.mac.combination": "control+shift+fn+down",
+"js.input.timepicker.info": "Press F9 to open/close the Timepicker",
+"net.hedtech.banner.logout.backToHomeButton": "RETURN HOME",
+"minutes": "minutes",
+"communication.default.dayOfWeekFormat": "EEEE, MMMM, dd, yyyy",
+"excluded.loaders": "DEFAULT,org.grails.compiler.web.pages.GroovyPageClassLoader",
+"js.notification.dirtyCheck.message": "Changes have been made.",
+"platform.shortcut.grid.leftarrow.description": "Move to previous cell in the grid",
+"changeExpiredPassword.old.password.error": "Authorization Failure-Invalid Old Password",
+"seamless.searchPressEnterOrSpace": "Press space to select Search",
+"error.css.tag.relative": "The {0} tag had a style attribute that specified a relative stylesheet reference, \"{1}\", that could not be retrieved. ",
+"js.input.datepicker.dateformatinfo": "Date format is",
+"seamless.status-log": "status for {0} is {1}",
+"seamless.search-placeholder": "Pages, Menus, Jobs and Quickflows",
+"every_one": "every",
+"platform.shortcut.grid.pageup.description": "Move the focus to the first cell in the current column",
+"batch.jdbc.url": "jdbc:postgresql://localhost/samples",
+"js.notification.savePrompt.message": "You have unsaved changes. Would you like to save?",
+"seamless.inverse": "Inverse",
+"dataTable.columnFilter.label": "Show/Hide Column",
+"seamless.preferredInitialPage": "Preferred initial page",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.equalsorisnull": "Equals or IS NULL",
+"platform.shortcut.datepicker.pagedown.mac.combination": "fn+down",
+"seamless.settings": "Settings",
+"seamless.sessionTimeout": "Session Timeout!",
+"default.copyright.message": "{0}-{1} Ellucian Company L.P. and its affiliates. All rights reserved.",
+"mepcode.invalid.message": "Invalid Institution code {0} specified in the URL",
+"timepicker.shortcuts.aria.label": "Press Escape to cancel and Enter to Select Time.",
+"seamless.PageHelp": "Page Help",
+"pieChart.table.label": "label",
+"js.notification.dirtyCheck.doNotSaveActionButton": "No",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.greaterthanequalsorisnull": "Greater Than or Equal or IS NULL",
+"js.dataTable.pageOfOne": "1 of",
+"default.boolean.false": "False",
+"platform.shortcut.grid.space.windows.combination": "Space",
+"git.commit.user.name": "Scott Murphy",
+"js.net.hedtech.banner.ajax.error.message": "A server call failed with error code '{0}'.",
+"net.hedtech.banner.login.title": "Sign In",
+"seamless.error-xdm": "This browser does not support the mandatory HTML5 Cross Document Messaging feature.",
+"platform.shortcut.datepicker.esc.mac.combination": "esc",
+"seamless.unknown-application": "Unknown Application",
+"about.banner.platform.version": "Platform Version",
+"about.banner.plugins": "Banner Plugins",
+"seamless.instPrivacyPolicy": "Institution Privacy Policy",
+"seamless.continueLoggingOut": "Do you want to continue logging out?",
+"default.date.format": "MM/dd/yyyy",
+"seamless.unsavedTooltip": "Unsaved",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.lessthanequalsorisnull": "Less Than or Equal or IS NULL",
+"storageAccess.button.continue.content": "Continue",
+"seamless.homeShortcut": "ctrl+shift+x",
+"platform.shortcut.header.homepage.windows.combination": "Alt+Q",
+"userpreference.popup.language.close": "Close",
+"seamless.preferences_label": "Preferences",
+"net.hedtech.banner.logout.timeout.dialog.action": "Sign In",
+"default.show.label": "Show {0}",
+"platform.shortcut.grid.shiftspace.description": "Select the current row",
+"default.invalid.usZip.message": "Property [{0}] of class [{1}] with value [{2}] is not a valid US Zip Code",
+"pagination.first.label": "First page",
+"default.create.label": "Create {0}",
+"acknowledgement.acknowledgementMessage": "To get started with your personalized, easy-to-use experience, your consent is needed to sync your data and information. After clicking <B>continue<\u002fB>, you may be directed to an additional message to consent to the cookies and website access required for personalization.",
+"at": "at",
+"platform.shortcut.datepicker.end.mac.combination": "fn+right",
+"default.invalid.creditCard.message": "Property [{0}] of class [{1}] with value [{2}] is not a valid credit card number",
+"seamless.myLinks": "My Links",
+"birthdate.minus.year": "MM/dd",
+"js.datepicker.yearStatus": "Change the year",
+"js.notification.dirtyCheck.cancelActionButton": "Cancel",
+"typeMismatch.java.math.BigDecimal": "Property {0} must be a valid number",
+"userpreference.popup.language.selectinput.placeholder": "Select your Language",
+"day_before_last_day_of_month": "one day before the last day of the month",
+"platform.shortcut.header.profilemenu.mac.combination": "option+P",
+"platform.shortcut.grid.leftarrow.windows.combination": "left",
+"platform.shortcut.aria.expanded": "Expanded. Use Tab Key to Navigate to Next Section and Down arrow key to navigate to each item in the section",
+"net.hedtech.banner.resetpassword.resetpin.success.message": "Password reset was successful. Please log in again.",
+"net.hedtech.banner.logout.timeout.dialog.message": "Your application session is no longer active due to inactivity on the screen. If you have navigated to this application through single sign-on, your single sign-on token/session may still be active.",
+"platform.shortcut.grid.end.description": "Move the focus to the last cell in the current row",
+"js.datepicker.nextJumpStatus": "Show the next year     \\n Ctrl + Shift + PgDn",
+"communication.default.dateFormat": "MMMM dd,yyyy",
+"batch.table.prefix": "BATCH_",
+"seamless.brandLabel": "Return Home",
+"default.new.label": "New {0}",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.startswith": "Starts With",
+"default.date.display.format": "MM/dd/yyyy",
+"net.hedtech.banner.query.DynamicFinder.QuerySyntaxException": "Invalid Request, Please contact System Administrator.",
+"platform.shortcut.datepicker.home.windows.combination": "Home",
+"seamless.pressOk": "Press OK",
+"platform.shortcut.datepicker.moveprevyear.windows.combination": "Ctrl+Shift+PgUp",
+"default.century.above.pivot": "1900",
+"platform.shortcut.header.tools.windows.combination": "Alt+L",
+"org.opensaml.xml.security.criteria.UsageCriteria": "org.opensaml.xml.security.credential.criteria.EvaluableUsageCredentialCriteria",
+"about.banner.mep.description": "MEP Description",
+"platform.heading.grid": "Grid",
+"default.time.12hour.display.format": "hh:mm a",
+"default.constraint.error.message": "A constraint violation in the database has prevented saving the {0}",
+"platform.shortcut.datepicker.movedown.mac.combination": "down",
+"error.tag.filtered": "The {0} tag has been filtered for security reasons. The contents of the tag will remain in place.",
+"git.commit.id": "54f37342d4c673c7f4b1292538da7e8fcbfd1ea3",
+"net.hedtech.banner.resetpassword.answer.required.error": "Answer is required",
+"net.hedtech.banner.errors.serverError.standaloneApplicationMessage": "This page is not available to be accessed directly. Please access this application through Ellucian Experience.",
+"springSecurity.login.title": "Login",
+"seamless.closeNoResponse": "{0} did not respond to the query on its data state. Forcefully closing the application.",
+"error.css.tag.selector.notfound": "The stylesheet uses selector, \"{0}\", that could not be processed. The selector has been removed for security reasons. ",
+"platform.shortcut.datepicker.toggle.description": "Open/close calendar",
+"datepicker.toggle.text": "Show Hijri",
+"search.label": "Search",
+"selfService.first.menu": "Banner",
+"default.date.format.watermark": "MM/dd/yyyy",
+"js.net.hedtech.banner.ajax.timeout.message": "The server is not responding.",
+"default.edit.label": "Edit {0}",
+"net.hedtech.banner.resetpassword.recoverycode.message": "We have emailed you a recovery code. Please enter this code to reset your password.",
+"platform.shortcut.grid.end.mac.combination": "fn+right",
+"platform.shortcut.header.notification.mac.combination": "option+N",
+"seamless.last-login-label": "Last Login: ",
+"build.svn.url": "https://svn.terracotta.org/repo/ehcac...",
+"error.css.tag.malformed": "The stylesheet code \"{0}\" could not be parsed.",
+"error.attribute.invalid.filtered": "The {0} tag contained an attribute that we could not process. The {1} attribute had a value of \"{2}\". This value could not be accepted for security reasons. We have chosen to filter the {0} tag in order to continue processing the input.",
+"default.datetime.format": "MM/dd/yyyy HH:mm:ss",
+"git.build.user.email": "scott@alwaysvip.com",
+"month": "month",
+"platform.shortcut.header.tools.description": "Toggle Tools menu",
+"platform.shortcut.datepicker.movenextyear.windows.combination": "Ctrl+Shift+PgDn",
+"net.hedtech.banner.logout.timeout.dialog.title": "Your session has timed out.",
+"js.notification.dirtyCheck.promptMessage": "Do you want to save changes?",
+"userpreference.popup.enhanceExp.content.p1": "Please indicate whether we may use 3rd party analytics and non-essential cookies to improve your experience and our applications.",
+"userpreference.popup.enhanceExp.content.p3": "Read the Ellucian privacy notice for more on cookies and analytics",
+"userpreference.popup.enhanceExp.content.p2": "If you agree, the data we collect through these tools may be stored and processed in any country in which Ellucian or its sub-processors maintain facilities or personnel, including the United States.",
+"platform.shortcut.datepicker.movedown.windows.combination": "down",
+"seamless.confirmation_label_title": "Confirmation",
+"of_every_hour": "of every hour",
+"seamless.descriptionOption": "Description",
+"seamless.preferences_label_title": "User Preferences",
+"seamless.browseAppsListOfApps": "List of Applications",
+"default.time.display.format": "HH:mm AM",
+"platform.shortcut.datepicker.arabicnavigate.mac.combination": "shift+S",
+"oneSecond": "second",
+"pieChart.table.value": "value",
+"seamless.signoutShortcut": "ctrl+shift+f",
+"net.hedtech.banner.login.signin": "Sign In",
+"seamless.messageLog": "message of type {0} was received from {1}",
+"seamless.openitems": "Open Items",
+"net.hedtech.banner.resetpassword.newpassword": "New Password",
+"seamless.openAppsShortcutLabel": "Display Recently Opened",
+"typeMismatch.java.net.URL": "Property {0} must be a valid URL",
+"seamless.userdetails_help": "Help",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.lessthanequals": "Less Than or Equal",
+"net.hedtech.banner.resetpassword.user.invalid": "User Name is Invalid",
+"seamless.favoritesShortcut": "ctrl+d",
+"seamless.searchShortcut": "ctrl+shift+y",
+"typeMismatch.java.net.URI": "Property {0} must be a valid URI",
+"seamless.mepwindowmessage": "Select the data you want to view",
+"batch.jdbc.driver": "org.postgresql.Driver",
+"batch.schema.script": "classpath:/org/springframework/batch/core/schema-postgresql.sql",
+"about.banner.application.build.time": "Build Time",
+"error.css.stylesheet.property.invalid": "The stylesheet had a property, \"{0}\", that could not be allowed for security reasons.",
+"net.hedtech.banner.login.copyright2": "This software contains confidential and proprietary information of Ellucian or its subsidiaries. Use of this [site/software/app] is limited to Ellucian licensees and is subject to the terms and conditions of one or more written license agreements between Ellucian and such licensees.",
+"timepicker.error.format.validation": "Invalid time format",
+"seamless.helpShortcutLabel": "Help",
+"seamless.favorites": "Favorites",
+"js.datepicker.prevJumpStatus": "Show the previous year \\n Ctrl + Shift + PgUp",
+"error.tag.encoded": "The {0} tag has been encoded for security reasons. The contents of the tag will remain in place.",
+"platform.shortcut.grid.shiftspace.windows.combination": "Shift+Space",
+"default.invalid.size.message": "Property [{0}] of class [{1}] with value [{2}] does not fall within the valid size range from [{3}] to [{4}]",
+"default.not.found.message": "{0} not found",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.lessthan": "Less Than",
+"seamless.unsavedDataStateFound": "One or more applications have unsaved data.",
+"timepicker.am.pm.aria.label": "Meridiem list, press up and down arrow keys to change the meridiem and left arrow to move to the minutes list.Press Escape to cancel and Enter to Select Time.",
+"git.closest.tag.commit.count": "",
+"datepicker": "Date Picker",
+"net.hedtech.banner.resetpassword.answer": "Answer",
+"xe.percent": "%",
+"seamless.continueLogout": "Yes, continue Logout",
+"seamless.common_save": "Save",
+"platform.shortcut.datepicker.movenextyear.description": "Move to same date in next year",
+"of_every_month": "of every month",
+"js.notification.inactivityTimer.keepAliveButton": "No",
+"default.invalid.range.message": "Property [{0}] of class [{1}] with value [{2}] does not fall within the valid range from [{3}] to [{4}]",
+"application.name": "applicationNavigator",
+"seamless.tab_label_setAsHome": "Set as Home",
+"net.hedtech.banner.logout.options.message": "Would you like to log out or return home?",
+"seamless.processing": "Processing...",
+"platform.shortcut.datepicker.moveup.mac.combination": "up",
+"seamless.clearRecentlyOpenList": "Currently open pages remain in your recently opened folder after a \"Clear Recently Opened\" action. Only closed pages can be removed from history.",
+"springSecurity.errors.login.max.sessions.exceeded": "Sorry, you have exceeded your maximum number of open sessions.",
+"build.timestamp": "20210424-014419",
+"error.size.toolarge": "The input was too large. The specified input was {0} bytes and the maximum is {1} bytes.",
+"seamless.privacyPolicy": "Ellucian Privacy Policy",
+"platform.shortcut.datepicker.esc.description": "Close calendar without any date selection",
+"default.time.decrement": "Decrement",
+"seamless.common_no": "No",
+"xe.text.chars.left": "Remaining Characters",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.contains": "Contains",
+"platform.shortcut.datepicker.pageup.mac.combination": "fn+up",
+"seamless.clearTipOnTab": "Press tab to navigate to clear button",
+"seamless.browseFavoritesAppsListOfApps": "List of Favorites",
+"days_before_last_day_of_month": "{0} days before the last day of the month",
+"seamless.dontShowMessage": "Do not show this message again",
+"js.net.hedtech.banner.ajax.reload.button": "Reload",
+"about.banner.application.version": "Application Version",
+"seamless.searchOption": "Search",
+"default.null.message": "Field {0} cannot be null",
+"default.test.banner.api.exception": "Oops, it must be time to learn {0} and {1}!",
+"platform.shortcut.datepicker.moveleft.windows.combination": "left",
+"net.hedtech.banner.errors.serverError.message": "Sorry, the server received an internal error.",
+"seamless.helpShortcut": "ctrl+shift+l",
+"seamless.timeoutConfirmationCounter": "Warning! Due to inactivity, your session will expire in {{0}}.",
+"about.banner.close": "Close",
+"seamless.signoutConfirmation": "Do you need sign out confirmation?",
+"git.remote.origin.url": "https://github.com/sitemesh/sitemesh2",
+"storageAccess.title": "StorageAccess",
+"seamless.removedAsFav": "Removed from favorite",
+"net.hedtech.banner.productTitle": "Banner",
+"default.firstDayOfTheWeek": "0",
+"timepicker.min.aria.label": "Minutes list, press up and down arrow keys to change Minutes. Press left arrow key to move to Hours list and Right to Move to meridiem list",
+"org.opensaml.xml.security.criteria.KeyNameCriteria": "org.opensaml.xml.security.credential.criteria.EvaluableKeyNameCredentialCriteria",
+"changeExpiredPassword.request.invalid.message": "Invalid Request. Try again!",
+"net.hedtech.banner.logoutpage.message": "Please specify the mepCode in the Web URL to access the application again.",
+"second": "second",
+"default.invalid.min.size.message": "Property [{0}] of class [{1}] with value [{2}] is less than the minimum size of [{3}]",
+"seamless.clearButton": "Clear button",
+"pagination.next.label": "Next page",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.greaterthan": "Greater Than",
+"net.hedtech.banner.errors.login.rolemissing": "Security error, login not successful. Please contact System Administrator.",
+"seamless.placeholderUserPref": "Enter Page URL/Acronym/Description",
+"FileManagerService.upload.failure.message": "Unexpected error occurred during file upload",
+"--": "listing properties --",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.in": "IN",
+"months": "months",
+"build.branch": "ehcache-2.10.9.2",
+"seamless.deleteFavoriteConfirmations": "This page is no longer available on the menu and will be removed from your Favorites folder.",
+"default.invalid.currency.format.code": "Invalid currency code {0}",
+"js.dataTable.sEmptyTable": "No data available in table",
+"platform.shortcut.header.homepage.mac.combination": "option+Q",
+"platform.shortcut.datepicker.pagedown.windows.combination": "PgDn",
+"net.hedtech.banner.errors.login.disabled": "Logon denied. Please contact the system administrator.",
+"platform.shortcut.grid.shiftspace.mac.combination": "shift+Space",
+"default.currency.formatter.style": "1",
+"js.dataTable.sLengthMenu": "Per Page _MENU_",
+"seamless.sortTipOnTab": "Press tab to navigate to sort",
+"pieChart.table.ariaLabel": "A tabular view of the data in the chart.",
+"springSecurity.errors.login.expired": "Sorry, your account has expired.",
+"build.revision": "11541",
+"seamless.searchShortcutLabel": "Search",
+"about.component.plugin.information": "Plugin information",
+"compilerFactory": "org.codehaus.janino.CompilerFactory",
+"hour": "hour",
+"seamless.applicationErrorClose": "Ok",
+"springSecurity.errors.login.passwordExpired": "Sorry, your password has expired.",
+"seamless.menuShortcutLabel": "Display Applications",
+"seamless.preferences_color_interaction": "Interaction",
+"git.dirty": "true",
+"textbox.validation.maxlength": "The maximum Character length should be",
+"about.component.plugin.other.information": "Other Plugin information",
+"typeMismatch.java.lang.Integer": "Property {0} must be a valid number",
+"seamless.preferences_theme": "Theme",
+"seamless.browseButtonText": "Browse",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.endswith": "Ends With",
+"platform.shortcut.grid.uparrow.description": "Move to previous cell in the previous row, same column",
+"platform.shortcut.timepicker.toggle.windows.combination": "F9",
+"seamless.clearLabel": "Clear Recently Opened",
+"error.css.stylesheet.selector.notfound": "The {0} tag had a style attribute that uses a selector, \"{1}\", that could not be processed. The selector has been removed for security reasons.",
+"default.invalid.min.message": "Property [{0}] of class [{1}] with value [{2}] is less than minimum value [{3}]",
+"git.tags": "",
+"default.button.create.label": "Create",
+"git.build.host": "Scotts-MBP-3.lan",
+"seamless.menu-search-placeholder": "Menu Search...",
+"default.not.unique.message": "Property [{0}] of class [{1}] with value [{2}] must be unique",
+"xe.text.limit.over": "Character Limit of {0} has been reached",
+"default.timebox.clock.format": "12",
+"pattern_at_second": "at second {0}",
+"default.multi.model.validation.errors": "Please correct the following errors and try again.",
+"net.hedtech.banner.ellucianPrivacyNotice": "Ellucian Privacy Notice",
+"net.hedtech.banner.logout.returnMessage": "Return to Home page",
+"seamless.openAppsShortcut": "ctrl+y",
+"batch.jdbc.password": "dba",
+"changeExpiredPassword.button.cancel": "Cancel",
+"storageAccess.header1.content": "Complete Acknowledgment",
+"seamless.sortByPreference": "Sort by",
+"platform.shortcut.datepicker.arabicnavigate.windows.combination": "Shift+S",
+"seamless.downShortcut": "down",
+"platform.shortcut.header.profilemenu.windows.combination": "Alt+P",
+"net.hedtech.banner.logout.message": "You have successfully logged out.",
+"userpreference.popup.enhanceExp.button.noThanks": "No Thanks",
+"seamless.common_cancel": "Cancel",
+"FileManagerService.download.failure.message": "Unexpected error occurred during file download",
+"platform.shortcut.datepicker.toggle.mac.combination": "fn+F9",
+"default.invalid.validator.message": "Property [{0}] of class [{1}] with value [{2}] does not pass custom validation",
+"net.hedtech.banner.resetpassword.reciverycode.invalid.message": "Invalid Recovery Code.",
+"seamless.openitems_label_closeAll": "Close All",
+"default.button.delete.confirm.message": "Are you sure?",
+"seamless.keyboardShortcutsCloseButtonTip": "Close button, press enter or escape to close the dialog",
+"seamless.searchResultOne": "1 result",
+"default.calendar.shortWeekDays.charactersToDisplay": "2",
+"seamless.preferences_localize": "Localize",
+"between_x_and_y": "between {0} and {1}",
+"seamless.preferences_color_selection": "Selection",
+"default.calendar": "gregorian",
+"error.tag.empty": "The {0} tag was empty, and therefore we could not process it. The rest of the message is intact, and its removal should not have any side effects.",
+"batch.data.source.init": "true",
+"seamless.tab_label_findOtherPage": "Find Other Page",
+"springSecurity.login.username.label": "Username",
+"typeMismatch.java.lang.Short": "Property {0} must be a valid number",
+"userpreference.notification.failure.message": "Unable to change your Language Setting, please try again later.",
+"default.calendar.gregorian.ulocale": "en_US@calendar=gregorian",
+"seamless.banner8admin": "INB - Forms",
+"typeMismatch.java.util.Date": "Property {0} must be a valid Date",
+"seamless.noSchoolBrandDefined": "No School Brand Defined",
+"js.net.hedtech.banner.logout.timeout.message": "Session expired.",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.notequalsorisnull": "Not Equals or IS NULL",
+"default.cm.datetime.format": "MMM dd, yyyy hh:mm:ss a",
+"springSecurity.login.header": "Please Login",
+"seamless.areas_label_browse": "Browse",
+"net.hedtech.banner.errors.login.locked": "Logon denied. Please contact the system administrator.",
+"seamless.reload": "Reload",
+"platform.shortcut.grid.downarrow.mac.combination": "down",
+"net.hedtech.banner.resetpassword.button.submit": "Submit",
+"uiselect.option.selected": "{0}",
+"search.title": "Search (Alt+Y)",
+"platform.shortcut.header.tools.mac.combination": "option+L",
+"seamless.sessionExpire": "Your session has expired. Click Reload to access login page.",
+"git.build.user.name": "Scott Murphy",
+"batch.jdbc.validationQuery": "",
+"platform.shortcut.grid.rightarrow.windows.combination": "right",
+"changeExpiredPassword.success.message": "Password changed successfully. Please log in using the new password.",
+"platform.heading.timepicker": "Time Picker",
+"dataTable.sortable.label": "Sortable",
+"net.hedtech.banner.errors.serverError.pageNotFoundMessage": "Sorry, This page is not available.",
+"seamless.themeMenuCaption": "Themes",
+"platform.shortcut.grid.enter.description": "Move the focus into the Actionable element in the cell, if any",
+"communication.default.timeOfDayFormat": "hh:mma",
+"net.hedtech.banner.login.password": "Password",
+"default.calendar1": "gregorian",
+"of_the_month": "of the month",
+"error.attribute.invalid": "The {0} tag contained an attribute that we could not process. The {1} attribute had a value of \"{2}\". This value could not be accepted for security reasons. We have chosen to remove this attribute from the tag and leave everything else in place so that we could process the input.",
+"platform.shortcut.datepicker.currentmonth.mac.combination": "control+shift+fn+left",
+"micronaut.version": "3.10.4",
+"default.list.label": "{0} List",
+"platform.shortcut.datepicker.moveleft.description": "Move to previous day",
+"seamless.userdetails_signin": "Sign In",
+"batch.jdbc.testWhileIdle": "false",
+"seamless.sidebarToggleAriaLabel": "Toggle Menu Press enter to expand the Toggle Menu",
+"typeMismatch.java.lang.Double": "Property {0} must be a valid number",
+"every": "every",
+"seamless.acronymOption": "Acronym",
+"platform.shortcut.header.dialogtoggle.windows.combination": "Ctrl+?",
+"net.hedtech.banner.testing.Foo.parentNotFound.FK1_SV_FOO_INV_DUMMY_CODE": "No parent found for this foo",
+"net.hedtech.banner.logout.timeout.dialog.actionMessage": "{0} to start again.",
+"acknowledgement.continue": "Continue",
+"git.commit.id.abbrev": "54f3734",
+"seamless.my": "My",
+"platform.shortcut.datepicker.esc.windows.combination": "Esc",
+"org.opensaml.xml.security.criteria.PublicKeyCriteria": "org.opensaml.xml.security.credential.criteria.EvaluablePublicKeyCredentialCriteria",
+"seamless.menuShortcut": "ctrl+m",
+"seamless.asFav": "as Favorites",
+"seamless.no": "No",
+"js.notification.inactivityTimer.logoutButton": "Yes",
+"net.hedtech.banner.errors.connection": "A problem occurred with the application. Please contact the system administrator.",
+"net.hedtech.banner.logoutpage.title": "Banner XE Home Page",
+"git.commit.time": "2023-08-12T16:25:15-0700",
+"default.invalid.max.message": "Property [{0}] of class [{1}] with value [{2}] exceeds maximum value [{3}]",
+"pagination.record.found": "Results found",
+"springSecurity.denied.title": "Denied",
+"seamless.privacyPolicyLink": "Ellucian Privacy Policy External Link",
+"platform.shortcut.grid.esc.mac.combination": "esc",
+"seamless.mepwindowcontinue": "Select",
+"pagination.page.shortcut.label": "Go To Page",
+"seconds": "seconds",
+"default.invalid.url.message": "Property [{0}] of class [{1}] with value [{2}] is not a valid URL",
+"xe.text.max.chars": "Characters Max",
+"seamless.timeoutConfirmationMessage": "To extend your session another {{0}} minute(s), please press the Extend button.",
+"default.copyright.endyear": "2025",
+"between": "between",
+"platform.shortcut.grid.downarrow.windows.combination": "down",
+"platform.shortcut.grid.home.mac.combination": "fn+left",
+"git.total.commit.count": "476",
+"shared.config.dir": "/tmp/ban9_shared_temp",
+"js.notification.savePrompt.saveActionButton": "Yes",
+"git.repository": "https://git.ellucian.com/scm/banxeapp/application_navigator_app.git",
+"platform.shortcut.datepicker.moveleft.mac.combination": "left",
+"seamless.localeMenuCaption": "Locales",
+"seamless.leftMenubarContentLabel": "Toggle Menu",
+"about.banner.username": "User Name",
+"net.hedtech.banner.preferredname.invalid.pidm": "Invalid Pidm User",
+"seamless.ss8-app": "SSB 8",
+"seamless.search-popover-tooltip-button-close": "Close",
+"seamless.openitems_label_closeSelected": "Close Selected",
+"changeExpiredPassword.expired.password": "Your Password has expired. Please change it now.",
+"seamless.applicationIsUnavailable": "{0} is currently unavailable.",
+"seamless.tab_label_name": "Tab Name",
+"application.build.time": "'Wed May 21 18:15:17 UTC 2025'",
+"platform.shortcut.grid.leftarrow.mac.combination": "left",
+"seamless.Directsearch-placeholder": "Pages, Menus, Jobs and Quickflows",
+"js.datepicker.tooltipDateFormat": "DD, MMMM d, yyyy",
+"net.hedtech.banner.resetpassword.guest.url.expired.message": "URL Expired",
+"default.cm.timepicker.12hourclock": "1",
+"js.notification.inactivityTimer.promptMessage": "Would you like to logout now?",
+"platform.shortcut.header.signin.mac.combination": "control+fn+shift+F",
+"seamless.recentlyOpened": "Recently Opened",
+"seamless.mepwindowtitle": "Set Institution Code",
+"uiselect.minimum.input.text": "Please enter {0} or more characters",
+"default.test2.banner.api.exception": "{0} is built using the {1} framework, using {2},{3}!",
+"seamless.directSearchPressEnterOrSpace": "Press space to select Direct Navigation",
+"batch.jdbc.user": "postgres",
+"js.datepicker.selectText": "Select",
+"seamless.page": "INB",
+"about.banner.tab.general": "General",
+"platform.shortcut.datepicker.arabicnavigate.description": "Move between Gregorian and Hijri Calendar (Only when in Arabic Language)",
+"changeExpiredPassword.re.password": "Re-Enter New Password",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.before": "Before",
+"platform.shortcut.header.signin.windows.combination": "Ctrl+Shift+F",
+"platform.shortcut.aria.dialog.description": "This dialog lists all the keyboard shortcuts specific to this application",
+"seamless.copyright_text": "Ellucian Company L.P. and its affiliates.",
+"userpreference.notification.success.message": "Language Setting was successful, please re-login for the preferences to take effect.",
+"default.invalid.compareTo.message": "Property [{0}] of class [{1}] with value [{2}] does not match the property [{3}]",
+"error.css.tag.selector.disallowed": "The {0} tag had a style attribute that contained a selector, \"{1}\", that could not be allowed for security reasons. ",
+"seamless.recentlyOpenedTip": "Press up or down arrow to navigate through items, and press tab to navigate to clear button",
+"default.button.update.label": "Update",
+"changeExpiredPassword.password.match.error": "Passwords did not match",
+"default.home.label": "Home",
+"seamless.editFavoritesShortcut": "ctrl+shift+O",
+"default.updated.message": "{0} {1} updated",
+"net.hedtech.banner.ui.zk.search.advancedSearch.operator.between": "Between",
+"platform.shortcut.grid.pagedown.description": "Move the focus to the last cell in the current column",
+"platform.shortcut.header.homepage.description": "Navigate to Home page",
+"js.datepicker.prevStatus": "Show the previous month PgUp",
+"dataTable.sort.ascending.label": "ascending",
+"platform.heading.datepicker": "Calendar",
+"seamless.closeShortcut": "escape",
+"default.boolean.true": "True",
+"platform.shortcut.datepicker.currentmonth.windows.combination": "Ctrl+Shift+Home",
+"storageAccess.header3.content": "You're almost there...",
+"default.deleted.message": "{0} {1} deleted",
+"platform.shortcut.header.dialogtoggle.description": "Toggle Keyboard shortcuts",
+"net.hedtech.banner.login.prompt": "Enter your user name and password, then click Sign In to continue.",
+"seamless.loadingtext": "Loading...",
+"seamless.openTooltip": "Recently Opened",
+"pagination.page.aria.label": "Go To Page.",
+"last_weekday_of_month": "last weekday of month",
+"FileManagerService.file.not.found.message": "File not found",
+"seamless.rootMenuCaption": "Applications",
+"changeExpiredPassword.old.password": "Old Password",
+"timepicker.textbox.aria.label": "The Time Format is",
+"net.hedtech.banner.errors.login.fail": "Invalid username/password; Logon denied.",
+"js.notification.savePrompt.doNotSaveActionButton": "No",
+"seamless.searchPreference": "Search preference indicator",
+"git.commit.message.short": "2.4.4",
+"seamless.copyright_init": "© 2014",
+"platform.shortcut.grid.pageup.mac.combination": "fn+up",
+"platform.shortcut.grid.rightarrow.mac.combination": "right"
+};
+
   </script>
+  
+      <link rel="stylesheet" href="/applicationNavigator/assets/modules/index-mf.css">
+      <link rel="stylesheet" href="/applicationNavigator/assets/applicationNavigator-custom.css">
+  
+  <script type="text/javascript" src="/applicationNavigator/assets/modules/seamless_js-mf.js"></script><style>
+.--brisk-axd {
+filter: blur(4px);
+user-select: none;
+}
+</style>
+  
+      <script type="text/javascript" src="/applicationNavigator/assets/modules/seamless_client-mf.js"></script>
+  
+  <script type="text/javascript" src="/applicationNavigator/assets/modules/platform_extensions-mf.js"></script>
+  <script type="text/javascript" src="/applicationNavigator/assets/modules/extensions_base-mf.js"></script>
+  <script type="text/javascript">var require = { waitSeconds: 0 };</script>
+  <script type="text/javascript" src="/applicationNavigator/assets/require.js"></script>
+  <script type="text/javascript">
+      setTimeout(function () {
+          require.config({
+              baseUrl: "/",
+              paths: {
+                  "index" : false ?  "/applicationNavigator/assets/js/index" :  "/applicationNavigator/assets/dist/index"
+              }
+          });
+          require(["index"]);
+      }, 0);
+  </script>
+  
+  
+      
+          
+              <link id="dynamicCSS" rel="stylesheet" type="text/css" href="https://theme.elluciancloud.com/<AccountApiID>/theme/getTheme?name=mytheme&amp;template=applicationname">
+          
+      
+  
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="index" src="/applicationNavigator/assets/dist/index.js"></script><script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script><link class="favicon" rel="shortcut icon" type="image/x-icon" id="dynamic-favicon"></head>
+
+<body id="appNavBody" data-ng-controller="MainController" data-theme="institution" cz-shortcut-listen="true" class="ng-scope">
+<div class="body-wrapper" id="centerContent" ng-init="loadFooter()">
+  <!-- MAIN CONTENT -->
+  <div id="content" class="container-fluid content-wrapper applicationNavigatorContent" role="main" style="width: 1795px;" data-protonpass-form="">
+  <div id="cross-resolver" style="overflow: hidden" class="hide-horizontal-mobile-bar">
+  </div>
+      <div class="body-wrapper main-application no-print" aria-labelledby="sidbarNavigationWrapper" role="application" aria-hidden="false">
+          <!-- Sidebar navigation starts here -->
+          <div id="sidbarNavigationWrapper" class="sidebar-nav-wrapper" aria-hidden="false">
+              <nav title="Toggle Menu" role="navigation">
+                  <ul class="main-navigation" role="menubar">
+                      <li id="sidebar-toggle" class="sidebarToggle mainNavigationItem" role="menuitem" tabindex="0" aria-label="Toggle Menu Press enter to expand the Toggle Menu" aria-hidden="false">
+                          <a id="top-toggle" data-ng-click="toggleAppMenuVertical( $event, 'toggle' )" class="sidebar-nav-toggle offcanvas sidebar-nav sidebar-nav-menu" role="img" aria-labelledby="sidbarNavigationWrapper">
+                           </a>
+                      </li>
+                      <li id="sidebar-home" role="menuitem" tabindex="-1" class="mainNavigationItem" aria-label="PROD DataBase Ellucian University  Release: 3.19 Application Navigator Home" aria-hidden="false">
+                          <a data-toggle="tooltip" data-placement="right" title="Dashboard (CTRL+SHIFT+X)" class="sidebar-nav-dashboard sidebar-nav-homepage ng-binding" role="img" aria-labelledby="sidebar-home" data-original-title="Dashboard" data-ng-click="toggleAppMenuVertical( $event, 'dashboard' )">
+                              Dashboard
+                          </a>
+                      </li>
+                      <li id="sidebar-menu" role="menuitem" tabindex="-1" aria-label="Applications Menu" aria-hidden="false" aria-haspopup="true" aria-expanded="false" aria-live="assertive" class="mainNavigationItem">
+                          <a id="menu-toggle" data-toggle="tooltip" data-placement="right" title="Applications (CTRL+M)" role="img" aria-labelledby="sidebar-menu" data-ng-click="toggleAppMenuVertical( $event, 'menu' )" class="sidebar-nav-bars offcanvas sidebar-nav sidebar-nav-applications-icon ng-binding" aria-expanded="false" aria-live="assertive" aria-atomic="true">
+                              <span class="sr-only">Menu navigation</span>
+                              Applications
+                          </a>
+                          <!-- browse all topics starts -->
+                          <browse-apps class="ng-isolate-scope"><ul data-ng-controller="VerticalPanelController" id="appItems" aria-hidden="true" class="ng-scope">
+  <ul data-name="root" class="list-unstyled menu menu-body-wrapper list-pane-body offcanvas-menu accordion-nav" aria-hidden="true">
+      <a class="offcanvas-topclose sidebar-nav-menu" data-ng-click="closeVerticalPanel( $event )" tabindex="-1" id="leftMenubarContent" aria-label="Toggle Menu" aria-hidden="true">
+      </a>
+
+      <a class="offcanvas-close backToAppAndMainMenu ng-hide" data-ng-click="loadTopMenu( $event )" tabindex="-1" data-ng-hide="(menu &amp;&amp; menu.name == 'root') || !menuLoaded" id="backToApplications" aria-hidden="true" title="" style="">
+          <div class="parentMenu" aria-hidden="true">
+              <span class="parentBackMenuBackIcon">
+                  <div class="fa fa-angle-left chevron " aria-hidden="true"></div>
+              </span>
+              <div class="backMainMenu parentBackMenuCaption ng-binding" aria-hidden="true">
+                  Back to Applications
+              </div>
+          </div>
+      </a>
+      <a class="offcanvas-close backToAppAndMainMenu" data-ng-click="closeMenu( $event )" tabindex="-1" data-ng-show="(menu &amp;&amp; menu.name == 'root') || !menuLoaded" id="backToMainMenu" aria-hidden="false" title="Back to Main Menu">
+          <div class="parentMenu">
+              <span class="parentBackMenuBackIcon">
+                  <div class="fa fa-angle-left chevron " aria-hidden="true"></div>
+              </span>
+              <div class="backMainMenu parentBackMenuCaption ng-binding" aria-hidden="true">
+                  Back to Main Menu
+              </div>
+          </div>
+      </a>
+
+      <div data-ng-click="openParent($event);" data-name="root" class="offcanvas-title" id="appMenuItemsBackNav" aria-hidden="true" data-ng-show="menuLoaded" title="Applications">
+          <a tabindex="-1" data-name="root" data-type="" data-component="menu-link" title="Applications" id="listMenu" class="listMenu">
+              <div class="parentMenu" id="backToParentMenuTextDiv" aria-hidden="true">
+                  <span class="parentBackMenuBackIcon" aria-hidden="true">
+                      <div data-ng-hide="menu.name == 'root'" class="fa fa-angle-left chevron  ng-hide" aria-hidden="true"></div>
+                  </span>
+                  <div class="backToParentMenu parentBackMenuCaption" id="backToParentMenuText" aria-hidden="true">
+                      <bdi aria-hidden="true" dir="ltr"><div aria-hidden="true" ng-bind-html="menu.caption|trustAsHtml" class="ng-binding">Applications</div></bdi>
+                  </div>
+              </div>
+          </a>
+      </div>
+  </ul>
+  <ul data-name="root" role="menubar" class="list-unstyled menu menu-body-wrapper list-pane-body offcanvas-menu accordion-nav" id="leftmenuListWithVScrollbar" aria-label="List of Applications" aria-hidden="true" aria-live="assertive" style="height: 89.6022%;">
+      <!-- ngRepeat: item in menu.items --><li class="browse-app-list ng-scope selected" data-ng-class="$index == 0 ? 'selected' : ''" data-ng-repeat="item in menu.items" data-ng-click="open( $event );" data-name="Banner" data-menu-name="root" data-type="menu" data-url="https://sfsc-prod-pxes01.banner.elluciancloud.com:8081/applicationNavigator/commonMenu?type=Banner&amp;menu=Banner&amp;caption=Banner" data-component="menu-link" isexcluded="" ng-class-even="'even'" aria-label="Banner" tabindex="-1" ng-mouseover="browseAppListMouseOver($event);" select-first-element-after-loaded="ngRepeatFinished" aria-hidden="true" title="Banner">
+          <div tabindex="-1" data-component="menu-link" class="link-wrapper">
+              <a class="bottom-border menu-anchor" tabindex="-1" aria-hidden="false" aria-label="Banner" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8081/applicationNavigator/commonMenu?type=Banner&amp;menu=Banner&amp;caption=Banner" data-name="Banner" data-type="menu" data-component="menu-link" aria-haspopup="true" role="menuitem">
+                  <div class="menuItemsParent" aria-hidden="true">
+                      <div class="menuItemsChildCaption" aria-hidden="true">
+                          <bdi aria-hidden="true" dir="ltr"><div aria-hidden="true" ng-bind-html="item.caption|trustAsHtml" class="ng-binding">Banner</div></bdi>
+                      </div>
+                      <div data-ng-show="item.type.toLowerCase()=='menu'" data-component="menu-link" class="fa fa-angle-right chevron menuItemsChildNextIcon " aria-hidden="true"></div>
+                      <div data-ng-click="favorite( $event );" id="favorite" data-ng-show="item.type.toLowerCase()!='menu' &amp;&amp; menu.name != myLinks &amp;&amp; menu.name != myBanner" data-component="" !="menu-link" data-ng-class="item.favorites == true  ? 'chevron favorite' : 'chevron notFavorite'" class="ng-hide chevron notFavorite"></div>
+                  </div>
+              </a>
+          </div>
+      </li><!-- end ngRepeat: item in menu.items --><li class="browse-app-list ng-scope even" data-ng-class="$index == 0 ? 'selected' : ''" data-ng-repeat="item in menu.items" data-ng-click="open( $event );" data-name="My Banner" data-menu-name="root" data-type="menu" data-url="https://sfsc-prod-pxes01.banner.elluciancloud.com:8081/applicationNavigator/commonMenu?type=Personal&amp;menu=My Banner&amp;caption=My Banner" data-component="menu-link" isexcluded="" ng-class-even="'even'" aria-label="My Banner" tabindex="-1" ng-mouseover="browseAppListMouseOver($event);" select-first-element-after-loaded="ngRepeatFinished" aria-hidden="true" title="My Banner">
+          <div tabindex="-1" data-component="menu-link" class="link-wrapper">
+              <a class="bottom-border menu-anchor" tabindex="-1" aria-hidden="false" aria-label="My Banner" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8081/applicationNavigator/commonMenu?type=Personal&amp;menu=My Banner&amp;caption=My Banner" data-name="My Banner" data-type="menu" data-component="menu-link" aria-haspopup="true" role="menuitem">
+                  <div class="menuItemsParent" aria-hidden="true">
+                      <div class="menuItemsChildCaption" aria-hidden="true">
+                          <bdi aria-hidden="true" dir="ltr"><div aria-hidden="true" ng-bind-html="item.caption|trustAsHtml" class="ng-binding">My Banner</div></bdi>
+                      </div>
+                      <div data-ng-show="item.type.toLowerCase()=='menu'" data-component="menu-link" class="fa fa-angle-right chevron menuItemsChildNextIcon " aria-hidden="true"></div>
+                      <div data-ng-click="favorite( $event );" id="favorite" data-ng-show="item.type.toLowerCase()!='menu' &amp;&amp; menu.name != myLinks &amp;&amp; menu.name != myBanner" data-component="" !="menu-link" data-ng-class="item.favorites == true  ? 'chevron favorite' : 'chevron notFavorite'" class="ng-hide chevron notFavorite"></div>
+                  </div>
+              </a>
+          </div>
+      </li><!-- end ngRepeat: item in menu.items --><li class="browse-app-list ng-scope" data-ng-class="$index == 0 ? 'selected' : ''" data-ng-repeat="item in menu.items" data-ng-click="open( $event );" data-name="My Links" data-menu-name="root" data-type="menu" data-url="https://sfsc-prod-pxes01.banner.elluciancloud.com:8081/applicationNavigator/commonMenu?type=My Links&amp;menu=My Links&amp;caption=My Links" data-component="menu-link" isexcluded="" ng-class-even="'even'" aria-label="My Links" tabindex="-1" ng-mouseover="browseAppListMouseOver($event);" select-first-element-after-loaded="ngRepeatFinished" aria-hidden="true" title="My Links">
+          <div tabindex="-1" data-component="menu-link" class="link-wrapper">
+              <a class="bottom-border menu-anchor" tabindex="-1" aria-hidden="false" aria-label="My Links" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8081/applicationNavigator/commonMenu?type=My Links&amp;menu=My Links&amp;caption=My Links" data-name="My Links" data-type="menu" data-component="menu-link" aria-haspopup="true" role="menuitem">
+                  <div class="menuItemsParent" aria-hidden="true">
+                      <div class="menuItemsChildCaption" aria-hidden="true">
+                          <bdi aria-hidden="true" dir="ltr"><div aria-hidden="true" ng-bind-html="item.caption|trustAsHtml" class="ng-binding">My Links</div></bdi>
+                      </div>
+                      <div data-ng-show="item.type.toLowerCase()=='menu'" data-component="menu-link" class="fa fa-angle-right chevron menuItemsChildNextIcon " aria-hidden="true"></div>
+                      <div data-ng-click="favorite( $event );" id="favorite" data-ng-show="item.type.toLowerCase()!='menu' &amp;&amp; menu.name != myLinks &amp;&amp; menu.name != myBanner" data-component="" !="menu-link" data-ng-class="item.favorites == true  ? 'chevron favorite' : 'chevron notFavorite'" class="ng-hide chevron notFavorite"></div>
+                  </div>
+              </a>
+          </div>
+      </li><!-- end ngRepeat: item in menu.items --><li class="browse-app-list ng-scope even" data-ng-class="$index == 0 ? 'selected' : ''" data-ng-repeat="item in menu.items" data-ng-click="open( $event );" data-name="Banner Self-Service" data-menu-name="root" data-type="menu" data-url="https://sfsc-prod-pxes01.banner.elluciancloud.com:8081/applicationNavigator/commonSelfServiceMenu?menu=bmenu.P_MainMnu&amp;caption=Banner Self-Service&amp;type=Banner Self-Service" data-component="menu-link" isexcluded="" ng-class-even="'even'" aria-label="Banner Self-Service" tabindex="-1" ng-mouseover="browseAppListMouseOver($event);" select-first-element-after-loaded="ngRepeatFinished" aria-hidden="true" title="Banner Self-Service">
+          <div tabindex="-1" data-component="menu-link" class="link-wrapper">
+              <a class="bottom-border menu-anchor" tabindex="-1" aria-hidden="false" aria-label="Banner Self-Service" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8081/applicationNavigator/commonSelfServiceMenu?menu=bmenu.P_MainMnu&amp;caption=Banner Self-Service&amp;type=Banner Self-Service" data-name="Banner Self-Service" data-type="menu" data-component="menu-link" aria-haspopup="true" role="menuitem">
+                  <div class="menuItemsParent" aria-hidden="true">
+                      <div class="menuItemsChildCaption" aria-hidden="true">
+                          <bdi aria-hidden="true" dir="ltr"><div aria-hidden="true" ng-bind-html="item.caption|trustAsHtml" class="ng-binding">Banner Self-Service</div></bdi>
+                      </div>
+                      <div data-ng-show="item.type.toLowerCase()=='menu'" data-component="menu-link" class="fa fa-angle-right chevron menuItemsChildNextIcon " aria-hidden="true"></div>
+                      <div data-ng-click="favorite( $event );" id="favorite" data-ng-show="item.type.toLowerCase()!='menu' &amp;&amp; menu.name != myLinks &amp;&amp; menu.name != myBanner" data-component="" !="menu-link" data-ng-class="item.favorites == true  ? 'chevron favorite' : 'chevron notFavorite'" class="ng-hide chevron notFavorite"></div>
+                  </div>
+              </a>
+          </div>
+      </li><!-- end ngRepeat: item in menu.items -->
+  </ul>
+</ul></browse-apps>
+                          <!-- browse all topics ends -->
+                      </li>
+
+                      <!-- search field -->
+                      <li id="sidebar-search" role="menuitem" tabindex="-1" aria-label="Search" aria-hidden="false" aria-haspopup="true" aria-expanded="true" aria-live="assertive" class="mainNavigationItem">
+                          <a data-toggle="tooltip" data-placement="right" title="Search (CTRL+SHIFT+Y)" class="sidebar-nav-search offcanvas sidebar-nav-search-icon" data-original-title="Search" data-ng-click="toggleAppMenuVertical( $event, 'search' )" role="img" id="sidebarSearchLink" aria-label="Search" aria-labelledby="sidebar-search" aria-expanded="false" aria-live="assertive" aria-atomic="true">
+                              <span class="ng-binding">Search</span>
+                          </a>
+                          <vertical-search class="ng-isolate-scope"><!--
+/*******************************************************************************
+Copyright 2013-2025 Ellucian Company L.P. and its affiliates.
+*******************************************************************************/
+-->
+
+<ul id="searchMenu" class="list-unstyled menu menu-body-wrapper list-pane-body offcanvas-menu accordion-nav ng-scope" data-ng-controller="SearchController" aria-hidden="true">
+  <a class="offcanvas-topclose sidebar-nav-menu" data-ng-click="closeVerticalPanel( $event )">
+  </a>
+  <a class="offcanvas-close backToAppAndMainMenu-verticalSearch" data-ng-click="closeSearch( $event )">
+      <span class="EllucianIcon">
+          <i class="fa fa-angle-left chevron "></i>
+      </span>
+      <span class="backMainMenu ng-binding">
+          Back to Main Menu
+      </span>
+  </a>
+
+  <div class="form-group {$root.defaultLangDirection == 'rtl' ? '' : 'has-feedback'} search-input-field" id="searchInputFieldId">
+      <div class="container-inline">
+          <div class="form-item form-type-textfield form-item-search-block-form">
+              <div id="verticalSearchRadioOptions" class="rectangle-verticalSearchDirectSearch">
+                  <div class="rectangle-verticalSearch radioRectangle verticalSearchOption" data-ng-click="selectVerticalSearchOption($event)" aria-label="Press space to select Search" tabindex="-1">
+                      <span class="searchRadioLabel" tabindex="-1">
+                          <input id="verticalSearchRadio" type="radio" name="varticalSearchRadio" value="search" class="search-radio" tabindex="-1">
+                          <label for="verticalSearchRadio" class="search-label verticalSearchlabel ng-binding" tabindex="-1">Search</label>
+                      </span>
+                  </div>
+                  <div class="rectangle-verticalDirectSearch radioRectangle verticalSearchOption unselectedRactangleVSearch" data-ng-click="selectVerticalSearchOption($event)" aria-label="Press space to select Direct Navigation" tabindex="-1">
+                      <span class="searchRadioLabel" tabindex="-1">
+                          <input id="verticalDirectSearchRadio" type="radio" name="varticalSearchRadio" value="directSearch" class="search-radio" tabindex="-1">
+                          <label for="verticalDirectSearchRadio" class="search-label verticalDirectSearchlabel ng-binding" tabindex="-1">Direct Navigation</label>
+                      </span>
+                  </div>
+              </div>
+              <div class="searchListInline verticalSearchTextBoxDiv">
+                  <input class="form-control custom-search-box form-text search-input ng-pristine ng-valid ng-empty ng-valid-maxlength ng-touched" autocomplete="off" data-ng-model="term" data-ng-change="query()" ng-paste="query()" ng-placeholder="Pages, Menus, Jobs and Quickflows" placeholder="Pages, Menus, Jobs and Quickflows" type="text" id="search" name="search" value="" size="15" role="menuitem" maxlength="120" tabindex="-1" aria-label="Search" title="Pages, Menus, Jobs and Quickflows">
+                  <input class="input-vsearch-clear" type="button" aria-label="Clear button Press tab to navigate to sort" id="vsearchClearBt" data-ng-click="CloseOnFocus()" alt="Clear" value="clear" style="display: none;">
+                  <input class="input-vsearch-submit" id="vsearchSubmitBt" type="img" tabindex="-1" aria-hidden="true" aria-label="search.label">
+                  <input type="button" id="sortResultsVertical" aria-label="Sort button" class="sortAsc" value="sortResults" style="display: none;">
+
+                  <!-- ngIf: searchLabel != compareSearchLabel -->
+              </div>
+          </div>
+      </div>
+  </div>
+  <ul data-name="Search" role="menubar" class="vsearch-result list-unstyled menu list-pane-body search-input-result" aria-hidden="true" id="vsearchResultId" style="height: 1510.12px;">
+      <!-- ngRepeat: item in results -->
+  </ul>
+</ul></vertical-search>
+                      </li>
+                      <!-- search field ends -->
+                      <li id="sidebar-recentlyopen" class="sidebar-recently-open mainNavigationItem" role="menuitem" tabindex="-1" aria-label="0Recently Opened" aria-hidden="false" aria-haspopup="true" aria-expanded="false" aria-live="assertive">
+                          <a id="recentlyopened-toggle" data-toggle="tooltip" data-placement="right" title="Recently Opened (CTRL+Y)" class="sidebar-nav-recently offcanvas sidebar-nav-recently-icon sidebar-disabled ng-binding" role="img" aria-labelledby="sidebar-recentlyopen" data-original-title="Recently Opened" aria-atomic="true" data-ng-click="toggleAppMenuVertical( $event, 'recently' )" aria-expanded="false" aria-live="assertive">
+                              <span class="safari-homepage-icon EllucianIcon">
+                              <span data-ng-show="items.recent.length > 0" class="badge items-count ng-binding ng-hide" aria-hidden="true">
+                                  0
+                              </span>
+                          </span>
+                              Recently Opened
+                          </a>
+                          <recently-open class="ng-isolate-scope"><!--
+/*******************************************************************************
+Copyright 2013-2021 Ellucian Company L.P. and its affiliates.
+*******************************************************************************/
+-->
+<ul id="recentItems" aria-hidden="true" data-ng-controller="VerticalPanelController" class="ng-scope">
+  <ul data-name="" class="list-unstyled menu menu-body-wrapper list-pane-body offcanvas-menu accordion-nav" aria-hidden="true">
+      <a class="offcanvas-topclose sidebar-nav-menu" data-ng-click="closeRecentItemPanel( $event )" tabindex="-1" aria-label="Toggle Menu" aria-hidden="true">
+      </a>
+      <a class="offcanvas-close" data-ng-click="closeRecently( $event )" tabindex="-1" aria-hidden="true" title="Back to Main Menu">
+          <span class="EllucianIcon" aria-hidden="true">
+              <i class="fa fa-angle-left chevron " aria-hidden="true"></i>
+          </span>
+          <div class="backMainMenu ng-binding" aria-hidden="true">
+              Back to Main Menu
+          </div>
+      </a>
+      <div id="recentlyOpenedTitle" class="offcanvas-title entites-title active-nav ng-binding bottom-border" tabindex="-1" aria-hidden="true" title="Recently Opened">
+          Recently Opened
+      </div>
+  </ul>
+
+  <ul role="menubar" class="list-unstyled menu menu-body-wrapper list-pane-body offcanvas-menu accordion-nav recent-item-open" id="recentlyOpenedLeftmenuListWithVScrollbar" aria-hidden="true" aria-live="assertive">
+      <!-- ngRepeat: item in openedItems.ungrouped -->
+      <!-- ngRepeat: group in openedItems.grouped -->
+      <div>
+          <button data-ng-click="clearHistory($event)" role="menuitem" type="button" aria-labelledby="clearbuttonmessage" class="clear-history btn btn-primary " aria-hidden="true" tabindex="-1">
+              <i class="fa fa-times-circle"></i> Clear
+              <span id="clearbuttonmessage" class="sr-only ng-binding">Clear button, Press ENTER to clear recently opened items</span>
+          </button>
+      </div>
+  </ul>
+</ul></recently-open>
+                      </li>
+
+                      <li id="sidebar-help-new" role="menuitem" tabindex="-1" aria-label="Help" aria-hidden="false" aria-haspopup="true" aria-expanded="false" aria-live="assertive" data-type="menu" class="mainNavigationItem">
+                          <a data-toggle="tooltip" data-placement="right" title="Help (CTRL+SHIFT+L)" role="none" class="sidebar-nav-help offcanvas sidebar-nav-help-icon" data-ng-click="toggleAppMenuVertical( $event, 'help' )" aria-expanded="false" aria-live="assertive" aria-atomic="true">
+                              <span class="safari-homepage-icon EllucianIcon">
+                                  <img class="" src="assets/question.svg" alt="Sig">
+                              </span>
+                              <span class="ng-binding">Help</span>
+                          </a>
+                          <browse-apps-help class="ng-isolate-scope"><!--
+/*******************************************************************************
+Copyright 2013-2021 Ellucian Company L.P. and its affiliates.
+*******************************************************************************/
+-->
+<ul data-ng-controller="NewBrowseHelp" id="appItems-help" aria-hidden="true" class="ng-scope">
+  <ul data-name="root" class="list-unstyled menu menu-body-wrapper list-pane-body offcanvas-menu accordion-nav" aria-hidden="false">
+      <a class="offcanvas-topclose sidebar-nav-menu" data-ng-click="closeVerticalPanel( $event )" tabindex="-1" id="leftMenubarContentFromHelp" aria-label="Toggle Menu" aria-hidden="false">
+      </a>
+
+
+      <a class="offcanvas-close backToAppAndMainMenu backToAppAndMainMenu-help" data-ng-click="closeHelpMenu( $event )" tabindex="-1" data-ng-show="(menu &amp;&amp; menu.name == 'root') || !menuLoaded" id="backToMainMenuFromHelp" aria-hidden="true" title="Back to Main Menu">
+          <div class="parentMenu">
+              <span class="parentBackMenuBackIcon">
+                  <div class="fa fa-angle-left chevron " aria-hidden="true"></div>
+              </span>
+              <div class="backMainMenu parentBackMenuCaption ng-binding" aria-hidden="true">
+                  Back to Main Menu
+              </div>
+          </div>
+      </a>
+      <div class="offcanvas-title entites-title active-nav ng-binding bottom-border" tabindex="-1" aria-hidden="true" title="Help">
+          Help
+      </div>
+
+  </ul>
+  <ul role="menubar" class="list-unstyled menu menu-body-wrapper list-pane-body offcanvas-menu accordion-nav" id="leftmenuListWithVScrollbar-help" aria-hidden="false" aria-live="assertive">
+      <li class="browse-app-list-help ng-scope help" ng-mouseover="browseAppListMouseOver($event);" data-ng-class="$index == 0 ? 'selected' : ''" data-ng-click="openHelpShortcut($event)" data-type="page" aria-hidden="false" data-component="menu-link" ng-class-even="'even'" select-first-element-after-loaded="ngRepeatFinished" tabindex="-1" title="Page Help" style="background-color: rgb(40, 48, 54);">
+          <div data-component="menu-link" class="link-wrapper">
+              <a class="bottom-border menu-anchor-help toggleAppMenuVerticalhelp-help" href="#" role="menuitem" aria-label="Page Help" data-type="menu" data-component="menu-link">
+                  <div class="menuItemsParent">
+                      <div class="menuItemsChildCaption helpChild">
+                          <span class="ng-binding" aria-hidden="true">Page Help</span>
+                      </div>
+                      <div data-ng-show="item.type.toLowerCase()=='menu'" data-component="menu-link" class="fa fa-angle-right chevron menuItemsChildNextIcon ng-hide" aria-hidden="true"></div>
+                  </div>
+              </a>
+          </div>
+      </li>
+
+      <li class="browse-app-list-help ng-scope keyborad" ng-mouseover="browseAppListMouseOver($event);" data-ng-class="$index == 0 ? 'selected' : ''" data-ng-click="openmodal($event)" data-type="page" data-component="menu-link" ng-class-even="'even'" select-first-element-after-loaded="ngRepeatFinished" aria-hidden="false" title="Application Navigator Keyboard Shortcuts" style="background-color: rgb(40, 48, 54);">
+          <div data-component="menu-link" class="link-wrapper">
+              <a class="bottom-border menu-anchor-help help-keyBoard" href="#" role="menuitem" aria-label="Application Navigator Keyboard Shortcuts" data-type="menu" data-component="menu-link">
+                  <div class="menuItemsParent">
+                      <div class="menuItemsChildCaption" aria-hidden="true">
+                          <div id="btnKeyboardShortcut" type="button" aria-expanded="true" aria-controls="myModal" tabindex="-1" aria-hidden="true">
+
+                              <span class="btn-text ng-binding">Application Navigator Keyboard Shortcuts</span>
+                          </div>
+                          <div data-ng-show="item.type.toLowerCase()=='menu'" data-component="menu-link" class="fa fa-angle-right chevron menuItemsChildNextIcon ng-hide" aria-hidden="true"></div>
+                      </div>
+                  </div>
+              </a>
+          </div>
+      </li>
+
+
+      <li class="browse-app-list-help ng-scope privacyPolicy" ng-mouseover="browseAppListMouseOver($event);" data-url="https://www.ellucian.com/privacy" data-ng-class="$index == 0 ? 'selected' : ''" data-ng-click="openPrivacyPolicy($event)" data-type="page" aria-hidden="false" data-component="menu-link" ng-class-even="'even'" select-first-element-after-loaded="ngRepeatFinished" title="Ellucian Privacy Policy">
+          <div data-component="menu-link" class="link-wrapper">
+              <a href="https://www.ellucian.com/privacy" target="_blank" class="bottom-border menu-anchor-help help-privacyLink" role="menuitem" aria-label="Ellucian Privacy Policy External Link" data-type="menu" data-component="menu-link" style="color: #FFFFFF;">
+                  <div class="menuItemsParent" aria-hidden="true">
+                      <div class="menuItemsChildCaption" aria-hidden="true">
+                          <span class="ng-binding">Ellucian Privacy Policy</span>
+                      </div>
+                      <div data-ng-show="item.type.toLowerCase()=='menu'" data-component="menu-link" class="fa fa-angle-right chevron menuItemsChildNextIcon ng-hide" aria-hidden="true"></div>
+                  </div>
+              </a>
+          </div>
+      </li>
+  </ul>
+</ul></browse-apps-help>
+                      </li>
+                      <!-- favorites field starts -->
+                      <li id="sidebar-fav" role="menuitem" tabindex="-1" aria-label="Favorites" aria-hidden="false" aria-haspopup="true" aria-expanded="false" aria-live="assertive" data-type="menu" class="sidebar-fav-open mainNavigationItem">
+                          <a data-toggle="tooltip" data-placement="right" title="Favorites (CTRL+D) " role="img" aria-labelledby="sidebar-fav" class="sidebar-nav-favorites offcanvas sidebar-nav-favorites-icon" data-original-title="Favorites" aria-atomic="true" data-ng-click="toggleAppMenuVertical( $event, 'favorites' )" aria-expanded="false" aria-live="assertive">
+                              <span class="safari-homepage-icon EllucianIcon">
+                                  <i class=" "></i>
+                              </span>
+                              <span class="ng-binding">Favorites</span>
+                          </a>
+                          <browse-apps-favorites class="ng-isolate-scope"><!--
+/*******************************************************************************
+Copyright 2019-2024 Ellucian Company L.P. and its affiliates.
+*******************************************************************************/
+-->
+<ul data-ng-controller="Favorites" id="appItems-favorite" aria-hidden="true" class="ng-scope">
+  <ul data-name="root" class="list-unstyled menu menu-body-wrapper list-pane-body offcanvas-menu accordion-nav" aria-hidden="true">
+      <a class="offcanvas-topclose sidebar-nav-menu" data-ng-click="closeVerticalPanel( $event )" tabindex="-1" id="leftMenubarContentFromFavorites" aria-label="Toggle Menu" aria-hidden="true">
+      </a>
+
+
+      <a class="offcanvas-close backToAppAndMainMenu backToAppAndMainMenu-favorites" data-ng-click="closeFovoritesMenu( $event )" tabindex="-1" data-ng-show="(menu &amp;&amp; menu.name == 'root') || !menuLoaded" id="backToMainMenuFromFavorites" aria-hidden="true" title="Back to Main Menu">
+          <div class="parentMenu">
+              <span class="parentBackMenuBackIcon">
+                  <div class="fa fa-angle-left chevron " aria-hidden="true"></div>
+              </span>
+              <div class="backMainMenu parentBackMenuCaption ng-binding" aria-hidden="true">
+                  Back to Main Menu
+              </div>
+          </div>
+      </a>
+      <div class="offcanvas-title entites-title active-nav ng-binding bottom-border" tabindex="-1" aria-hidden="true" title="Favorites">
+          Favorites
+      </div>
+
+  </ul>
+  <ul role="menubar" class="list-unstyled menu menu-body-wrapper list-pane-body offcanvas-menu accordion-nav favorites-item" id="leftmenuListWithVScrollbar-favorites" aria-hidden="false" aria-live="polite" style="overflow: hidden auto; height: 89.6022%;">
+      <!-- ngRepeat: item in favResult --><li class="browse-app-list-favorites ng-scope" data-ng-repeat="item in favResult" data-ng-click="openModalOfFavorites( $event );" data-name="SFAREGQ" data-menu-name="*REGISTRATION" data-type="page" data-url="https://banxeprod.southflorida.edu/BannerAdmin?form=SFAREGQ&amp;ban_args={{params}}&amp;ban_mode=xe" data-excluded="" data-component="menu-link" ng-class-even="'even'" aria-label="SFAREGQ" tabindex="-1" ng-mouseover="browseAppListMouseOverFavorites($event);" aria-hidden="false" select-first-element-after-loaded="ngRepeatFinished" title="Registration Query (SFAREGQ)">
+          <div tabindex="-1" data-component="menu-link" class="menu-link">
+              <a class="bottom-border favorites-anchor" tabindex="-1" aria-hidden="false" aria-label="Registration Query (SFAREGQ)" href="https://banxeprod.southflorida.edu/BannerAdmin?form=SFAREGQ&amp;ban_args={{params}}&amp;ban_mode=xe" data-name="SFAREGQ" data-component="menu-link" role="menuitem">
+                  <div class="menuItemsParent" aria-hidden="true">
+                      <div class="menuItemsChildCaption" aria-hidden="true">
+                          <bdi aria-hidden="true"><div aria-hidden="true" ng-bind-html="item.caption|trustAsHtml" class="ng-binding">Registration Query (SFAREGQ)</div></bdi>
+                      </div>
+                      <div data-ng-show="favResult.length > 0" data-component="menu-link" class="menuItemsChildNextIcon favorite" aria-hidden="true" rel="tooltip" data-ng-click="deleteFavo($event);">
+                      </div>
+                  </div>
+              </a>
+          </div>
+      </li><!-- end ngRepeat: item in favResult --><li class="browse-app-list-favorites ng-scope even" data-ng-repeat="item in favResult" data-ng-click="openModalOfFavorites( $event );" data-name="SFAREGS" data-menu-name="*REGISTRATION" data-type="page" data-url="https://banxeprod.southflorida.edu/BannerAdmin?form=SFAREGS&amp;ban_args={{params}}&amp;ban_mode=xe" data-excluded="" data-component="menu-link" ng-class-even="'even'" aria-label="SFAREGS" tabindex="-1" ng-mouseover="browseAppListMouseOverFavorites($event);" aria-hidden="false" select-first-element-after-loaded="ngRepeatFinished" title="Student Course Registration (SFAREGS)">
+          <div tabindex="-1" data-component="menu-link" class="menu-link">
+              <a class="bottom-border favorites-anchor" tabindex="-1" aria-hidden="false" aria-label="Student Course Registration (SFAREGS)" href="https://banxeprod.southflorida.edu/BannerAdmin?form=SFAREGS&amp;ban_args={{params}}&amp;ban_mode=xe" data-name="SFAREGS" data-component="menu-link" role="menuitem">
+                  <div class="menuItemsParent" aria-hidden="true">
+                      <div class="menuItemsChildCaption" aria-hidden="true">
+                          <bdi aria-hidden="true"><div aria-hidden="true" ng-bind-html="item.caption|trustAsHtml" class="ng-binding">Student Course Registration (SFAREGS)</div></bdi>
+                      </div>
+                      <div data-ng-show="favResult.length > 0" data-component="menu-link" class="menuItemsChildNextIcon favorite" aria-hidden="true" rel="tooltip" data-ng-click="deleteFavo($event);">
+                      </div>
+                  </div>
+              </a>
+          </div>
+      </li><!-- end ngRepeat: item in favResult --><li class="browse-app-list-favorites ng-scope" data-ng-repeat="item in favResult" data-ng-click="openModalOfFavorites( $event );" data-name="SOATEST" data-menu-name="*EDBACK" data-type="page" data-url="https://banxeprod.southflorida.edu/BannerAdmin?form=SOATEST&amp;ban_args={{params}}&amp;ban_mode=xe" data-excluded="" data-component="menu-link" ng-class-even="'even'" aria-label="SOATEST" tabindex="-1" ng-mouseover="browseAppListMouseOverFavorites($event);" aria-hidden="false" select-first-element-after-loaded="ngRepeatFinished" title="Test Score Information (SOATEST)">
+          <div tabindex="-1" data-component="menu-link" class="menu-link">
+              <a class="bottom-border favorites-anchor" tabindex="-1" aria-hidden="false" aria-label="Test Score Information (SOATEST)" href="https://banxeprod.southflorida.edu/BannerAdmin?form=SOATEST&amp;ban_args={{params}}&amp;ban_mode=xe" data-name="SOATEST" data-component="menu-link" role="menuitem">
+                  <div class="menuItemsParent" aria-hidden="true">
+                      <div class="menuItemsChildCaption" aria-hidden="true">
+                          <bdi aria-hidden="true"><div aria-hidden="true" ng-bind-html="item.caption|trustAsHtml" class="ng-binding">Test Score Information (SOATEST)</div></bdi>
+                      </div>
+                      <div data-ng-show="favResult.length > 0" data-component="menu-link" class="menuItemsChildNextIcon favorite" aria-hidden="true" rel="tooltip" data-ng-click="deleteFavo($event);">
+                      </div>
+                  </div>
+              </a>
+          </div>
+      </li><!-- end ngRepeat: item in favResult --><li class="browse-app-list-favorites ng-scope even" data-ng-repeat="item in favResult" data-ng-click="openModalOfFavorites( $event );" data-name="SFAREGQ" data-menu-name="*REGISTRATION" data-type="page" data-url="https://sfsc-prod-pxes01.banner.elluciancloud.com:9090/BannerAdmin/?form=SFAREGQ&amp;ban_args={{params}}&amp;ban_mode=xe" data-excluded="" data-component="menu-link" ng-class-even="'even'" aria-label="SFAREGQ" tabindex="-1" ng-mouseover="browseAppListMouseOverFavorites($event);" aria-hidden="false" select-first-element-after-loaded="ngRepeatFinished" title="Registration Query (SFAREGQ)">
+          <div tabindex="-1" data-component="menu-link" class="menu-link">
+              <a class="bottom-border favorites-anchor" tabindex="-1" aria-hidden="false" aria-label="Registration Query (SFAREGQ)" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:9090/BannerAdmin/?form=SFAREGQ&amp;ban_args={{params}}&amp;ban_mode=xe" data-name="SFAREGQ" data-component="menu-link" role="menuitem">
+                  <div class="menuItemsParent" aria-hidden="true">
+                      <div class="menuItemsChildCaption" aria-hidden="true">
+                          <bdi aria-hidden="true"><div aria-hidden="true" ng-bind-html="item.caption|trustAsHtml" class="ng-binding">Registration Query (SFAREGQ)</div></bdi>
+                      </div>
+                      <div data-ng-show="favResult.length > 0" data-component="menu-link" class="menuItemsChildNextIcon favorite" aria-hidden="true" rel="tooltip" data-ng-click="deleteFavo($event);">
+                      </div>
+                  </div>
+              </a>
+          </div>
+      </li><!-- end ngRepeat: item in favResult --><li class="browse-app-list-favorites ng-scope" data-ng-repeat="item in favResult" data-ng-click="openModalOfFavorites( $event );" data-name="SFAREGS" data-menu-name="*REGISTRATION" data-type="page" data-url="https://sfsc-prod-pxes01.banner.elluciancloud.com:9090/BannerAdmin/?form=SFAREGS&amp;ban_args={{params}}&amp;ban_mode=xe" data-excluded="" data-component="menu-link" ng-class-even="'even'" aria-label="SFAREGS" tabindex="-1" ng-mouseover="browseAppListMouseOverFavorites($event);" aria-hidden="false" select-first-element-after-loaded="ngRepeatFinished" title="Student Course Registration (SFAREGS)">
+          <div tabindex="-1" data-component="menu-link" class="menu-link">
+              <a class="bottom-border favorites-anchor" tabindex="-1" aria-hidden="false" aria-label="Student Course Registration (SFAREGS)" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:9090/BannerAdmin/?form=SFAREGS&amp;ban_args={{params}}&amp;ban_mode=xe" data-name="SFAREGS" data-component="menu-link" role="menuitem">
+                  <div class="menuItemsParent" aria-hidden="true">
+                      <div class="menuItemsChildCaption" aria-hidden="true">
+                          <bdi aria-hidden="true"><div aria-hidden="true" ng-bind-html="item.caption|trustAsHtml" class="ng-binding">Student Course Registration (SFAREGS)</div></bdi>
+                      </div>
+                      <div data-ng-show="favResult.length > 0" data-component="menu-link" class="menuItemsChildNextIcon favorite" aria-hidden="true" rel="tooltip" data-ng-click="deleteFavo($event);">
+                      </div>
+                  </div>
+              </a>
+          </div>
+      </li><!-- end ngRepeat: item in favResult -->
+  </ul>
+</ul></browse-apps-favorites>
+                      </li>
+                      <!-- favorites field ends -->
+                      <li id="sidebar-signout" role="menuitem" tabindex="-1" aria-label="Signout" aria-hidden="false" class="mainNavigationItem">
+                          <a data-toggle="tooltip" data-placement="right" title="Sign Out (CTRL+SHIFT+F)" class="sidebar-nav-signout offcanvas" data-original-title="Sign Out" data-ng-click="toggleAppMenuVertical( $event, 'signout' )" role="none">
+                              <span class="safari-homepage-icon EllucianIcon">
+                                  <img class="" src="assets/sign-out.svg" alt="Sig">
+                              </span>
+                              <span class="user-signout ng-binding">Sign Out</span>
+                          </a>
+                      </li>
+                      <li id="sidebar-divider" tabindex="-1" aria-hidden="true">
+                          <div class="line" aria-hidden="true"></div>
+                      </li>
+                      <li id="sidebar-userinfo" class="sidebar-recently-open mainNavigationItem" role="menuitem" tabindex="-1" aria-label="Antonio Sheldtwon James " aria-hidden="false" aria-haspopup="true" aria-expanded="false" aria-live="assertive">
+                          <a id="user-info-toggle" data-toggle="tooltip" data-placement="right" title="Antonio Sheldtwon James
+" class="sidebar-nav-userinfo offcanvas userinfo sidebar-nav-userinfo-icon" role="img" aria-labelledby="sidebar-userinfo" data-original-title="Antonio Sheldtwon James
+                              " data-ng-click="toggleAppMenuVertical( $event, 'user' )" aria-expanded="false" aria-live="assertive">
+                              <span class="safari-homepage-icon EllucianIcon">
+                                  <span data-ng-show="isAdminUser &amp;&amp; messageCount>0" class="badge items-count ng-binding ng-hide">0</span>
+                              </span>
+                              <span id="userinfo" style="overflow-wrap: break-word;">Antonio Sheldtwon James</span> <br>
+                              <span id="timestamp-section" class="timestamp-section" style="font-size:10px;"></span>
+                          </a>
+                          <user-info class="ng-isolate-scope"><!--
+/*******************************************************************************
+Copyright 2013-2021 Ellucian Company L.P. and its affiliates.
+*******************************************************************************/
+-->
+<ul id="userItems" aria-hidden="true" data-ng-controller="UserInfoController" tabindex="-1" class="ng-scope">
+  <ul data-name="" class="list-unstyled menu menu-body-wrapper list-pane-body offcanvas-menu accordion-nav" aria-hidden="true">
+      <a class="offcanvas-topclose sidebar-nav-menu" data-ng-click="closeUserInfoItem( $event )" tabindex="-1" aria-hidden="true">
+      </a>
+      <a class="offcanvas-close" data-ng-click="closeUserInfo( $event )" tabindex="-1" aria-hidden="true" title="Back to Main Menu">
+          <span class="EllucianIcon" aria-hidden="true">
+              <i class="fa fa-angle-left chevron " aria-hidden="true"></i>
+          </span>
+          <div class="backMainMenu ng-binding" aria-hidden="true">
+              Back to Main Menu
+          </div>
+      </a>
+  </ul>
+
+  <ul role="menubar" class="list-unstyled menu menu-body-wrapper list-pane-body offcanvas-menu accordion-nav recent-item-open" id="userInfoVMenu" aria-hidden="true" aria-live="assertive">
+      <div tabindex="-1">
+          <!-- ngIf: isAdminUser --><li class="userinfo-item-list ng-scope" data-ng-click="openMessages( $event )" data-name="GUAMESG" ng-if="isAdminUser" data-menu-name="*ALUPROENTRY" data-type="page" data-url="https://sfsc-prod-pxes01.banner.elluciancloud.com:9090/BannerAdmin/?form=GUAMESG&amp;ban_args={{params}}&amp;ban_mode=xe" data-component="menu-link" ng-mouseover="UserInfoMouseOver($event);" ng-class-even="'even'" tabindex="-1" aria-hidden="false" title="Check Banner Messages">
+              <div tabindex="-1" data-component="menu-link" class="link-wrapper">
+                  <a class="bottom-border userinfo-anchor" aria-hidden="true" id="checkBannerMsg" tabindex="-1" aria-label="Check Banner Messages" aria-labelledby="checkBannerMsg count" data-name="GUAMESG" role="menuitem" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:9090/BannerAdmin/?form=GUAMESG&amp;ban_args={{params}}&amp;ban_mode=xe">
+                      <div class="menuItemsParent">
+                          <div class="recentlyOpenedGroupItemCaption">
+                                  <span class="safari-homepage-icon EllucianIcon ng-hide" data-ng-show="false">
+                                      <i class="fa"></i>
+                                      <span id="count" data-ng-show="isAdminUser &amp;&amp; $root.countValue>0 " class="badge items-count message-count-space ng-binding ng-hide">0
+                                      </span>
+                                  </span>
+                              <bdi aria-hidden="true"><div aria-hidden="true" class="ng-binding">Check Banner Messages </div>
+                              </bdi>
+                              <span class="safari-homepage-icon EllucianIcon" data-ng-show="true">
+                                  <i class="fa"></i>
+                                  <span data-ng-show="isAdminUser &amp;&amp; $root.countValue>0" class="badge items-count ng-binding ng-hide" style="position: relative;bottom: 15px;right: -240px; left: 240px">0</span>
+                              </span>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+          </li><!-- end ngIf: isAdminUser -->
+
+          <!-- ngIf: isAdminUser --><li class="userinfo-item-list ng-scope" data-ng-click="openMessages( $event )" data-name="GUAUPRF" ng-if="isAdminUser" data-menu-name="*GENMENU" data-type="page" data-url="https://sfsc-prod-pxes01.banner.elluciancloud.com:9090/BannerAdmin/?form=GUAUPRF&amp;ban_args={{params}}&amp;ban_mode=xe" data-component="menu-link" ng-mouseover="UserInfoMouseOver($event);" ng-class-even="'even'" tabindex="-1" aria-hidden="false" title="My Preferences">
+              <div tabindex="-1" data-component="menu-link" class="link-wrapper">
+                  <a class="bottom-border userinfo-anchor" aria-hidden="true" tabindex="-1" aria-label="My Preferences" data-name="GUAUPRF" role="menuitem" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:9090/BannerAdmin/?form=GUAUPRF&amp;ban_args={{params}}&amp;ban_mode=xe">
+                      <div class="menuItemsParent">
+                          <div class="recentlyOpenedGroupItemCaption">
+                              <bdi aria-hidden="true"><div aria-hidden="true" class="ng-binding">My Preferences </div>
+                              </bdi>
+                              <span class="safari-homepage-icon EllucianIcon" tabindex="-1">
+                                  <i class="fa" tabindex="-1"></i>
+                                  <span tabindex="-1" data-ng-show="isAdminUser &amp;&amp; messageCount>0" class="badge items-count ng-binding ng-hide" style="bottom: 15px;right: -264px;"></span>
+                              </span>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+          </li><!-- end ngIf: isAdminUser -->
+          <li class="userinfo-item-list" data-ng-click="openUserPrefModal($event)" data-name="UserPref" data-menu-name="" data-type="page" data-url="#" data-component="menu-link" ng-mouseover="UserInfoMouseOver($event);" ng-class-even="'even'" tabindex="-1" aria-hidden="false" title="Personal Settings">
+              <div tabindex="-1" data-component="menu-link" class="link-wrapper">
+                  <a id="userInfoPrefAnchor" class="bottom-border userinfo-anchor user-pref" data-name="UserPref" tabindex="-1" aria-hidden="true" data-type="page" aria-label="Personal Settings" href="#" role="menuitem">
+                      <div class="menuItemsParent">
+                          <div class="recentlyOpenedGroupItemCaption">
+                              <bdi aria-hidden="true"><div aria-hidden="true" class="ng-binding">Personal Settings</div>
+                              </bdi>
+                              <span class="safari-homepage-icon EllucianIcon" tabindex="-1">
+                                  <i class="fa" tabindex="-1"></i>
+                                  <span tabindex="-1" data-ng-show="isAdminUser &amp;&amp; messageCount>0" class="badge items-count ng-binding ng-hide" style="bottom: 15px;right: -264px;"></span>
+                              </span>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+          </li>
+      </div>
+  </ul>
+</ul></user-info>
+                      </li>
+                      <li id="sidebar-mep" tabindex="-1" data-ng-show="vpdiDesc.length > 0" role="menuitem" aria-hidden="false" aria-label="" class="mainNavigationItem ng-hide">
+                          <a data-toggle="tooltip" data-placement="right" title="" class="sidebar-nav offcanvas sidebar-mep" data-original-title="" role="img" data-ng-click="toggleAppMenuVertical( $event, 'mep' )">
+                              <span class="safari-homepage-icon EllucianIcon">
+                                  <i class="fa fa-university fa-lg fa-fw fa-lg fa-fw ng-hide"></i>
+                              </span>
+                              <span class="ng-binding"></span>
+                          </a>
+                      </li>
+                  </ul>
+              </nav>
+              <span class="release-info isDisabled" id="dbInstance" title="PROD DataBase" role="menu">
+                  <a id="dbInstanceAnchor" target="_blank" tabindex="-1" role="menuitem" aria-hidden="false" aria-label="PROD DataBase" class="ng-binding"> PROD DataBase </a>
+              </span>
+              <span id="brand-title" class="brand-title" title="Ellucian University" role="menu" style="overflow-wrap: break-word;">
+                  <!-- ngIf: isAdminUser --><a id="brandTitleAnchor" class="brand-title-anchor ng-binding ng-scope" target="_blank" ng-if="isAdminUser" tabindex="-1" role="menuitem" aria-hidden="false" aria-label="Ellucian University" href="http://www.southflorida.edu"> South Florida State College</a><!-- end ngIf: isAdminUser -->
+                  <!-- ngIf: !isAdminUser -->
+              </span>
+
+              <span class="release-info isDisabled" id="releaseInfo" title="3.19" role="menu">
+                  <a id="releaseInfoAnchor" target="_blank" tabindex="-1" role="menuitem" aria-hidden="false" aria-label="Release: 3.19" class="ng-binding"> Release: 3.19 </a>
+                  <br>
+                  <div class="privacy-settings" title="Institution Privacy Policy" role="menu">
+                      <div class="inst-privacy privacy-link transparent-border" ng-show="instLink" aria-labelledby="instText">
+                          <a class="privacy-link" target="_blank" tabindex="-1" role="menuitem" aria-hidden="false" aria-label="Institution Privacy Policy External Link"><span id="instText" class="ng-binding">Institution Privacy Policy</span> </a>
+                      </div>
+                  </div>
+              </span>
+          </div>
+          <!-- Mobile view -->
+          <div class="visible-xs visible-sm" id="toggleMobileDiv">
+              <a id="menu-toggle-mobile" class="sidebar-nav-menu" style="background-position:center;" data-ng-click="toggleAppMenuVertical( $event, 'mobilebars' )">
+                  <span class="sr-only">Toggle navigation</span>
+              </a>
+          </div>
+          <!-- Mobile view ends here -->
+          <!-- Sidebar navigation ends here -->
+          <!-- Main Content Ends -->
+      </div>
+
+      <main data-ng-controller="ContentController" class="no-print ng-scope">
+          <center-search class="ng-isolate-scope"><div id="centerSearchContent" class="content landing-content row ng-scope" style="margin-top: 0px; height: 1248px;" data-ng-controller="CenterSearchController" role="region" aria-labelledby="header">
+  <div class="row home-page-container">
+      <!-- Welcome banner Search Content begin -->
+      <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 search-section welcomeText rectangle-welcomeSearch noWelcomeText" style="margin-top:284.5px">
+
+              <div id="header" class="Welcome ng-binding">Welcome</div>
+
+
+          <!-- ngIf: instText.length>0 -->
+
+          <div class="search-wrapper" role="search" style="margin-top:10px !important">
+              <div id="searchRadioOptions" class="rectangle-searchDirectSearch">
+                  <div class="rectangle-search radioRectangle centerSearchOption selectedRectangle" data-ng-click="selectSearchOption($event)" aria-label="Press space to select Search" tabindex="-1">
+                      <span class="searchRadioLabel" tabindex="-1">
+                          <input id="searchRadio" type="radio" name="radio" value="search" class="search-radio" tabindex="-1">
+                          <label for="searchRadio" id="searchRadioLabel" class="search-label searchLabelNoOutline" tabindex="-1" data-ng-click="selectSearchOption($event)" aria-live="assertive">Search</label>
+                      </span>
+                  </div>
+                  <div class="rectangle-directSearch radioRectangle centerSearchOption unselectedRactangle" data-ng-click="selectSearchOption($event)" aria-label="Press space to select Direct Navigation" tabindex="-1">
+                      <span class="searchRadioLabel" tabindex="-1">
+                          <input id="directSearchRadio" type="radio" name="radio" value="directSearch" class="search-radio" tabindex="-1">
+                          <label for="directSearchRadio" id="directSearchRadioLabel" class="directSearch-label searchLabelNoOutline" tabindex="-1" data-ng-click="selectSearchOption($event)" aria-live="assertive">Direct Navigation</label>
+                      </span>
+                  </div>
+              </div>
+              <div class="searchListInline searchResultDiv" role="group">
+                  <div id="centerSearchTextBox">
+                      <input class="search-landing search-placeholder inputSearch ng-valid ng-valid-maxlength ng-touched ng-dirty ng-valid-parse ng-empty" type="text" autofocus="" id="search-landing" name="search" placeholder="Pages, Menus, Jobs and Quickflows" ng-placeholder="Pages, Menus, Jobs and Quickflows" data-ng-model="term" data-ng-change="query()" ng-paste="query()" ng-focus="closeSidePanel()" aria-label="You can search for forms, pages, menus, jobs and quickflows." maxlength="120" tabindex="0" aria-hidden="false">
+                      <input class="input-search-clear" type="button" aria-label="Clear button Press tab to navigate to sort" id="ClearBT" value="searchclear" style="display: none;">
+                      <input class="input-search-submit" type="text" aria-label="Submit" tabindex="-1" id="SearchBT" value="" style="">
+                      <input class="input-directSearch-clear" type="button" aria-label="Clear" id="ClearDirectSearchBT" value="searchclear" style="display: none;">
+                      <input class="sortAsc ng-hide" type="button" id="sortResults" aria-label="Sort button" data-ng-show="!NoResult" value="sortResults" style="display: none;">
+
+                  </div>
+                  <ul data-name="Search" role="group" class="list-unstyled searchResult newCenterSearchRectangle ng-hide" data-ng-show="results.length > 0" id="SearchResult">
+                      <!-- ngRepeat: item in results -->
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <!-- Welcome banner Search Content ends -->
+  </div>
+</div></center-search>
+      </main>
+  <div class="no-print" id="footerDisplayContent" style="display: block;"><div class="base-info row">    <footer id="contentFooter" role="contentinfo">        <div class="row">            <div class="col-md-6 col-xs-4 brand-section">                <div class="brand">Ellucian<span class="trademark">®&lrm;</span></div>                <div class="brandtext-section hidden-sm hidden-xs">                    <span><span aria-hidden="true">|</span>© 2014‐2025 Ellucian Company L.P. and its affiliates.</span>                </div>            </div>        </div>        <div class="brandtext-section row hidden-md hidden-lg" aria-hidden="true">            <span><span aria-hidden="true">|</span>© 2014‐2025 Ellucian Company L.P. and its affiliates.</span>        </div>        <div class="row" aria-labelledby="mainDisclaimer">            <div class="col-md-8 col-xs-12 copyright-section" aria-labelledby="mainDisclaimer">                <p class="copyright" id="mainIdDisclaimer">This software contains confidential and proprietary information of Ellucian and its subsidiaries. Use of this software is limited to Ellucian licensees, and is subject to the terms and conditions of one or more written license agreements between Ellucian and the licensee in question.</p>            </div>        </div>    </footer></div><div class="base-info row">    <footer id="contentFooter" role="contentinfo">        <div class="row">            <div class="col-md-6 col-xs-4 brand-section">                <div class="brand">Ellucian<span class="trademark">®&lrm;</span></div>                <div class="brandtext-section hidden-sm hidden-xs">                    <span><span aria-hidden="true">|</span>© 2014‐2025 Ellucian Company L.P. and its affiliates.</span>                </div>            </div>        </div>        <div class="brandtext-section row hidden-md hidden-lg" aria-hidden="true">            <span><span aria-hidden="true">|</span>© 2014‐2025 Ellucian Company L.P. and its affiliates.</span>        </div>        <div class="row" aria-labelledby="mainDisclaimer">            <div class="col-md-8 col-xs-12 copyright-section" aria-labelledby="mainDisclaimer">                <p class="copyright" id="mainIdDisclaimer">This software contains confidential and proprietary information of Ellucian and its subsidiaries. Use of this software is limited to Ellucian licensees, and is subject to the terms and conditions of one or more written license agreements between Ellucian and the licensee in question.</p>            </div>        </div>    </footer></div><div class="base-info row">    <footer id="contentFooter" role="contentinfo">        <div class="row">            <div class="col-md-6 col-xs-4 brand-section">                <div class="brand">Ellucian<span class="trademark">®&lrm;</span></div>                <div class="brandtext-section hidden-sm hidden-xs">                    <span><span aria-hidden="true">|</span>© 2014‐2025 Ellucian Company L.P. and its affiliates.</span>                </div>            </div>        </div>        <div class="brandtext-section row hidden-md hidden-lg" aria-hidden="true">            <span><span aria-hidden="true">|</span>© 2014‐2025 Ellucian Company L.P. and its affiliates.</span>        </div>        <div class="row" aria-labelledby="mainDisclaimer">            <div class="col-md-8 col-xs-12 copyright-section" aria-labelledby="mainDisclaimer">                <p class="copyright" id="mainIdDisclaimer">This software contains confidential and proprietary information of Ellucian and its subsidiaries. Use of this software is limited to Ellucian licensees, and is subject to the terms and conditions of one or more written license agreements between Ellucian and the licensee in question.</p>            </div>        </div>    </footer></div></div>
+ </div>
 </div>
+<!-- Modal -->
+<keyboard-shortcut class="no-print ng-isolate-scope"><div class="modal fade keyboardShortCutModal" tabindex="-1" id="kbModal" aria-labelledby="tblGrid" role="dialog">
+  <div class="modal-dialog modal-md">
+      <div class="modal-content" style="margin-top: 0px;">
+          <!-- Modal Header -->
+
+          <div class="modal-header keyboardShortCutModal-header">
+              <button type="button" class="close-keyboardShortcut" data-dismiss="modal" aria-hidden="true" autofocus="">×</button>
+              <h3 class="modal-title text-left" role="heading">Application Navigator Keyboard Shortcuts</h3>
+          </div>
+          <!-- Modal Body -->
+          <div class="modal-body">
+              <table class="table table-striped" id="tblGrid" role="presentation">
+                  <tbody>
+                      <tr>
+                          <td class="text-left ng-binding">Display Applications</td>
+                          <td class="text-right">CTRL+M</td>
+                      </tr>
+                      <tr>
+                          <td class="text-left ng-binding">Display Recently Opened</td>
+                          <td class="text-right">CTRL+Y</td>
+                      </tr>
+                      <tr>
+                          <td class="text-left ng-binding">Display Dashboard</td>
+                          <td class="text-right">CTRL+SHIFT+X</td>
+                      </tr>
+                      <tr>
+                          <td class="text-left ng-binding">Display Favorites</td>
+                          <td class="text-right">CTRL+D</td>
+
+                      </tr>
+                      <tr>
+                          <td class="text-left ng-binding">Edit Favorites</td>
+                          <td class="text-right">CTRL+SHIFT+O</td>
+
+                      </tr>
+                      <tr>
+                          <td class="text-left ng-binding">Help</td>
+                          <td class="text-right">CTRL+SHIFT+L</td>
+                      </tr>
+                      <tr>
+                          <td class="text-left ng-binding">Search</td>
+                          <td class="text-right">CTRL+SHIFT+Y</td>
+                      </tr>
+                      <tr>
+                          <td class="text-left ng-binding">Sign Out</td>
+                          <td class="text-right">CTRL+SHIFT+F</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+          <!-- Modal Footer -->
+      </div>
+  </div>
+</div></keyboard-shortcut>
+<vpdi-confirmation class="no-print ng-isolate-scope"><div class="modal fade mep-modal" role="dialog" aria-labelledby="myModalLabel" aria-describedby="modal-body">
+  <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center">
+          <div class="modal-content" style="margin-top: 0px;">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                  <div class="modal-title, h3 ng-binding" id="myModalLabel">
+                      Set Institution Code
+                  </div>
+              </div>
+              <!-- Modal Body -->
+              <div class="modal-body" id="modal-body">
+                  <div class="selectContainer">
+                      <select id="selectVpdiCmp" class="mepList form-control ng-pristine ng-untouched ng-valid ng-empty" aria-labelledby="myModalLabel" ng-model="$ctrl.vpdiSelected" data-ng-options="vpdiOption as vpdiOption.desc +' ('+ vpdiOption.code +')&lrm;' for vpdiOption in $ctrl.vpdiOptions" ng-keydown="navigateToNext($event)"><option value="?" selected="selected"></option></select>
+                  </div>
+              </div>
+              <!-- Modal Footer -->
+              <div class="modal-footer">
+                  <button type="button" id="mepBtn" class="continue-button btn eds-button--primary ng-binding" ng-click="$ctrl.closeAndDisplayMep($event)" data-url="seamless/setMep" ng-keydown="navigateToNext($event)">
+                      Select
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div></vpdi-confirmation>
+<logout-confirmation class="no-print ng-isolate-scope"><div class="logout-confirmation hidden" role="alertdialog" logout-pop-up="">
+  <div class="logout-confirmation-content">
+      <div class="dirtyCheckNotification dirtytDiv" tabindex="0" aria-labelledby="unsavedDataLabel logoutDirtyCheck continueLoggingOut signoutPageNavigationTip" id="dirtytDiv">
+           <div class="logout-info logoutDirtyCheck ng-binding" id="unsavedDataLabel">One or more applications have unsaved data.</div>
+           <div class="logout-info ng-binding" id="continueLoggingOut">Do you want to continue logging out?</div>
+          <span class="sr-only ng-binding" id="signoutPageNavigationTip">Press tab to navigate through page items</span>
+      </div>
+      <div class="signoutNotification">
+          <div class="logout-info signoutDiv ng-binding" tabindex="0" aria-label="Do you really want to signout? Press tab to navigate through page items" id="signoutDiv">
+              Do you really want to signout?
+      </div>
+      <div class="checkbox">
+          <label><input type="checkbox" role="checkbox" class="logout-info-checkbox" aria-label="Do not show this message again">
+              <span class="ng-binding">Do not show this message again</span>
+          </label>
+      </div>
+      </div>
+      <div>
+          <button data-ng-click="confirmLogout( true, $event )" class="continue-logout-buttons btn eds-button--secondary ng-binding" aria-label="Yes, continue Logout">Yes, continue Logout</button>
+          <button data-ng-click="confirmLogout( false, $event )" class="cancel-logout-button btn eds-button--primary ng-binding" id="noButton" aria-label="No">No</button>
+      </div>
+  </div>
+</div>
+</logout-confirmation>
+<session-expiration class="no-print ng-isolate-scope"><div class="sessionExpire-confirmation hidden" role="alertdialog" aria-describedby="sessionExpireMessage" session-expire-pop-up="">
+  <div class="sessionExpire-confirmation-content">
+      <div class="sessionExpire-info sessionExpireMessage ng-binding" id="sessionExpireMessage">Your session has expired. Click Reload to access login page.</div>
+      <div>
+          <button data-ng-click="reloadWindow( false, $event )" class="cancel-buttons btn eds-button--secondary ng-binding">Cancel</button>
+          <button data-ng-click="reloadWindow( true, $event )" class="reload-button btn eds-button--primary ng-binding" id="reloadButton">Reload</button>
+      </div>
+  </div>
+</div></session-expiration>
+<timeout-confirmation class="no-print ng-isolate-scope"><div class="timeout-confirmation hidden" role="alertdialog" aria-describedby="timeOutContent" timeout-pop-up="" aria-hidden="true">
+  <div class="timeout-confirmation-content" id="timeOutContent">
+      <div class="timeout-info ng-binding" id="timeOutCounter"></div>
+      <div class="timeout-info ng-binding" id="timeOutMessage"></div>
+      <div>
+          <button aria-label="  Extend" data-ng-click="$ctrl.refreshSession()" class="refresh-button btn eds-button--primary ng-binding" id="extendButton" autofocus="">Extend</button>
+      </div>
+  </div>
+</div></timeout-confirmation>
+<error-modal class="no-print ng-isolate-scope"><div id="errorModal" class="modal fade errorModal" data-keyboard="false" role="alert">
+  <div class="modal-dialog modal-md error-dialog">
+      <div class="modal-content" style="margin-top: 0px;">
+          <div class="modal-body" id="error-body">
+              <div class="errormodal-modal" id="appnavErrorModalDescription">
+                  <div class="errorpopup"><i class="fa fa-ban fa-lg fa-fw"></i>
+                      <span class="errorText ng-binding" aria-labelledby="Alert false">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                      <button data-ng-click="closeErrorModal()" type="button" class="close-alert" data-dismiss="modal" role="presentation" aria-label="Press enter to close"><span>×</span></button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div></error-modal>
+<recently-open-clear class="ng-isolate-scope"><div class="recently-open no-print hidden" role="alertdialog" aria-describedby="recentlyOpenClear">
+  <div class="recently-open-content" id="recentlyOpenClear">
+      <div class="recently-open-info recentlyOpenClear ng-binding" aria-label="Currently open pages remain in your recently opened folder after a &quot;Clear Recently Opened&quot; action. Only closed pages can be removed from history.">Currently open pages remain in your recently opened folder after a "Clear Recently Opened" action. Only closed pages can be removed from history.</div>
+      <div>
+          <button data-ng-click="confirmClear( $event )" class="ok-clear-button btn eds-button--primary ng-binding" id="okClearButton" aria-label="Press OK">OK</button>
+      </div>
+  </div>
+</div></recently-open-clear>
+<user-preference class="ng-isolate-scope"><div class="modal fade userPreferenceModal" tabindex="0" id="userPreferenceModal" aria-label="Personal Settings dialog, press tab to navigate through items" autofocus="">
+  <div class="modal-dialog modal-md">
+      <div class="modal-content user-pref-modal" style="margin-top: 0px;">
+          <!-- Modal Header -->
+
+          <div class="modal-header" id="userPreference-header">
+              <h2 class="modal-title text-left user-pref-header" id="userPrefHeader" role="heading">Personal Settings </h2>
+              <button data-ng-click="closemodal()" type="button" class="close-user-pref" aria-hidden="true"><span>×</span></button>
+          </div>
+          <!-- Modal Body -->
+          <div class="modal-body" id="userPreference-body">
+              <div class="row user-pref-row user-pref-radio">
+                      <div class="col-sm-3 user-pref-text ng-binding" id="signoutConfirmationMsg" title="Do you need sign out confirmation?" aria-label="Do you need sign out confirmation?">Do you need sign out confirmation?</div>
+                      <div class="col-sm-3 user-pref-col signout-radio sign-out transparent-border" data-ng-click="selectSignoutOption($event)">
+                          <input id="signout-conf" type="radio" name="signoutConfPref" value="Y" class="signoutConfirmation ng-pristine ng-untouched ng-valid ng-not-empty" tabindex="1" ng-model="$ctrl.signoutConf">
+                          <label for="signout-conf" id="YesSignoutConfirmationLabel" class="signoutConfirmationNoOutline ng-binding" aria-label="Do you need sign out confirmation?, YesSignoutConfirmationLabel" tabindex="1" data-ng-click="" aria-live="assertive">Yes</label>
+                      </div>
+                      <div class="col-sm-3 user-pref-col no-signout-radio sign-out-conf transparent-border" data-ng-click="selectSignoutOption($event)">
+                          <input id="no-signoutConfirmation" type="radio" name="signoutConfPref" value="N" class="nosignoutConfirmation ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse" tabindex="-1" ng-model="$ctrl.signoutConf">
+                          <label for="no-signoutConfirmation" id="noSignoutConfirmationLabel" class="signoutConfirmationNoOutline ng-binding" aria-label="Do you need sign out confirmation?, noSignoutConfirmationLabel" tabindex="-1" data-ng-click="" aria-live="assertive">No</label>
+                      </div>
+              </div>
+              <div class="row user-pref-row">
+                  <div class="user-pref-text col-sm-2 preferred-page-label ng-binding">Preferred initial page</div>
+                  <div class="searchListInline searchResultDiv preferredPageInput">
+                  <div class="user-pref-col col-sm-2 preferredPageInput" id="preferred-page-div">
+                      <input type="text" class="preferred-page ng-pristine ng-untouched ng-valid ng-empty" id="preferred-page" name="preferred-initial-page" aria-label="Preferred initial page, Enter Page URL/Acronym/Description" ng-model="term" ng-change="$ctrl.initPage=term" placeholder="Enter Page URL/Acronym/Description" aria-live="assertive">
+                      <ul class="list-unstyled searchResult newCenterSearchRectangle searchPref ng-hide" data-ng-show="results.length > 1" tabindex="-1">
+                          <!-- ngRepeat: item in results -->
+                      </ul>
+                      <!-- ngIf: searchMessage -->
+                      </div>
+                  </div>
+              </div>
+              <div class="row user-pref-row user-pref-radio">
+                  <div class="user-pref-text col-sm-3 ng-binding" title="Search preference indicator" id="searchPreferenceMsg" aria-label="Search preference indicator">Search preference indicator</div>
+                  <div class="user-pref-col col-sm-3 search-pref search-usr-pref transparent-border" data-ng-click="selectSignoutOption($event)">
+                      <input id="search-pref" type="radio" name="searchPrefIndicator" value="S" class="searchPreference ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse" tabindex="-1" ng-model="$ctrl.srchPrefInd">
+                      <label for="search-pref" id="searchPreferenceLabel" class="search-label ng-binding" aria-label="Search preference indicator, searchPreferenceLabel" tabindex="-1" data-ng-click="" aria-live="assertive">Search</label>
+                  </div>
+                  <div class="col-sm-3 user-pref-col direct-search search-usr-pref transparent-border" data-ng-click="selectSignoutOption($event)">
+                      <input id="direct-pref" type="radio" name="searchPrefIndicator" value="D" class="directSearchPreference ng-pristine ng-untouched ng-valid ng-not-empty" tabindex="-1" ng-model="$ctrl.srchPrefInd">
+                      <label for="direct-pref" id="directNavigationPreferenceLabel" class="direct-search-label ng-binding" aria-label="Search preference indicator, directNavigationPreferenceLabel" tabindex="-1" data-ng-click="" aria-live="assertive">Direct Navigation</label>
+                  </div>
+              </div>
+             <div class="row user-pref-row user-pref-radio sortByDiv">
+                  <div class="user-pref-text col-sm-3 ng-binding" id="sortByPreferenceMsg" title="Sort by" aria-label="Sort by">Sort by</div>
+                  <div class="user-pref-col col-sm-3 sort-by-acronym sort-by-usr-pref transparent-border" data-ng-click="selectSignoutOption($event)">
+                      <input id="sort-by-acronym-pref" type="radio" name="sortByPrefIndicator" value="A" class="sortByAcronymPreference" tabindex="-1">
+                      <label for="sort-by-acronym-pref" id="sortByAcronymPreferenceLabel" class="sort-by-acronym-label ng-binding" aria-label="Sort by, AcronymPreferenceLabel" tabindex="-1" data-ng-click="" aria-live="assertive">Acronym</label>
+                  </div>
+                  <div class="col-sm-3 user-pref-col sort-by-desc sort-by-usr-pref transparent-border" data-ng-click="selectSignoutOption($event)">
+                      <input id="sort-by-description-pref" type="radio" name="sortByPrefIndicator" value="DE" class="sortByDescriptionPreference" tabindex="-1">
+                      <label for="sort-by-description-pref" id="sortByDescriptionPreferenceLabel" class="sort-by-description-label ng-binding" aria-label="Sort by, DescriptionPreferenceLabel" tabindex="-1" data-ng-click="" aria-live="assertive">Description</label>
+                  </div>
+              </div>
+          </div>
+          <div class="modal-footer" id="user-pref-footer" aria-live="polite">
+              <button type="button" id="cancelSettings" class="cancel-settings-new btn eds-button--secondary ng-binding" ng-click="closeAndCancelSettings($event)">
+                  Cancel
+              </button>
+              <button type="button" id="saveSettings" class="save-settings-new btn eds-button--primary ng-binding" ng-click="closeAndSaveSettings($event)">
+                  Save
+              </button>
+          </div>
+      </div>
+
+          <!-- Modal Footer -->
+      </div>
+  </div>
+</user-preference>
+<excluded-obj-message-pop-up class="ng-isolate-scope"><!--
+/*******************************************************************************
+Copyright 2019-2020 Ellucian Company L.P. and its affiliates.
+*******************************************************************************/
+-->
+
+<div class="excludedObjMessage-popUp no-print hidden" role="alertdialog" aria-describedby="excludedObjMessage">
+      <div class="excludedObjMessage-popUp-content" id="excludedObjMessage">
+          <div class="excludedObjMessage-popUp-info excludedObjMessage ng-binding" id="deleteFavConfirmation" aria-label="This page is no longer available on the menu and will be removed from your Favorites folder.">This page is no longer available on the menu and will be removed from your Favorites folder.</div>
+          <div class="excludedObjMessage-popUp-info excludeObjectMsgForMyLinks ng-binding" id="excludeObjectMsgForMyLinks" aria-label="This page is no longer available. Please review your settings on My Links.">This page is no longer available. Please review your settings on My Links.</div>
+          <div>
+              <button data-ng-click="hideExcludePopUp( $event )" class="ok-excludedObjMesg-button btn eds-button--primary ng-binding" id="okdeleteFavoriteButton" aria-label="Press OK">OK</button>
+          </div>
+      </div>
+</div></excluded-obj-message-pop-up>
+<r:layoutresources>
+<span id="appLiveRegion" class="sr-only no-print" role="status" aria-live="polite"></span>
+
+
+</r:layoutresources><!----comment node----><protonpass-root-428f data-protonpass-role="root" data-protonpass-theme="dark"></protonpass-root-428f></body></html>
