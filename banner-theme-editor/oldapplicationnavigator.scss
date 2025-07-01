@@ -1,5 +1,4 @@
 
-
 /* bootstrap.css */
 
 mark  {
@@ -1146,89 +1145,11 @@ a.badge:focus  {
 .browse-app-list.ng-scope.even:hover{
   background-color: #FFFFFF !important;
 }
-.browse-app-list.ng-scope.odd:hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list.ng-scope:nth-of-type(3):hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list.ng-scope:nth-of-type(5):hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list.ng-scope:nth-of-type(7):hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list.ng-scope:nth-of-type(9):hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list.ng-scope:nth-of-type(11):hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list.ng-scope:nth-of-type(13):hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list.ng-scope:nth-of-type(15):hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list.ng-scope:nth-of-type(17):hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list.ng-scope:nth-of-type(19):hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list.ng-scope:nth-of-type(21):hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list-favorites.ng-scope.selected:hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list-favorites.ng-scope.even:hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list-favorites.ng-scope.odd:hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list-favorites.ng-scope:nth-of-type(1):hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list-favorites.ng-scope:nth-of-type(3):hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list-favorites.ng-scope:nth-of-type(5):hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list-help.ng-scope.help:hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list-help.ng-scope.keyborad:hover{
-  background-color: #FFFFFF !important;
-}
-.browse-app-list-help.ng-scope.privacyPolicy:hover{
-  background-color: #FFFFFF !important;
-  color: #f37b20 !important;
-}
-.bottom-border.menu-anchor-help.help-privacyLink > .menuItemsParent > .menuItemsChildCaption > .ng-binding:hover{
-  color: #f37b20 !important;
-}
-.line{
-  border-bottom: 1px solid #f37b20 !important;
-}
-
-.bottom-border{
-  border-bottom: 0.1rem solid #f37b20 !important;
-}
 .jumbotron  {
   background-color: #EEEEEE;
 }
 .jumbotron > hr  {
   border-top-color: #D5D5D5;
-}
-#sidbarNavigationWrapper{
-  border: .1rem solid #f37b20 !important;
-  
-}
-.base-info.row{
-  border-bottom: 0.1rem solid #f37b20 !important;
 }
 
 .thumbnail  {
@@ -2024,7 +1945,7 @@ a.privacy-link:hover{
 }
 @media (orientation:landscape) {
   .landing-content {
-    background-image: url("https://i.postimg.cc/rF7nk80N/landscape-1.png");
+    background-image: url("https://i.postimg.cc/x8srNbXB/landscape.png");
   }
 }
 @media (orientation:portrait) {
@@ -2363,11 +2284,7 @@ and (orientation : landscape) {
 
 
 .main-navigation li a:visited  {
-  color: #FFFFFF;
-}
-
-.main-navigation li a:visited:hover  {
-  color: #f37b20;
+  color: #D5D5D5;
 }
 
 
