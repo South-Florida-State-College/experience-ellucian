@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Support Resources</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Lighter background */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .card-container {
+            max-width: 1200px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            margin: 0 auto;
+        }
+        @media (max-width: 1024px) {
+            .card-container {
+                max-width: 100%;
+                margin: 0 8px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .p-8 {
+                padding: 3rem !important;
+            }
+        }
+        .section-divider {
+            border-top: 2px dashed #F37B20; /* Dashed divider */
+            margin: 2.5rem 0;
+        }
+        .resource-item {
+            background-color: #f8fafc; /* Light background for sections */
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Lighter shadow for items */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        @media (min-width: 1024px) {
+            .resource-item {
+                display: inline-block;
+                vertical-align: top;
+                width: 48%;
+                margin: 1%;
+            }
+            .resource-item img {
+                max-width: 350px;
+            }
+        }
+        @media (max-width: 640px) {
+            .resource-item {
+                padding: 1rem 0.5rem;
+            }
+        }
+        .resource-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid #e2e8f0; /* Image border */
+        }
+        .resource-item h3 {
+            font-size: 1.75rem; /* Larger heading */
+            font-weight: 700; /* Bolder */
+            margin-bottom: 1rem;
+            color: #333366; /* Darker text */
+            text-align: center;
+        }
+        @media (max-width: 640px) {
+            .resource-item h3 {
+                font-size: 1.25rem;
+            }
+        }
+        .resource-item p, .resource-item ul, .resource-item li {
+            font-size: 1rem;
+        }
+        @media (max-width: 640px) {
+            .resource-item p, .resource-item ul, .resource-item li {
+                font-size: 0.95rem;
+            }
+        }
+        .resource-item a {
+            color: #F37B20; /* Brighter blue links */
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease-in-out;
+        }
+        .resource-item a:hover {
+            color: #333366; /* Darker blue on hover */
+            text-decoration: underline;
+        }
+        .table-header {
+            background-color: #333366; /* Darker blue for table headers */
+            color: #ffffff;
+            padding: 1rem;
+            font-weight: 700; /* Bolder header text */
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+            justify-content: space-around;
+        }
+        .table-header div {
+            flex: 1 1 25%;
+            text-align: center;
+            padding: 0.5rem;
+        }
+        .table-wrapper {
+            border: 1px solid #e2e8f0; /* Outer border for the entire table section */
+            border-radius: 10px;
+            overflow-x: auto; /* Ensures rounded corners apply to content */
+            width: 100%;
+        }
+        .table-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center; /* Vertically align content */
+        }
+        .table-row:nth-child(odd) {
+            background-color: #fefefe; /* Very light background for odd rows */
+        }
+        .table-row:nth-child(even) {
+            background-color: #f0f4f8; /* More distinct background for even rows */
+        }
+        .table-cell {
+            flex: 1 1 100%; /* Default to full width on small screens */
+            padding: 0.75rem 0.5rem; /* Increased padding for better spacing */
+            text-align: center;
+            color: #4a5568;
+            word-break: break-word; /* Prevent long words from overflowing */
+            border-bottom: 1px solid #e2e8f0; /* Cell bottom border */
+            border-right: 1px solid #e2e8f0; /* Cell right border */
+        }
+        @media (min-width: 640px) { /* sm breakpoint */
+            .table-cell {
+                flex: 1 1 25%; /* Four columns on larger screens */
+                padding: 0.75rem 0.5rem;
+            }
+            .table-cell.font-semibold {
+                display: none; /* Hide labels on larger screens */
+            }
+        }
+        @media (max-width: 639px) {
+            .table-header {
+                display: none !important;
+            }
+            .table-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .table-cell {
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+                text-align: left;
+                padding-left: 1rem;
+            }
+            .table-cell:last-child {
+                border-bottom: none;
+            }
+            .table-cell.font-semibold {
+                display: block;
+                font-weight: 600;
+                color: #333366;
+                margin-bottom: 0.25rem;
+            }
+        }
+        .youtube-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin-top: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .youtube-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Styles for collapsible sections */
+        .collapsible-header {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: #F37B20; /* Light blue for collapsible headers */
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.2s ease-in-out;
+        }
+        @media (max-width: 640px) {
+            .collapsible-header {
+                padding: 1rem 0.5rem;
+            }
+        }
+        .collapsible-header:hover {
+            background-color: #333366; /* Darker blue on hover */
+        }
+        .collapsible-header h2 {
+            margin: 0;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            flex-grow: 1; /* Allows title to take available space */
+        }
+        @media (max-width: 640px) {
+            .collapsible-header h2 {
+                font-size: 1.25rem;
+            }
+        }
+        .collapsible-icon {
+            margin-left: 1rem;
+            transition: transform 0.3s ease-in-out;
+            color: #fff;
+        }
+        .collapsible-icon.rotated {
+            transform: rotate(90deg); /* Rotate icon when expanded */
+        }
+        .collapsible-content {
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .collapsible-content.hidden {
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            opacity: 0;
+        }
+        .collapsible-content:not(.hidden) {
+            max-height: 2000px; /* Large enough to accommodate content */
+            opacity: 1;
+        }
+        /* Update resource-item backgrounds for variety but keep accents */
+        .resource-item.bg-blue-50 { background-color: #f8fafc; border-left: 8px solid #333366; }
+        .resource-item.bg-green-50 { background-color: #f8fafc; border-left: 8px solid #F37B20; }
+        .resource-item.bg-yellow-50 { background-color: #f8fafc; border-left: 8px solid #F37B20; }
+        .resource-item.bg-purple-50 { background-color: #f8fafc; border-left: 8px solid #333366; }
+        .resource-item.bg-red-50 { background-color: #f8fafc; border-left: 8px solid #F37B20; }
+        .resource-item.bg-indigo-50 { background-color: #f8fafc; border-left: 8px solid #333366; }
+        .resource-item.bg-orange-50 { background-color: #f8fafc; border-left: 8px solid #F37B20; }
+        .resource-item.bg-teal-50 { background-color: #f8fafc; border-left: 8px solid #333366; }
+        /* Card Header */
+        .bg-blue-700 {
+            background-color: #333366 !important;
+        }
+        .text-blue-800, .text-green-800, .text-yellow-800, .text-purple-800, .text-red-800, .text-indigo-800, .text-orange-800, .text-teal-800 {
+            color: #333366 !important;
+        }
+        .text-blue-600, .text-green-600, .text-yellow-600, .text-purple-600, .text-red-600, .text-indigo-600, .text-orange-600, .text-teal-600 {
+            color: #F37B20 !important;
+        }
+        .text-blue-100 {
+            color: #F37B20 !important;
+        }
+        
+        .text-blue-800, .text-blue-600, .text-blue-100, .bg-blue-100 {
+            /* override Tailwind classes for links and backgrounds */
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+    <div class="card-container">
+        <!-- Card Header -->
+        <div class="bg-blue-700 text-white p-8 rounded-t-xl">
+            <h1 class="text-4xl font-extrabold text-center tracking-tight">Student Support Resources</h1>
+            <p class="text-center mt-3 text-blue-100 text-lg">At South Florida State College (SFSC), your success is our priority.</p>
+        </div>
+
+        <!-- Card Body -->
+        <div class="p-8">
+            <p class="text-gray-700 mb-8 text-lg leading-relaxed">We have a variety of services in place to help you succeed while at the College and assist you in pursuing a prosperous future.</p>
+
+            <!-- BayCare Behavioral Health -->
+            <div class="resource-item mb-10 bg-blue-50">
+                <img src="http://www.southflorida.edu/wp-content/uploads/2020/07/eap-software-logo-300x102.jpg" alt="BayCare Behavioral Health Logo" width="300" height="102" class="mx-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/300x102/e0f2fe/2196f3?text=BayCare+Logo';">
+                <h3 class="text-blue-800">BayCare Behavioral Health</h3>
+                <p class="text-gray-700">SFSC partners with <a href="http://www.southflorida.edu/current-students/student-support-resources/baycare-behavioral-health" class="text-blue-600 hover:underline">BayCare</a> to offer free behavioral health services to students. The <a href="http://www.southflorida.edu/current-students/student-support-resources/baycare-behavioral-health" class="text-blue-600 hover:underline">BayCare Student Assistance Program</a> can be utilized for free via email or phone, 24 hours a day, seven days a week by visiting BayCare’s <a href="https://baycare.personaladvantage.com/gateway.jsp?SingleSignIn:refid=SFSC" class="text-blue-600 hover:underline">custom online portal</a>, calling 800-878-5470, or emailing <a href="mailto:BayCareSAP@baycare.org" class="text-blue-600 hover:underline">BayCareSAP@baycare.org</a>.</p>
+                <p class="text-gray-700">BayCare also offers information on <a href="http://www.southflorida.edu/wp-content/uploads/2020/07/SAP-COVID-19.pdf" class="text-blue-600 hover:underline">Managing Stress During COVID-19</a> and <a href="http://www.southflorida.edu/wp-content/uploads/2020/07/SAP-COVID-webinars.pdf" class="text-blue-600 hover:underline">free behavioral health webinars</a> for students.</p>
+                <div class="youtube-container">
+                    <iframe src="https://www.youtube.com/embed/3eqEmYtrhc4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Career Development Center -->
+            <div class="resource-item mb-10 bg-green-50">
+                <img src="http://www.southflorida.edu/wp-content/uploads/2020/02/teamwork-3499960_1280-166x300.png" alt="Teamwork photo" width="111" height="201" class="mx-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/111x201/e8f5e9/4caf50?text=Teamwork+Photo';">
+                <h3 class="text-green-800">Career Development Center</h3>
+                <p class="text-gray-700">The <a href="http://www.southflorida.edu/current-students/student-support-services/career-development-center" class="text-green-600 hover:underline"><strong>Career Development Center</strong></a> at SFSC helps students and the community with job searches and preparation. <a href="http://www.southflorida.edu/current-students/student-support-resources/career-development-center/dress-success" class="text-green-600 hover:underline">Dress for Success</a> is available through the Career Development Center. It offers gently used interview and office attire to SFSC students and alumni for free. It is housed on the Highlands Campus, has a large range of sizes and styles for men and women, and inventory changes constantly.</p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- CareerSource Heartland -->
+            <div class="resource-item mb-10 bg-yellow-50">
+                <img src="https://www.southflorida.edu/wp-content/uploads/2017/03/19-CareerSource-Heartland_Full-Color-e1618859239643.png" alt="CareerSource Heartland Logo" width="300" height="115" class="mx-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/300x115/fffde7/ffc107?text=CareerSource+Logo';">
+                <h3 class="text-yellow-800">CareerSource Heartland</h3>
+                <p class="text-gray-700"><strong><a href="https://www.southflorida.edu/current-students/student-support-resources/careersource-heartland" class="text-yellow-600 hover:underline">CareerSource Heartland</a></strong> provides the support and funding for adults who are 18 and older and want to expand their skillset and knowledge to align with the evolving needs of the local job market. They offer career training, scholarships, and financial assistance for supplies, books, uniforms, and other fees. CareerSource Heartland prepares residents of DeSoto, Hardee, and Highlands counties for high-skill, high-wage, and in-demand industry occupations.</p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Disability Services -->
+            <div class="resource-item mb-10 bg-purple-50">
+                <img src="http://www.southflorida.edu/wp-content/uploads/2020/02/408px-Disability_symbols.svg_.png" alt="disability" width="213" height="213" class="mx-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/213x213/f3e5f5/9c27b0?text=Disability+Symbol';">
+                <h3 class="text-purple-800">Disability Services</h3>
+                <p class="text-gray-700"><a href="http://www.southflorida.edu/current-students/advising-counseling-center/services-students-with-disabilities" class="text-purple-600 hover:underline"><strong>Disability Services</strong></a> at South Florida State College provides reasonable accommodations for all otherwise qualified individuals with documented disabilities. The policy follows guidelines outlined in Section 504 of the Rehabilitation Act of 1973 and the Americans With Disabilities Act of 1990 and the amendments to the Americans with Disabilities Act of 2008.</p>
+                <p class="text-gray-700">It is the responsibility of the student or potential student to self-identify and provide appropriate documentation to the disabilities specialist 30 days prior to the start of classes. More information is available by contacting the disabilities specialist located in the Cornelius Student Services Building (Building B) in person, by e-mail at <a href="mailto:disabilities.specialist@southflorida.edu" class="text-purple-600 hover:underline">disabilities.specialist@southflorida.edu</a>, or by phone at 863-784-7131.</p>
+                <h4 class="text-xl font-semibold text-purple-700 mt-6">How do I register for disability services?</h4>
+                <p class="text-gray-700">Schedule an appointment with the disabilities specialist on Highlands Campus. Be sure to bring a copy of current documentation of your disability to your appointment. Students needing accommodations of services should register with the disabilities specialist at least 30 days prior to start of term.</p>
+                <div class="bg-blue-100 p-5 mt-6 rounded-lg border-2 border-blue-300 border-dashed">
+                    <h4 class="text-xl font-bold text-blue-800">Register to Vote Today!</h4>
+                    <p class="text-gray-700 mt-3"><strong>Directions:</strong> Please <a href="/wp-content/uploads/2021/05/SSD_VoterRegistrationForm.pdf" class="text-blue-600 hover:underline">print the application</a> and complete the form in black ink. Return the form to the disabilities specialist, Advising and Counseling Center, Building B, Room 153 or send the application to your county supervisor of elections. For assistance, <a href="mailto:disabilities.specialist@southflorida.edu" class="text-blue-600 hover:underline">email to the disabilities specialist</a> or call 863-784-7131.</p>
+                </div>
+                <ul class="list-disc list-inside text-gray-700 mt-6 space-y-2">
+                    <li><a href="/wp-content/uploads/2018/06/SSD_Application.pdf" class="text-purple-600 hover:underline">Application: Services for Students with Disabilities (PDF)</a></li>
+                    <li><a href="/wp-content/uploads/2014/07/SSD_Guide.pdf" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">Guide (PDF)</a></li>
+                    <li><a href="/wp-content/uploads/2021/05/SSD_Services-Differentiation.pdf" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">Differences between High School and College Disability Services (PDF)</a></li>
+                    <li><a href="https://www.southflorida.edu/current-students/advising-counseling-center/services-students-with-disabilities/accessibility-statement" class="text-purple-600 hover:underline">Accessibility Statement</a></li>
+                </ul>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Farmworker Career Development Program -->
+            <div class="resource-item mb-10 bg-red-50">
+                <img src="https://www.southflorida.edu/wp-content/uploads/2025/04/FDOE_GetThere_FDCP-Color@4x-300x104.png" alt="FCDP Logo" width="300" height="104" class="mx-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/300x104/ffebee/f44336?text=FCDP+Logo';">
+                <h3 class="text-red-800">Farmworker Career Development Program</h3>
+                <p class="text-gray-700">The <a href="http://www.southflorida.edu/current-students/student-support-services/farmworker-career-development-program" class="text-red-600 hover:underline"><strong>Farmworker Career Development Program</strong></a> helps migrant and seasonal farmworkers and their dependents realize greater economic stability through career services, training services, youth services, and related assistance. By participating in this program, migrant and seasonal farmworkers can achieve economic self-sufficiency, better pay, and a stable employment future. The Farmworker Career Development Program is free to those who meet the criteria.</p>
+                <h4 class="text-xl font-semibold text-red-700 mt-6">How Can the FCDP Help You?</h4>
+                <ul class="list-disc list-inside text-gray-700 mt-3 space-y-2">
+                    <li>Counseling to help you set your career goals</li>
+                    <li>Job skills training to learn the skills for the job you want</li>
+                    <li><a title="English for Speakers of Other Languages (ESOL)" href="http://www.southflorida.edu/current-students/degrees-programs/english-speakers-other-languages-esol" class="text-red-600 hover:underline">English for Speakers of Other Languages (ESOL)</a> classes to help you learn English</li>
+                    <li>Basic skills training in reading, writing, and math</li>
+                    <li>Help earning your <a title="General Educational Development Program (GED)" href="http://www.southflorida.edu/current-students/degrees-programs/general-educational-development-program-ged" class="text-red-600 hover:underline">General Educational Development (GED)</a> high school equivalency diploma</li>
+                    <li>Support services and financial aid</li>
+                    <li>Job readiness training to help you find, apply for, and keep a good job</li>
+                </ul>
+                <h4 class="text-xl font-semibold text-red-700 mt-6">How Can You Qualify for the FCDP?</h4>
+                <ul class="list-disc list-inside text-gray-700 mt-3 space-y-2">
+                    <li>You, your parents, or spouse have performed migrant or seasonal farm work within the past 24 months.</li>
+                    <li>You, your parents, or your spouse have received at least 50 percent of your total earned income from farm work within the past 24 months.</li>
+                </ul>
+                <p class="text-gray-700 mt-3">These requirements apply to all participants:</p>
+                <ul class="list-disc list-inside text-gray-700 ml-6 mt-3 space-y-2">
+                    <li>You receive public assistance, free/reduced cost lunch, or meet certain income eligibility requirements.</li>
+                    <li>You are a U.S. citizen, eligible non-citizen or Deferred Action for childhood Arrivals (DACA).</li>
+                    <li>You have registered with Selective Service if you are a male ages 18-26.</li>
+                </ul>
+                <p class="text-gray-700 mt-3">The Farmworker Career Development program is administered by the U.S. Department of Labor’s Employment and Training Administration and the Florida Department of Education.</p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Library -->
+            <div class="resource-item mb-10 bg-indigo-50">
+                <img src="http://www.southflorida.edu/wp-content/uploads/2020/03/books-300x150.png" alt="Books graphic" width="300" height="150" class="mx-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/300x150/e8eaf6/3f51b5?text=Books+Graphic';">
+                <h3 class="text-indigo-800">Library</h3>
+                <p class="text-gray-700">The <strong><a href="http://www.southflorida.edu/current-students/library/highlands-campus-library" class="text-indigo-600 hover:underline">Library</a></strong> offers a variety of free or low cost services for SFSC students at every campus location. The Library also hosts free-to-attend events throughout the year which can include workshops, celebrations, and colloquiums.</p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Pete's Pantry -->
+            <div class="resource-item mb-10 bg-orange-50">
+                <img src="https://www.southflorida.edu/wp-content/uploads/2020/03/Pete39s-Pantry-Logo-final-300x300.png" alt="Pete's Panther Pantry Image" width="300" height="300" class="mx-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/300x300/fff3e0/ff9800?text=Pete%27s+Pantry+Logo';">
+                <h3 class="text-orange-800">Pete’s Pantry</h3>
+                <p class="text-gray-700">Pete’s Pantry is a food, health, and hygiene item pantry that is available for free to the students, staff, and faculty of SFSC. The Pantry is located on the Highlands Campus in Building B, Room 167B. Use of the Pantry is confidential and items can be sent to other campuses for those in need. For more information, contact Hirell Bell, Panther Care specialist, at 863-784-7402 or <a href="mailto:hirell.bell@southflorida.edu" class="text-orange-600 hover:underline">hirell.bell@southflorida.edu</a>.</p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- The Tutoring and Learning Center -->
+            <div class="resource-item mb-10 bg-teal-50">
+                <img src="http://www.southflorida.edu/wp-content/uploads/2020/02/TLC_Twitter.png" alt="TLC Image" width="431" height="216" class="mx-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/431x216/e0f2f2/009688?text=TLC+Image';">
+                <h3 class="text-teal-800">The Tutoring and Learning Center</h3>
+                <p class="text-gray-700"><a href="http://www.southflorida.edu/current-students/student-support-services/tutoring-learning-center" class="text-teal-600 hover:underline"><strong>The Tutoring and Learning Center</strong></a> promotes academic success by providing free services to all currently enrolled students at the College, students who are participating in approved programs, and alumni of the College. No matter what the assignment, campus, or skill level, the TLC offers the support you need to excel in your courses.</p>
+                <p class="text-gray-700">At the DeSoto Campus, <strong>The Tutoring Pod</strong> is a special corner of the library that is dedicated to students for Zoom tutoring with the tutors from the Academic Center for Excellence (ACE). A widescreen monitor, webcam, and microphone are set up and headphones are available upon request. Students can receive virtual tutoring in writing, math, and Anatomy and Physiology. A QR code is ready to be scanned at The Tutoring Pod, which leads students directly to the <a href="https://libcal.southflorida.edu/appointments/sfsctutoring" class="text-teal-600 hover:underline">SFSC LibCal link</a> for scheduling.</p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- DeSoto County Community Services -->
+            <div class="mb-10 p-6 bg-gray-100 rounded-lg shadow-md">
+                <div class="collapsible-header" role="button" aria-expanded="false" aria-controls="desoto-content" tabindex="0">
+                    <h2 class="text-gray-800">DeSoto County Community Services</h2>
+                    <span class="collapsible-icon text-gray-600 text-2xl">&#9656;</span> <!-- Right-pointing triangle -->
+                </div>
+                <div id="desoto-content" class="collapsible-content hidden">
+                    <p class="text-center text-gray-600 mb-8 text-lg mt-4">South Florida State College DeSoto Campus, 863-993-1757</p>
+                    <div class="table-wrapper">
+                        <div class="hidden sm:flex table-header">
+                            <div>Organization Name</div>
+                            <div>Services</div>
+                            <div>Contact Name</div>
+                            <div>Contact Number</div>
+                        </div>
+                        <!-- Table Rows -->
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Charlotte Behavioral Health</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Behavioral Health</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:941-639-8300" class="text-blue-600 hover:underline">941-639-8300</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Community Care Family Counsel</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Behavioral Health</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-494-1242" class="text-blue-600 hover:underline">863-494-1242</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Psychiatric Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Behavioral Health</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell">
+                                <a href="tel:941-639-8300" class="text-blue-600 hover:underline">941-639-8300</a><br>
+                                Crisis Unit: <a href="tel:941-782-4600" class="text-blue-600 hover:underline">941-782-4600</a><br>
+                                Recovery Center: <a href="tel:941-347-6444" class="text-blue-600 hover:underline">941-347-6444</a><br>
+                                Toll-free: <a href="tel:877-703-5267" class="text-blue-600 hover:underline">877-703-5267</a>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Tidewell Hospice</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Behavioral Health</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:855-843-3935" class="text-blue-600 hover:underline">855-843-3935</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Health Department</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">COVID-19, Dental, Environmental Health, Primary Care</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell">
+                                Baldwin – <a href="tel:863-993-4601" class="text-blue-600 hover:underline">863-993-4601</a><br>
+                                Oak Primary Care – <a href="tel:863-491-7580" class="text-blue-600 hover:underline">863-491-7580</a>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">DeSoto County Public Library</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Education</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-993-4851" class="text-blue-600 hover:underline">863-993-4851</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">DeSoto County Schools</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Education</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-494-4222" class="text-blue-600 hover:underline">863-494-4222</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Family Service Center</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Education</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-993-1333" class="text-blue-600 hover:underline">863-993-1333</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">All Faiths Food Bank</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Food</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:941-379-6333" class="text-blue-600 hover:underline">941-379-6333</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">United Way Suncoast</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Food, Social Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:211" class="text-blue-600 hover:underline">211</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Cares for Homeless Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Homeless Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-491-9333" class="text-blue-600 hover:underline">863-491-9333</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">CareerSource Heartland</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Homeless Services, Career Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-993-1008" class="text-blue-600 hover:underline">863-993-1008</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Farmworker Career Development Program</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Career Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">Minerva Ortiz</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-784-7035" class="text-blue-600 hover:underline">863-784-7035</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Labor Solutions</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Homeless Services, Career Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-494-0400" class="text-blue-600 hover:underline">863-494-0400</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Arcadia Housing Authority</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Housing</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-494-4343" class="text-blue-600 hover:underline">863-494-4343</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Habitat for Humanity</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Housing</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-494-4118" class="text-blue-600 hover:underline">863-494-4118</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Eckerds Pharmacy</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Medication</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-485-4150" class="text-blue-600 hover:underline">863-485-4150</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">The Apothecary at DeSoto Memorial</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Medication</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-993-7676" class="text-blue-600 hover:underline">863-993-7676</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Dart</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Public Transportation</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:800-694-6566" class="text-blue-600 hover:underline">800-694-6566</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Heartland Rides Community Transportation</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Public Transportation</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:800-260-0139" class="text-blue-600 hover:underline">800-260-0139</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Benefits Checkup</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Senior Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-794-6559" class="text-blue-600 hover:underline">863-794-6559</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Senior Friendship Center</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Senior Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-494-5965" class="text-blue-600 hover:underline">863-494-5965</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Catholic Charities</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Social Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-494-1068" class="text-blue-600 hover:underline">863-494-1068</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">The Florida Center for Early Childhood Healthy Families</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Social Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-491-9832" class="text-blue-600 hover:underline">863-491-9832</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">DeSoto County Social Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Social Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-993-4858" class="text-blue-600 hover:underline">863-993-4858</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Hope Florida</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Social Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:850-300-4673" class="text-blue-600 hover:underline">850-300-HOPE</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Salvation Army</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Social Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-491-0455" class="text-blue-600 hover:underline">863-491-0455</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">SPARCC Safe Place and Rape Crisis Center</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Social Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell">
+                                <a href="tel:863-494-4948" class="text-blue-600 hover:underline">863-494-4948</a><br>
+                                Helpline: <a href="tel:877-365-1976" class="text-blue-600 hover:underline">877-365-1976</a>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">DeSoto County Veterans Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Veterans Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell">
+                                <a href="tel:863-993-4858" class="text-blue-600 hover:underline">863-993-4858</a>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">4H Clubs</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Youth Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-993-4846" class="text-blue-600 hover:underline">863-993-4846</a></div>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-700 mt-6 text-base">Click for a list of <a href="https://www.southflorida.edu/current-students/student-support-resources" class="text-blue-600 hover:underline">resources available to all SFSC Students.</a> The list includes Pete’s Panther Pantry, the Tutoring and Learning Center, and more.</p>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Hardee County Community Services -->
+            <div class="mb-10 p-6 bg-gray-100 rounded-lg shadow-md">
+                <div class="collapsible-header" role="button" aria-expanded="false" aria-controls="hardee-content" tabindex="0">
+                    <h2 class="text-gray-800">Hardee County Community Services</h2>
+                    <span class="collapsible-icon text-gray-600 text-2xl">&#9656;</span>
+                </div>
+                <div id="hardee-content" class="collapsible-content hidden">
+                    <p class="text-center text-gray-600 mb-8 text-lg mt-4">South Florida State College Hardee Campus, 863-773-3081</p>
+                    <div class="table-wrapper">
+                        <div class="hidden sm:flex table-header">
+                            <div>Organization Name</div>
+                            <div>Services</div>
+                            <div>Contact Number</div>
+                        </div>
+                        <!-- Table Rows -->
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Farmworker Career Development Program</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Career Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-784-7035" class="text-blue-600 hover:underline">863-784-7035</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Hannah House</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Homeless Shelter – women and children only</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-773-5717" class="text-blue-600 hover:underline">863-773-5717</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Hardee Help</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Food/Grocery Resources</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-773-0034" class="text-blue-600 hover:underline">863-773-0034</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Heartland Coalition for the Homeless</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Homeless Documentation – high school and adult students</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-453-8901" class="text-blue-600 hover:underline">863-453-8901</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Heartland for Children</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Foster Care/Adoption</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-519-8900" class="text-blue-600 hover:underline">863-519-8900, ext. 232</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Vocational and Rehabilitative Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Services for students with disabilities</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-386-6078" class="text-blue-600 hover:underline">863-386-6078</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization Name:</div><div class="table-cell">Hardee County Veteran’s Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Veteran’s Services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-773-9853" class="text-blue-600 hover:underline">863-773-9853</a></div>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-700 mt-6 text-base">Click for a list of <a href="https://www.southflorida.edu/current-students/student-support-resources" class="text-blue-600 hover:underline">resources available to all SFSC Students.</a> The list includes Pete’s Panther Pantry, the Tutoring and Learning Center, and more.</p>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Highlands County Resources -->
+            <div class="mb-10 p-6 bg-gray-100 rounded-lg shadow-md">
+                <div class="collapsible-header" role="button" aria-expanded="false" aria-controls="highlands-content" tabindex="0">
+                    <h2 class="text-gray-800">Highlands County Resources</h2>
+                    <span class="collapsible-icon text-gray-600 text-2xl">&#9656;</span>
+                </div>
+                <div id="highlands-content" class="collapsible-content hidden">
+                    <p class="text-center text-gray-600 mb-8 text-lg mt-4">South Florida State College Highlands Campus, 863-453-6661</p>
+                    <div class="table-wrapper">
+                        <div class="hidden sm:flex table-header">
+                            <div>Organization</div>
+                            <div>Services</div>
+                            <div>Contact Name</div>
+                            <div>Contact Number</div>
+                        </div>
+                        <!-- Table Rows -->
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization:</div><div class="table-cell"><a href="https://cfhc.org/" class="text-blue-600 hover:underline">Central Florida Health Care</a></div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Medical, dental, and support services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:866-234-8534" class="text-blue-600 hover:underline">866-234-8534</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization:</div><div class="table-cell"><a href="https://www.myflfamilies.com/food-cash-and-medical" class="text-blue-600 hover:underline">Florida Department of Children and Families</a></div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Food/grocery and mental health assistance&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:850-300-4323" class="text-blue-600 hover:underline">850-300-4323</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization:</div><div class="table-cell"><a href="https://www.heartlandhomeless.com/" class="text-blue-600 hover:underline">Heartland Coalition for the Homeless</a></div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Homeless services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-453-8901" class="text-blue-600 hover:underline">863-453-8901</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization:</div><div class="table-cell">Heartland Food Bank</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Food services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-385-7885" class="text-blue-600 hover:underline">863-385-7885</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization:</div><div class="table-cell">Salvation Army</div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">Food, utility assistance, referrals from Red Cross, and clothing for job interviews</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:863-385-7548" class="text-blue-600 hover:underline">863-385-7548</a></div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell font-semibold sm:hidden">Organization:</div><div class="table-cell"><a href="https://uwcf.org/" class="text-blue-600 hover:underline">United Way of Central Florida</a></div>
+                            <div class="table-cell font-semibold sm:hidden">Services:</div><div class="table-cell">A network of services</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Name:</div><div class="table-cell">&nbsp;</div>
+                            <div class="table-cell font-semibold sm:hidden">Contact Number:</div><div class="table-cell"><a href="tel:211" class="text-blue-600 hover:underline">Call 211</a> or <a href="tel:863-648-1500" class="text-blue-600 hover:underline">863-648-1500</a></div>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-700 mt-6 text-base">Click for a list of <a href="https://www.southflorida.edu/current-students/student-support-resources" class="text-blue-600 hover:underline">resources available to all SFSC Students.</a> The list includes Pete’s Panther Pantry, the Tutoring and Learning Center, and more.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+
+            collapsibleHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const contentId = this.getAttribute('aria-controls');
+                    const content = document.getElementById(contentId);
+                    const icon = this.querySelector('.collapsible-icon');
+
+                    if (content.classList.contains('hidden')) {
+                        // Show content
+                        content.classList.remove('hidden');
+                        icon.classList.add('rotated');
+                        this.setAttribute('aria-expanded', 'true');
+                    } else {
+                        // Hide content
+                        content.classList.add('hidden');
+                        icon.classList.remove('rotated');
+                        this.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Add keyboard accessibility for space/enter keys
+                header.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault(); // Prevent scrolling when space is pressed
+                        this.click(); // Trigger the click event
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
