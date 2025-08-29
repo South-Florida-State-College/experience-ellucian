@@ -9,9 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vite": "^5.0.0"
+    "vite": "^7.1.3"
   },
   "devDependencies": {
-    "@vitejs/plugin-basic-ssl": "^1.0.1"
+    "@vitejs/plugin-basic-ssl": "^2.1.0"
   }
-} 
+}
