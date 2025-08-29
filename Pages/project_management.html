@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Resource Hub - SFSC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .card {
+            transition: all 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .link-item {
+            transition: all 0.2s ease-in-out;
+        }
+        .link-item:hover {
+            transform: translateX(4px);
+        }
+        .search-highlight {
+            background-color: #fef3c7;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            background-color: rgba(30, 41, 59, 0.95);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-slate-800 to-slate-700 shadow-xl">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-4xl font-bold leading-tight text-white">IT Resource Hub</h1>
+                    <p class="mt-2 text-lg text-slate-200">Quick access to all essential applications, tools, and support services.</p>
+                </div>
+                <div class="hidden md:block">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+                        <p class="text-white text-sm font-medium">SFSC IT Department</p>
+                        <p class="text-slate-300 text-xs">Last Updated: August 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav border-b border-slate-200 bg-white/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex space-x-8">
+                    <a href="#applications" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Applications</a>
+                    <a href="#tools" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
+                    <a href="#support" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Support</a>
+                    <a href="#training" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Training</a>
+                    <a href="#documentation" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Documentation</a>
+                </div>
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="Search tools..." 
+                           class="w-64 px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <i data-lucide="search" class="absolute right-3 top-2.5 h-5 w-5 text-slate-400"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Applications Section -->
+            <section id="applications" class="mb-16">
+                <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center">
+                    <i data-lucide="monitor" class="mr-3 text-blue-600 h-8 w-8"></i>
+                    Applications
+                </h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Test Applications -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-6 flex items-center">
+                            <i data-lucide="test-tube" class="mr-3 text-orange-500 h-6 w-6"></i>
+                            Test Environment
+                        </h3>
+                        <div class="space-y-4">
+                            <a href="https://sfsc-test-pxes01.banner.elluciancloud.com:8083/EmployeeSelfService" target="_blank" rel="noopener noreferrer" class="card block bg-gradient-to-r from-orange-50 to-orange-100 p-5 rounded-xl border border-orange-200">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-semibold text-slate-800">Employee Self Service</p>
+                                        <p class="text-sm text-slate-600">ESS Test Environment</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="h-5 w-5 text-orange-500"></i>
+                                </div>
+                            </a>
+                            <a href="https://sfsc-test-pxes02.banner.elluciancloud.com:8093/StudentSelfService" target="_blank" rel="noopener noreferrer" class="card block bg-gradient-to-r from-orange-50 to-orange-100 p-5 rounded-xl border border-orange-200">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-semibold text-slate-800">Student Self Service</p>
+                                        <p class="text-sm text-slate-600">SSS Test Environment</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="h-5 w-5 text-orange-500"></i>
+                                </div>
+                            </a>
+                            <a href="https://sfsc-test-pxes01.banner.elluciancloud.com:8081/applicationNavigator/seamless" target="_blank" rel="noopener noreferrer" class="card block bg-gradient-to-r from-orange-50 to-orange-100 p-5 rounded-xl border border-orange-200">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-semibold text-slate-800">Banner (Test)</p>
+                                        <p class="text-sm text-slate-600">Application Navigator Test</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="h-5 w-5 text-orange-500"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Production Applications -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-6 flex items-center">
+                            <i data-lucide="check-circle" class="mr-3 text-green-500 h-6 w-6"></i>
+                            Production Environment
+                        </h3>
+                        <div class="space-y-4">
+                            <a href="https://sfsc.sharepoint.com/" target="_blank" rel="noopener noreferrer" class="card block bg-gradient-to-r from-green-50 to-green-100 p-5 rounded-xl border border-green-200">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-semibold text-slate-800">Panther Central</p>
+                                        <p class="text-sm text-slate-600">Main Portal</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="h-5 w-5 text-green-500"></i>
+                                </div>
+                            </a>
+                            <a href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8083/EmployeeSelfService" target="_blank" rel="noopener noreferrer" class="card block bg-gradient-to-r from-green-50 to-green-100 p-5 rounded-xl border border-green-200">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-semibold text-slate-800">Employee Self Service</p>
+                                        <p class="text-sm text-slate-600">ESS Production</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="h-5 w-5 text-green-500"></i>
+                                </div>
+                            </a>
+                            <a href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8081/applicationNavigator" target="_blank" rel="noopener noreferrer" class="card block bg-gradient-to-r from-green-50 to-green-100 p-5 rounded-xl border border-green-200">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-semibold text-slate-800">Banner (Prod)</p>
+                                        <p class="text-sm text-slate-600">Application Navigator Production</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="h-5 w-5 text-green-500"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Core Tools Section -->
+            <section id="tools" class="mb-16">
+                <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center">
+                    <i data-lucide="wrench" class="mr-3 text-blue-600 h-8 w-8"></i>
+                    Core Tools
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Microsoft Office -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+                        <h3 class="font-semibold text-lg mb-4 text-slate-900 flex items-center">
+                            <i data-lucide="briefcase" class="mr-2 text-blue-600 h-5 w-5"></i>
+                            Microsoft Office
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://outlook.office.com/mail/" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Outlook</a>
+                            <a href="https://www.office.com/launch/onedrive" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">OneDrive</a>
+                            <a href="https://word.cloud.microsoft/" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Word</a>
+                            <a href="https://excel.cloud.microsoft/" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Excel</a>
+                            <a href="https://powerpoint.cloud.microsoft/" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">PowerPoint</a>
+                            <a href="https://teams.cloud.microsoft/" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Teams</a>
+                            <a href="https://planner.cloud.microsoft/" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Planner</a>
+                            <a href="https://make.powerautomate.com/" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Power Automate</a>
+                            <a href="https://forms.office.com/" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Forms</a>
+                        </div>
+                    </div>
+
+                    <!-- Creative & AI -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+                        <h3 class="font-semibold text-lg mb-4 text-slate-900 flex items-center">
+                            <i data-lucide="sparkles" class="mr-2 text-purple-600 h-5 w-5"></i>
+                            Creative & AI
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.adobe.com/home" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Adobe Suite</a>
+                            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">ChatGPT</a>
+                            <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Gemini</a>
+                            <a href="https://app.agentx.so/?agent=6780002b1ea8ccdfc234a644" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">AgentX</a>
+                        </div>
+                    </div>
+
+                    <!-- Development Tools -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+                        <h3 class="font-semibold text-lg mb-4 text-slate-900 flex items-center">
+                            <i data-lucide="code" class="mr-2 text-green-600 h-5 w-5"></i>
+                            Development
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">GitHub</a>
+                            <a href="https://www.figma.com" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Figma</a>
+                            <a href="https://www.gitbook.com/" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">GitBook</a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+                        <h3 class="font-semibold text-lg mb-4 text-slate-900 flex items-center">
+                            <i data-lucide="zap" class="mr-2 text-yellow-600 h-5 w-5"></i>
+                            Quick Actions
+                        </h3>
+                        <div class="space-y-3">
+                            <button onclick="copyToClipboard('https://sfsc.sharepoint.com/')" class="link-item block w-full text-left font-medium text-blue-600 hover:text-blue-800">Copy Portal URL</button>
+                            <button onclick="copyToClipboard('https://outlook.office.com/mail/')" class="link-item block w-full text-left font-medium text-blue-600 hover:text-blue-800">Copy Outlook URL</button>
+                            <button onclick="copyToClipboard('https://teams.cloud.microsoft/')" class="link-item block w-full text-left font-medium text-blue-600 hover:text-blue-800">Copy Teams URL</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project Management & Support -->
+            <section id="support" class="mb-16">
+                <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center">
+                    <i data-lucide="headphones" class="mr-3 text-blue-600 h-8 w-8"></i>
+                    Project Management & Support
+                </h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <a href="https://training.knowbe4.com/ui/login" target="_blank" rel="noopener noreferrer" class="card bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:border-blue-200">
+                        <div class="text-center">
+                            <i data-lucide="shield-check" class="h-12 w-12 text-green-600 mx-auto mb-3"></i>
+                            <p class="font-semibold text-slate-800">KnowBe4</p>
+                            <p class="text-sm text-slate-500 mt-1">Security Training</p>
+                        </div>
+                    </a>
+                    <a href="https://entra.microsoft.com/#view/Microsoft_Entra_Copilot/AgentsLibrary.ReactView" target="_blank" rel="noopener noreferrer" class="card bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:border-blue-200">
+                        <div class="text-center">
+                            <i data-lucide="key" class="h-12 w-12 text-blue-600 mx-auto mb-3"></i>
+                            <p class="font-semibold text-slate-800">Entra Admin</p>
+                            <p class="text-sm text-slate-500 mt-1">Identity Management</p>
+                        </div>
+                    </a>
+                    <a href="https://watermarkinsights.mavenlink.com/users/19083187/dashboard" target="_blank" rel="noopener noreferrer" class="card bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:border-blue-200">
+                        <div class="text-center">
+                            <i data-lucide="bar-chart-3" class="h-12 w-12 text-purple-600 mx-auto mb-3"></i>
+                            <p class="font-semibold text-slate-800">WaterMark Insights</p>
+                            <p class="text-sm text-slate-500 mt-1">Analytics Platform</p>
+                        </div>
+                    </a>
+                    <a href="https://manager.everbridge.net/dashboard" target="_blank" rel="noopener noreferrer" class="card bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:border-blue-200">
+                        <div class="text-center">
+                            <i data-lucide="bell" class="h-12 w-12 text-red-600 mx-auto mb-3"></i>
+                            <p class="font-semibold text-slate-800">Everbridge Suite</p>
+                            <p class="text-sm text-slate-500 mt-1">Emergency Notifications</p>
+                        </div>
+                    </a>
+                    <a href="https://southflorida.element451.io/v2/start" target="_blank" rel="noopener noreferrer" class="card bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:border-blue-200">
+                        <div class="text-center">
+                            <i data-lucide="users" class="h-12 w-12 text-indigo-600 mx-auto mb-3"></i>
+                            <p class="font-semibold text-slate-800">Element451</p>
+                            <p class="text-sm text-slate-500 mt-1">Student Engagement</p>
+                        </div>
+                    </a>
+                    <a href="https://elluciansupport.service-now.com/customer_center?id=customer_center_home" target="_blank" rel="noopener noreferrer" class="card bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:border-blue-200">
+                        <div class="text-center">
+                            <i data-lucide="life-buoy" class="h-12 w-12 text-orange-600 mx-auto mb-3"></i>
+                            <p class="font-semibold text-slate-800">Ellucian Support</p>
+                            <p class="text-sm text-slate-500 mt-1">Technical Support</p>
+                        </div>
+                    </a>
+                    <a href="https://analytics.google.com/analytics/web/?authuser=0&pli=1#/p486794603/realtime/overview?params=_u..nav%3Dmaui&collectionId=user" target="_blank" rel="noopener noreferrer" class="card bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:border-blue-200">
+                        <div class="text-center">
+                            <i data-lucide="trending-up" class="h-12 w-12 text-green-600 mx-auto mb-3"></i>
+                            <p class="font-semibold text-slate-800">Google Analytics</p>
+                            <p class="text-sm text-slate-500 mt-1">Web Analytics</p>
+                        </div>
+                    </a>
+                    <a href="https://sdpondemand.manageengine.com/app/itdesk/HomePage.do" target="_blank" rel="noopener noreferrer" class="card bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:border-blue-200">
+                        <div class="text-center">
+                            <i data-lucide="help-circle" class="h-12 w-12 text-blue-600 mx-auto mb-3"></i>
+                            <p class="font-semibold text-slate-800">ServiceDesk</p>
+                            <p class="text-sm text-slate-500 mt-1">IT Support</p>
+                        </div>
+                    </a>
+                    <a href="https://accounts.zoho.com/signin?servicename=DesktopCentralCloud&signupurl=https://desktopcentral.manageengine.com:443/signup.html&serviceurl=https://desktopcentral.manageengine.com/webclient" target="_blank" rel="noopener noreferrer" class="card bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover:border-blue-200">
+                        <div class="text-center">
+                            <i data-lucide="monitor" class="h-12 w-12 text-gray-600 mx-auto mb-3"></i>
+                            <p class="font-semibold text-slate-800">EndPoint Central</p>
+                            <p class="text-sm text-slate-500 mt-1">Device Management</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Training Section -->
+            <section id="training" class="mb-16">
+                <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center">
+                    <i data-lucide="graduation-cap" class="mr-3 text-blue-600 h-8 w-8"></i>
+                    Training & Development
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+                        <h3 class="font-semibold text-lg mb-4 text-slate-900 flex items-center">
+                            <i data-lucide="book-open" class="mr-2 text-blue-600 h-5 w-5"></i>
+                            Professional Development
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://training.ellucian.com/pages/250/banner-home" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Ellucian Academy</a>
+                            <a href="https://academy.knowbe4.com/student/catalog" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">KnowBe4 Academy</a>
+                            <a href="https://academy.openai.com/home" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">OpenAI Academy</a>
+                            <a href="https://skillbuilder.aws" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">AWS Skill Builder</a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+                        <h3 class="font-semibold text-lg mb-4 text-slate-900 flex items-center">
+                            <i data-lucide="laptop" class="mr-2 text-green-600 h-5 w-5"></i>
+                            Online Learning
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.classcentral.com" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Class Central</a>
+                            <a href="https://wgu.udemy.com/organization/home/" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Udemy</a>
+                            <a href="https://www.linkedin.com/learning/?u=2045532" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">LinkedIn Learning</a>
+                            <a href="https://learn.microsoft.com/en-us/training/" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Microsoft Learn</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+                        <h3 class="font-semibold text-lg mb-4 text-slate-900 flex items-center">
+                            <i data-lucide="target" class="mr-2 text-purple-600 h-5 w-5"></i>
+                            Skill Building
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.codecademy.com" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Codecademy</a>
+                            <a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">freeCodeCamp</a>
+                            <a href="https://www.khanacademy.org" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Khan Academy</a>
+                            <a href="https://www.coursera.org" target="_blank" rel="noopener noreferrer" class="link-item block font-medium text-blue-600 hover:text-blue-800">Coursera</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Documentation & Project Management -->
+            <section id="documentation" class="mb-16">
+                <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center">
+                    <i data-lucide="folder-open" class="mr-3 text-blue-600 h-8 w-8"></i>
+                    Documentation & Project Management
+                </h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Project Documentation Forms -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+                        <h3 class="font-semibold text-lg mb-6 text-slate-900 flex items-center">
+                            <i data-lucide="file-text" class="mr-2 text-blue-600 h-5 w-5"></i>
+                            Project Documentation Forms
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <h4 class="font-semibold text-blue-900 mb-2">Project Initiation</h4>
+                                <div class="space-y-2">
+                                    <a href="#" onclick="openForm('project-charter')" class="link-item block text-blue-700 hover:text-blue-900">📋 Project Charter Template</a>
+                                    <a href="#" onclick="openForm('stakeholder-register')" class="link-item block text-blue-700 hover:text-blue-900">👥 Stakeholder Register</a>
+                                    <a href="#" onclick="openForm('risk-assessment')" class="link-item block text-blue-700 hover:text-blue-900">⚠️ Risk Assessment Form</a>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                                <h4 class="font-semibold text-green-900 mb-2">Project Planning</h4>
+                                <div class="space-y-2">
+                                    <a href="#" onclick="openForm('project-plan')" class="link-item block text-green-700 hover:text-green-900">📅 Project Plan Template</a>
+                                    <a href="#" onclick="openForm('work-breakdown')" class="link-item block text-green-700 hover:text-green-900">🔨 Work Breakdown Structure</a>
+                                    <a href="#" onclick="openForm('resource-allocation')" class="link-item block text-green-700 hover:text-green-900">👨‍💼 Resource Allocation Matrix</a>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                                <h4 class="font-semibold text-purple-900 mb-2">Project Execution</h4>
+                                <div class="space-y-2">
+                                    <a href="#" onclick="openForm('status-report')" class="link-item block text-purple-700 hover:text-purple-900">📊 Status Report Template</a>
+                                    <a href="#" onclick="openForm('issue-log')" class="link-item block text-purple-700 hover:text-purple-900">🚨 Issue Log Template</a>
+                                    <a href="#" onclick="openForm('change-request')" class="link-item block text-purple-700 hover:text-purple-900">🔄 Change Request Form</a>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                                <h4 class="font-semibold text-orange-900 mb-2">Project Closure</h4>
+                                <div class="space-y-2">
+                                    <a href="#" onclick="openForm('lessons-learned')" class="link-item block text-orange-700 hover:text-orange-900">📚 Lessons Learned Document</a>
+                                    <a href="#" onclick="openForm('project-review')" class="link-item block text-orange-700 hover:text-orange-900">✅ Project Review Checklist</a>
+                                    <a href="#" onclick="openForm('handover-document')" class="link-item block text-orange-700 hover:text-orange-900">🤝 Handover Document</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Management Tools & Links -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+                        <h3 class="font-semibold text-lg mb-6 text-slate-900 flex items-center">
+                            <i data-lucide="link" class="mr-2 text-green-600 h-5 w-5"></i>
+                            Project Management Tools
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-200">
+                                <h4 class="font-semibold text-indigo-900 mb-2">Documentation Platforms</h4>
+                                <div class="space-y-2">
+                                    <a href="https://www.notion.so" target="_blank" rel="noopener noreferrer" class="link-item block text-indigo-700 hover:text-indigo-900">📝 Notion - Project Documentation</a>
+                                    <a href="https://www.gitbook.com" target="_blank" rel="noopener noreferrer" class="link-item block text-indigo-700 hover:text-indigo-900">📚 GitBook - Technical Docs</a>
+                                    <a href="https://www.confluence.com" target="_blank" rel="noopener noreferrer" class="link-item block text-indigo-700 hover:text-indigo-900">🏢 Confluence - Team Collaboration</a>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-teal-50 p-4 rounded-lg border border-teal-200">
+                                <h4 class="font-semibold text-teal-900 mb-2">Project Tracking</h4>
+                                <div class="space-y-2">
+                                    <a href="https://trello.com" target="_blank" rel="noopener noreferrer" class="link-item block text-teal-700 hover:text-teal-900">📋 Trello - Kanban Boards</a>
+                                    <a href="https://asana.com" target="_blank" rel="noopener noreferrer" class="link-item block text-teal-700 hover:text-teal-900">✅ Asana - Task Management</a>
+                                    <a href="https://www.atlassian.com/software/jira" target="_blank" rel="noopener noreferrer" class="link-item block text-teal-700 hover:text-teal-900">🔄 Jira - Agile Project Management</a>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-rose-50 p-4 rounded-lg border border-rose-200">
+                                <h4 class="font-semibold text-rose-900 mb-2">Communication & Collaboration</h4>
+                                <div class="space-y-2">
+                                    <a href="https://slack.com" target="_blank" rel="noopener noreferrer" class="link-item block text-rose-700 hover:text-rose-900">💬 Slack - Team Communication</a>
+                                    <a href="https://www.microsoft.com/en-us/microsoft-teams" target="_blank" rel="noopener noreferrer" class="link-item block text-rose-700 hover:text-rose-900">👥 Microsoft Teams - Collaboration</a>
+                                    <a href="https://zoom.us" target="_blank" rel="noopener noreferrer" class="link-item block text-rose-700 hover:text-rose-900">📹 Zoom - Video Meetings</a>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                                <h4 class="font-semibold text-amber-900 mb-2">Design & Prototyping</h4>
+                                <div class="space-y-2">
+                                    <a href="https://www.figma.com" target="_blank" rel="noopener noreferrer" class="link-item block text-amber-700 hover:text-amber-900">🎨 Figma - UI/UX Design</a>
+                                    <a href="https://www.sketch.com" target="_blank" rel="noopener noreferrer" class="link-item block text-amber-700 hover:text-amber-900">✏️ Sketch - Design Tools</a>
+                                    <a href="https://www.invisionapp.com" target="_blank" rel="noopener noreferrer" class="link-item block text-amber-700 hover:text-amber-900">📱 InVision - Prototyping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KnowBe4 Documentation Section -->
+                <div class="mt-8 bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+                    <h3 class="font-semibold text-lg mb-6 text-slate-900 flex items-center">
+                        <i data-lucide="shield-check" class="mr-2 text-green-600 h-5 w-5"></i>
+                        KnowBe4 Documentation & Guides
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Training Automation -->
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl border border-blue-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-semibold text-blue-900">Training Automation</h4>
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">Guide</span>
+                            </div>
+                            <p class="text-blue-700 text-sm mb-3">Smart Groups Training Automation Guide</p>
+                            <div class="space-y-2">
+                                <a href="https://support.knowbe4.com/hc/en-us/articles/8355415951251-Smart-Groups-Training-Automation-Guide" target="_blank" rel="noopener noreferrer" class="block text-blue-600 hover:text-blue-800 text-sm">📚 Training Automation Guide</a>
+                                <a href="#" onclick="openKnowBe4Docs('training-automation')" class="block text-blue-600 hover:text-blue-800 text-sm">📋 Related Documentation</a>
+                                <a href="#" onclick="openKnowBe4Docs('training-best-practices')" class="block text-blue-600 hover:text-blue-800 text-sm">💡 Best Practices</a>
+                            </div>
+                        </div>
+                        
+                        <!-- PhishRIP -->
+                        <div class="bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-xl border border-red-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-semibold text-red-900">PhishRIP</h4>
+                                <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full">Guide</span>
+                            </div>
+                            <p class="text-red-700 text-sm mb-3">PhishRIP Phishing Incident Response Guide</p>
+                            <div class="space-y-2">
+                                <a href="https://support.knowbe4.com/hc/en-us/articles/360045742834-PhishRIP-Guide" target="_blank" rel="noopener noreferrer" class="block text-red-600 hover:text-red-800 text-sm">🚨 PhishRIP Guide</a>
+                                <a href="#" onclick="openKnowBe4Docs('phishrip-setup')" class="block text-red-600 hover:text-red-800 text-sm">⚙️ Setup Instructions</a>
+                                <a href="#" onclick="openKnowBe4Docs('phishrip-workflow')" class="block text-red-600 hover:text-red-800 text-sm">🔄 Response Workflow</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Phishing Automation -->
+                        <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-xl border border-orange-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-semibold text-orange-900">Phishing Automation</h4>
+                                <span class="bg-orange-500 text-white text-xs px-2 py-1 rounded-full">Guide</span>
+                            </div>
+                            <p class="text-orange-700 text-sm mb-3">Smart Groups Phishing Automation Guide</p>
+                            <div class="space-y-2">
+                                <a href="https://support.knowbe4.com/hc/en-us/articles/8355418347667-Smart-Groups-Phishing-Automation-Guide" target="_blank" rel="noopener noreferrer" class="block text-orange-600 hover:text-orange-800 text-sm">🎣 Phishing Automation Guide</a>
+                                <a href="#" onclick="openKnowBe4Docs('phishing-campaigns')" class="block text-orange-600 hover:text-orange-800 text-sm">📊 Campaign Management</a>
+                                <a href="#" onclick="openKnowBe4Docs('phishing-templates')" class="block text-orange-600 hover:text-orange-800 text-sm">📝 Template Library</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional KnowBe4 Resources -->
+                    <div class="mt-6 pt-6 border-t border-slate-200">
+                        <h4 class="font-semibold text-slate-900 mb-4">Additional KnowBe4 Resources</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                                <h5 class="font-medium text-slate-800 mb-2">Quick Access Links</h5>
+                                <div class="space-y-2">
+                                    <a href="https://training.knowbe4.com/ui/login" target="_blank" rel="noopener noreferrer" class="block text-slate-600 hover:text-slate-800 text-sm">🎓 KnowBe4 Training Portal</a>
+                                    <a href="https://academy.knowbe4.com/student/catalog" target="_blank" rel="noopener noreferrer" class="block text-slate-600 hover:text-slate-800 text-sm">📚 KnowBe4 Academy</a>
+                                    <a href="https://support.knowbe4.com/hc/en-us" target="_blank" rel="noopener noreferrer" class="block text-slate-600 hover:text-slate-800 text-sm">🔧 Support Center</a>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                                <h5 class="font-medium text-slate-800 mb-2">Documentation Categories</h5>
+                                <div class="space-y-2">
+                                    <a href="#" onclick="openKnowBe4Docs('admin-guides')" class="block text-slate-600 hover:text-slate-800 text-sm">👨‍💼 Administrator Guides</a>
+                                    <a href="#" onclick="openKnowBe4Docs('user-training')" class="block text-slate-600 hover:text-slate-800 text-sm">👥 User Training Materials</a>
+                                    <a href="#" onclick="openKnowBe4Docs('security-policies')" class="block text-slate-600 hover:text-slate-800 text-sm">🔒 Security Policy Templates</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enterprise Platform Documentation Section -->
+                <div class="mt-8 bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+                    <h3 class="font-semibold text-lg mb-6 text-slate-900 flex items-center">
+                        <i data-lucide="building-2" class="mr-2 text-indigo-600 h-5 w-5"></i>
+                        Enterprise Platform Documentation & Guides
+                    </h3>
+                    
+                    <!-- Element451 Documentation -->
+                    <div class="mb-8">
+                        <h4 class="font-semibold text-lg mb-4 text-slate-800 flex items-center">
+                            <i data-lucide="users" class="mr-2 text-indigo-500 h-5 w-5"></i>
+                            Element451 - Student Engagement Platform
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-4 rounded-lg border border-indigo-200">
+                                <h5 class="font-medium text-indigo-900 mb-2">Quick Access</h5>
+                                <div class="space-y-2">
+                                    <a href="https://southflorida.element451.io/v2/start" target="_blank" rel="noopener noreferrer" class="block text-indigo-700 hover:text-indigo-900 text-sm">🚀 Element451 Platform</a>
+                                    <a href="https://help.element451.com/" target="_blank" rel="noopener noreferrer" class="block text-indigo-700 hover:text-indigo-900 text-sm">📚 Help Center</a>
+                                    <a href="https://academy.element451.com/" target="_blank" rel="noopener noreferrer" class="block text-indigo-700 hover:text-indigo-900 text-sm">🎓 Academy</a>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
+                                <h5 class="font-medium text-purple-900 mb-2">Documentation</h5>
+                                <div class="space-y-2">
+                                    <a href="#" onclick="openElement451Docs('getting-started')" class="block text-purple-700 hover:text-purple-900 text-sm">🚀 Getting Started</a>
+                                    <a href="#" onclick="openElement451Docs('campaign-management')" class="block text-purple-700 hover:text-purple-900 text-sm">📧 Campaign Management</a>
+                                    <a href="#" onclick="openElement451Docs('analytics')" class="block text-purple-700 hover:text-purple-900 text-sm">📊 Analytics & Reporting</a>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
+                                <h5 class="font-medium text-blue-900 mb-2">Administration</h5>
+                                <div class="space-y-2">
+                                    <a href="#" onclick="openElement451Docs('user-management')" class="block text-blue-700 hover:text-blue-900 text-sm">👥 User Management</a>
+                                    <a href="#" onclick="openElement451Docs('integrations')" class="block text-blue-700 hover:text-blue-900 text-sm">🔗 Integrations</a>
+                                    <a href="#" onclick="openElement451Docs('best-practices')" class="block text-blue-700 hover:text-blue-900 text-sm">💡 Best Practices</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WaterMark Insights Documentation -->
+                    <div class="mb-8">
+                        <h4 class="font-semibold text-lg mb-4 text-slate-800 flex items-center">
+                            <i data-lucide="bar-chart-3" class="mr-2 text-purple-500 h-5 w-5"></i>
+                            WaterMark Insights - Analytics Platform
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
+                                <h5 class="font-medium text-purple-900 mb-2">Quick Access</h5>
+                                <div class="space-y-2">
+                                    <a href="https://watermarkinsights.mavenlink.com/users/19083187/dashboard" target="_blank" rel="noopener noreferrer" class="block text-purple-700 hover:text-purple-900 text-sm">📊 WaterMark Dashboard</a>
+                                    <a href="https://help.watermarkinsights.com/" target="_blank" rel="noopener noreferrer" class="block text-purple-700 hover:text-purple-900 text-sm">📚 Help Center</a>
+                                    <a href="https://www.watermarkinsights.com/resources" target="_blank" rel="noopener noreferrer" class="block text-purple-700 hover:text-purple-900 text-sm">📖 Resources</a>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-teal-50 to-teal-100 p-4 rounded-lg border border-teal-200">
+                                <h5 class="font-medium text-teal-900 mb-2">Analytics Tools</h5>
+                                <div class="space-y-2">
+                                    <a href="#" onclick="openWaterMarkDocs('assessment-tools')" class="block text-teal-700 hover:text-teal-900 text-sm">📝 Assessment Tools</a>
+                                    <a href="#" onclick="openWaterMarkDocs('reporting')" class="block text-teal-700 hover:text-teal-900 text-sm">📊 Reporting & Analytics</a>
+                                    <a href="#" onclick="openWaterMarkDocs('data-visualization')" class="block text-teal-700 hover:text-teal-900 text-sm">📈 Data Visualization</a>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-4 rounded-lg border border-indigo-200">
+                                <h5 class="font-medium text-indigo-900 mb-2">Administration</h5>
+                                <div class="space-y-2">
+                                    <a href="#" onclick="openWaterMarkDocs('setup-configuration')" class="block text-indigo-700 hover:text-indigo-900 text-sm">⚙️ Setup & Configuration</a>
+                                    <a href="#" onclick="openWaterMarkDocs('user-training')" class="block text-indigo-700 hover:text-indigo-900 text-sm">👥 User Training</a>
+                                    <a href="#" onclick="openWaterMarkDocs('compliance')" class="block text-indigo-700 hover:text-indigo-900 text-sm">📋 Compliance & Accreditation</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Everbridge Documentation -->
+                    <div class="mb-8">
+                        <h4 class="font-semibold text-lg mb-4 text-slate-800 flex items-center">
+                            <i data-lucide="bell" class="mr-2 text-red-500 h-5 w-5"></i>
+                            Everbridge - Emergency Notifications
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-lg border border-red-200">
+                                <h5 class="font-medium text-red-900 mb-2">Quick Access</h5>
+                                <div class="space-y-2">
+                                    <a href="https://manager.everbridge.net/dashboard" target="_blank" rel="noopener noreferrer" class="block text-red-700 hover:text-red-900 text-sm">🚨 Everbridge Manager</a>
+                                    <a href="https://help.everbridge.com/" target="_blank" rel="noopener noreferrer" class="block text-red-700 hover:text-red-900 text-sm">📚 Help Center</a>
+                                    <a href="https://www.everbridge.com/resources/" target="_blank" rel="noopener noreferrer" class="block text-red-700 hover:text-red-900 text-sm">📖 Resources</a>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-200">
+                                <h5 class="font-medium text-orange-900 mb-2">Emergency Management</h5>
+                                <div class="space-y-2">
+                                    <a href="#" onclick="openEverbridgeDocs('notification-setup')" class="block text-orange-700 hover:text-orange-900 text-sm">🔔 Notification Setup</a>
+                                    <a href="#" onclick="openEverbridgeDocs('incident-response')" class="block text-orange-700 hover:text-orange-900 text-sm">🚨 Incident Response</a>
+                                    <a href="#" onclick="openEverbridgeDocs('communication-plans')" class="block text-orange-700 hover:text-orange-900 text-sm">📢 Communication Plans</a>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-4 rounded-lg border border-yellow-200">
+                                <h5 class="font-medium text-yellow-900 mb-2">Administration</h5>
+                                <div class="space-y-2">
+                                    <a href="#" onclick="openEverbridgeDocs('user-management')" class="block text-yellow-700 hover:text-yellow-900 text-sm">👥 User Management</a>
+                                    <a href="#" onclick="openEverbridgeDocs('system-configuration')" class="block text-yellow-700 hover:text-yellow-900 text-sm">⚙️ System Configuration</a>
+                                    <a href="#" onclick="openEverbridgeDocs('training-materials')" class="block text-yellow-700 hover:text-yellow-900 text-sm">🎓 Training Materials</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ellucian Documentation -->
+                    <div class="mb-8">
+                        <h4 class="font-semibold text-lg mb-4 text-slate-800 flex items-center">
+                            <i data-lucide="life-buoy" class="mr-2 text-orange-500 h-5 w-5"></i>
+                            Ellucian - Banner & Higher Ed Solutions
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-200">
+                                <h5 class="font-medium text-orange-900 mb-2">Quick Access</h5>
+                                <div class="space-y-2">
+                                    <a href="https://elluciansupport.service-now.com/customer_center?id=customer_center_home" target="_blank" rel="noopener noreferrer" class="block text-orange-700 hover:text-orange-900 text-sm">🔧 Ellucian Support</a>
+                                    <a href="https://training.ellucian.com/pages/250/banner-home" target="_blank" rel="noopener noreferrer" class="block text-orange-700 hover:text-orange-900 text-sm">🎓 Ellucian Academy</a>
+                                    <a href="https://www.ellucian.com/support" target="_blank" rel="noopener noreferrer" class="block text-orange-700 hover:text-orange-900 text-sm">📚 Support Resources</a>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
+                                <h5 class="font-medium text-blue-900 mb-2">Banner System</h5>
+                                <div class="space-y-2">
+                                    <a href="#" onclick="openEllucianDocs('banner-administration')" class="block text-blue-700 hover:text-blue-900 text-sm">⚙️ Banner Administration</a>
+                                    <a href="#" onclick="openEllucianDocs('banner-modules')" class="block text-blue-700 hover:text-blue-900 text-sm">📋 Banner Modules</a>
+                                    <a href="#" onclick="openEllucianDocs('banner-upgrades')" class="block text-blue-700 hover:text-blue-900 text-sm">🔄 System Upgrades</a>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
+                                <h5 class="font-medium text-green-900 mb-2">Training & Support</h5>
+                                <div class="space-y-2">
+                                    <a href="#" onclick="openEllucianDocs('user-training')" class="block text-green-700 hover:text-green-900 text-sm">👥 User Training</a>
+                                    <a href="#" onclick="openEllucianDocs('technical-documentation')" class="block text-green-700 hover:text-green-900 text-sm">📖 Technical Docs</a>
+                                    <a href="#" onclick="openEllucianDocs('best-practices')" class="block text-green-700 hover:text-green-900 text-sm">💡 Best Practices</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KnowBe4 Documentation -->
+                    <div class="mb-8">
+                        <h4 class="font-semibold text-lg mb-4 text-slate-800 flex items-center">
+                            <i data-lucide="shield-check" class="mr-2 text-green-500 h-5 w-5"></i>
+                            KnowBe4 - Security Training Platform
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
+                                <h5 class="font-medium text-green-900 mb-2">Quick Access</h5>
+                                <div class="space-y-2">
+                                    <a href="https://training.knowbe4.com/ui/login" target="_blank" rel="noopener noreferrer" class="block text-green-700 hover:text-green-900 text-sm">🎓 KnowBe4 Training Portal</a>
+                                    <a href="https://academy.knowbe4.com/student/catalog" target="_blank" rel="noopener noreferrer" class="block text-green-700 hover:text-green-900 text-sm">📚 KnowBe4 Academy</a>
+                                    <a href="https://support.knowbe4.com/hc/en-us" target="_blank" rel="noopener noreferrer" class="block text-green-700 hover:text-green-900 text-sm">🔧 Support Center</a>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
+                                <h5 class="font-medium text-blue-900 mb-2">Training & Automation</h5>
+                                <div class="space-y-2">
+                                    <a href="https://support.knowbe4.com/hc/en-us/articles/8355415951251-Smart-Groups-Training-Automation-Guide" target="_blank" rel="noopener noreferrer" class="block text-blue-700 hover:text-blue-900 text-sm">📚 Training Automation Guide</a>
+                                    <a href="#" onclick="openKnowBe4Docs('training-automation')" class="block text-blue-700 hover:text-blue-900 text-sm">📋 Related Documentation</a>
+                                    <a href="#" onclick="openKnowBe4Docs('training-best-practices')" class="block text-blue-700 hover:text-blue-900 text-sm">💡 Best Practices</a>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-lg border border-red-200">
+                                <h5 class="font-medium text-red-900 mb-2">Security Tools</h5>
+                                <div class="space-y-2">
+                                    <a href="https://support.knowbe4.com/hc/en-us/articles/360045742834-PhishRIP-Guide" target="_blank" rel="noopener noreferrer" class="block text-red-700 hover:text-red-900 text-sm">🚨 PhishRIP Guide</a>
+                                    <a href="https://support.knowbe4.com/hc/en-us/articles/8355418347667-Smart-Groups-Phishing-Automation-Guide" target="_blank" rel="noopener noreferrer" class="block text-red-700 hover:text-red-900 text-sm">🎣 Phishing Automation Guide</a>
+                                    <a href="#" onclick="openKnowBe4Docs('phishrip-setup')" class="block text-red-700 hover:text-red-900 text-sm">⚙️ Setup Instructions</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Projects Dashboard -->
+                <div class="mt-8 bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+                    <h3 class="font-semibold text-lg mb-6 text-slate-900 flex items-center">
+                        <i data-lucide="kanban" class="mr-2 text-purple-600 h-5 w-5"></i>
+                        Active Projects Dashboard
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl border border-blue-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-semibold text-blue-900">Banner System Upgrade</h4>
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">In Progress</span>
+                            </div>
+                            <p class="text-blue-700 text-sm mb-3">Ellucian Banner system modernization and cloud migration</p>
+                            <div class="space-y-2">
+                                <a href="#" onclick="openProjectDocs('banner-upgrade')" class="block text-blue-600 hover:text-blue-800 text-sm">📋 Project Documentation</a>
+                                <a href="#" onclick="openProjectDocs('banner-timeline')" class="block text-blue-600 hover:text-blue-800 text-sm">📅 Project Timeline</a>
+                                <a href="#" onclick="openProjectDocs('banner-team')" class="block text-blue-600 hover:text-blue-800 text-sm">👥 Team Directory</a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-xl border border-green-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-semibold text-green-900">Student Portal Redesign</h4>
+                                <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full">Planning</span>
+                            </div>
+                            <p class="text-green-700 text-sm mb-3">Modern student portal interface and user experience redesign</p>
+                            <div class="space-y-2">
+                                <a href="#" onclick="openProjectDocs('portal-redesign')" class="block text-green-600 hover:text-green-800 text-sm">📋 Project Documentation</a>
+                                <a href="#" onclick="openProjectDocs('portal-requirements')" class="block text-green-600 hover:text-green-800 text-sm">📋 Requirements Doc</a>
+                                <a href="#" onclick="openProjectDocs('portal-design')" class="block text-green-600 hover:text-green-800 text-sm">🎨 Design Mockups</a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-xl border border-purple-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-semibold text-purple-900">IT Infrastructure Audit</h4>
+                                <span class="bg-purple-500 text-white text-xs px-2 py-1 rounded-full">Review</span>
+                            </div>
+                            <p class="text-purple-700 text-sm mb-3">Comprehensive IT infrastructure assessment and optimization</p>
+                            <div class="space-y-2">
+                                <a href="#" onclick="openProjectDocs('infrastructure-audit')" class="block text-purple-600 hover:text-purple-800 text-sm">📋 Project Documentation</a>
+                                <a href="#" onclick="openProjectDocs('audit-findings')" class="block text-purple-600 hover:text-purple-800 text-sm">🔍 Audit Findings</a>
+                                <a href="#" onclick="openProjectDocs('optimization-plan')" class="block text-purple-600 hover:text-purple-800 text-sm">📈 Optimization Plan</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Stats -->
+            <section class="mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-2xl shadow-lg">
+                        <div class="flex items-center">
+                            <i data-lucide="monitor" class="h-8 w-8 mr-3"></i>
+                            <div>
+                                <p class="text-2xl font-bold">25+</p>
+                                <p class="text-blue-100">Tools Available</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-2xl shadow-lg">
+                        <div class="flex items-center">
+                            <i data-lucide="check-circle" class="h-8 w-8 mr-3"></i>
+                            <div>
+                                <p class="text-2xl font-bold">2</p>
+                                <p class="text-green-100">Environments</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-6 rounded-2xl shadow-lg">
+                        <div class="flex items-center">
+                            <i data-lucide="users" class="h-8 w-8 mr-3"></i>
+                            <div>
+                                <p class="text-2xl font-bold">100%</p>
+                                <p class="text-purple-100">IT Team Access</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 rounded-2xl shadow-lg">
+                        <div class="flex items-center">
+                            <i data-lucide="clock" class="h-8 w-8 mr-3"></i>
+                            <div>
+                                <p class="text-2xl font-bold">24/7</p>
+                                <p class="text-orange-100">Resource Access</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 mt-16">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white font-semibold mb-3">SFSC IT Department</h3>
+                    <p class="text-slate-300 text-sm">Providing comprehensive IT resources and support for the South Florida State College community.</p>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold mb-3">Quick Links</h3>
+                    <div class="space-y-2">
+                        <a href="#applications" class="block text-slate-300 hover:text-white text-sm transition-colors">Applications</a>
+                        <a href="#tools" class="block text-slate-300 hover:text-white text-sm transition-colors">Tools</a>
+                        <a href="#support" class="block text-slate-300 hover:text-white text-sm transition-colors">Support</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold mb-3">Contact</h3>
+                    <p class="text-slate-300 text-sm">For technical support or questions about these resources, please contact the IT Help Desk.</p>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-6 text-center">
+                <p class="text-slate-400 text-sm">© 2025 South Florida State College IT Department | Last Updated: January 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const allCards = document.querySelectorAll('.card, .link-item');
+
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            allCards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                const parent = card.closest('section') || card.closest('.bg-white');
+                
+                if (text.includes(searchTerm)) {
+                    if (parent) parent.style.display = 'block';
+                    card.style.display = 'block';
+                    // Highlight search term
+                    if (card.textContent && searchTerm) {
+                        const regex = new RegExp(`(${searchTerm})`, 'gi');
+                        card.innerHTML = card.textContent.replace(regex, '<span class="search-highlight">$1</span>');
+                    }
+                } else {
+                    if (parent && !parent.querySelector('.card:not([style*="display: none"]), .link-item:not([style*="display: none"])')) {
+                        parent.style.display = 'none';
+                    }
+                    if (card.classList.contains('card')) {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Copy to clipboard functionality
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Show success message
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+                notification.textContent = 'URL copied to clipboard!';
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 2000);
+            });
+        }
+
+        // Add fade-in animation to sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                searchInput.value = '';
+                searchInput.dispatchEvent(new Event('input'));
+                searchInput.blur();
+            }
+        });
+
+        // Project Documentation Form Functions
+        function openForm(formType) {
+            const formTemplates = {
+                'project-charter': {
+                    title: 'Project Charter Template',
+                    fields: ['Project Name', 'Project Manager', 'Project Sponsor', 'Project Description', 'Business Case', 'Project Objectives', 'Success Criteria', 'Key Stakeholders', 'High-Level Timeline', 'Budget Estimate']
+                },
+                'stakeholder-register': {
+                    title: 'Stakeholder Register',
+                    fields: ['Stakeholder Name', 'Role', 'Department', 'Contact Information', 'Influence Level', 'Interest Level', 'Communication Preferences', 'Stakeholder Requirements']
+                },
+                'risk-assessment': {
+                    title: 'Risk Assessment Form',
+                    fields: ['Risk Description', 'Risk Category', 'Probability', 'Impact', 'Risk Score', 'Risk Owner', 'Mitigation Strategy', 'Contingency Plan', 'Status']
+                },
+                'project-plan': {
+                    title: 'Project Plan Template',
+                    fields: ['Project Overview', 'Scope Statement', 'Work Breakdown Structure', 'Project Schedule', 'Resource Requirements', 'Budget Breakdown', 'Quality Standards', 'Communication Plan', 'Risk Management Plan']
+                },
+                'work-breakdown': {
+                    title: 'Work Breakdown Structure',
+                    fields: ['WBS Level', 'Work Package', 'Description', 'Deliverables', 'Dependencies', 'Estimated Effort', 'Assigned Team Member', 'Start Date', 'End Date']
+                },
+                'resource-allocation': {
+                    title: 'Resource Allocation Matrix',
+                    fields: ['Resource Name', 'Role', 'Skills', 'Availability', 'Allocated Hours', 'Project Assignment', 'Start Date', 'End Date', 'Cost Rate']
+                },
+                'status-report': {
+                    title: 'Status Report Template',
+                    fields: ['Project Name', 'Reporting Period', 'Executive Summary', 'Completed Activities', 'In Progress Activities', 'Planned Activities', 'Issues & Risks', 'Budget Status', 'Schedule Status', 'Next Steps']
+                },
+                'issue-log': {
+                    title: 'Issue Log Template',
+                    fields: ['Issue ID', 'Issue Description', 'Issue Type', 'Priority', 'Status', 'Assigned To', 'Date Identified', 'Target Resolution Date', 'Resolution', 'Lessons Learned']
+                },
+                'change-request': {
+                    title: 'Change Request Form',
+                    fields: ['Change Request ID', 'Project Name', 'Requestor', 'Change Description', 'Business Justification', 'Impact Analysis', 'Implementation Plan', 'Risk Assessment', 'Approval Status', 'Implementation Date']
+                },
+                'lessons-learned': {
+                    title: 'Lessons Learned Document',
+                    fields: ['Project Name', 'Lesson Category', 'Lesson Description', 'What Went Well', 'What Could Be Improved', 'Recommendations', 'Action Items', 'Responsible Person', 'Target Date', 'Status']
+                },
+                'project-review': {
+                    title: 'Project Review Checklist',
+                    fields: ['Deliverables Completed', 'Quality Standards Met', 'Budget Within Limits', 'Schedule Met', 'Stakeholder Satisfaction', 'Documentation Complete', 'Lessons Learned Captured', 'Team Performance', 'Process Improvements', 'Final Approval']
+                },
+                'handover-document': {
+                    title: 'Handover Document',
+                    fields: ['Project Name', 'Handover Date', 'From (Outgoing PM)', 'To (Incoming PM)', 'Project Status', 'Key Deliverables', 'Outstanding Issues', 'Risk Register', 'Budget Status', 'Next Steps', 'Contact Information']
+                }
+            };
+
+            const template = formTemplates[formType];
+            if (template) {
+                showFormModal(template.title, template.fields);
+            }
+        }
+
+        function showFormModal(title, fields) {
+            // Remove existing modal if any
+            const existingModal = document.getElementById('formModal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+
+            // Create modal HTML
+            const modalHTML = `
+                <div id="formModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                    <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                        <div class="p-6 border-b border-slate-200">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-semibold text-slate-900">${title}</h3>
+                                <button onclick="closeFormModal()" class="text-slate-400 hover:text-slate-600">
+                                    <i data-lucide="x" class="h-6 w-6"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <form id="projectForm" class="space-y-4">
+                                ${fields.map(field => `
+                                    <div>
+                                        <label class="block text-sm font-medium text-slate-700 mb-2">${field}</label>
+                                        ${field.toLowerCase().includes('description') || field.toLowerCase().includes('plan') || field.toLowerCase().includes('analysis') || field.toLowerCase().includes('summary') || field.toLowerCase().includes('justification') || field.toLowerCase().includes('recommendations') || field.toLowerCase().includes('steps') || field.toLowerCase().includes('information') ? 
+                                            `<textarea class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" rows="3" placeholder="Enter ${field.toLowerCase()}"></textarea>` :
+                                            field.toLowerCase().includes('date') ? 
+                                                `<input type="date" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">` :
+                                                field.toLowerCase().includes('status') || field.toLowerCase().includes('priority') || field.toLowerCase().includes('category') || field.toLowerCase().includes('type') || field.toLowerCase().includes('level') ? 
+                                                    `<select class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                                        <option value="">Select ${field}</option>
+                                                        ${getOptionsForField(field)}
+                                                    </select>` :
+                                                    `<input type="text" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter ${field.toLowerCase()}">`
+                                        }
+                                    </div>
+                                `).join('')}
+                                <div class="flex space-x-3 pt-4">
+                                    <button type="submit" class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                        Save Form
+                                    </button>
+                                    <button type="button" onclick="closeFormModal()" class="flex-1 bg-slate-300 text-slate-700 px-4 py-2 rounded-lg hover:bg-slate-400 transition-colors">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add modal to page
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+            
+            // Reinitialize icons
+            lucide.createIcons();
+            
+            // Add form submission handler
+            document.getElementById('projectForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveFormData(title);
+            });
+        }
+
+        function getOptionsForField(field) {
+            const options = {
+                'Status': ['Not Started', 'In Progress', 'On Hold', 'Completed', 'Cancelled'],
+                'Priority': ['Low', 'Medium', 'High', 'Critical'],
+                'Category': ['Technical', 'Business', 'Operational', 'Financial', 'Schedule', 'Resource'],
+                'Type': ['Issue', 'Risk', 'Change', 'Enhancement', 'Bug', 'Feature'],
+                'Level': ['Low', 'Medium', 'High', 'Executive'],
+                'Influence Level': ['Low', 'Medium', 'High', 'Critical'],
+                'Interest Level': ['Low', 'Medium', 'High', 'Critical']
+            };
+            
+            return options[field] ? options[field].map(opt => `<option value="${opt}">${opt}</option>`).join('') : '';
+        }
+
+        function closeFormModal() {
+            const modal = document.getElementById('formModal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function saveFormData(formTitle) {
+            const form = document.getElementById('projectForm');
+            const formData = new FormData(form);
+            const data = {};
+            
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // Show success message
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+            notification.textContent = `${formTitle} saved successfully!`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+            
+            // Close modal
+            closeFormModal();
+            
+            // Log data (in real implementation, this would save to database/file)
+            console.log('Form Data:', data);
+        }
+
+        // Project Documentation Functions
+        function openProjectDocs(projectType) {
+            const projectDocs = {
+                'banner-upgrade': {
+                    title: 'Banner System Upgrade - Project Documentation',
+                    description: 'Comprehensive documentation for the Ellucian Banner system modernization project',
+                    links: [
+                        { name: 'Project Charter', url: '#', icon: '📋' },
+                        { name: 'Technical Specifications', url: '#', icon: '⚙️' },
+                        { name: 'Migration Plan', url: '#', icon: '🔄' },
+                        { name: 'Testing Strategy', url: '#', icon: '🧪' },
+                        { name: 'Go-Live Checklist', url: '#', icon: '🚀' }
+                    ]
+                },
+                'banner-timeline': {
+                    title: 'Banner System Upgrade - Project Timeline',
+                    description: 'Detailed project schedule and milestone tracking',
+                    links: [
+                        { name: 'Project Gantt Chart', url: '#', icon: '📊' },
+                        { name: 'Milestone Tracker', url: '#', icon: '🎯' },
+                        { name: 'Dependency Map', url: '#', icon: '🔗' },
+                        { name: 'Resource Calendar', url: '#', icon: '📅' }
+                    ]
+                },
+                'banner-team': {
+                    title: 'Banner System Upgrade - Team Directory',
+                    description: 'Project team structure and contact information',
+                    links: [
+                        { name: 'Project Organization Chart', url: '#', icon: '👥' },
+                        { name: 'Team Member Profiles', url: '#', icon: '👤' },
+                        { name: 'Communication Matrix', url: '#', icon: '💬' },
+                        { name: 'Escalation Procedures', url: '#', icon: '📞' }
+                    ]
+                },
+                'portal-redesign': {
+                    title: 'Student Portal Redesign - Project Documentation',
+                    description: 'Documentation for the student portal user experience redesign project',
+                    links: [
+                        { name: 'Requirements Document', url: '#', icon: '📋' },
+                        { name: 'User Research Findings', url: '#', icon: '🔍' },
+                        { name: 'Design System Guide', url: '#', icon: '🎨' },
+                        { name: 'Prototype Links', url: '#', icon: '📱' },
+                        { name: 'Usability Testing Results', url: '#', icon: '🧪' }
+                    ]
+                },
+                'portal-requirements': {
+                    title: 'Student Portal Redesign - Requirements',
+                    description: 'Detailed functional and non-functional requirements',
+                    links: [
+                        { name: 'Functional Requirements', url: '#', icon: '⚙️' },
+                        { name: 'Non-Functional Requirements', url: '#', icon: '📊' },
+                        { name: 'User Stories', url: '#', icon: '📖' },
+                        { name: 'Acceptance Criteria', url: '#', icon: '✅' }
+                    ]
+                },
+                'portal-design': {
+                    title: 'Student Portal Redesign - Design Assets',
+                    description: 'Design mockups, wireframes, and visual assets',
+                    links: [
+                        { name: 'Wireframes', url: '#', icon: '📐' },
+                        { name: 'High-Fidelity Mockups', url: '#', icon: '🎨' },
+                        { name: 'Interactive Prototypes', url: '#', icon: '🖱️' },
+                        { name: 'Design Tokens', url: '#', icon: '🎯' }
+                    ]
+                },
+                'infrastructure-audit': {
+                    title: 'IT Infrastructure Audit - Project Documentation',
+                    description: 'Comprehensive IT infrastructure assessment documentation',
+                    links: [
+                        { name: 'Audit Scope', url: '#', icon: '📋' },
+                        { name: 'Assessment Methodology', url: '#', icon: '🔍' },
+                        { name: 'Current State Analysis', url: '#', icon: '📊' },
+                        { name: 'Gap Analysis Report', url: '#', icon: '📈' }
+                    ]
+                },
+                'audit-findings': {
+                    title: 'IT Infrastructure Audit - Findings',
+                    description: 'Detailed findings and recommendations from the audit',
+                    links: [
+                        { name: 'Security Assessment', url: '#', icon: '🔒' },
+                        { name: 'Performance Analysis', url: '#', icon: '⚡' },
+                        { name: 'Compliance Review', url: '#', icon: '📋' },
+                        { name: 'Risk Assessment', url: '#', icon: '⚠️' }
+                    ]
+                },
+                'optimization-plan': {
+                    title: 'IT Infrastructure Audit - Optimization Plan',
+                    description: 'Strategic plan for infrastructure improvements',
+                    links: [
+                        { name: 'Strategic Roadmap', url: '#', icon: '🗺️' },
+                        { name: 'Implementation Plan', url: '#', icon: '📅' },
+                        { name: 'Cost-Benefit Analysis', url: '#', icon: '💰' },
+                        { name: 'Resource Requirements', url: '#', icon: '👥' }
+                    ]
+                }
+            };
+
+            const project = projectDocs[projectType];
+            if (project) {
+                showProjectDocsModal(project.title, project.description, project.links);
+            }
+        }
+
+        function showProjectDocsModal(title, description, links) {
+            // Remove existing modal if any
+            const existingModal = document.getElementById('projectDocsModal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+
+            // Create modal HTML
+            const modalHTML = `
+                <div id="projectDocsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                    <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+                        <div class="p-6 border-b border-slate-200">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-semibold text-slate-900">${title}</h3>
+                                <button onclick="closeProjectDocsModal()" class="text-slate-400 hover:text-slate-600">
+                                    <i data-lucide="x" class="h-6 w-6"></i>
+                                </button>
+                            </div>
+                            <p class="text-slate-600 mt-2">${description}</p>
+                        </div>
+                        <div class="p-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                ${links.map(link => `
+                                    <a href="${link.url}" class="block p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all">
+                                        <div class="flex items-center space-x-3">
+                                            <span class="text-2xl">${link.icon}</span>
+                                            <span class="font-medium text-slate-700">${link.name}</span>
+                                        </div>
+                                    </a>
+                                `).join('')}
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-200">
+                                <button onclick="closeProjectDocsModal()" class="w-full bg-slate-300 text-slate-700 px-4 py-2 rounded-lg hover:bg-slate-400 transition-colors">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add modal to page
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+            
+            // Reinitialize icons
+            lucide.createIcons();
+        }
+
+        function closeProjectDocsModal() {
+            const modal = document.getElementById('projectDocsModal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        // KnowBe4 Documentation Functions
+        function openKnowBe4Docs(docType) {
+            const knowBe4Docs = {
+                'training-automation': {
+                    title: 'KnowBe4 Training Automation Documentation',
+                    description: 'Comprehensive documentation for training automation and smart groups',
+                    links: [
+                        { name: 'Smart Groups Overview', url: 'https://support.knowbe4.com/hc/en-us/articles/8355415951251-Smart-Groups-Training-Automation-Guide', icon: '📚' },
+                        { name: 'Training Campaign Setup', url: '#', icon: '🎯' },
+                        { name: 'Automation Rules', url: '#', icon: '⚙️' },
+                        { name: 'Reporting & Analytics', url: '#', icon: '📊' },
+                        { name: 'Best Practices Guide', url: '#', icon: '💡' }
+                    ]
+                },
+                'training-best-practices': {
+                    title: 'KnowBe4 Training Best Practices',
+                    description: 'Best practices for effective security awareness training',
+                    links: [
+                        { name: 'Training Frequency Guidelines', url: '#', icon: '📅' },
+                        { name: 'Content Selection Tips', url: '#', icon: '📝' },
+                        { name: 'Engagement Strategies', url: '#', icon: '🎭' },
+                        { name: 'Assessment Methods', url: '#', icon: '✅' },
+                        { name: 'Success Metrics', url: '#', icon: '📈' }
+                    ]
+                },
+                'phishrip-setup': {
+                    title: 'PhishRIP Setup & Configuration',
+                    description: 'Step-by-step setup instructions for PhishRIP',
+                    links: [
+                        { name: 'Initial Configuration', url: '#', icon: '⚙️' },
+                        { name: 'Email Integration', url: '#', icon: '📧' },
+                        { name: 'User Permissions', url: '#', icon: '🔐' },
+                        { name: 'Notification Settings', url: '#', icon: '🔔' },
+                        { name: 'Testing Procedures', url: '#', icon: '🧪' }
+                    ]
+                },
+                'phishrip-workflow': {
+                    title: 'PhishRIP Response Workflow',
+                    description: 'Standard operating procedures for phishing incident response',
+                    links: [
+                        { name: 'Incident Triage', url: '#', icon: '🚨' },
+                        { name: 'Response Procedures', url: '#', icon: '🔄' },
+                        { name: 'Escalation Matrix', url: '#', icon: '📞' },
+                        { name: 'Documentation Templates', url: '#', icon: '📋' },
+                        { name: 'Post-Incident Review', url: '#', icon: '📊' }
+                    ]
+                },
+                'phishing-campaigns': {
+                    title: 'Phishing Campaign Management',
+                    description: 'Tools and techniques for effective phishing simulation campaigns',
+                    links: [
+                        { name: 'Campaign Planning', url: '#', icon: '📋' },
+                        { name: 'Template Creation', url: '#', icon: '📝' },
+                        { name: 'Target Group Selection', url: '#', icon: '🎯' },
+                        { name: 'Launch & Monitoring', url: '#', icon: '🚀' },
+                        { name: 'Results Analysis', url: '#', icon: '📊' }
+                    ]
+                },
+                'phishing-templates': {
+                    title: 'Phishing Template Library',
+                    description: 'Pre-built and customizable phishing email templates',
+                    links: [
+                        { name: 'Executive Phishing', url: '#', icon: '👔' },
+                        { name: 'Credential Harvesting', url: '#', icon: '🔑' },
+                        { name: 'Social Engineering', url: '#', icon: '🎭' },
+                        { name: 'Malware Delivery', url: '#', icon: '🦠' },
+                        { name: 'Custom Templates', url: '#', icon: '✏️' }
+                    ]
+                },
+                'admin-guides': {
+                    title: 'KnowBe4 Administrator Guides',
+                    description: 'Comprehensive guides for KnowBe4 system administrators',
+                    links: [
+                        { name: 'User Management', url: '#', icon: '👥' },
+                        { name: 'System Configuration', url: '#', icon: '⚙️' },
+                        { name: 'Security Settings', url: '#', icon: '🔒' },
+                        { name: 'Integration Setup', url: '#', icon: '🔗' },
+                        { name: 'Maintenance Procedures', url: '#', icon: '🔧' }
+                    ]
+                },
+                'user-training': {
+                    title: 'User Training Materials',
+                    description: 'Resources for training end users on security awareness',
+                    links: [
+                        { name: 'Training Modules', url: '#', icon: '📚' },
+                        { name: 'Video Tutorials', url: '#', icon: '🎥' },
+                        { name: 'Interactive Exercises', url: '#', icon: '🎮' },
+                        { name: 'Assessment Tools', url: '#', icon: '✅' },
+                        { name: 'Progress Tracking', url: '#', icon: '📊' }
+                    ]
+                },
+                'security-policies': {
+                    title: 'Security Policy Templates',
+                    description: 'Ready-to-use security policy templates and guidelines',
+                    links: [
+                        { name: 'Acceptable Use Policy', url: '#', icon: '📋' },
+                        { name: 'Password Policy', url: '#', icon: '🔑' },
+                        { name: 'Data Protection Policy', url: '#', icon: '🛡️' },
+                        { name: 'Incident Response Policy', url: '#', icon: '🚨' },
+                        { name: 'Remote Work Security', url: '#', icon: '🏠' }
+                    ]
+                }
+            };
+
+            const doc = knowBe4Docs[docType];
+            if (doc) {
+                showKnowBe4DocsModal(doc.title, doc.description, doc.links);
+            }
+        }
+
+        function showKnowBe4DocsModal(title, description, links) {
+            // Remove existing modal if any
+            const existingModal = document.getElementById('knowBe4DocsModal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+
+            // Create modal HTML
+            const modalHTML = `
+                <div id="knowBe4DocsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                    <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                        <div class="p-6 border-b border-slate-200 bg-gradient-to-r from-green-50 to-green-100">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="shield-check" class="h-8 w-8 text-green-600"></i>
+                                    <h3 class="text-xl font-semibold text-slate-900">${title}</h3>
+                                </div>
+                                <button onclick="closeKnowBe4DocsModal()" class="text-slate-400 hover:text-slate-600">
+                                    <i data-lucide="x" class="h-6 w-6"></i>
+                                </button>
+                            </div>
+                            <p class="text-slate-600 mt-2">${description}</p>
+                        </div>
+                        <div class="p-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                ${links.map(link => `
+                                    <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="block p-4 border border-slate-200 rounded-lg hover:border-green-300 hover:bg-green-50 transition-all">
+                                        <div class="flex items-center space-x-3">
+                                            <span class="text-2xl">${link.icon}</span>
+                                            <span class="font-medium text-slate-700">${link.name}</span>
+                                        </div>
+                                    </a>
+                                `).join('')}
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="text-sm text-slate-500">
+                                        <i data-lucide="info" class="h-4 w-4 inline mr-1"></i>
+                                        Click any link above to access the documentation
+                                    </div>
+                                    <button onclick="closeKnowBe4DocsModal()" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add modal to page
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+            
+            // Reinitialize icons
+            lucide.createIcons();
+        }
+
+        function closeKnowBe4DocsModal() {
+            const modal = document.getElementById('knowBe4DocsModal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        // Element451 Documentation Functions
+        function openElement451Docs(docType) {
+            const element451Docs = {
+                'getting-started': {
+                    title: 'Element451 - Getting Started Guide',
+                    description: 'Essential resources to get started with Element451 student engagement platform',
+                    links: [
+                        { name: 'Platform Overview', url: 'https://help.element451.com/', icon: '🚀' },
+                        { name: 'First Login Guide', url: 'https://help.element451.com/', icon: '🔑' },
+                        { name: 'Navigation Basics', url: 'https://help.element451.com/', icon: '🧭' },
+                        { name: 'User Interface Tour', url: 'https://help.element451.com/', icon: '🖥️' },
+                        { name: 'Quick Start Checklist', url: 'https://help.element451.com/', icon: '✅' }
+                    ]
+                },
+                'campaign-management': {
+                    title: 'Element451 - Campaign Management',
+                    description: 'Tools and techniques for effective student engagement campaigns',
+                    links: [
+                        { name: 'Campaign Creation', url: 'https://help.element451.com/', icon: '📧' },
+                        { name: 'Audience Segmentation', url: 'https://help.element451.com/', icon: '🎯' },
+                        { name: 'Content Templates', url: 'https://help.element451.com/', icon: '📝' },
+                        { name: 'Automation Rules', url: 'https://help.element451.com/', icon: '⚙️' },
+                        { name: 'Campaign Analytics', url: 'https://help.element451.com/', icon: '📊' }
+                    ]
+                },
+                'analytics': {
+                    title: 'Element451 - Analytics & Reporting',
+                    description: 'Comprehensive analytics and reporting capabilities',
+                    links: [
+                        { name: 'Dashboard Overview', url: 'https://help.element451.com/', icon: '📊' },
+                        { name: 'Student Engagement Metrics', url: 'https://help.element451.com/', icon: '📈' },
+                        { name: 'Campaign Performance', url: 'https://help.element451.com/', icon: '📋' },
+                        { name: 'Custom Reports', url: 'https://help.element451.com/', icon: '📊' },
+                        { name: 'Data Export Options', url: 'https://help.element451.com/', icon: '💾' }
+                    ]
+                },
+                'user-management': {
+                    title: 'Element451 - User Management',
+                    description: 'Administrative tools for managing users and permissions',
+                    links: [
+                        { name: 'User Roles & Permissions', url: 'https://help.element451.com/', icon: '👥' },
+                        { name: 'Team Management', url: 'https://help.element451.com/', icon: '👨‍💼' },
+                        { name: 'Access Control', url: 'https://help.element451.com/', icon: '🔐' },
+                        { name: 'User Training', url: 'https://help.element451.com/', icon: '🎓' },
+                        { name: 'Security Settings', url: 'https://help.element451.com/', icon: '🛡️' }
+                    ]
+                },
+                'integrations': {
+                    title: 'Element451 - Integrations',
+                    description: 'Connecting Element451 with other systems and platforms',
+                    links: [
+                        { name: 'SIS Integration', url: 'https://help.element451.com/', icon: '🔗' },
+                        { name: 'CRM Connections', url: 'https://help.element451.com/', icon: '📊' },
+                        { name: 'Marketing Tools', url: 'https://help.element451.com/', icon: '📧' },
+                        { name: 'Analytics Platforms', url: 'https://help.element451.com/', icon: '📈' },
+                        { name: 'API Documentation', url: 'https://help.element451.com/', icon: '⚙️' }
+                    ]
+                },
+                'best-practices': {
+                    title: 'Element451 - Best Practices',
+                    description: 'Proven strategies for maximizing student engagement',
+                    links: [
+                        { name: 'Engagement Strategies', url: 'https://help.element451.com/', icon: '💡' },
+                        { name: 'Content Optimization', url: 'https://help.element451.com/', icon: '📝' },
+                        { name: 'Timing & Frequency', url: 'https://help.element451.com/', icon: '⏰' },
+                        { name: 'Personalization Tips', url: 'https://help.element451.com/', icon: '🎯' },
+                        { name: 'Success Metrics', url: 'https://help.element451.com/', icon: '📊' }
+                    ]
+                }
+            };
+
+            const doc = element451Docs[docType];
+            if (doc) {
+                showPlatformDocsModal(doc.title, doc.description, doc.links, 'indigo');
+            }
+        }
+
+        // WaterMark Insights Documentation Functions
+        function openWaterMarkDocs(docType) {
+            const waterMarkDocs = {
+                'assessment-tools': {
+                    title: 'WaterMark Insights - Assessment Tools',
+                    description: 'Comprehensive assessment and evaluation tools for higher education',
+                    links: [
+                        { name: 'Assessment Builder', url: 'https://help.watermarkinsights.com/', icon: '📝' },
+                        { name: 'Rubric Creation', url: 'https://help.watermarkinsights.com/', icon: '📋' },
+                        { name: 'Survey Tools', url: 'https://help.watermarkinsights.com/', icon: '📊' },
+                        { name: 'Evaluation Forms', url: 'https://help.watermarkinsights.com/', icon: '✅' },
+                        { name: 'Assessment Library', url: 'https://help.watermarkinsights.com/', icon: '📚' }
+                    ]
+                },
+                'reporting': {
+                    title: 'WaterMark Insights - Reporting & Analytics',
+                    description: 'Advanced reporting and analytics capabilities',
+                    links: [
+                        { name: 'Report Builder', url: 'https://help.watermarkinsights.com/', icon: '📊' },
+                        { name: 'Data Dashboards', url: 'https://help.watermarkinsights.com/', icon: '📈' },
+                        { name: 'Custom Reports', url: 'https://help.watermarkinsights.com/', icon: '📋' },
+                        { name: 'Export Options', url: 'https://help.watermarkinsights.com/', icon: '💾' },
+                        { name: 'Scheduled Reports', url: 'https://help.watermarkinsights.com/', icon: '⏰' }
+                    ]
+                },
+                'data-visualization': {
+                    title: 'WaterMark Insights - Data Visualization',
+                    description: 'Tools for creating compelling data visualizations',
+                    links: [
+                        { name: 'Chart Types', url: 'https://help.watermarkinsights.com/', icon: '📊' },
+                        { name: 'Interactive Dashboards', url: 'https://help.watermarkinsights.com/', icon: '🖱️' },
+                        { name: 'Custom Visualizations', url: 'https://help.watermarkinsights.com/', icon: '🎨' },
+                        { name: 'Data Storytelling', url: 'https://help.watermarkinsights.com/', icon: '📖' },
+                        { name: 'Export & Sharing', url: 'https://help.watermarkinsights.com/', icon: '📤' }
+                    ]
+                },
+                'setup-configuration': {
+                    title: 'WaterMark Insights - Setup & Configuration',
+                    description: 'System setup and configuration guides',
+                    links: [
+                        { name: 'Initial Setup', url: 'https://help.watermarkinsights.com/', icon: '⚙️' },
+                        { name: 'User Configuration', url: 'https://help.watermarkinsights.com/', icon: '👥' },
+                        { name: 'System Settings', url: 'https://help.watermarkinsights.com/', icon: '🔧' },
+                        { name: 'Integration Setup', url: 'https://help.watermarkinsights.com/', icon: '🔗' },
+                        { name: 'Security Configuration', url: 'https://help.watermarkinsights.com/', icon: '🛡️' }
+                    ]
+                },
+                'user-training': {
+                    title: 'WaterMark Insights - User Training',
+                    description: 'Training materials and resources for users',
+                    links: [
+                        { name: 'Video Tutorials', url: 'https://help.watermarkinsights.com/', icon: '🎥' },
+                        { name: 'User Manuals', url: 'https://help.watermarkinsights.com/', icon: '📖' },
+                        { name: 'Training Webinars', url: 'https://help.watermarkinsights.com/', icon: '🌐' },
+                        { name: 'Best Practices', url: 'https://help.watermarkinsights.com/', icon: '💡' },
+                        { name: 'FAQ & Troubleshooting', url: 'https://help.watermarkinsights.com/', icon: '❓' }
+                    ]
+                },
+                'compliance': {
+                    title: 'WaterMark Insights - Compliance & Accreditation',
+                    description: 'Compliance and accreditation support tools',
+                    links: [
+                        { name: 'Accreditation Standards', url: 'https://help.watermarkinsights.com/', icon: '📋' },
+                        { name: 'Compliance Reports', url: 'https://help.watermarkinsights.com/', icon: '📊' },
+                        { name: 'Audit Trails', url: 'https://help.watermarkinsights.com/', icon: '🔍' },
+                        { name: 'Data Governance', url: 'https://help.watermarkinsights.com/', icon: '🏛️' },
+                        { name: 'Regulatory Updates', url: 'https://help.watermarkinsights.com/', icon: '📢' }
+                    ]
+                }
+            };
+
+            const doc = waterMarkDocs[docType];
+            if (doc) {
+                showPlatformDocsModal(doc.title, doc.description, doc.links, 'purple');
+            }
+        }
+
+        // Everbridge Documentation Functions
+        function openEverbridgeDocs(docType) {
+            const everbridgeDocs = {
+                'notification-setup': {
+                    title: 'Everbridge - Notification Setup',
+                    description: 'Setting up emergency notifications and alerts',
+                    links: [
+                        { name: 'Alert Creation', url: 'https://help.everbridge.com/', icon: '🔔' },
+                        { name: 'Contact Management', url: 'https://help.everbridge.com/', icon: '👥' },
+                        { name: 'Message Templates', url: 'https://help.everbridge.com/', icon: '📝' },
+                        { name: 'Delivery Channels', url: 'https://help.everbridge.com/', icon: '📱' },
+                        { name: 'Testing Procedures', url: 'https://help.everbridge.com/', icon: '🧪' }
+                    ]
+                },
+                'incident-response': {
+                    title: 'Everbridge - Incident Response',
+                    description: 'Emergency incident response procedures and tools',
+                    links: [
+                        { name: 'Response Procedures', url: 'https://help.everbridge.com/', icon: '🚨' },
+                        { name: 'Escalation Matrix', url: 'https://help.everbridge.com/', icon: '📞' },
+                        { name: 'Communication Plans', url: 'https://help.everbridge.com/', icon: '📢' },
+                        { name: 'Incident Tracking', url: 'https://help.everbridge.com/', icon: '📋' },
+                        { name: 'Post-Incident Review', url: 'https://help.everbridge.com/', icon: '📊' }
+                    ]
+                },
+                'communication-plans': {
+                    title: 'Everbridge - Communication Plans',
+                    description: 'Developing effective emergency communication strategies',
+                    links: [
+                        { name: 'Plan Development', url: 'https://help.everbridge.com/', icon: '📋' },
+                        { name: 'Audience Segmentation', url: 'https://help.everbridge.com/', icon: '🎯' },
+                        { name: 'Message Strategy', url: 'https://help.everbridge.com/', icon: '💬' },
+                        { name: 'Timing & Frequency', url: 'https://help.everbridge.com/', icon: '⏰' },
+                        { name: 'Effectiveness Metrics', url: 'https://help.everbridge.com/', icon: '📊' }
+                    ]
+                },
+                'user-management': {
+                    title: 'Everbridge - User Management',
+                    description: 'Managing users, roles, and permissions',
+                    links: [
+                        { name: 'User Roles', url: 'https://help.everbridge.com/', icon: '👥' },
+                        { name: 'Permission Settings', url: 'https://help.everbridge.com/', icon: '🔐' },
+                        { name: 'Team Management', url: 'https://help.everbridge.com/', icon: '👨‍💼' },
+                        { name: 'Access Control', url: 'https://help.everbridge.com/', icon: '🚪' },
+                        { name: 'Security Policies', url: 'https://help.everbridge.com/', icon: '🛡️' }
+                    ]
+                },
+                'system-configuration': {
+                    title: 'Everbridge - System Configuration',
+                    description: 'System setup and configuration options',
+                    links: [
+                        { name: 'System Settings', url: 'https://help.everbridge.com/', icon: '⚙️' },
+                        { name: 'Integration Setup', url: 'https://help.everbridge.com/', icon: '🔗' },
+                        { name: 'Notification Rules', url: 'https://help.everbridge.com/', icon: '📋' },
+                        { name: 'Backup & Recovery', url: 'https://help.everbridge.com/', icon: '💾' },
+                        { name: 'Performance Tuning', url: 'https://help.everbridge.com/', icon: '⚡' }
+                    ]
+                },
+                'training-materials': {
+                    title: 'Everbridge - Training Materials',
+                    description: 'Training resources and materials for users',
+                    links: [
+                        { name: 'User Manuals', url: 'https://help.everbridge.com/', icon: '📖' },
+                        { name: 'Video Tutorials', url: 'https://help.everbridge.com/', icon: '🎥' },
+                        { name: 'Training Webinars', url: 'https://help.everbridge.com/', icon: '🌐' },
+                        { name: 'Best Practices', url: 'https://help.everbridge.com/', icon: '💡' },
+                        { name: 'Certification Programs', url: 'https://help.everbridge.com/', icon: '🏆' }
+                    ]
+                }
+            };
+
+            const doc = everbridgeDocs[docType];
+            if (doc) {
+                showPlatformDocsModal(doc.title, doc.description, doc.links, 'red');
+            }
+        }
+
+        // Ellucian Documentation Functions
+        function openEllucianDocs(docType) {
+            const ellucianDocs = {
+                'banner-administration': {
+                    title: 'Ellucian Banner - Administration',
+                    description: 'Administrative tools and procedures for Banner system management',
+                    links: [
+                        { name: 'System Administration', url: 'https://training.ellucian.com/', icon: '⚙️' },
+                        { name: 'User Management', url: 'https://training.ellucian.com/', icon: '👥' },
+                        { name: 'Security Configuration', url: 'https://training.ellucian.com/', icon: '🔐' },
+                        { name: 'Database Management', url: 'https://training.ellucian.com/', icon: '🗄️' },
+                        { name: 'System Monitoring', url: 'https://training.ellucian.com/', icon: '📊' }
+                    ]
+                },
+                'banner-modules': {
+                    title: 'Ellucian Banner - Module Documentation',
+                    description: 'Comprehensive documentation for all Banner modules',
+                    links: [
+                        { name: 'Student Module', url: 'https://training.ellucian.com/', icon: '👨‍🎓' },
+                        { name: 'Financial Aid', url: 'https://training.ellucian.com/', icon: '💰' },
+                        { name: 'Finance Module', url: 'https://training.ellucian.com/', icon: '💳' },
+                        { name: 'Human Resources', url: 'https://training.ellucian.com/', icon: '👥' },
+                        { name: 'Advancement', url: 'https://training.ellucian.com/', icon: '📈' }
+                    ]
+                },
+                'banner-upgrades': {
+                    title: 'Ellucian Banner - System Upgrades',
+                    description: 'Procedures and best practices for Banner system upgrades',
+                    links: [
+                        { name: 'Upgrade Planning', url: 'https://training.ellucian.com/', icon: '📋' },
+                        { name: 'Pre-Upgrade Checklist', url: 'https://training.ellucian.com/', icon: '✅' },
+                        { name: 'Upgrade Procedures', url: 'https://training.ellucian.com/', icon: '🔄' },
+                        { name: 'Testing Strategy', url: 'https://training.ellucian.com/', icon: '🧪' },
+                        { name: 'Post-Upgrade Tasks', url: 'https://training.ellucian.com/', icon: '🚀' }
+                    ]
+                },
+                'user-training': {
+                    title: 'Ellucian Banner - User Training',
+                    description: 'Training materials and resources for Banner users',
+                    links: [
+                        { name: 'Training Academy', url: 'https://training.ellucian.com/', icon: '🎓' },
+                        { name: 'User Manuals', url: 'https://training.ellucian.com/', icon: '📖' },
+                        { name: 'Video Tutorials', url: 'https://training.ellucian.com/', icon: '🎥' },
+                        { name: 'Best Practices', url: 'https://training.ellucian.com/', icon: '💡' },
+                        { name: 'Training Calendar', url: 'https://training.ellucian.com/', icon: '📅' }
+                    ]
+                },
+                'technical-documentation': {
+                    title: 'Ellucian Banner - Technical Documentation',
+                    description: 'Technical documentation and developer resources',
+                    links: [
+                        { name: 'API Documentation', url: 'https://training.ellucian.com/', icon: '⚙️' },
+                        { name: 'Integration Guides', url: 'https://training.ellucian.com/', icon: '🔗' },
+                        { name: 'Customization Tools', url: 'https://training.ellucian.com/', icon: '🔧' },
+                        { name: 'Performance Tuning', url: 'https://training.ellucian.com/', icon: '⚡' },
+                        { name: 'Troubleshooting', url: 'https://training.ellucian.com/', icon: '🔍' }
+                    ]
+                },
+                'best-practices': {
+                    title: 'Ellucian Banner - Best Practices',
+                    description: 'Proven best practices for Banner system management',
+                    links: [
+                        { name: 'System Optimization', url: 'https://training.ellucian.com/', icon: '⚡' },
+                        { name: 'Security Best Practices', url: 'https://training.ellucian.com/', icon: '🛡️' },
+                        { name: 'Data Management', url: 'https://training.ellucian.com/', icon: '🗄️' },
+                        { name: 'User Experience', url: 'https://training.ellucian.com/', icon: '👥' },
+                        { name: 'Change Management', url: 'https://training.ellucian.com/', icon: '🔄' }
+                    ]
+                }
+            };
+
+            const doc = ellucianDocs[docType];
+            if (doc) {
+                showPlatformDocsModal(doc.title, doc.description, doc.links, 'orange');
+            }
+        }
+
+        // Generic Platform Documentation Modal Function
+        function showPlatformDocsModal(title, description, links, colorScheme) {
+            // Remove existing modal if any
+            const existingModal = document.getElementById('platformDocsModal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+
+            const colorClasses = {
+                'indigo': 'from-indigo-50 to-indigo-100 border-indigo-200 text-indigo-700 hover:text-indigo-900 hover:border-indigo-300 hover:bg-indigo-50',
+                'purple': 'from-purple-50 to-purple-100 border-purple-200 text-purple-700 hover:text-purple-900 hover:border-purple-300 hover:bg-purple-50',
+                'red': 'from-red-50 to-red-100 border-red-200 text-red-700 hover:text-red-900 hover:border-red-300 hover:bg-red-50',
+                'orange': 'from-orange-50 to-orange-100 border-orange-200 text-orange-700 hover:text-orange-900 hover:border-orange-300 hover:bg-orange-50'
+            };
+
+            const colors = colorClasses[colorScheme] || colorClasses.indigo;
+
+            // Create modal HTML
+            const modalHTML = `
+                <div id="platformDocsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                    <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                        <div class="p-6 border-b border-slate-200 bg-gradient-to-r ${colors}">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="building-2" class="h-8 w-8 text-${colorScheme}-600"></i>
+                                    <h3 class="text-xl font-semibold text-slate-900">${title}</h3>
+                                </div>
+                                <button onclick="closePlatformDocsModal()" class="text-slate-400 hover:text-slate-600">
+                                    <i data-lucide="x" class="h-6 w-6"></i>
+                                </button>
+                            </div>
+                            <p class="text-slate-600 mt-2">${description}</p>
+                        </div>
+                        <div class="p-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                ${links.map(link => `
+                                    <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="block p-4 border border-slate-200 rounded-lg hover:border-${colorScheme}-300 hover:bg-${colorScheme}-50 transition-all">
+                                        <div class="flex items-center space-x-3">
+                                            <span class="text-2xl">${link.icon}</span>
+                                            <span class="font-medium text-slate-700">${link.name}</span>
+                                        </div>
+                                    </a>
+                                `).join('')}
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="text-sm text-slate-500">
+                                        <i data-lucide="info" class="h-4 w-4 inline mr-1"></i>
+                                        Click any link above to access the documentation
+                                    </div>
+                                    <button onclick="closePlatformDocsModal()" class="bg-${colorScheme}-600 text-white px-4 py-2 rounded-lg hover:bg-${colorScheme}-700 transition-colors">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add modal to page
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+            
+            // Reinitialize icons
+            lucide.createIcons();
+        }
+
+        function closePlatformDocsModal() {
+            const modal = document.getElementById('platformDocsModal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+    </script>
+</body>
+</html>
