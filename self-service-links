@@ -1,0 +1,25 @@
+<!-- Faculty -->
+    <p>This is the entry page for Banner Faculty. From here, you can navigate to the following pages:</p>
+    <ul style="list-style:none;padding:0;margin:0" onmouseover="if(event.target.tagName==='A'){event.target.style.fontWeight='bold'}" onmouseout="if(event.target.tagName==='A'){event.target.style.fontWeight='normal'}">
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/GradeEntry">Faculty Grade Entry</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/facultyAttendanceTracking">Faculty Attendance Tracking</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/StudentAcademicReview">Student Academic Review</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/facultyWeekAtAGlance">Faculty Week At A Glance</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/facultyDetailSchedule">Faculty Detail Schedule</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/syllabus">Faculty Syllabus</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/officeHours">Faculty Office Hours</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/assignments">Faculty Assignments</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/facultyFeedback">Faculty Feedback</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/facultyFeedbackAdministration">Faculty Feedback Administration</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/facultyAdvisorSecurityInfo">Faculty Advisor Security Info</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/searchStudent">Search Student</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/registrationHistory">Registration History</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/studentCentricPeriod">Student Centric Period</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8087/FacultySelfService/ssb/studentWeekAtAGlance">Student Week At A Glance</a></li>
+        <li><a style="text-decoration:none" href="https://sfsc-prod-pxes02.banner.elluciancloud.com:8093/StudentSelfService/ssb/classListApp/classListPage">Student Class List</a></li>
+        <li><a style="text-decoration:none" href="https://southflorida.element451.io/v2/start">Element451</a></li>
+        <li><a style="text-decoration:none" href="https://experience.elluciancloud.com/ssc578/">Ellucian Experience</a></li>
+    </ul>
+    <p></p>
+    <p>If you have any questions, please email the <a style="text-decoration:none;font-weight:bold" href="mailto:registrationdept@southflorida.edu">Registrar</a>.</p>
+</div>
