@@ -1,43 +1,464 @@
-<div style="font-family: 'Segoe UI', sans-serif; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <!-- Header Section -->
-    <div style="background: linear-gradient(to right, #333366, #F37B20); color: #fdfdff; padding: 1rem;">
-        <h2 style="margin: 0; font-size: 1.2rem;">🌤️ Avon Park Weather</h2>
-        <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem;">Live conditions and 7-day forecast</p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2LHJZMW8K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-B2LHJZMW8K', { anonymize_ip: true });
+    gtag('event', 'page_view', {
+      page_title: 'Consolidated Weather Dashboard',
+      page_path: '/experience/cards/weather-dashboard',
+      event_category: 'Card Engagement'
+    });
+  </script>
+
+  <style>
+    :root {
+      --ink: #1a1d21;
+      --muted: #5f6b7a;
+      --cloud: #eef1f4;
+      --storm: #d63a2c;
+      --clear: #1f8a70;
+      --midnight: #0d1b2a;
+      --ember: #f26a2e;
+      --card: #ffffff;
+      --shadow: 0 16px 40px rgba(10, 18, 30, 0.18);
+      --radius: 16px;
+      --ring: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .weather-card {
+      font-family: "IBM Plex Sans", "Segoe UI", Tahoma, sans-serif;
+      background:
+        radial-gradient(1200px 400px at -10% -20%, rgba(242,106,46,0.25), transparent 60%),
+        radial-gradient(900px 500px at 110% 0%, rgba(31,138,112,0.25), transparent 55%),
+        linear-gradient(135deg, #0f1d2e, #172b3a 45%, #132534 100%);
+      color: #f7f8fb;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      max-width: 100%;
+    }
+
+    .weather-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), transparent 35%);
+      pointer-events: none;
+    }
+
+    .card-header {
+      padding: 18px 22px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-title {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .header-title h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .header-title span {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .header-chip {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.1);
+      border: var(--ring);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .alert-strip {
+      margin: 8px 18px 16px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: rgba(255,255,255,0.08);
+      border: var(--ring);
+      color: #f7f8fb;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .alert-strip.alert-none {
+      background: rgba(31,138,112,0.18);
+      color: #c9f2e7;
+      border-color: rgba(31,138,112,0.4);
+    }
+
+    .alert-strip.alert-active {
+      background: rgba(214,58,44,0.22);
+      color: #ffd6cf;
+      border-color: rgba(214,58,44,0.5);
+    }
+
+    .overview {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 14px;
+      padding: 0 18px 18px;
+    }
+
+    .overview-panel {
+      background: rgba(255,255,255,0.1);
+      border: var(--ring);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .current-temp {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .condition {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .stack {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .metric-pill {
+      background: rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .history-panel {
+      display: grid;
+      gap: 10px;
+    }
+
+    .history-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .history-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .delta {
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .delta.warmer {
+      background: rgba(242,106,46,0.2);
+      color: #ffd2be;
+    }
+
+    .delta.cooler {
+      background: rgba(73,137,255,0.2);
+      color: #d4e3ff;
+    }
+
+    .forecast {
+      background: #f7f8fb;
+      color: var(--ink);
+      border-radius: 18px 18px 0 0;
+      padding: 16px 18px 18px;
+    }
+
+    .forecast h3 {
+      margin: 0 0 12px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .forecast-row {
+      display: grid;
+      grid-template-columns: 60px 1fr 70px 70px;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid #e6ebf0;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .forecast-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .forecast-icon {
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #f1f4f8;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .forecast-desc {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .temp-hi {
+      font-weight: 700;
+      color: var(--ink);
+      text-align: right;
+    }
+
+    .temp-lo {
+      color: #7b8794;
+      text-align: right;
+    }
+
+    @media (max-width: 720px) {
+      .overview {
+        grid-template-columns: 1fr;
+      }
+      .forecast-row {
+        grid-template-columns: 52px 1fr 60px 60px;
+      }
+    }
+  </style>
+</head>
+
+<div id="weather-dashboard" class="weather-card">
+  <div class="card-header">
+    <div class="header-title">
+      <h2>Avon Park Weather</h2>
+      <span id="today-label">Loading date...</span>
+    </div>
+    <div class="header-chip" id="data-source">Open-Meteo + NWS</div>
+  </div>
+
+  <div id="alert-bar" class="alert-strip">Checking for NWS alerts...</div>
+
+  <section class="overview">
+    <div class="overview-panel">
+      <div class="history-label">Current</div>
+      <div class="current-temp" id="current-temp">--&deg;F</div>
+      <div class="condition" id="current-desc">Loading conditions...</div>
+      <div class="stack">
+        <div class="metric-pill" id="today-high">High: --&deg;F</div>
+        <div class="metric-pill" id="today-low">Low: --&deg;F</div>
+      </div>
     </div>
 
-    <!-- Weather Widget Embed -->
-    <div style="padding: 1.25rem; text-align: center;">
-        <a class="weatherwidget-io"
-           href="https://forecast7.com/en/27d60n81d51/avon-park/?unit=us"
-           data-label_1="Avon Park"
-           data-label_2="WEATHER"
-           data-font="Segoe UI"
-           data-theme="pure"
-           data-basecolor="#fdfdff"
-           data-accent="#eeefef1"
-           data-textcolor="#333366"
-           data-highcolor="#e32313"
-           data-lowcolor="#333366">
-            Avon Park WEATHER
-        </a>
+    <div class="overview-panel history-panel">
+      <div class="history-label">On This Day</div>
+      <div class="history-row" id="history-year">Last Year: --&deg;F</div>
+      <div class="condition" id="history-desc">Loading history...</div>
+      <div class="delta" id="delta-display">Calculating difference...</div>
     </div>
+  </section>
+
+  <section class="forecast">
+    <h3>7 Day Outlook</h3>
+    <div id="forecast-rows">
+      <div style="text-align:center;color:#7b8794;padding:10px;">Fetching forecast...</div>
+    </div>
+  </section>
 </div>
 
-<!-- WeatherWidget Script -->
 <script>
-    /**
-     * Dynamically load the WeatherWidget.io script.
-     * @param {Document} d - The document object.
-     * @param {string} s - The script tag name.
-     * @param {string} id - The ID of the script element.
-     */
-    !function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (!d.getElementById(id)) {
-            js = d.createElement(s);
-            js.id = id;
-            js.src = 'https://weatherwidget.io/js/widget.min.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }
-    }(document, 'script', 'weatherwidget-io-js');
+(function() {
+  const LATITUDE = 27.595;
+  const LONGITUDE = -81.506;
+  const TIMEZONE = "America/New_York";
+  const DEG = "°";
+
+  function getDayName(dateStr, isToday) {
+    if (isToday) return "Today";
+    const d = new Date(dateStr + "T00:00:00");
+    return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d.getDay()];
+  }
+
+  function getWeatherBadge(code) {
+    if (code === 0) return "CLEAR";
+    if (code === 1 || code === 2) return "BRIGHT";
+    if (code === 3) return "CLOUD";
+    if (code === 45 || code === 48) return "FOG";
+    if (code >= 51 && code <= 67) return "RAIN";
+    if (code >= 71 && code <= 77) return "SNOW";
+    if (code >= 80 && code <= 82) return "SHOWER";
+    if (code >= 95) return "STORM";
+    return "MIX";
+  }
+
+  function getWeatherDescription(code) {
+    if (code === 0) return "clear sky";
+    if (code === 1 || code === 2) return "mostly clear";
+    if (code === 3) return "overcast";
+    if (code === 45 || code === 48) return "foggy";
+    if (code >= 51 && code <= 55) return "drizzle";
+    if (code >= 56 && code <= 57) return "freezing drizzle";
+    if (code >= 61 && code <= 65) return "rain";
+    if (code >= 66 && code <= 67) return "freezing rain";
+    if (code >= 71 && code <= 75) return "snowfall";
+    if (code === 77) return "snow grains";
+    if (code >= 80 && code <= 82) return "rain showers";
+    if (code >= 95 && code <= 99) return "thunderstorms";
+    return "mixed conditions";
+  }
+
+  async function loadDashboard() {
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const historyDate = new Date(today);
+    historyDate.setFullYear(currentYear - 1);
+
+    const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const prettyToday = monthNames[today.getMonth()] + " " + String(today.getDate()).padStart(2, "0");
+    document.getElementById("today-label").textContent = `Today ? ${prettyToday}`;
+
+    const historyStr = [
+      historyDate.getFullYear(),
+      String(historyDate.getMonth() + 1).padStart(2, "0"),
+      String(historyDate.getDate()).padStart(2, "0")
+    ].join("-");
+
+    const forecastUrl = `https://api.open-meteo.com/v1/forecast` +
+      `?latitude=${LATITUDE}&longitude=${LONGITUDE}` +
+      `&current_weather=true` +
+      `&daily=weathercode,temperature_2m_max,temperature_2m_min` +
+      `&forecast_days=7` +
+      `&timezone=${encodeURIComponent(TIMEZONE)}` +
+      `&temperature_unit=fahrenheit`;
+
+    const historyUrl = `https://archive-api.open-meteo.com/v1/archive` +
+      `?latitude=${LATITUDE}&longitude=${LONGITUDE}` +
+      `&start_date=${historyStr}&end_date=${historyStr}` +
+      `&daily=temperature_2m_max,weathercode` +
+      `&timezone=${encodeURIComponent(TIMEZONE)}` +
+      `&temperature_unit=fahrenheit`;
+
+    try {
+      const [forecastRes, historyRes, alertRes] = await Promise.all([
+        fetch(forecastUrl),
+        fetch(historyUrl),
+        fetch(`https://api.weather.gov/alerts/active?point=${LATITUDE},${LONGITUDE}`)
+      ]);
+
+      if (!forecastRes.ok) throw new Error("Forecast API error: " + forecastRes.status);
+      if (!historyRes.ok) throw new Error("History API error: " + historyRes.status);
+
+      const forecastData = await forecastRes.json();
+      const historyData = await historyRes.json();
+      const alertData = alertRes.ok ? await alertRes.json() : null;
+
+      const alertBar = document.getElementById("alert-bar");
+      if (alertData && Array.isArray(alertData.features) && alertData.features.length > 0) {
+        const firstAlert = alertData.features[0]?.properties;
+        const headline = firstAlert?.headline || firstAlert?.event || "Active Weather Alert";
+        alertBar.textContent = `ALERT: ${headline}`;
+        alertBar.classList.add("alert-active");
+      } else {
+        alertBar.textContent = "All Clear. No active NWS alerts.";
+        alertBar.classList.add("alert-none");
+      }
+
+      const currentTemp = Math.round(forecastData.current_weather.temperature);
+      const todayMax = Math.round(forecastData.daily.temperature_2m_max[0]);
+      const todayMin = Math.round(forecastData.daily.temperature_2m_min[0]);
+      const todayDesc = getWeatherDescription(forecastData.daily.weathercode[0]);
+
+      document.getElementById("current-temp").textContent = `${currentTemp}${DEG}F`;
+      document.getElementById("current-desc").textContent = todayDesc;
+      document.getElementById("today-high").textContent = `High: ${todayMax}${DEG}F`;
+      document.getElementById("today-low").textContent = `Low: ${todayMin}${DEG}F`;
+
+      const historyMax = Math.round(historyData.daily.temperature_2m_max[0]);
+      const historyDesc = getWeatherDescription(historyData.daily.weathercode[0]);
+
+      document.getElementById("history-year").textContent = `Last Year: ${historyMax}${DEG}F`;
+      document.getElementById("history-desc").textContent = historyDesc;
+
+      const tempDiff = todayMax - historyMax;
+      const delta = document.getElementById("delta-display");
+      delta.textContent = tempDiff === 0
+        ? "Same high temperature as last year."
+        : `Today is ${Math.abs(tempDiff)}${DEG}F ${tempDiff > 0 ? "warmer" : "cooler"} than last year.`;
+      delta.classList.remove("warmer", "cooler");
+      if (tempDiff > 0) delta.classList.add("warmer");
+      if (tempDiff < 0) delta.classList.add("cooler");
+
+      const listContainer = document.getElementById("forecast-rows");
+      listContainer.innerHTML = "";
+
+      forecastData.daily.time.forEach((dateStr, index) => {
+        const dayName = getDayName(dateStr, index === 0);
+        const max = Math.round(forecastData.daily.temperature_2m_max[index]);
+        const min = Math.round(forecastData.daily.temperature_2m_min[index]);
+        const code = forecastData.daily.weathercode[index];
+        const badge = getWeatherBadge(code);
+        const desc = getWeatherDescription(code);
+
+        listContainer.innerHTML += `
+          <div class="forecast-row">
+            <div class="forecast-icon">${badge}</div>
+            <div>
+              <div style="font-weight:700;">${dayName}</div>
+              <div class="forecast-desc">${desc}</div>
+            </div>
+            <div class="temp-hi">${max}${DEG}F</div>
+            <div class="temp-lo">${min}${DEG}F</div>
+          </div>
+        `;
+      });
+
+    } catch (e) {
+      console.error("Dashboard Load Error:", e);
+      const alertBar = document.getElementById("alert-bar");
+      alertBar.textContent = "Error loading weather.";
+      alertBar.classList.add("alert-active");
+      document.getElementById("forecast-rows").innerHTML =
+        `<div style="color:#b42318;text-align:center;padding:10px;">Error: ${e.message}.</div>`;
+    }
+  }
+
+  loadDashboard();
+})();
 </script>
