@@ -1,0 +1,553 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Resource Hub - SFSC</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --text: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --primary: #2563eb;
+            --border: #e2e8f0;
+            
+            /* Colors */
+            --orange-bg: #fff7ed; --orange-border: #ffedd5; --orange-text: #c2410c;
+            --green-bg: #f0fdf4; --green-border: #dcfce7; --green-text: #15803d;
+            --blue-bg: #eff6ff; --blue-border: #dbeafe; --blue-text: #1d4ed8;
+            --purple-bg: #faf5ff; --purple-border: #f3e8ff; --purple-text: #7e22ce;
+            --red-bg: #fef2f2; --red-border: #fee2e2; --red-text: #b91c1c;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+        a { text-decoration: none; color: inherit; }
+        
+        /* Layout */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        .grid-2 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        .grid-3 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+        .grid-4 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+        
+        @media (min-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1200px) {
+            .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        /* Header & Nav */
+        header { background: linear-gradient(to right, #1e293b, #334155); color: white; padding: 2rem 0; }
+        .header-content h1 { font-size: 2.25rem; font-weight: 700; }
+        
+        nav { position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 50; padding: 1rem 0; }
+        .nav-links { display: flex; gap: 1.5rem; overflow-x: auto; }
+        .nav-links a { font-weight: 500; color: var(--text-light); }
+        .nav-links a:hover { color: var(--primary); }
+        .search-input { padding: 0.5rem 1rem 0.5rem 2.5rem; border: 1px solid var(--border); border-radius: 0.5rem; width: 250px; }
+        
+        /* Cards */
+        .section-title { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 2rem; display: flex; align-items: center; }
+        .section-title i { margin-right: 0.75rem; color: var(--primary); }
+        
+        .big-card { background: white; border-radius: 1rem; padding: 1.5rem; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); height: 100%; }
+        
+        .link-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-radius: 0.75rem; margin-bottom: 1rem; border: 1px solid transparent; transition: all 0.2s; background: white; }
+        .link-item:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); }
+        
+        /* Colors */
+        .bg-orange { background: var(--orange-bg); border-color: var(--orange-border); } .bg-orange:hover { border-color: #fdba74; }
+        .bg-green { background: var(--green-bg); border-color: var(--green-border); } .bg-green:hover { border-color: #86efac; }
+        .text-sm { font-size: 0.875rem; color: var(--text-light); }
+        
+        /* Simple Lists */
+        .simple-list a { display: block; padding: 0.35rem 0; color: var(--primary); font-weight: 500; transition: 0.2s; }
+        .simple-list a:hover { transform: translateX(5px); color: var(--primary-dark); }
+
+        /* Support Grid Cards */
+        .support-card { background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid var(--border); text-align: center; transition: 0.2s; display: block; }
+        .support-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .support-icon { margin: 0 auto 0.75rem auto; height: 3rem; width: 3rem; }
+
+        /* Modals */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; justify-content: center; align-items: center; animation: fadeIn 0.3s; }
+        .modal-box { background: white; width: 100%; max-width: 700px; max-height: 90vh; overflow-y: auto; border-radius: 1rem; }
+        .modal-header { padding: 1.25rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; background: var(--bg); }
+        .modal-body { padding: 1.5rem; }
+        .doc-link { display: flex; align-items: center; padding: 1rem; border: 1px solid var(--border); border-radius: 0.5rem; margin-bottom: 0.5rem; transition: 0.2s; }
+        .doc-link:hover { background: var(--bg); border-color: var(--primary); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="header-content">
+                <h1>IT Resource Hub</h1>
+                <p style="color:#cbd5e1; margin-top:0.5rem;">Quick access to all essential applications, tools, and support services.</p>
+                <div style="margin-top:0.75rem;">
+                    <input id="searchInput" class="search-input" placeholder="Search applications..." aria-label="Search applications">
+                </div>
+            </div>
+            <div style="background:rgba(255,255,255,0.1); padding:10px; border-radius:8px; text-align:right;">
+                <p style="font-weight:600; font-size:0.9rem;">SFSC IT Department</p>
+                <p style="font-size:0.8rem; color:#cbd5e1;">Last Updated: Feb. 2026</p>
+            </div>
+        </div>
+    </header>
+
+    
+
+    <main style="padding: 3rem 0;">
+        <div class="container">
+
+            <section id="applications" class="mb-16">
+                <h2 class="section-title"><i data-lucide="monitor"></i> Applications</h2>
+                <div class="grid-2">
+                    <div class="big-card">
+                        <h3 style="font-size:1.25rem; font-weight:600; margin-bottom:1.5rem; display:flex; align-items:center;">
+                            <i data-lucide="test-tube" style="color:#f97316; margin-right:0.5rem;"></i> Test Environment
+                        </h3>
+                        
+                        <a href="https://sfsc-test-pxes01.banner.elluciancloud.com:8083/EmployeeSelfService" target="_blank" class="link-item bg-orange">
+                            <div>
+                                <p style="font-weight:600; color:#334155;">Employee Self Service</p>
+                                <p class="text-sm">ESS Test Environment</p>
+                            </div>
+                            <i data-lucide="external-link" style="color:#f97316;"></i>
+                        </a>
+                        
+                        <a href="https://sfsc-test-pxes02.banner.elluciancloud.com:8093/StudentSelfService" target="_blank" class="link-item bg-orange">
+                            <div>
+                                <p style="font-weight:600; color:#334155;">Student Self Service</p>
+                                <p class="text-sm">SSS Test Environment</p>
+                            </div>
+                            <i data-lucide="external-link" style="color:#f97316;"></i>
+                        </a>
+
+                        <a href="https://sfsc-test-pxes01.banner.elluciancloud.com:8081/applicationNavigator/seamless" target="_blank" class="link-item bg-orange">
+                            <div>
+                                <p style="font-weight:600; color:#334155;">Banner (Test)</p>
+                                <p class="text-sm">Application Navigator Test</p>
+                            </div>
+                            <i data-lucide="external-link" style="color:#f97316;"></i>
+                        </a>
+
+                        <a href="https://experience-test.elluciancloud.com/ssctest526" target="_blank" class="link-item bg-orange">
+                            <div>
+                                <p style="font-weight:600; color:#334155;">Experience (Test)</p>
+                            </div>
+                            <i data-lucide="external-link" style="color:#f97316;"></i>
+                        </a>
+                        <a href="https://southflorida-sandbox.simplesyllabus.com/" target="_blank" class="link-item bg-orange">
+                            <div>
+                                <p style="font-weight:600; color:#334155;">Simple Syllabus (Sandbox)</p>
+                            </div>
+                            <i data-lucide="external-link" style="color:#f97316;"></i>
+                        </a>
+                    </div>
+
+                    <div class="big-card">
+                        <h3 style="font-size:1.25rem; font-weight:600; margin-bottom:1.5rem; display:flex; align-items:center;">
+                            <i data-lucide="check-circle" style="color:#16a34a; margin-right:0.5rem;"></i> Production Environment
+                        </h3>
+
+                        <a href="https://sfsc.sharepoint.com/" target="_blank" class="link-item bg-green">
+                            <div>
+                                <p style="font-weight:600; color:#334155;">Panther Central</p>
+                                <p class="text-sm">Main Portal</p>
+                            </div>
+                            <i data-lucide="external-link" style="color:#16a34a;"></i>
+                        </a>
+
+                        <a href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8083/EmployeeSelfService" target="_blank" class="link-item bg-green">
+                            <div>
+                                <p style="font-weight:600; color:#334155;">Employee Self Service</p>
+                                <p class="text-sm">ESS Production</p>
+                            </div>
+                            <i data-lucide="external-link" style="color:#16a34a;"></i>
+                        </a>
+
+                        <a href="https://sfsc-prod-pxes01.banner.elluciancloud.com:8081/applicationNavigator" target="_blank" class="link-item bg-green">
+                            <div>
+                                <p style="font-weight:600; color:#334155;">Banner (Prod)</p>
+                                <p class="text-sm">Application Navigator Production</p>
+                            </div>
+                            <i data-lucide="external-link" style="color:#16a34a;"></i>
+                        </a>
+
+                        <a href="https://experience.elluciancloud.com/ssc578" target="_blank" class="link-item bg-green">
+                            <div>
+                                <p style="font-weight:600; color:#334155;">Experience (Prod)</p>
+                            </div>
+                            <i data-lucide="external-link" style="color:#16a34a;"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tools" class="mb-16">
+                <h2 class="section-title"><i data-lucide="wrench"></i> Core Tools</h2>
+                <div class="grid-4">
+                    <div class="big-card" style="border-top:4px solid #3b82f6;">
+                        <h3 style="font-weight:600; margin-bottom:1rem; display:flex; align-items:center;">
+                            <i data-lucide="briefcase" style="color:#3b82f6; width:20px; margin-right:8px;"></i> Microsoft Office
+                        </h3>
+                        <div class="simple-list">
+                            <a href="https://outlook.office.com/mail/" target="_blank">Outlook</a>
+                            <a href="https://www.office.com/launch/onedrive" target="_blank">OneDrive</a>
+                            <a href="https://word.cloud.microsoft/" target="_blank">Word</a>
+                            <a href="https://excel.cloud.microsoft/" target="_blank">Excel</a>
+                            <a href="https://powerpoint.cloud.microsoft/" target="_blank">PowerPoint</a>
+                            <a href="https://teams.cloud.microsoft/" target="_blank">Teams</a>
+                            <a href="https://planner.cloud.microsoft/" target="_blank">Planner</a>
+                            <a href="https://make.powerautomate.com/" target="_blank">Power Automate</a>
+                            <a href="https://forms.office.com/" target="_blank">Forms</a>
+                            <a href="https://sfsc.sharepoint.com/_layouts/15/sharepoint.aspx" target="_blank">SharePoint</a>
+                            <a href="https://loop.cloud.microsoft" target="_blank">Loops</a>
+                            <a href="https://make.powerapps.com" target="_blank">PowerApps</a>
+                        </div>
+                    </div>
+
+                    <div class="big-card" style="border-top:4px solid #a855f7;">
+                        <h3 style="font-weight:600; margin-bottom:1rem; display:flex; align-items:center;">
+                            <i data-lucide="sparkles" style="color:#a855f7; width:20px; margin-right:8px;"></i> Creative &amp; AI
+                        </h3>
+                        <div class="simple-list">
+                            <a href="https://www.adobe.com/home" target="_blank">Adobe Suite</a>
+                            <a href="https://chatgpt.com/" target="_blank">ChatGPT</a>
+                            <a href="https://gemini.google.com/" target="_blank">Gemini</a>
+                            <a href="https://app.agentx.so/?agent=6780002b1ea8ccdfc234a644" target="_blank">AgentX</a>
+                        </div>
+                    </div>
+
+                    <div class="big-card" style="border-top:4px solid #22c55e;">
+                        <h3 style="font-weight:600; margin-bottom:1rem; display:flex; align-items:center;">
+                            <i data-lucide="code" style="color:#22c55e; width:20px; margin-right:8px;"></i> Development
+                        </h3>
+                        <div class="simple-list">
+                            <a href="https://github.com" target="_blank">GitHub</a>
+                            <a href="https://www.figma.com" target="_blank">Figma</a>
+                            <a href="https://www.gitbook.com/" target="_blank">GitBook</a>
+                        </div>
+                    </div>
+
+                    <div class="big-card" style="border-top:4px solid #eab308;">
+                        <h3 style="font-weight:600; margin-bottom:1rem; display:flex; align-items:center;">
+                            <i data-lucide="zap" style="color:#eab308; width:20px; margin-right:8px;"></i> Quick Actions
+                        </h3>
+                        <div class="simple-list">
+                            <a href="https://sfsc.sharepoint.com/" target="_blank">Panther Central</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="support" class="mb-16">
+                <h2 class="section-title"><i data-lucide="headphones"></i> Project Management &amp; Support</h2>
+                <div class="grid-4">
+                    <a href="https://training.knowbe4.com/ui/login" target="_blank" class="support-card">
+                        <i data-lucide="shield-check" class="support-icon" style="color:#16a34a;"></i>
+                        <p style="font-weight:600; color:#334155;">KnowBe4</p>
+                        <p class="text-sm">Security Training</p>
+                    </a>
+                    
+                    <a href="https://entra.microsoft.com/#view/Microsoft_Entra_Copilot/AgentsLibrary.ReactView" target="_blank" class="support-card">
+                        <i data-lucide="key" class="support-icon" style="color:#2563eb;"></i>
+                        <p style="font-weight:600; color:#334155;">Entra Admin</p>
+                        <p class="text-sm">Identity Mgmt</p>
+                    </a>
+
+                    <a href="https://watermarkinsights.mavenlink.com/users/19083187/dashboard" target="_blank" class="support-card">
+                        <i data-lucide="bar-chart-3" class="support-icon" style="color:#9333ea;"></i>
+                        <p style="font-weight:600; color:#334155;">WaterMark</p>
+                        <p class="text-sm">Analytics Platform</p>
+                    </a>
+
+                    <a href="https://manager.everbridge.net/dashboard" target="_blank" class="support-card">
+                        <i data-lucide="bell" class="support-icon" style="color:#dc2626;"></i>
+                        <p style="font-weight:600; color:#334155;">Everbridge</p>
+                        <p class="text-sm">Emergency Alerts</p>
+                    </a>
+
+                    <a href="https://southflorida.element451.io/v2/start" target="_blank" class="support-card">
+                        <i data-lucide="users" class="support-icon" style="color:#4f46e5;"></i>
+                        <p style="font-weight:600; color:#334155;">Element451</p>
+                        <p class="text-sm">Student Engagement</p>
+                    </a>
+
+                    <a href="https://elluciansupport.service-now.com/customer_center?id=customer_center_home" target="_blank" class="support-card">
+                        <i data-lucide="life-buoy" class="support-icon" style="color:#ea580c;"></i>
+                        <p style="font-weight:600; color:#334155;">Ellucian Support</p>
+                        <p class="text-sm">Technical Support</p>
+                    </a>
+
+                    <a href="https://analytics.google.com/" target="_blank" class="support-card">
+                        <i data-lucide="trending-up" class="support-icon" style="color:#16a34a;"></i>
+                        <p style="font-weight:600; color:#334155;">Analytics</p>
+                        <p class="text-sm">Google Analytics</p>
+                    </a>
+
+                    <a href="https://sdpondemand.manageengine.com/app/itdesk/HomePage.do" target="_blank" class="support-card">
+                        <i data-lucide="help-circle" class="support-icon" style="color:#2563eb;"></i>
+                        <p style="font-weight:600; color:#334155;">ServiceDesk</p>
+                        <p class="text-sm">IT Support</p>
+                    </a>
+
+                    <a href="https://accounts.zoho.com/signin?servicename=DesktopCentralCloud" target="_blank" class="support-card">
+                        <i data-lucide="monitor" class="support-icon" style="color:#4b5563;"></i>
+                        <p style="font-weight:600; color:#334155;">EndPoint Central</p>
+                        <p class="text-sm">Device Mgmt</p>
+                    </a>
+
+                    <a href="https://online.southflorida.edu/" target="_blank" class="support-card">
+                        <i data-lucide="book" class="support-icon" style="color:#ea580c;"></i>
+                        <p style="font-weight:600; color:#334155;">BrightSpace</p>
+                        <p class="text-sm">Course Mgmt</p>
+                    </a>
+                    <a href="https://dlss.flvc.org/" target="_blank" class="support-card">
+                        <i data-lucide="university" class="support-icon" style="color:#ea580c;"></i>
+                        <p style="font-weight:600; color:#334155;">FLVC</p>
+                        <p class="text-sm">Online Course catalog</p>
+                    </a>
+                    <a href="https://southflorida.simplesyllabus.com/" target="_blank" class="support-card">
+                        <i data-lucide="notebook-text" class="support-icon" style="color:#ea580c;"></i>
+                        <p style="font-weight:600; color:#334155;">Simple Syllabus</p>
+                        <p class="text-sm">Syllabus catalog</p>
+                    </a>
+                    
+                </div>
+            </section>
+
+            <section id="training" class="mb-16">
+                <h2 class="section-title"><i data-lucide="graduation-cap"></i> Training &amp; Development</h2>
+                <div class="grid-3">
+                    <div class="big-card">
+                        <h3 style="font-weight:600; margin-bottom:1rem; color:#2563eb;">Professional Dev</h3>
+                        <div class="simple-list">
+                            <a href="https://training.ellucian.com/pages/250/banner-home" target="_blank">Ellucian Academy</a>
+                            <a href="https://academy.knowbe4.com/student/catalog" target="_blank">KnowBe4 Academy</a>
+                            <a href="https://academy.openai.com/home" target="_blank">OpenAI Academy</a>
+                            <a href="https://skillbuilder.aws" target="_blank">AWS Skill Builder</a>
+                            <a href="https://community.element451.com" target="_blank">Element451 Training/community </a>
+                            <a href="https://wgu.udemy.com/course/the-complete-sql-bootcamp/learn/lecture/18144846#overview" target="_blank">PostgreSQL Training </a>
+                        </div>
+                    </div>
+                    <div class="big-card">
+                        <h3 style="font-weight:600; margin-bottom:1rem; color:#16a34a;">Online Learning</h3>
+                        <div class="simple-list">
+                            <a href="https://www.classcentral.com" target="_blank">Class Central</a>
+                            <a href="https://wgu.udemy.com/organization/home/" target="_blank">Udemy</a>
+                            <a href="https://www.linkedin.com/learning/?u=2045532" target="_blank">LinkedIn Learning</a>
+                            <a href="https://learn.microsoft.com/en-us/training/" target="_blank">Microsoft Learn</a>
+                        </div>
+                    </div>
+                    <div class="big-card">
+                        <h3 style="font-weight:600; margin-bottom:1rem; color:#9333ea;">Skill Building</h3>
+                        <div class="simple-list">
+                            <a href="https://www.codecademy.com" target="_blank">Codecademy</a>
+                            <a href="https://www.freecodecamp.org" target="_blank">freeCodeCamp</a>
+                            <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
+                            <a href="https://www.coursera.org" target="_blank">Coursera</a>
+                            <a href="https://trailhead.salesforce.com/" target="_blank">SalesForce</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="project-resources" class="mb-16">
+                <h2 class="section-title"><i data-lucide="clipboard-list"></i> Project Resources</h2>
+                <div class="big-card">
+                    <div class="grid-3">
+                        <div style="background:#eff6ff; padding:1rem; border-radius:0.5rem; border:1px solid #dbeafe;">
+                            <h4 style="color:#1e3a8a; margin-bottom:0.5rem; font-weight:600;">Documentation</h4>
+                            <div class="simple-list">
+                                <a href="https://www.notion.so" target="_blank">📝 Notion</a>
+                                <a href="https://www.gitbook.com" target="_blank">📚 GitBook</a>
+                                <a href="https://www.confluence.com" target="_blank">🏢 Confluence</a>
+                            </div>
+                        </div>
+                        <div style="background:#fef2f2; padding:1rem; border-radius:0.5rem; border:1px solid #fee2e2;">
+                            <h4 style="color:#7f1d1d; margin-bottom:0.5rem; font-weight:600;">Tracking</h4>
+                            <div class="simple-list">
+                                <a href="https://trello.com" target="_blank">📋 Trello</a>
+                                <a href="https://asana.com" target="_blank">✅ Asana</a>
+                                <a href="https://www.atlassian.com/software/jira" target="_blank">🔄 Jira</a>
+                            </div>
+                        </div>
+                        <div style="background:#fff7ed; padding:1rem; border-radius:0.5rem; border:1px solid #ffedd5;">
+                            <h4 style="color:#7c2d12; margin-bottom:0.5rem; font-weight:600;">Collaboration</h4>
+                            <div class="simple-list">
+                                <a href="https://slack.com" target="_blank">💬 Slack</a>
+                                <a href="https://www.microsoft.com/en-us/microsoft-teams" target="_blank">👥 Teams</a>
+                                <a href="https://zoom.us" target="_blank">📹 Zoom</a>
+                            </div>
+                        </div>
+                         <div style="background:#fff7ed; padding:1rem; border-radius:0.5rem; border:1px solid #ffedd5;">
+                            <h4 style="color:#7c2d12; margin-bottom:0.5rem; font-weight:600;">Design &amp; Prototyping</h4>
+                            <div class="simple-list">
+                                <a href="https://www.figma.com" target="_blank">🎨 Figma</a>
+                                <a href="https://www.sketch.com" target="_blank">✏️ Sketch</a>
+                                <a href="https://www.invisionapp.com" target="_blank">📱 InVision</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+           
+
+        </div>
+    </main>
+
+    <footer style="background:#1e293b; padding:3rem 0; text-align:center; color:white; margin-top:4rem;">
+        <div class="container">
+            <h3>SFSC IT Department</h3>
+            <p style="color:#94a3b8; font-size:0.875rem; margin-top:0.5rem;">© 2025 South Florida State College IT Department | Last Updated: August 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        try {
+            lucide.createIcons();
+        } catch (err) {
+            console.warn('lucide.createIcons() failed:', err);
+        }
+
+        // Ensure external links opened with target="_blank" cannot access this window
+        // (prevents opened pages from calling window.opener.document and causing SecurityError)
+        try {
+            document.querySelectorAll('a[target="_blank"]').forEach(a => {
+                if (!a.hasAttribute('rel')) a.setAttribute('rel', 'noopener noreferrer');
+            });
+        } catch (e) {
+            console.warn('Failed to set rel on external links:', e);
+        }
+
+        // --- Search ---
+        const searchInput = document.getElementById('searchInput');
+        const searchTargets = document.querySelectorAll('.link-item, .simple-list a, .support-card, button.link-item');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const term = e.target.value.toLowerCase();
+                searchTargets.forEach(item => {
+                    const text = item.innerText.toLowerCase();
+                    item.style.display = text.includes(term) ? '' : 'none';
+                });
+            });
+        }
+
+        // --- MODALS ---
+        function removeExistingModals() {
+            document.querySelectorAll('.modal-overlay').forEach(m => m.remove());
+        }
+
+        document.addEventListener('keydown', (e) => { if(e.key === 'Escape') removeExistingModals(); });
+
+        // Documentation Modal Logic
+        function openPlatformDocs(title, desc, links, color) {
+            removeExistingModals();
+            
+            // Colors for headers
+            let headerStyle = 'background:#f8fafc; color:#334155;';
+            if(color === 'indigo') headerStyle = 'background:#eef2ff; color:#4338ca;';
+            if(color === 'orange') headerStyle = 'background:#fff7ed; color:#c2410c;';
+            if(color === 'green')  headerStyle = 'background:#f0fdf4; color:#15803d;';
+            if(color === 'purple') headerStyle = 'background:#faf5ff; color:#7e22ce;';
+            if(color === 'red')    headerStyle = 'background:#fef2f2; color:#b91c1c;';
+
+            const html = `
+                <div class="modal-overlay">
+                    <div class="modal-box">
+                        <div class="modal-header" style="${headerStyle}">
+                            <div>
+                                <h3 style="font-weight:600; font-size:1.2rem;">${title}</h3>
+                                <p style="font-size:0.9rem; opacity:0.8;">${desc}</p>
+                            </div>
+                            <button onclick="removeExistingModals()" style="background:none; border:none; cursor:pointer;"><i data-lucide="x"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            ${links.map(l => `
+                                <a href="${l.url}" target="_blank" class="doc-link">
+                                    <span style="margin-right:10px; font-size:1.2rem;">${l.icon}</span>
+                                    <span style="font-weight:500;">${l.name}</span>
+                                </a>
+                            `).join('')}
+                            <div style="text-align:right; margin-top:1rem;">
+                                <button onclick="removeExistingModals()" style="padding:0.5rem 1rem; background:#e2e8f0; border:none; border-radius:0.5rem; cursor:pointer;">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', html);
+            lucide.createIcons();
+        }
+
+        // Form Modal Logic (For Project Docs)
+        function openProjectDocs(type) {
+             // Simplified for demo based on your requirement
+             openPlatformDocs('Banner Upgrade Project', 'Documentation for the 2025 Upgrade', [
+                 {name: 'Project Charter', url: '#', icon: '📋'},
+                 {name: 'Timeline', url: '#', icon: '📅'},
+                 {name: 'Risk Register', url: '#', icon: '⚠️'}
+             ], 'orange');
+        }
+
+        // Specific Handlers
+        function openElement451Docs(t) {
+            const d = {
+                'getting-started': { title: 'Element451 - Start', desc: 'Essential guides.', links: [{name: 'Platform Overview', url: 'https://help.element451.com/', icon: '🚀'}, {name: 'First Login', url: 'https://help.element451.com/', icon: '🔑'}] },
+                'campaign-management': { title: 'Campaigns', desc: 'Email & SMS.', links: [{name: 'Create Campaign', url: 'https://help.element451.com/', icon: '📧'}] },
+                'analytics': { title: 'Analytics', desc: 'Reports.', links: [{name: 'Dashboards', url: 'https://help.element451.com/', icon: '📊'}] }
+            };
+            if(d[t]) openPlatformDocs(d[t].title, d[t].desc, d[t].links, 'indigo');
+        }
+
+        function openEllucianDocs(t) {
+            const d = {
+                'banner-modules': { title: 'Banner Modules', desc: 'Core systems.', links: [{name: 'Student', url: 'https://training.ellucian.com/', icon: '🎓'}, {name: 'Finance', url: 'https://training.ellucian.com/', icon: '💰'}] },
+                'technical-documentation': { title: 'Technical', desc: 'API & DB.', links: [{name: 'API Ref', url: 'https://training.ellucian.com/', icon: '⚙️'}] }
+            };
+            if(d[t]) openPlatformDocs(d[t].title, d[t].desc, d[t].links, 'orange');
+        }
+
+        function openKnowBe4Docs(t) {
+            const d = {
+                'phishing-campaigns': { title: 'Phishing', desc: 'Security tests.', links: [{name: 'Create', url: '#', icon: '🎣'}] },
+                'phishrip-workflow': { title: 'PhishRIP', desc: 'Quarantine.', links: [{name: 'Triage', url: '#', icon: '🚨'}] },
+                'admin-guides': { title: 'Admin', desc: 'Settings.', links: [{name: 'Users', url: '#', icon: '👥'}] }
+            };
+            if(d[t]) openPlatformDocs(d[t].title, d[t].desc, d[t].links, 'green');
+        }
+
+        function openWaterMarkDocs(t) {
+            const d = {
+                'reporting': { title: 'WaterMark Reports', desc: 'Analytics.', links: [{name: 'Builder', url: '#', icon: '📊'}] },
+                'assessment-tools': { title: 'Assessment', desc: 'Tools.', links: [{name: 'Rubrics', url: '#', icon: '📝'}] }
+            };
+            if(d[t]) openPlatformDocs(d[t].title, d[t].desc, d[t].links, 'purple');
+        }
+
+        function openEverbridgeDocs(t) {
+            const d = {
+                'notification-setup': { title: 'Everbridge Alerts', desc: 'Setup.', links: [{name: 'Create Alert', url: '#', icon: '🔔'}] },
+                'incident-response': { title: 'Response', desc: 'Emergency.', links: [{name: 'Procedures', url: '#', icon: '🚨'}] }
+            };
+            if(d[t]) openPlatformDocs(d[t].title, d[t].desc, d[t].links, 'red');
+        }
+    </script>
+
+</body></html>
