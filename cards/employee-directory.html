@@ -249,6 +249,8 @@
       });
   }
 
-  // Load the CSV file
-  loadCSV('https://raw.githubusercontent.com/asjames18/experience-ellucian/refs/heads/main/docs/employee_directory.csv');
+  // This CSV is refreshed daily from the SFSC website by GitHub Actions.
+  // The timestamp prevents an old raw.githubusercontent.com response from being cached.
+  const directoryCsvUrl = 'https://raw.githubusercontent.com/South-Florida-State-College/experience-ellucian/refs/heads/main/docs/employee_directory.csv';
+  loadCSV(`${directoryCsvUrl}?updated=${Date.now()}`);
 </script>
