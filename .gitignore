@@ -11,3 +11,7 @@ build/
 .env
 .env.local
 .env.development
+
+# Python
+__pycache__/
+*.py[cod]
