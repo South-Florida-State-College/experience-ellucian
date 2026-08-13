@@ -142,6 +142,7 @@ def scrape_directory(
     # Use a modest worker count so a full sync finishes promptly without placing
     # excessive concurrent load on the college website.
     print(f"Reading {len(employees)} employee profiles")
+    profile_error_count = 0
     with ThreadPoolExecutor(max_workers=6) as executor:
         pending = {
             executor.submit(profile_details, session, employee["_profile_url"]): employee
@@ -158,12 +159,17 @@ def scrape_directory(
                     )
                 employee["Email"] = email or employee["Email"]
                 employee["Phone"] = profile_phone or employee["Phone"]
-            except requests.RequestException as error:
+            except requests.RequestException:
                 # Keep the list-page data if one profile is temporarily unavailable.
-                print(
-                    f"Warning: could not read {employee['_profile_url']}: {error}",
-                    file=sys.stderr,
-                )
+                # Do not log the profile URL or exception because they can contain
+                # private request data.
+                profile_error_count += 1
+
+    if profile_error_count:
+        print(
+            f"Warning: {profile_error_count} employee profiles could not be read",
+            file=sys.stderr,
+        )
 
     employees.sort(key=lambda employee: employee["Name"].casefold())
     return employees
