@@ -65,6 +65,23 @@ After that one-time republish, scheduled snapshot changes appear the next time
 the Ellucian page is loaded. The runtime URL is intentionally public and must
 never contain credentials or student data.
 
+### Brightspace tutorial sync
+
+`Pages/BrightSpace.html` follows the same embedded-fallback and runtime-snapshot
+pattern. `Sync Brightspace tutorials` runs daily at 11:00 UTC and publishes
+`docs/brightspace_tutorials.json`. It discovers every link in the Student and
+Instructor Tutorial lists, so newly added tutorials and revised PDF URLs flow
+into Ellucian automatically.
+
+To deploy it, merge its automation pull request, paste the merged
+`Pages/BrightSpace.html` into the matching Ellucian Page Designer page, and
+republish once with scripts and popup permissions enabled. `allow-downloads`
+is recommended for tutorial PDFs. To preview locally, run:
+
+```powershell
+python scripts/sync_brightspace_tutorials.py --check
+```
+
 ---
 
 > 🔐 Internal Use Only – Do not upload files containing sensitive student data.
