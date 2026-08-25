@@ -40,12 +40,12 @@ jobs:
 
       - name: Commit changes
         run: |
-          if git diff --quiet -- Pages/community.html; then
+          if git diff --quiet -- Pages/community.html docs/corporate_education.json; then
             echo "Corporate Education page is already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Pages/community.html
+          git add Pages/community.html docs/corporate_education.json
           git commit -m "chore: sync Corporate Education page"
           git push

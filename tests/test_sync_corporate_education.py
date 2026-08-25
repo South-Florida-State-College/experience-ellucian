@@ -8,7 +8,11 @@ from pathlib import Path
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPOSITORY_ROOT / "scripts"))
 
-from sync_corporate_education import parse_source, render_catalogs  # noqa: E402
+from sync_corporate_education import (  # noqa: E402
+    build_payload,
+    parse_source,
+    render_catalogs,
+)
 
 
 def navigation_fixture() -> str:
@@ -69,6 +73,10 @@ class NewCatalogTests(unittest.TestCase):
         self.assertIn('<option value="other">Other</option>', rendered)
         self.assertIn("new-topic.pdf", rendered)
         self.assertIn("new-topic.png", rendered)
+
+        payload = build_payload(source)
+        self.assertEqual(1, payload["schema_version"])
+        self.assertIn("new-topic.pdf", payload["sections"]["corporate-catalogs"])
 
 
 if __name__ == "__main__":
