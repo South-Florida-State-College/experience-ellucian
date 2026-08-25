@@ -443,6 +443,71 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Load the latest source-owned sections without requiring an Ellucian
+        // republish. The embedded HTML remains visible if this request fails.
+        const corporateSyncUrl = 'https://raw.githubusercontent.com/South-Florida-State-College/experience-ellucian/main/docs/corporate_education.json';
+
+        function replaceAutoSyncSection(name, replacementHtml) {
+            const beginText = 'BEGIN AUTO-SYNC: ' + name;
+            const endText = 'END AUTO-SYNC: ' + name;
+            const walker = document.createTreeWalker(document, NodeFilter.SHOW_COMMENT);
+            let beginMarker = null;
+            let endMarker = null;
+            let comment;
+
+            while ((comment = walker.nextNode())) {
+                const value = comment.nodeValue.trim();
+                if (value === beginText) {
+                    beginMarker = comment;
+                } else if (value === endText) {
+                    endMarker = comment;
+                    break;
+                }
+            }
+
+            if (!beginMarker || !endMarker) {
+                throw new Error('Missing auto-sync markers for ' + name);
+            }
+
+            const range = document.createRange();
+            range.setStartAfter(beginMarker);
+            range.setEndBefore(endMarker);
+            range.deleteContents();
+
+            const template = document.createElement('template');
+            template.innerHTML = replacementHtml;
+            endMarker.parentNode.insertBefore(template.content, endMarker);
+        }
+
+        async function refreshCorporateEducation() {
+            try {
+                const response = await fetch(corporateSyncUrl + '?v=' + Date.now(), {
+                    cache: 'no-store',
+                    mode: 'cors'
+                });
+                if (!response.ok) {
+                    throw new Error('Corporate Education sync returned HTTP ' + response.status);
+                }
+
+                const payload = await response.json();
+                if (payload.schema_version !== 1 || !payload.sections) {
+                    throw new Error('Unsupported Corporate Education data format');
+                }
+
+                Object.entries(payload.sections).forEach(function ([name, sectionHtml]) {
+                    if (typeof sectionHtml !== 'string') {
+                        throw new Error('Invalid content for ' + name);
+                    }
+                    replaceAutoSyncSection(name, sectionHtml);
+                });
+            } catch (error) {
+                // Fail open: retain the last HTML published in Ellucian.
+                console.warn('Using embedded Corporate Education content:', error);
+            }
+        }
+
+        refreshCorporateEducation();
+
         // Smooth scrolling for sidebar links
         $(document).ready(function () {
             $('.sidebarMenu a').on('click', function (event) {

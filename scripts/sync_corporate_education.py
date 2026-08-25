@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import html
+import json
 import re
 import sys
 from dataclasses import dataclass
@@ -21,6 +22,9 @@ SOURCE_URL = (
     "special-programs/corporate-education-training"
 )
 DEFAULT_OUTPUT = Path(__file__).resolve().parents[1] / "Pages" / "community.html"
+DEFAULT_DATA_OUTPUT = (
+    Path(__file__).resolve().parents[1] / "docs" / "corporate_education.json"
+)
 HEADERS = {
     "User-Agent": (
         "SFSC-Corporate-Education-Sync/1.0 "
@@ -392,15 +396,27 @@ def replace_section(document: str, name: str, replacement: str) -> str:
     return document[: match.start()] + block + document[match.end() :]
 
 
+def render_sections(source: SourceContent) -> dict[str, str]:
+    return {
+        "corporate-navigation": render_navigation(source),
+        "corporate-banner": render_banner(source),
+        "corporate-catalogs": render_catalogs(source),
+        "corporate-copy": render_corporate_copy(source),
+        "corporate-contact": render_contact(source),
+    }
+
+
+def build_payload(source: SourceContent) -> dict[str, object]:
+    """Return the public snapshot consumed by the Ellucian runtime loader."""
+    return {
+        "schema_version": 1,
+        "source_url": SOURCE_URL,
+        "sections": render_sections(source),
+    }
+
+
 def update_document(document: str, source: SourceContent) -> str:
-    sections = (
-        ("corporate-navigation", render_navigation(source)),
-        ("corporate-banner", render_banner(source)),
-        ("corporate-catalogs", render_catalogs(source)),
-        ("corporate-copy", render_corporate_copy(source)),
-        ("corporate-contact", render_contact(source)),
-    )
-    for name, replacement in sections:
+    for name, replacement in render_sections(source).items():
         document = replace_section(document, name, replacement)
     return document
 
@@ -408,6 +424,7 @@ def update_document(document: str, source: SourceContent) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--data-output", type=Path, default=DEFAULT_DATA_OUTPUT)
     parser.add_argument("--source-file", type=Path)
     parser.add_argument(
         "--check",
@@ -428,16 +445,35 @@ def main() -> int:
     output = args.output.resolve()
     current = output.read_text(encoding="utf-8")
     updated = update_document(current, source)
-    if updated == current:
-        print(f"{output} is already current")
+    data_output = args.data_output.resolve()
+    payload = json.dumps(
+        build_payload(source), ensure_ascii=False, indent=2, sort_keys=True
+    ) + "\n"
+    current_payload = (
+        data_output.read_text(encoding="utf-8") if data_output.exists() else None
+    )
+
+    html_changed = updated != current
+    data_changed = payload != current_payload
+    if not html_changed and not data_changed:
+        print(f"{output} and {data_output} are already current")
         return 0
     if args.check:
-        print(f"{output} needs to be refreshed", file=sys.stderr)
+        changed = []
+        if html_changed:
+            changed.append(str(output))
+        if data_changed:
+            changed.append(str(data_output))
+        print(f"Needs refresh: {', '.join(changed)}", file=sys.stderr)
         return 1
-    output.write_text(updated, encoding="utf-8", newline="\n")
+    if html_changed:
+        output.write_text(updated, encoding="utf-8", newline="\n")
+    if data_changed:
+        data_output.parent.mkdir(parents=True, exist_ok=True)
+        data_output.write_text(payload, encoding="utf-8", newline="\n")
     print(
-        f"Updated {output} with {len(source.navigation)} links and "
-        f"{len(source.catalogs)} catalogs"
+        f"Updated Corporate Education HTML/JSON with {len(source.navigation)} "
+        f"links and {len(source.catalogs)} catalogs"
     )
     return 0
 
