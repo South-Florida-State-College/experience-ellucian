@@ -26,7 +26,9 @@ Custom development for Ellucian Experience at SFSC. This repo contains:
 public SFSC website. The `Sync Corporate Education page` GitHub Action runs
 daily and can also be started manually from the Actions tab. It refreshes only
 the sections enclosed by `AUTO-SYNC` comments; the custom Community Education
-content remains hand-maintained.
+content remains hand-maintained. New PDF/image catalog tiles are discovered
+across additional rows or tables, and previously unknown topics are placed in
+an automatically displayed `Other` filter.
 
 To preview the refresh locally:
 

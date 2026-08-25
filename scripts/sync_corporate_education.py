@@ -170,44 +170,66 @@ def parse_source(source_html: str) -> SourceContent:
     if not banner_notice:
         raise RuntimeError("The Corporate Education banner notice is empty")
 
-    catalog_table = next(
-        (
-            table
-            for table in tables[1:]
-            if table.select_one("a[href] img") is not None
-        ),
-        None,
-    )
-    if catalog_table is None:
+    # WordPress currently lays the covers out in one table, but editors may add
+    # another row or table. Read every table containing a PDF-linked image so a
+    # newly added catalog is picked up without a code change.
+    catalog_tables = [
+        table
+        for table in tables[1:]
+        if any(
+            urlsplit(absolute_url(link.get("href", ""))).path.casefold().endswith(
+                ".pdf"
+            )
+            for link in table.select("a[href]")
+            if link.find("img") is not None
+        )
+    ]
+    if not catalog_tables:
         raise RuntimeError("The Corporate Education catalog table was not found")
 
     catalogs: list[Catalog] = []
     seen_catalogs: set[tuple[str, str]] = set()
-    for image in catalog_table.select("a[href] > img"):
-        link = image.parent
-        href = absolute_url(link.get("href", ""))
-        image_url = absolute_url(image.get("src", ""))
-        if not urlsplit(href).path.casefold().endswith(".pdf") or not image_url:
-            continue
-        key = (href, image_url)
-        if key in seen_catalogs:
-            continue
-        seen_catalogs.add(key)
-        alt = " ".join(image.get("alt", "").split()) or "Corporate Education catalog"
-        catalog_identity = " ".join(
-            (alt, urlsplit(href).path.rsplit("/", 1)[-1], urlsplit(image_url).path.rsplit("/", 1)[-1])
-        )
-        catalogs.append(
-            Catalog(
-                href=href,
-                image=image_url,
-                alt=alt,
-                category=classify_catalog(catalog_identity),
+    for catalog_table in catalog_tables:
+        for image in catalog_table.select("a[href] img"):
+            link = image.find_parent("a", href=True)
+            if link is None:
+                continue
+            href = absolute_url(link.get("href", ""))
+            raw_image_url = (
+                image.get("data-lazy-src")
+                or image.get("data-src")
+                or image.get("src")
+                or ""
             )
-        )
-    if not 3 <= len(catalogs) <= 20:
+            image_url = absolute_url(raw_image_url) if raw_image_url else ""
+            if not urlsplit(href).path.casefold().endswith(".pdf") or not image_url:
+                continue
+            key = (href, image_url)
+            if key in seen_catalogs:
+                continue
+            seen_catalogs.add(key)
+            alt = (
+                " ".join(image.get("alt", "").split())
+                or "Corporate Education catalog"
+            )
+            catalog_identity = " ".join(
+                (
+                    alt,
+                    urlsplit(href).path.rsplit("/", 1)[-1],
+                    urlsplit(image_url).path.rsplit("/", 1)[-1],
+                )
+            )
+            catalogs.append(
+                Catalog(
+                    href=href,
+                    image=image_url,
+                    alt=alt,
+                    category=classify_catalog(catalog_identity),
+                )
+            )
+    if not 3 <= len(catalogs) <= 50:
         raise RuntimeError(
-            f"Found {len(catalogs)} catalogs; expected between 3 and 20"
+            f"Found {len(catalogs)} catalogs; expected between 3 and 50"
         )
 
     first_heading = content.find("h2", string=lambda value: value and value.strip())
@@ -215,7 +237,7 @@ def parse_source(source_html: str) -> SourceContent:
         raise RuntimeError("No Corporate Education section headings were found")
 
     introductions: list[str] = []
-    for node in catalog_table.next_siblings:
+    for node in catalog_tables[-1].next_siblings:
         if node is first_heading:
             break
         if isinstance(node, Tag) and node.name == "p":
