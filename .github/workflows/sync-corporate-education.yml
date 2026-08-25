@@ -1,0 +1,48 @@
+name: Sync Corporate Education page
+
+on:
+  schedule:
+    # Runs daily after the employee-directory sync.
+    - cron: "45 10 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-corporate-education
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scripts/requirements-directory.txt
+
+      - name: Install scraper dependencies
+        run: python -m pip install -r scripts/requirements-directory.txt
+
+      - name: Refresh Corporate Education content
+        run: python scripts/sync_corporate_education.py
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- Pages/community.html; then
+            echo "Corporate Education page is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Pages/community.html
+          git commit -m "chore: sync Corporate Education page"
+          git push
