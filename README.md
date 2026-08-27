@@ -22,6 +22,11 @@ Custom development for Ellucian Experience at SFSC. This repo contains:
 
 ## Automated content syncs
 
+Shareable operations documentation:
+
+- [Automated Ellucian Content Synchronization](docs/AUTOMATED_CONTENT_SYNCS.md)
+- [Ellucian Page Designer Republish Checklist](docs/ELLUCIAN_REPUBLISH_CHECKLIST.md)
+
 `Pages/community.html` keeps its Corporate Education content aligned with the
 public SFSC website. The `Sync Corporate Education page` GitHub Action runs
 daily and can also be started manually from the Actions tab. It refreshes only
