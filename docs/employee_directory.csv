@@ -50,6 +50,7 @@ Name,Title,Department,Email,Phone
 "Crawford, Ross",Lead Maintenance,N/A,crawforr@southflorida.edu,863-784-7084
 "Crews, Sari",Coordinator,Recruitment and Retention,sari.crews@southflorida.edu,863-784-7473
 "Cruz, Marlene",Professor,Nursing,Marlene.Cruz@southflorida.edu,863-784-7349
+"Cruz, Sarai",Staff Assistant II,Testing and Assessment Center,Sarai.Cruz@southflorida.edu,863-784-7436
 "Currie, Taylor",Coordinator,Residence Life,Taylor.Currie@southforida.edu,N/A
 "Dabolt, Emily",Executive Director,Institutional Advancement,Emily.Dabolt@southflorida.edu,863-784-7477
 "Daniels, Brenda",Director,Facilities and Plant Operations,brenda.daniels@southflorida.edu,863-784-7099
@@ -79,11 +80,10 @@ Name,Title,Department,Email,Phone
 "Fuchser, Anastasia",Coordinator,Institutional Advancement and Alumni Development,Anastasia.Saunders@southflorida.edu,863-784-7183
 "Garcia, Michael",Reference Assistant,Library,garciam@southflorida.edu,863-784-7304
 "Gilfus, Blair",End User Support Analyst I,IT-Information Technology,blair.gilfus@southflorida.edu,863-784-7490
-"Goins, Donna",Testing Specialist,Testing and Assessment Center,donna.goins@southflorida.edu,863-784-7214
 "Gorzycki, Jillian",Advisor,Student Services,jillian.gorzycki@southflorida.edu,863-784-7063
 "Gottus, Tina",Interim Dean,Applied Sciences and Technologies,gottust@southflorida.edu,863-784-7466
 "Graham, Ralene",Coordinator,Clinical Experience and Nursing Lab,Ralene.Graham@southflorida.edu,863-784-7097
-"Green, Courtney",Director,Adult Education and Technical Dual Enrollment,GreenC@southflorida.edu,863-784-7431
+"Green, Courtney",Director,Adult Education,GreenC@southflorida.edu,863-784-7431
 "Groves, Jennifer","Professor, Office Education/Chair",Business and Computer Technologies,grovesj@southflorida.edu,863-784-7136
 "Gutierrez, Deborah",Interim Director,Corporate and Community Education,Deborah.Gutierrez@southflorida.edu,863-784-7032
 "Hall, Michele",Registrar,"Admissions, Records and Registration",Michele.Hall@southflorida.edu,863-784-7139
@@ -182,6 +182,7 @@ Name,Title,Department,Email,Phone
 "Polk, Andrew",Instructor,Business,polka@southflorida.edu,863-784-7435
 "Polk, Candra",Professor,Nursing,polkc@southflorida.edu,863-784-7316
 "Powrie, Mary Ellen",Professor,Nursing,powriem@southflorida.edu,863-784-7226
+"Pridgeon, Donna",Coordinator,Testing and Assessment Center,Donna.Pridgeon@southflorida.edu,863-784-7310
 "Prusinski, Daniel",Instructor,Electrical Lineworker,daniel.prusinski@southflorida.edu,863-784-7045
 "Prusinski, Melissa",Administrative Assistant III,Off-Campus Instructional Sites,Melissa.Prusinski@southflorida.edu,863-784-7279
 "Puckorius, Mary",Risk Management Specialist,Safety & Security,puckoriusm@southflorida.edu,863-784-7396
@@ -238,7 +239,7 @@ Name,Title,Department,Email,Phone
 "Torres, Dora",Custodian,Physical Plant Operations,dora.torres@southflorida.edu,863-784-7090
 "Toussaint, Mario",Instructor,Mathematics,toussaim@southflorida.edu,863-784-7168
 "Velenovsky IV, Dr. Joseph",Biology Instructor,N/A,velenovj@southflorida.edu,863-784-7363
-"Velez Ocasio, Nancy",Staff Assistant II,Testing Center,nancy.velezocasio@southflorida.edu,863-784-7327
+"Velez Ocasio, Nancy",Testing Specialist,Testing Center,nancy.velezocasio@southflorida.edu,863-784-7327
 "Vernon, Michael Dr.",Instructor,History,michael.vernon@southflorida.edu,896-784-7141
 "Vickers, Emily",Simulation Technology Specialist,Health Sciences,emily.vickers@southflorida.edu,863-784-7351
 "von Merveldt, Dr. Mary",Director,Nursing Education,vonmerveldtm@southflorida.edu,863-784-7428
